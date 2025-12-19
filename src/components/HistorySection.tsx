@@ -1,15 +1,10 @@
 const HistorySection = () => {
-  return (
-    <section id="historia" className="py-24 lg:py-32 bg-[#050505]">
+  return <section id="historia" className="py-24 lg:py-32 bg-[#050505]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
           <div className="relative group">
-            <img
-              src="/historia-banda-barbie-kills-campinas.jpg"
-              alt="História da Banda Barbie Kills em Campinas"
-              className="w-full h-[500px] lg:h-[600px] object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
-            />
+            <img src="/historia-banda-barbie-kills-campinas.jpg" alt="História da Banda Barbie Kills em Campinas" className="w-full h-[500px] lg:h-[600px] object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" />
             {/* Decorative Border */}
             <div className="absolute -inset-4 border border-neon-pink/20 rounded-lg -z-10 group-hover:border-neon-pink/40 transition-colors duration-500" />
           </div>
@@ -21,12 +16,9 @@ const HistorySection = () => {
             </h2>
 
             <div className="space-y-6 text-body text-lg leading-relaxed">
-              <p>
-                Liderada por <span className="text-foreground font-medium">Mariana Chaib</span>, a Barbie Kills transcende sentimentos com mais de 12 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.
+              <p>Liderada por Mariana Chaib, a Barbie Kills transcende sentimentos com mais de 14 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.<span className="text-foreground font-medium">Mariana Chaib</span>, a Barbie Kills transcende sentimentos com mais de 12 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.
               </p>
-              <p>
-                Nascida da paixão pelo rock e pela música que move multidões, a banda se consolidou como referência em eventos premium, casamentos inesquecíveis e festas corporativas de alto padrão.
-              </p>
+              <p>Nascida da paixão pela música que move multidões, a banda se consolidou como referência em eventos premium, casamentos inesquecíveis e festas corporativas de alto padrão.</p>
               <p>
                 Com uma identidade única que mistura power, elegância e conexão genuína com o público, criamos momentos que ficam eternizados na memória de todos os presentes.
               </p>
@@ -50,8 +42,6 @@ const HistorySection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HistorySection;
