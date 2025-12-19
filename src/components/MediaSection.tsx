@@ -1,16 +1,21 @@
-const videos = [
-  { id: 'rAVb_-U7OAU', title: 'Barbie Kills - Show Completo', main: true },
-  { id: 's0BHAN9Edew', title: 'Barbie Kills - Casamento', main: false },
-  { id: 'RLIIDCt0MlA', title: 'Barbie Kills - Evento Corporativo', main: false },
-];
-
+const videos = [{
+  id: 'rAVb_-U7OAU',
+  title: 'Barbie Kills - Show Completo',
+  main: true
+}, {
+  id: 's0BHAN9Edew',
+  title: 'Barbie Kills - Casamento',
+  main: false
+}, {
+  id: 'RLIIDCt0MlA',
+  title: 'Barbie Kills - Evento Corporativo',
+  main: false
+}];
 const MediaSection = () => {
-  return (
-    <section id="midia" className="py-24 lg:py-32 section-gradient">
+  return <section id="midia" className="py-24 lg:py-32 section-gradient">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">
-            CONHEÇA <span className="neon-cyan-text">NOSSO SOM</span>
+          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">CONHEÇA nosso som
           </h2>
           <p className="subtitle text-lg text-muted-foreground max-w-2xl mx-auto">
             Assista aos nossos shows e sinta a energia
@@ -20,36 +25,17 @@ const MediaSection = () => {
         {/* Main Video */}
         <div className="mb-8">
           <div className="aspect-video rounded-2xl overflow-hidden video-glow">
-            <iframe
-              src={`https://www.youtube.com/embed/${videos[0].id}`}
-              title={videos[0].title}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <iframe src={`https://www.youtube.com/embed/${videos[0].id}`} title={videos[0].title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
           </div>
         </div>
 
         {/* Secondary Videos */}
         <div className="grid md:grid-cols-2 gap-8">
-          {videos.slice(1).map((video) => (
-            <div
-              key={video.id}
-              className="aspect-video rounded-2xl overflow-hidden video-glow hover:scale-[1.02] transition-transform duration-300"
-            >
-              <iframe
-                src={`https://www.youtube.com/embed/${video.id}`}
-                title={video.title}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          ))}
+          {videos.slice(1).map(video => <div key={video.id} className="aspect-video rounded-2xl overflow-hidden video-glow hover:scale-[1.02] transition-transform duration-300">
+              <iframe src={`https://www.youtube.com/embed/${video.id}`} title={video.title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default MediaSection;
