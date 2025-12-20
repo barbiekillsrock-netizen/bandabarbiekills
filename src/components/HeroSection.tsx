@@ -23,7 +23,7 @@ const HeroSection = () => {
           <img
             src="/banda-barbie-kills-casamento-rock.png"
             alt="Barbie Kills"
-            className="w-64 md:w-96 mb-8 logo-glow animate-fade-in"
+            className="w-64 md:w-96 mb-8 logo-glow animate-fade-in mix-blend-screen"
           />
 
           {/* Headline */}

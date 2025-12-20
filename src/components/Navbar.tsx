@@ -25,8 +25,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10'
-          : 'bg-transparent'
+          ? 'bg-black backdrop-blur-lg border-b border-white/10'
+          : 'bg-black'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -36,7 +36,7 @@ const Navbar = () => {
             <img
               src="/banda-barbie-kills-casamento-rock.png"
               alt="Barbie Kills - Banda para Casamentos"
-              className="h-10 md:h-12 logo-glow transition-all duration-300 hover:scale-105"
+              className="h-10 md:h-12 logo-glow transition-all duration-300 hover:scale-105 mix-blend-screen"
             />
           </a>
 
