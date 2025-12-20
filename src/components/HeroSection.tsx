@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-
+import Logo from './Logo';
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -20,11 +20,9 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-24">
         <div className="max-w-3xl">
           {/* Logo */}
-          <img
-            src="/banda-barbie-kills-casamento-rock.png"
-            alt="Barbie Kills"
-            className="w-64 md:w-96 mb-8 logo-glow animate-fade-in mix-blend-screen"
-          />
+          <div className="mb-8 animate-fade-in">
+            <Logo size="lg" />
+          </div>
 
           {/* Headline */}
           <h1 className="heading-display text-5xl md:text-7xl lg:text-8xl text-foreground mb-6 animate-fade-in animation-delay-200">
