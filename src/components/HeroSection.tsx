@@ -1,50 +1,56 @@
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import Logo from './Logo';
+
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen flex flex-col lg:flex-row">
+      {/* Mobile: Image on top */}
+      <div className="lg:hidden h-[50vh] w-full relative">
         <img
           src="/show-banda-barbie-kills-ao-vivo.jpg"
           alt="Barbie Kills ao vivo"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-24">
-        <div className="max-w-3xl">
-          {/* Logo */}
-          <div className="mb-8 animate-fade-in">
-            <Logo size="lg" />
-          </div>
+      {/* LEFT COLUMN - Content Zone (Pure Black) */}
+      <div className="w-full lg:w-1/2 bg-[#000000] flex flex-col justify-center p-8 md:p-12 lg:p-20">
+        {/* Logo - Black background blends with pure black bg */}
+        <img
+          src="/banda-barbie-kills-casamento-rock.png"
+          alt="Barbie Kills"
+          className="w-64 md:w-80 mb-8 self-start animate-fade-in"
+        />
 
-          {/* Headline */}
-          <h1 className="heading-display text-5xl md:text-7xl lg:text-8xl text-foreground mb-6 animate-fade-in animation-delay-200">
-            EMBLEMÁTICA.
-            <br />
-            <span className="neon-pink-text">AUTÊNTICA.</span>
-            <br />
-            ELEGANTE.
-          </h1>
+        {/* Headline */}
+        <h1 className="font-bebas text-5xl md:text-6xl lg:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
+          EMBLEMÁTICA.
+          <br />
+          <span className="neon-pink-text">AUTÊNTICA.</span>
+          <br />
+          ELEGANTE.
+        </h1>
 
-          {/* Subtitle */}
-          <p className="subtitle text-lg md:text-xl text-foreground/80 mb-10 max-w-xl animate-fade-in animation-delay-400">
-            A trilha sonora que transforma seu evento em um festival inesquecível.
-          </p>
+        {/* Subtitle */}
+        <p className="font-oswald text-lg md:text-xl text-gray-300 mb-10 max-w-lg animate-fade-in animation-delay-400">
+          A trilha sonora que transforma seu evento em um festival inesquecível.
+        </p>
 
-          {/* CTA Button */}
-          <div className="animate-fade-in animation-delay-600">
-            <Button variant="hero" size="xl" className="animate-glow-pulse">
-              Solicitar Orçamento
-            </Button>
-          </div>
+        {/* CTA Button */}
+        <div className="self-start animate-fade-in animation-delay-600">
+          <Button variant="hero" size="xl" className="animate-glow-pulse">
+            Solicitar Orçamento
+          </Button>
         </div>
+      </div>
+
+      {/* RIGHT COLUMN - Visual Zone (Desktop only) */}
+      <div className="hidden lg:block w-1/2 h-screen">
+        <img
+          src="/show-banda-barbie-kills-ao-vivo.jpg"
+          alt="Barbie Kills ao vivo"
+          className="w-full h-full object-cover object-center"
+        />
       </div>
 
       {/* Scroll Indicator */}
