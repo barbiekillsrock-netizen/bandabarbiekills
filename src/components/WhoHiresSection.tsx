@@ -28,7 +28,7 @@ const WhoHiresSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">QUEM NOS CONTRATA PROCURa<span className="neon-pink-text">CONTRATA</span>
+          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">QUEM NOS CONTRATA PROCURa<span className="neon-pink-text">CONTRATA</span>
           </h2>
           
         </div>
