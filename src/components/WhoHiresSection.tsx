@@ -10,7 +10,7 @@ const features = [{
 }, {
   icon: Heart,
   title: 'MOMENTOS',
-  description: 'Memórias intensas guardadas para sempre.'
+  description: 'Tão intensos que se transformam em memórias efetivadas guardadas para sempre.'
 }, {
   icon: Users,
   title: 'ARTISTAS',
