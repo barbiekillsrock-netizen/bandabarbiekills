@@ -6,7 +6,7 @@ const features = [{
 }, {
   icon: Music,
   title: 'UM SHOW',
-  description: 'Conexão e diversão sem deixar ninguém parado.'
+  description: 'Que conecta as pessoas e transforma o ambiente em pura diversão, emoção e nostalgia e que não deixa ninguém parado.'
 }, {
   icon: Heart,
   title: 'MOMENTOS',
