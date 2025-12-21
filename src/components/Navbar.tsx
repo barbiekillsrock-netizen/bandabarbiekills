@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import Logo from './Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,7 +33,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center transition-transform duration-300 hover:scale-105">
-            <Logo size="sm" />
+            <img
+              src="/logo-barbie-kills.png"
+              alt="Barbie Kills"
+              className="h-12 md:h-14"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -48,8 +51,10 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="nav" size="sm">
-              Orçamento
+            <Button variant="nav" size="sm" asChild>
+              <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+                Orçamento
+              </a>
             </Button>
           </div>
 
@@ -77,8 +82,10 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="nav" size="sm" className="w-fit">
-                Orçamento
+              <Button variant="nav" size="sm" className="w-fit" asChild>
+                <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+                  Orçamento
+                </a>
               </Button>
             </div>
           </div>

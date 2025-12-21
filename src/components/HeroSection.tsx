@@ -15,9 +15,9 @@ const HeroSection = () => {
 
       {/* LEFT COLUMN - Content Zone (Pure Black) */}
       <div className="w-full lg:w-1/2 bg-[#000000] flex flex-col justify-center p-8 md:p-12 lg:p-20">
-        {/* Logo - Black background blends with pure black bg */}
+        {/* Logo */}
         <img
-          src="/banda-barbie-kills-casamento-rock.png"
+          src="/logo-barbie-kills.png"
           alt="Barbie Kills"
           className="w-64 md:w-80 mb-8 self-start animate-fade-in"
         />
@@ -38,8 +38,10 @@ const HeroSection = () => {
 
         {/* CTA Button */}
         <div className="self-start animate-fade-in animation-delay-600">
-          <Button variant="hero" size="xl" className="animate-glow-pulse">
-            Solicitar Orçamento
+          <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
+            <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+              Solicitar Orçamento
+            </a>
           </Button>
         </div>
       </div>
