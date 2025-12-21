@@ -53,7 +53,7 @@ const Navbar = () => {
             ))}
             <Button variant="nav" size="sm" asChild>
               <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
-                Orçamento
+                Contrate
               </a>
             </Button>
           </div>
@@ -84,7 +84,7 @@ const Navbar = () => {
               ))}
               <Button variant="nav" size="sm" className="w-fit" asChild>
                 <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
-                  Orçamento
+                  Contrate
                 </a>
               </Button>
             </div>
