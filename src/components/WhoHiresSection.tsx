@@ -2,7 +2,7 @@ import { Star, Music, Heart, Users } from 'lucide-react';
 const features = [{
   icon: Star,
   title: 'UMA BANDA',
-  description: 'Que faz cada convidado se sentir parte do show.'
+  description: 'Tão eletrizante que faz cada convidado sentir que faz parte do show.'
 }, {
   icon: Music,
   title: 'UM SHOW',
