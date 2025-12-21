@@ -6,11 +6,7 @@ const ElevateSection = () => {
           {/* Text Box (Overlay on desktop) */}
           <div className="relative z-10 lg:w-1/2 lg:-mr-24">
             <div className="glass-card bg-black/60 backdrop-blur-xl p-10 lg:p-14 rounded-2xl lg:rounded-3xl h-full flex flex-col justify-center">
-              <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-none">ELEVE O NÍVEL
-DO SEU EVENTO<span className="neon-pink-text">ELEVE O NÍVEL</span>
-                <br />
-                DO SEU EVENTO?
-              </h2>
+              <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-none"><span className="neon-pink-text">ELEVE O NÍVEL</span><br />DO SEU EVENTO</h2>
 
               <div className="space-y-6 text-body text-lg leading-relaxed">
                 <p>

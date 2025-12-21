@@ -11,10 +11,10 @@ const HistorySection = () => {
 
           {/* Content */}
           <div className="lg:pl-8">
-            <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl neon-pink-text mb-8">NOSSA HISTÓRIA</h2>
+            <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-8">NOSSA <span className="neon-pink-text">HISTÓRIA</span></h2>
 
             <div className="space-y-6 text-body text-lg leading-relaxed">
-              <p>Liderada por Mariana Chaib, a Barbie Kills transcende sentimentos com mais de 14 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.Mariana Chaib, a Barbie Kills transcende sentimentos com mais de 12 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.<span className="text-foreground font-medium">Mariana Chaib</span>, a Barbie Kills transcende sentimentos com mais de 12 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.
+              <p>Liderada por <span className="text-foreground font-medium">Mariana Chaib</span>, a Barbie Kills transcende sentimentos com mais de 14 anos de estrada, levando emoção e energia incomparáveis a cada apresentação.
               </p>
               <p>Nascida da paixão pela música que move multidões, a banda se consolidou como referência em eventos premium, casamentos inesquecíveis e festas corporativas de alto padrão.</p>
               <p>
