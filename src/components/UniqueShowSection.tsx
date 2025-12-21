@@ -4,7 +4,7 @@ const showFeatures = [
   {
     icon: Award,
     title: 'EXPERIÊNCIA',
-    description: '+13 anos de estrada em eventos de alto padrão.',
+    description: '+14 anos de estrada em eventos de alto padrão.',
   },
   {
     icon: Globe,

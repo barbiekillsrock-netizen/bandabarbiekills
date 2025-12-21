@@ -8,11 +8,7 @@ const Footer = () => {
       <div className="relative z-10 container mx-auto px-6">
         {/* CTA Section */}
         <div className="text-center mb-16">
-          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">PRONTO PARA ELEVAR o nível
-DO SEU EVENTO?<span className="neon-pink-text">ELEVAR</span>
-            <br />
-            SEU EVENTO?
-          </h2>
+          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span><br />DO SEU EVENTO?</h2>
           <p className="subtitle text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
             Entre em contato e faça seu orçamento agora mesmo
           </p>
