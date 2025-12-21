@@ -1,26 +1,16 @@
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex flex-col lg:flex-row">
+  return <section className="relative min-h-screen flex flex-col lg:flex-row">
       {/* Mobile: Image on top */}
       <div className="lg:hidden h-[50vh] w-full relative">
-        <img
-          src="/show-banda-barbie-kills-ao-vivo.jpg"
-          alt="Barbie Kills ao vivo"
-          className="w-full h-full object-cover object-center"
-        />
+        <img src="/show-banda-barbie-kills-ao-vivo.jpg" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
       </div>
 
       {/* LEFT COLUMN - Content Zone (Pure Black) */}
       <div className="w-full lg:w-1/2 bg-[#000000] flex flex-col justify-center p-8 md:p-12 lg:p-20">
         {/* Logo */}
-        <img
-          src="/logo-barbie-kills.png"
-          alt="Barbie Kills"
-          className="w-64 md:w-80 mb-8 self-start animate-fade-in"
-        />
+        <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="w-64 md:w-80 mb-8 self-start animate-fade-in" />
 
         {/* Headline */}
         <h1 className="font-bebas text-5xl md:text-6xl lg:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
@@ -39,20 +29,14 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div className="self-start animate-fade-in animation-delay-600">
           <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-            <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
-              Solicitar Orçamento
-            </a>
+            <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">CONTRATE</a>
           </Button>
         </div>
       </div>
 
       {/* RIGHT COLUMN - Visual Zone (Desktop only) */}
       <div className="hidden lg:block w-1/2 h-screen">
-        <img
-          src="/show-banda-barbie-kills-ao-vivo.jpg"
-          alt="Barbie Kills ao vivo"
-          className="w-full h-full object-cover object-center"
-        />
+        <img src="/show-banda-barbie-kills-ao-vivo.jpg" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
       </div>
 
       {/* Scroll Indicator */}
@@ -62,8 +46,6 @@ const HeroSection = () => {
           <ChevronDown className="w-6 h-6" />
         </a>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
