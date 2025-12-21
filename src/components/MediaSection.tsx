@@ -15,7 +15,7 @@ const MediaSection = () => {
   return <section id="midia" className="py-24 lg:py-32 section-gradient">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">CONHEÇA nosso som
+          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4"><span className="neon-pink-text">CONHEÇA</span> NOSSO SOM
           </h2>
           <p className="subtitle text-lg text-muted-foreground max-w-2xl mx-auto">
             Assista aos nossos shows e sinta a energia

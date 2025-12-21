@@ -11,7 +11,7 @@ const HistorySection = () => {
 
           {/* Content */}
           <div className="lg:pl-8">
-            <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl neon-cyan-text mb-8">
+            <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl neon-pink-text mb-8">
               NOSSA HISTÓRIA
             </h2>
 

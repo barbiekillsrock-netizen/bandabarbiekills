@@ -29,7 +29,7 @@ const UniqueShowSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">
-            UM SHOW <span className="neon-cyan-text">ÚNICO</span>
+            UM SHOW <span className="neon-pink-text">ÚNICO</span>
           </h2>
           <p className="subtitle text-lg text-muted-foreground max-w-2xl mx-auto">
             O que nos torna a escolha certa para o seu evento
