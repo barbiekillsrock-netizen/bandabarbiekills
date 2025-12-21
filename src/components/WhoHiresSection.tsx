@@ -14,7 +14,7 @@ const features = [{
 }, {
   icon: Users,
   title: 'ARTISTAS',
-  description: 'Leitura de pista impecável.'
+  description: 'Que sabem fazer a leitura da pista e que se adaptam à qualquer público.'
 }];
 const WhoHiresSection = () => {
   return <section id="diferencial" className="relative py-24 lg:py-32 overflow-hidden">
