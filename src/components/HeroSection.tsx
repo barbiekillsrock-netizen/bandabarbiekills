@@ -2,13 +2,37 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 const HeroSection = () => {
   return <section className="relative min-h-screen flex flex-col lg:flex-row">
-      {/* Mobile: Image on top */}
-      <div className="lg:hidden h-[50vh] w-full relative">
-        <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
+      {/* Mobile: Logo + Image side by side */}
+      <div className="lg:hidden flex flex-col">
+        {/* Mobile Hero with logo overlay */}
+        <div className="relative h-[60vh] w-full">
+          <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-top" />
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+          {/* Content overlay on mobile */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 pb-8">
+            <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="w-48 mb-4 animate-fade-in" />
+            <h1 className="font-bebas text-4xl text-white leading-none mb-4 animate-fade-in animation-delay-200">
+              EMBLEMÁTICA.
+              <br />
+              <span className="neon-pink-text">AUTÊNTICA.</span>
+              <br />
+              ELEGANTE.
+            </h1>
+            <p className="font-oswald text-base text-gray-300 mb-6 animate-fade-in animation-delay-400">
+              A trilha sonora que transforma seu evento em um festival inesquecível.
+            </p>
+            <div className="animate-fade-in animation-delay-600">
+              <Button variant="hero" size="lg" className="animate-glow-pulse" asChild>
+                <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">CONTRATE</a>
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* LEFT COLUMN - Content Zone (Pure Black) */}
-      <div className="w-full lg:w-1/2 bg-[#000000] flex flex-col justify-center p-8 md:p-12 lg:p-20">
+      {/* LEFT COLUMN - Content Zone (Pure Black) - Desktop only */}
+      <div className="hidden lg:flex w-full lg:w-1/2 bg-[#000000] flex-col justify-center p-8 md:p-12 lg:p-20">
         {/* Logo */}
         <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="w-64 md:w-80 mb-8 self-start animate-fade-in" />
 
@@ -36,11 +60,11 @@ const HeroSection = () => {
 
       {/* RIGHT COLUMN - Visual Zone (Desktop only) */}
       <div className="hidden lg:block w-1/2 h-screen">
-        <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
+        <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-top" />
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float">
+      {/* Scroll Indicator - Desktop only */}
+      <div className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float">
         <a href="#historia" className="flex flex-col items-center gap-2 text-foreground/60 hover:text-neon-pink transition-colors">
           <span className="font-oswald text-xs uppercase tracking-widest">Descubra</span>
           <ChevronDown className="w-6 h-6" />
