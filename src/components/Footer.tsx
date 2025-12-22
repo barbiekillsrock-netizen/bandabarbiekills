@@ -23,12 +23,14 @@ const Footer = () => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-neon-pink/50 to-transparent mb-12" />
 
         {/* Footer Content */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
           {/* Logo */}
-          <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="h-16 lg:h-20" />
+          <div className="flex justify-center lg:justify-start">
+            <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="h-16 lg:h-20" />
+          </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-8">
+          {/* Social Links - Centered */}
+          <div className="flex items-center justify-center gap-8">
             <a href="https://instagram.com/barbiekillsrock" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
               <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <Instagram className="w-8 h-8" />
@@ -51,8 +53,8 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Contact Info */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-muted-foreground">
+          {/* Contact Info - Stacked */}
+          <div className="flex flex-col items-center lg:items-end gap-2 text-muted-foreground">
             <a href="mailto:barbiekillsrock@gmail.com" className="flex items-center gap-2 hover:text-neon-pink transition-colors">
               <Mail className="w-4 h-4" />
               <span className="font-inter text-sm">barbiekillsrock@gmail.com</span>
