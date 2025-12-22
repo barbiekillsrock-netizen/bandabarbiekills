@@ -4,7 +4,7 @@ const HeroSection = () => {
   return <section className="relative min-h-screen flex flex-col lg:flex-row">
       {/* Mobile: Image on top */}
       <div className="lg:hidden h-[50vh] w-full relative">
-        <img src="/show-banda-barbie-kills-ao-vivo.jpg" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
+        <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
       </div>
 
       {/* LEFT COLUMN - Content Zone (Pure Black) */}
@@ -36,7 +36,7 @@ const HeroSection = () => {
 
       {/* RIGHT COLUMN - Visual Zone (Desktop only) */}
       <div className="hidden lg:block w-1/2 h-screen">
-        <img src="/show-banda-barbie-kills-ao-vivo.jpg" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
+        <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
       </div>
 
       {/* Scroll Indicator */}
