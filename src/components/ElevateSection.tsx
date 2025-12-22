@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 const ElevateSection = () => {
-  return <section className="py-24 lg:py-32 section-gradient-alt">
+  return <section className="py-16 lg:py-20 section-gradient-alt">
       <div className="container mx-auto px-6">
         <div className="relative flex flex-col lg:flex-row items-stretch">
           {/* Text Box (Overlay on desktop) */}

@@ -12,7 +12,7 @@ const videos = [{
   main: false
 }];
 const MediaSection = () => {
-  return <section id="midia" className="py-24 lg:py-32 section-gradient">
+  return <section id="midia" className="py-16 lg:py-20 section-gradient">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4"><span className="neon-pink-text">CONHEÇA</span> NOSSO SOM

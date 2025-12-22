@@ -1,5 +1,5 @@
 const HistorySection = () => {
-  return <section id="historia" className="py-24 lg:py-32 bg-[#050505]">
+  return <section id="historia" className="py-16 lg:py-20 bg-[#050505]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
