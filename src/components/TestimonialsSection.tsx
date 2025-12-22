@@ -16,7 +16,7 @@ const testimonials = [{
   quote: 'Completamente apaixonada pelo show da minha festa! Também tive um atendimento excepcional'
 }];
 const TestimonialsSection = () => {
-  return <section id="depoimentos" className="py-24 lg:py-32 bg-[#050505]">
+  return <section id="depoimentos" className="py-16 lg:py-20 bg-[#050505]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">O QUE <span className="neon-pink-text">DIZEM</span> SOBRE NÓS

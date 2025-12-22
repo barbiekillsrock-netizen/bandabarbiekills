@@ -28,12 +28,18 @@ const Footer = () => {
           <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="h-16 lg:h-20" />
 
           {/* Social Links */}
-          <div className="flex items-center gap-6">
-            <a href="https://instagram.com/barbiekillsrock" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neon-pink/50 flex items-center justify-center text-neon-pink hover:bg-neon-pink hover:text-foreground transition-all duration-300 hover:neon-pink-glow" aria-label="Instagram">
-              <Instagram className="w-5 h-5" />
+          <div className="flex items-center gap-8">
+            <a href="https://instagram.com/barbiekillsrock" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+              <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
+                <Instagram className="w-8 h-8" />
+              </div>
+              <span className="font-inter text-sm text-muted-foreground group-hover:text-neon-pink transition-colors">Instagram</span>
             </a>
-            <a href="https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-neon-pink/50 flex items-center justify-center text-neon-pink hover:bg-neon-pink hover:text-foreground transition-all duration-300 hover:neon-pink-glow" aria-label="YouTube">
-              <Youtube className="w-5 h-5" />
+            <a href="https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+              <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
+                <Youtube className="w-8 h-8" />
+              </div>
+              <span className="font-inter text-sm text-muted-foreground group-hover:text-neon-pink transition-colors">YouTube</span>
             </a>
           </div>
 

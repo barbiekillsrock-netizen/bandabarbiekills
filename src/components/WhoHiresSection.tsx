@@ -17,7 +17,7 @@ const features = [{
   description: 'Que sabem fazer a leitura da pista e que se adaptam à qualquer público.'
 }];
 const WhoHiresSection = () => {
-  return <section id="diferencial" className="relative py-24 lg:py-32 overflow-hidden">
+  return <section id="diferencial" className="relative py-16 lg:py-20 overflow-hidden">
       {/* Parallax Background */}
       <div className="absolute inset-0 parallax-bg" style={{
       backgroundImage: 'url(/estrutura-show-banda-baile.jpg)'
