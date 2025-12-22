@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 const HeroSection = () => {
   return <section className="relative min-h-screen flex flex-col lg:flex-row">
       {/* LEFT COLUMN - Content Zone */}
-      <div className="relative z-10 w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen bg-black flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-20 lg:pt-0">
+      <div className="relative z-10 w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen bg-black flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-28 pb-8 lg:pt-24 lg:pb-0">
         <div className="max-w-xl">
           {/* Logo */}
           <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in" />
