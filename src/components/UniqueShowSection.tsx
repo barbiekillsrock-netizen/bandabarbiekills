@@ -55,12 +55,12 @@ const UniqueShowSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="heading-display text-2xl text-foreground mb-4 group-hover:neon-pink-text transition-all duration-300">
+                <h3 className="heading-display text-2xl md:text-3xl text-foreground mb-4 group-hover:neon-pink-text transition-all duration-300">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-body text-sm">
+                <p className="text-body text-base md:text-lg leading-relaxed">
                   {feature.description}
                 </p>
               </div>
