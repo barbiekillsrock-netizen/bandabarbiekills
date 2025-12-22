@@ -26,8 +26,8 @@ const HistorySection = () => {
                 <p className="subtitle text-xs mt-2 text-muted-foreground">Anos de Estrada</p>
               </div>
               <div className="text-center">
-                <span className="heading-display text-4xl md:text-5xl neon-pink-text">+500</span>
-                <p className="subtitle text-xs mt-2 text-muted-foreground">Eventos</p>
+                <span className="heading-display text-4xl md:text-5xl neon-pink-text">+600</span>
+                <p className="subtitle text-xs mt-2 text-muted-foreground">Shows</p>
               </div>
               <div className="text-center">
                 <span className="heading-display text-4xl md:text-5xl neon-pink-text">100%</span>
