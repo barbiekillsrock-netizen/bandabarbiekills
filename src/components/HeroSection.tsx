@@ -4,7 +4,7 @@ const HeroSection = () => {
   return <section className="relative min-h-screen">
       {/* Background Image - Full screen */}
       <div className="absolute inset-0 w-full h-full">
-        <img src="/Banda_Casamentos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-[center_top] lg:object-[85%_center]" />
+        <img src="/Banda_Casamentos_Eventos.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-center" />
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent lg:via-black/50 lg:to-transparent" />
       </div>
