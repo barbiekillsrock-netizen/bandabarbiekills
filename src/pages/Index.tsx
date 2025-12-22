@@ -7,6 +7,7 @@ import UniqueShowSection from '@/components/UniqueShowSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import MediaSection from '@/components/MediaSection';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <TestimonialsSection />
       <MediaSection />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 };
