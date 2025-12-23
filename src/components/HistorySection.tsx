@@ -14,8 +14,8 @@ const HistorySection = () => {
             <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-8">NOSSA <span className="neon-pink-text">HISTÓRIA</span></h2>
 
             <div className="space-y-6 text-body text-lg leading-relaxed">
-              <p>A banda The Barbie Kills consolidou-se como referência no mercado de eventos de alto padrão, casamentos e festas corporativas. Liderada pela vocalista <span className="text-foreground font-medium">Mariana Chaib</span> — cuja projeção nacional teve início após sua participação na Rede Globo —, a banda une elegância, técnica e uma energia incomparável.</p>
-              <p>O projeto destaca-se por uma identidade única que transita com sofisticação pelos clássicos do pop, rock, indie, soul, jazz e blues. Com um histórico de mais de 600 shows realizados nas principais casas do país, o grupo conta com um time de músicos renomados e um repertório vasto de 150 músicas, sempre focados em atender a um público seleto e exigente.</p>
+              <p>A banda The Barbie Kills consolidou-se como referência no mercado de eventos de alto padrão, casamentos e festas corporativas. Liderada pela vocalista Mariana Chaib, cuja projeção nacional teve início após sua participação na Rede Globo, a banda une elegância, técnica e uma energia incomparável.<span className="text-foreground font-medium">Mariana Chaib</span> — cuja projeção nacional teve início após sua participação na Rede Globo —, a banda une elegância, técnica e uma energia incomparável.</p>
+              <p>O projeto destaca-se por uma identidade única que transita com sofisticação pelos clássicos do pop, rock, indie, soul, jazz, bluese música brasileira. Com um histórico de mais de 600 shows realizados nas principais casas do país, o grupo conta com um time de músicos renomados e um repertório vasto de 150 músicas, sempre focados em atender a um público seleto e exigente.</p>
               <p>Mais do que uma apresentação musical, a Barbie Kills entrega uma conexão genuína, transformando grandes eventos em experiências eternizadas pela excelência sonora e performance de palco.</p>
             </div>
 
