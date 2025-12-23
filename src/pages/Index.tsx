@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import HistorySection from '@/components/HistorySection';
+import ManifestoSection from '@/components/ManifestoSection';
 import ElevateSection from '@/components/ElevateSection';
 import WhoHiresSection from '@/components/WhoHiresSection';
 import UniqueShowSection from '@/components/UniqueShowSection';
@@ -15,6 +16,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <HistorySection />
+      <ManifestoSection />
       <ElevateSection />
       <WhoHiresSection />
       <UniqueShowSection />
