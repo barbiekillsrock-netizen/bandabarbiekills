@@ -14,7 +14,7 @@ const HistorySection = () => {
             <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-8">NOSSA <span className="neon-pink-text">HISTÓRIA</span></h2>
 
             <div className="space-y-6 text-body text-lg leading-relaxed">
-              <p>A banda The Barbie Kills consolidou sua posição como referência no mercado de eventos de alto padrão, casamentos e festas corporativas. O grupo é liderado pela vocalista Mariana Chaib, que conquistou projeção nacional após sua trajetória na Rede Globo, e une elegância, técnica e uma energia contagiante no palco.<span className="text-foreground font-medium">Mariana Chaib</span> — cuja projeção nacional teve início após sua participação na Rede Globo —, a banda une elegância, técnica e uma energia incomparável.</p>
+              <p>A banda The Barbie Kills consolidou sua posição como referência no mercado de eventos de alto padrão, casamentos e festas corporativas. O grupo é liderado pela vocalista Mariana Chaib, que conquistou projeção nacional após sua trajetória na Rede Globo, e une elegância, técnica e uma energia contagiante no palco.</p>
               <p>Com uma identidade única, o projeto transita com naturalidade por clássicos do pop, rock, indie, soul, jazz e música brasileira. O histórico de mais de 600 shows nas principais casas do país, somado a um time de músicos renomados e um repertório de 150 músicas, garante uma entrega personalizada para um público seleto.</p>
               <p>Mais do que uma apresentação musical, a Barbie Kills entrega uma conexão genuína, transformando grandes eventos em experiências eternizadas pela excelência sonora e performance de palco.</p>
             </div>
