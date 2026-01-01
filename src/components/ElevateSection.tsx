@@ -21,9 +21,11 @@ const ElevateSection = () => {
               </div>
 
               <div className="mt-10">
-                <Button variant="neonPinkOutline" size="lg">
-                  Conheça Nosso Show
-                </Button>
+                <a href="#midia">
+                  <Button variant="neonPinkOutline" size="lg">
+                    Conheça Nosso Show
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
