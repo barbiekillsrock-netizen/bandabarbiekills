@@ -32,8 +32,12 @@ const HeroSection = () => {
       </div>
 
       {/* RIGHT COLUMN - Image Zone */}
-      <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0">
-        <img src="/Banda_Casamentos_Eventos-2.png" alt="Barbie Kills ao vivo" className="w-full h-full object-cover object-[center_top] lg:object-center" />
+      <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
+        <img 
+          src="/Banda_Casamentos_Eventos-2.png" 
+          alt="Barbie Kills ao vivo" 
+          className="w-full h-full object-cover object-top lg:object-center" 
+        />
       </div>
 
       {/* Scroll Indicator */}
