@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import HistorySection from '@/components/HistorySection';
+import ServicesSection from '@/components/ServicesSection';
 import ManifestoSection from '@/components/ManifestoSection';
 import ElevateSection from '@/components/ElevateSection';
 import WhoHiresSection from '@/components/WhoHiresSection';
@@ -34,7 +35,7 @@ const structuredData = {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
-        "reviewCount": "58"
+        "reviewCount": "29"
       },
       "sameAs": [
         "https://www.instagram.com/barbiekillsrock",
@@ -74,6 +75,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <HistorySection />
+      <ServicesSection />
       <ManifestoSection />
       <ElevateSection />
       <WhoHiresSection />
