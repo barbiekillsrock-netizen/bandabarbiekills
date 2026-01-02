@@ -1,119 +1,207 @@
-import { Heart, Building2, Music } from 'lucide-react';
+import { Heart, Building2, Music, ArrowUpRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import losLibresLogo from '@/assets/logo-los-libres.jpg';
 
 const ServicesSection = () => {
   const whatsappLink = "https://wa.me/5519982318180?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20evento.";
 
   return (
-    <section id="servicos" className="py-0">
-      {/* SECTION A: Wedding Parties */}
-      <div className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-[#0a0010] via-[#150020] to-[#0a0010]">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-pink/30 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-600/20 rounded-full blur-[100px]" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <Heart className="w-12 h-12 text-neon-pink animate-pulse" />
-            </div>
-            
-            <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8">
-              FESTAS DE CASAMENTO: <span className="neon-pink-text">A EXPERIÊNCIA BARBIE KILLS</span>
-            </h2>
-            
-            <p className="text-body text-lg md:text-xl leading-relaxed text-muted-foreground mb-10 max-w-3xl mx-auto">
-              Sua festa de casamento não é apenas um evento, é o show da sua vida. Entregamos uma performance de alta voltagem que tira os convidados da cadeira e transforma a pista em um festival particular. Com um repertório sofisticado de Pop e Rock, criamos uma conexão real que garante uma pista cheia até o último acorde.
-            </p>
-            
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button 
-                size="xl" 
-                className="bg-neon-pink hover:bg-neon-pink/90 text-white font-bold text-lg px-10 py-6 rounded-full shadow-[0_0_30px_rgba(255,0,128,0.5)] hover:shadow-[0_0_50px_rgba(255,0,128,0.7)] transition-all duration-300"
-              >
-                QUERO UMA FESTA INESQUECÍVEL
-              </Button>
-            </a>
-          </div>
-        </div>
+    <section id="servicos" className="py-16 lg:py-24 bg-gradient-to-b from-[#0a0010] via-[#0d0015] to-[#050505]">
+      {/* Background glow */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-pink/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/15 rounded-full blur-[100px]" />
       </div>
 
-      {/* SECTION B: Corporate Events */}
-      <div className="relative py-20 lg:py-28 overflow-hidden bg-[#050505]">
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-1/2 left-0 w-72 h-72 bg-purple-600/30 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-neon-pink/20 rounded-full blur-[120px]" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Text Content */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Building2 className="w-10 h-10 text-purple-400" />
-              </div>
-              
-              <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8">
-                EVENTOS CORPORATIVOS E <span className="text-purple-400">SHOWS EMPRESARIAIS</span>
-              </h2>
-              
-              <p className="text-body text-lg leading-relaxed text-muted-foreground">
-                Unimos o espírito do Rock com o profissionalismo absoluto exigido pelo mercado premium. Oferecemos infraestrutura de som e luz de alta performance, pontualidade rigorosa e um cronograma flexível para convenções e premiações. É entretenimento de alto nível que reforça o prestígio da sua marca.
-              </p>
-            </div>
-            
-            {/* Right: Trusted By Grid */}
-            <div className="glass-card p-8 lg:p-10 rounded-2xl">
-              <p className="subtitle text-sm text-muted-foreground mb-6 text-center uppercase tracking-widest">
-                Trusted By
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                {/* Honda Placeholder */}
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-white/10 transition-colors">
-                  <span className="heading-display text-2xl text-white/60">HONDA</span>
-                </div>
-                {/* Ambev Placeholder */}
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center justify-center h-24 hover:bg-white/10 transition-colors">
-                  <span className="heading-display text-2xl text-white/60">AMBEV</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header with SEO keywords */}
+        <header className="text-center mb-12">
+          <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+            NOSSAS <span className="neon-pink-text">SOLUÇÕES MUSICAIS</span>
+          </h2>
+          <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+            Entretenimento de <strong>alto padrão em Campinas</strong> e região para cada momento do seu evento
+          </p>
+        </header>
 
-      {/* SECTION C: Ceremonies - Los Libres */}
-      <div className="relative py-16 lg:py-20 overflow-hidden bg-gradient-to-r from-[#0a0805] via-[#12100a] to-[#0a0805]">
-        {/* Gold ambient glow */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-amber-600/30 via-yellow-500/20 to-amber-600/30 rounded-full blur-[80px]" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="glass-card border-amber-500/20 bg-gradient-to-br from-amber-950/20 to-transparent p-8 lg:p-12 rounded-2xl">
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-              {/* Icon */}
-              <div className="flex-shrink-0">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/20 to-yellow-600/10 flex items-center justify-center border border-amber-500/30">
-                  <Music className="w-10 h-10 text-amber-400" />
+        {/* Tabs Component */}
+        <Tabs defaultValue="casamentos" className="w-full max-w-5xl mx-auto">
+          <TabsList className="grid w-full grid-cols-3 bg-background/50 border border-white/10 rounded-xl p-1 mb-8">
+            <TabsTrigger 
+              value="casamentos" 
+              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all"
+            >
+              <Heart className="w-4 h-4 mr-2" />
+              <span className="hidden sm:inline">Casamentos</span>
+              <span className="sm:hidden">Casamento</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="corporativo"
+              className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all"
+            >
+              <Building2 className="w-4 h-4 mr-2" />
+              <span className="hidden sm:inline">Corporativo</span>
+              <span className="sm:hidden">Empresas</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="cerimonias"
+              className="data-[state=active]:bg-amber-600 data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all"
+            >
+              <Music className="w-4 h-4 mr-2" />
+              <span className="hidden sm:inline">Cerimônias</span>
+              <span className="sm:hidden">Cerimônia</span>
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Tab 1: Casamentos */}
+          <TabsContent value="casamentos" className="mt-0">
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                    FESTAS DE <span className="neon-pink-text">CASAMENTO</span>
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">
+                    Transformamos sua festa no <strong>show da sua vida</strong> com performance de alta voltagem e repertório Pop/Rock.
+                  </p>
+                  
+                  <ul className="space-y-3 mb-8" role="list">
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground"><strong className="text-foreground">Música para Casamento</strong> em Campinas e Interior de SP</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Repertório sofisticado que <strong className="text-foreground">lota a pista</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Interação real com os convidados</span>
+                    </li>
+                  </ul>
+
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <Button 
+                      size="lg" 
+                      className="bg-neon-pink hover:bg-neon-pink/90 text-white font-bold rounded-full shadow-[0_0_25px_rgba(255,0,128,0.4)] hover:shadow-[0_0_40px_rgba(255,0,128,0.6)] transition-all"
+                    >
+                      SOLICITAR ORÇAMENTO
+                    </Button>
+                  </a>
+                </div>
+
+                <div className="hidden lg:flex w-48 h-48 rounded-full bg-gradient-to-br from-neon-pink/20 to-purple-600/10 items-center justify-center border border-neon-pink/30">
+                  <Heart className="w-20 h-20 text-neon-pink" />
                 </div>
               </div>
-              
-              {/* Content */}
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-                  CERIMÔNIAS COM <span className="text-amber-400">LOS LIBRES</span>
-                </h3>
-                
-                <p className="text-body text-lg leading-relaxed text-muted-foreground max-w-3xl">
-                  Para o momento do 'sim', o projeto acústico Los Libres traz uma curadoria personalizada. Redesenhamos clássicos do Pop e Rock com arranjos delicados e emocionantes, criando a atmosfera perfeita para uma cerimônia autêntica e sofisticada.
-                </p>
+            </article>
+          </TabsContent>
+
+          {/* Tab 2: Corporativo */}
+          <TabsContent value="corporativo" className="mt-0">
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-purple-500/20 bg-gradient-to-br from-purple-600/5 to-transparent">
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                    EVENTOS <span className="text-purple-400">CORPORATIVOS</span>
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">
+                    Entretenimento premium para convenções e premiações com <strong>infraestrutura de som e luz</strong> de última geração.
+                  </p>
+                  
+                  <ul className="space-y-3 mb-8" role="list">
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground"><strong className="text-foreground">Evento em Campinas</strong> e Grande São Paulo</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Pontualidade e <strong className="text-foreground">cronograma flexível</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Shows para premiações e confraternizações</span>
+                    </li>
+                  </ul>
+
+                  {/* Social Proof - Trusted By */}
+                  <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest">Trusted By:</span>
+                    <div className="flex gap-4">
+                      <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-2">
+                        <span className="heading-display text-lg text-white/50">HONDA</span>
+                      </div>
+                      <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-2">
+                        <span className="heading-display text-lg text-white/50">AMBEV</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden lg:flex w-48 h-48 rounded-full bg-gradient-to-br from-purple-600/20 to-purple-900/10 items-center justify-center border border-purple-500/30">
+                  <Building2 className="w-20 h-20 text-purple-400" />
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </article>
+          </TabsContent>
+
+          {/* Tab 3: Cerimônias - Los Libres */}
+          <TabsContent value="cerimonias" className="mt-0">
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-amber-500/20 bg-gradient-to-br from-amber-900/10 to-transparent">
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                    CERIMÔNIAS COM <span className="text-amber-400">LOS LIBRES</span>
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">
+                    Curadoria personalizada e arranjos delicados em clássicos do Pop e Rock para uma <strong>cerimônia autêntica</strong>.
+                  </p>
+                  
+                  <ul className="space-y-3 mb-8" role="list">
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground"><strong className="text-foreground">Banda em Campinas</strong> para cerimônias elegantes</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Projeto acústico <strong className="text-foreground">Unplugged Folk</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Repertório personalizado para o momento do 'sim'</span>
+                    </li>
+                  </ul>
+
+                  <a 
+                    href="https://www.instagram.com/loslibresunplugged" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Button 
+                      size="lg" 
+                      variant="outline"
+                      className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 font-bold rounded-full transition-all group"
+                    >
+                      CONHEÇA O PROJETO COMPLETO
+                      <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Button>
+                  </a>
+                </div>
+
+                {/* Los Libres Logo */}
+                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-[0_0_30px_rgba(217,119,6,0.2)]">
+                  <img 
+                    src={losLibresLogo} 
+                    alt="Los Libres Unplugged Folk - Projeto acústico para cerimônias de casamento em Campinas"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </article>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
