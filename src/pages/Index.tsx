@@ -13,24 +13,46 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "MusicGroup",
-  "name": "Barbie Kills",
-  "url": "https://www.bandabarbiekills.com.br",
-  "description": "Banda premium especializada em Casamentos e Eventos Corporativos. Repertório selecionado de Pop, Rock, Soul e clássicos da Música Brasileira para uma experiência sofisticada.",
-  "image": "https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png",
-  "location": {
-    "@type": "Place",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Campinas",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
+  "@graph": [
+    {
+      "@type": "MusicGroup",
+      "@id": "https://www.bandabarbiekills.com.br/#band",
+      "name": "Barbie Kills",
+      "url": "https://www.bandabarbiekills.com.br",
+      "description": "Banda premium especializada em Casamentos e Eventos Corporativos com repertório de Pop, Rock, Soul e Música Brasileira.",
+      "genre": ["Pop", "Rock", "Soul", "Brazilian Music"],
+      "foundingDate": "2012",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Campinas",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "58"
+      },
+      "sameAs": [
+        "https://www.instagram.com/barbiekillsrock",
+        "https://www.youtube.com/@barbiekillsrock"
+      ]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Entretenimento Musical para Eventos",
+      "provider": { "@id": "https://www.bandabarbiekills.com.br/#band" },
+      "description": "Show musical ao vivo para casamentos e eventos corporativos. Repertório sofisticado sem sertanejo.",
+      "areaServed": [
+        "São Paulo", "Campinas", "Barueri", "Alphaville", "Jundiaí", 
+        "Indaiatuba", "Sorocaba", "Piracicaba", "Guarulhos", "Holambra", 
+        "Itu", "Americana", "Valinhos", "Vinhedo", "Atibaia", 
+        "Bragança Paulista", "Limeira"
+      ]
     }
-  },
-  "areaServed": ["São Paulo", "Campinas", "Barueri", "Alphaville", "Jundiaí", "Indaiatuba", "Sorocaba", "Piracicaba", "Guarulhos", "Holambra", "Itu", "Americana", "Valinhos", "Vinhedo", "Atibaia", "Bragança Paulista", "Limeira"],
-  "genre": ["Pop", "Rock", "Soul", "Brazilian Music"],
-  "sameAs": [
-    "https://www.instagram.com/barbiekillsoficial"
   ]
 };
 
