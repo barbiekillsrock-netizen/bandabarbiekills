@@ -177,7 +177,7 @@ const ServicesSection = () => {
                   </ul>
 
                   <a 
-                    href="https://www.instagram.com/loslibresunplugged" 
+                    href="https://bandaloslibres.lovable.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
