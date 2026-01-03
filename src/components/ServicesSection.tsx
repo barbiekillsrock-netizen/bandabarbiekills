@@ -27,10 +27,10 @@ const ServicesSection = () => {
 
         {/* Tabs Component */}
         <Tabs defaultValue="casamentos" className="w-full max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 bg-background/50 border border-white/10 rounded-xl p-1 mb-8">
+          <TabsList className="grid w-full grid-cols-3 bg-background/50 border border-white/10 rounded-xl p-1 mb-8 gap-1">
             <TabsTrigger 
               value="casamentos" 
-              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all"
+              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0"
             >
               <Heart className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Casamentos</span>
@@ -38,7 +38,7 @@ const ServicesSection = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="corporativo"
-              className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all"
+              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0"
             >
               <Building2 className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Corporativo</span>
@@ -46,7 +46,7 @@ const ServicesSection = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="cerimonias"
-              className="data-[state=active]:bg-amber-600 data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all"
+              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0"
             >
               <Music className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Cerimônias</span>
@@ -100,11 +100,11 @@ const ServicesSection = () => {
 
           {/* Tab 2: Corporativo */}
           <TabsContent value="corporativo" className="mt-0">
-            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-purple-500/20 bg-gradient-to-br from-purple-600/5 to-transparent">
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
                   <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
-                    EVENTOS <span className="text-purple-400">CORPORATIVOS</span>
+                    EVENTOS <span className="neon-pink-text">CORPORATIVOS</span>
                   </h3>
                   <p className="text-body text-muted-foreground mb-6">
                     Entretenimento premium para convenções e premiações com <strong>infraestrutura de som e luz</strong> de última geração.
@@ -112,35 +112,38 @@ const ServicesSection = () => {
                   
                   <ul className="space-y-3 mb-8" role="list">
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground"><strong className="text-foreground">Evento em Campinas</strong> e Grande São Paulo</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">Pontualidade e <strong className="text-foreground">cronograma flexível</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">Shows para premiações e confraternizações</span>
                     </li>
                   </ul>
 
                   {/* Social Proof - Trusted By */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
                     <span className="text-xs text-muted-foreground uppercase tracking-widest">Trusted By:</span>
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-3">
                       <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-2">
                         <span className="heading-display text-lg text-white/50">HONDA</span>
                       </div>
                       <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-2">
                         <span className="heading-display text-lg text-white/50">AMBEV</span>
                       </div>
+                      <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-2">
+                        <span className="heading-display text-lg text-white/50">HARLEY DAVIDSON</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="hidden lg:flex w-48 h-48 rounded-full bg-gradient-to-br from-purple-600/20 to-purple-900/10 items-center justify-center border border-purple-500/30">
-                  <Building2 className="w-20 h-20 text-purple-400" />
+                <div className="hidden lg:flex w-48 h-48 rounded-full bg-gradient-to-br from-neon-pink/20 to-purple-600/10 items-center justify-center border border-neon-pink/30">
+                  <Building2 className="w-20 h-20 text-neon-pink" />
                 </div>
               </div>
             </article>
@@ -148,11 +151,11 @@ const ServicesSection = () => {
 
           {/* Tab 3: Cerimônias - Los Libres */}
           <TabsContent value="cerimonias" className="mt-0">
-            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-amber-500/20 bg-gradient-to-br from-amber-900/10 to-transparent">
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
                   <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
-                    CERIMÔNIAS COM <span className="text-amber-400">LOS LIBRES</span>
+                    CERIMÔNIAS COM <span className="neon-pink-text">LOS LIBRES</span>
                   </h3>
                   <p className="text-body text-muted-foreground mb-6">
                     Curadoria personalizada e arranjos delicados em clássicos do Pop e Rock para uma <strong>cerimônia autêntica</strong>.
@@ -160,15 +163,15 @@ const ServicesSection = () => {
                   
                   <ul className="space-y-3 mb-8" role="list">
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground"><strong className="text-foreground">Banda em Campinas</strong> para cerimônias elegantes</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">Projeto acústico <strong className="text-foreground">Unplugged Folk</strong></span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                       <span className="text-muted-foreground">Repertório personalizado para o momento do 'sim'</span>
                     </li>
                   </ul>
@@ -181,7 +184,7 @@ const ServicesSection = () => {
                     <Button 
                       size="lg" 
                       variant="outline"
-                      className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 font-bold rounded-full transition-all group"
+                      className="border-neon-pink/50 text-neon-pink hover:bg-neon-pink/10 font-bold rounded-full transition-all group"
                     >
                       CONHEÇA O PROJETO COMPLETO
                       <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -190,7 +193,7 @@ const ServicesSection = () => {
                 </div>
 
                 {/* Los Libres Logo */}
-                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-[0_0_30px_rgba(217,119,6,0.2)]">
+                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-2 border-neon-pink/30 shadow-[0_0_30px_rgba(255,0,128,0.2)]">
                   <img 
                     src={losLibresLogo} 
                     alt="Los Libres Unplugged Folk - Projeto acústico para cerimônias de casamento em Campinas"
