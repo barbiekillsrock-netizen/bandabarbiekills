@@ -27,10 +27,10 @@ const ServicesSection = () => {
 
         {/* Tabs Component */}
         <Tabs defaultValue="casamentos" className="w-full max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 bg-background/50 border border-white/10 rounded-xl p-1 mb-8 gap-1">
+          <TabsList className="grid w-full grid-cols-3 bg-[#0a0010] border border-white/10 rounded-xl p-1 mb-8 gap-1">
             <TabsTrigger 
               value="casamentos" 
-              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0"
+              className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
             >
               <Heart className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Casamentos</span>
@@ -38,7 +38,7 @@ const ServicesSection = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="corporativo"
-              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0"
+              className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
             >
               <Building2 className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Corporativo</span>
@@ -46,7 +46,7 @@ const ServicesSection = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="cerimonias"
-              className="data-[state=active]:bg-neon-pink data-[state=active]:text-white rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0"
+              className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
             >
               <Music className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Cerimônias</span>
