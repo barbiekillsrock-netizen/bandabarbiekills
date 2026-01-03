@@ -19,7 +19,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="font-oswald text-base md:text-lg lg:text-xl text-gray-300 mb-10 max-w-lg animate-fade-in animation-delay-400">
-            A trilha sonora que transforma seu evento em um festival inesquecível.
+            A banda de rock para casamentos e eventos corporativos que transforma seu evento em um festival inesquecível.
           </p>
 
           {/* CTA Button */}
@@ -36,7 +36,8 @@ const HeroSection = () => {
         <img 
           src="/Banda_Casamentos_Eventos-2.png" 
           alt="Barbie Kills ao vivo" 
-          className="w-full h-full object-cover object-top lg:object-center" 
+          className="w-full h-full object-cover object-top lg:object-center"
+          fetchPriority="high"
         />
       </div>
 

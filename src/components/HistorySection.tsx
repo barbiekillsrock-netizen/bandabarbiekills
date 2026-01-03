@@ -4,7 +4,7 @@ const HistorySection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
           <div className="relative group">
-            <img src="/historia-banda-barbie-kills-campinas.jpg" alt="História da Banda Barbie Kills em Campinas" className="w-full h-[500px] lg:h-[600px] object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" />
+            <img src="/historia-banda-barbie-kills-campinas.jpg" alt="Banda Barbie Kills com Mariana Chaib tocando ao vivo em evento premium" className="w-full h-[500px] lg:h-[600px] object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" />
             {/* Decorative Border */}
             <div className="absolute -inset-4 border border-neon-pink/20 rounded-lg -z-10 group-hover:border-neon-pink/40 transition-colors duration-500" />
           </div>
@@ -14,7 +14,7 @@ const HistorySection = () => {
             <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-8">NOSSA <span className="neon-pink-text">HISTÓRIA</span></h2>
 
             <div className="space-y-6 text-body text-lg leading-relaxed">
-              <p>A banda The Barbie Kills consolidou sua posição como referência no mercado de eventos de alto padrão, casamentos e festas corporativas. O grupo é liderado pela vocalista Mariana Chaib, que conquistou projeção nacional após sua trajetória na Rede Globo, e une elegância, técnica e uma energia contagiante no palco.</p>
+              <p>A banda The Barbie Kills consolidou sua posição como referência no mercado de casamentos de alto padrão e festas corporativas em São Paulo e Campinas. O grupo é liderado pela vocalista Mariana Chaib, que conquistou projeção nacional após sua trajetória na Rede Globo, e une elegância, técnica e uma energia contagiante no palco.</p>
               <p>Com uma identidade única, o projeto transita com naturalidade por clássicos do pop, rock, indie, soul, jazz e música brasileira. O histórico de mais de 600 shows nas principais casas do país, somado a um time de músicos renomados e um repertório de 150 músicas, garante uma entrega personalizada para um público seleto.</p>
               <p>Mais do que uma apresentação musical, a Barbie Kills entrega uma conexão genuína, transformando grandes eventos em experiências eternizadas pela excelência sonora e performance de palco.</p>
             </div>
