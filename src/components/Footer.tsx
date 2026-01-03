@@ -85,6 +85,34 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* SEO Local - Áreas Atendidas */}
+        <div className="mt-12 pt-8 border-t border-white/5 text-center">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">Áreas Atendidas</p>
+          <div className="text-[10px] text-muted-foreground/60 max-w-3xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
+            <span>São Paulo</span>
+            <span>•</span>
+            <span>Campinas</span>
+            <span>•</span>
+            <span>Alphaville</span>
+            <span>•</span>
+            <span>Barueri</span>
+            <span>•</span>
+            <span>Holambra</span>
+            <span>•</span>
+            <span>Itu</span>
+            <span>•</span>
+            <span>Jundiaí</span>
+            <span>•</span>
+            <span>Indaiatuba</span>
+            <span>•</span>
+            <span>Vinhedo</span>
+            <span>•</span>
+            <span>Valinhos</span>
+            <span>•</span>
+            <span>Sorocaba</span>
+          </div>
+        </div>
+
         {/* Copyright */}
         <div className="text-center mt-12 pt-8 border-t border-white/5">
           <p className="font-inter text-sm text-muted-foreground">
