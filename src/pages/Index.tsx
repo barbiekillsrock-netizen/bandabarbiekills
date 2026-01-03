@@ -75,13 +75,13 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <HistorySection />
-      <ServicesSection />
       <ManifestoSection />
       <ElevateSection />
       <WhoHiresSection />
       <UniqueShowSection />
       <TestimonialsSection />
       <MediaSection />
+      <ServicesSection />
       <Footer />
       <WhatsAppButton />
     </main>
