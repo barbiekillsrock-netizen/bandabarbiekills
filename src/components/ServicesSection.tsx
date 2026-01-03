@@ -59,9 +59,9 @@ const ServicesSection = () => {
             <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
-                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                  <h2 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
                     FESTAS DE <span className="neon-pink-text">CASAMENTO</span>
-                  </h3>
+                  </h2>
                   <p className="text-body text-muted-foreground mb-6">
                     Transformamos sua festa no <strong>show da sua vida</strong> com performance de alta voltagem e repertório Pop/Rock.
                   </p>
@@ -103,9 +103,9 @@ const ServicesSection = () => {
             <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
-                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                  <h2 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
                     EVENTOS <span className="neon-pink-text">CORPORATIVOS</span>
-                  </h3>
+                  </h2>
                   <p className="text-body text-muted-foreground mb-6">
                     Entretenimento premium para convenções e premiações com <strong>infraestrutura de som e luz</strong> de última geração.
                   </p>
