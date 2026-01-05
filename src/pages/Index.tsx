@@ -9,6 +9,7 @@ import WhoHiresSection from '@/components/WhoHiresSection';
 import UniqueShowSection from '@/components/UniqueShowSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import MediaSection from '@/components/MediaSection';
+import BlogPreview from '@/components/BlogPreview';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
@@ -81,6 +82,7 @@ const Index = () => {
       <UniqueShowSection />
       <TestimonialsSection />
       <MediaSection />
+      <BlogPreview />
       <ServicesSection />
       <Footer />
       <WhatsAppButton />
