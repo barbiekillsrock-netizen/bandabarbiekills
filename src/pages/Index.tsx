@@ -82,8 +82,8 @@ const Index = () => {
       <UniqueShowSection />
       <TestimonialsSection />
       <MediaSection />
-      <BlogPreview />
       <ServicesSection />
+      <BlogPreview />
       <Footer />
       <WhatsAppButton />
     </main>
