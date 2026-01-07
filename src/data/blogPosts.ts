@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Quando o Paulo e a Valéria decidiram comemorar seus aniversários de 50 anos juntos, eles tinham um objetivo claro: fugir do comum. Descubra como transformamos a celebração em um espetáculo.",
     image: "/blog/banda-festa-aniversario-sp.jpg",
     imageAlt: "Banda Barbie Kills tocando ao vivo em festa de aniversário de 50 anos em São Paulo",
-    date: "2025-01-07",
+    date: "2026-01-07",
     readTime: "5 min",
     content: `Quando o Paulo e a Valéria decidiram comemorar seus aniversários de 50 anos juntos, eles tinham um objetivo claro: fugir do comum. Eles queriam uma noite vibrante, com a energia de um show de rock e a sofisticação de um evento de gala.
 
