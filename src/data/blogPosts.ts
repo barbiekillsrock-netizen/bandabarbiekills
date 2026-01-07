@@ -13,6 +13,56 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "producao-eventos-luxo-barbie-kills",
+    title: "Produção de Eventos de Luxo: Os Bastidores da Barbie Kills para um Show Impecável",
+    metaTitle: "Produção de Eventos de Luxo SP | Banda Premium para Eventos - Barbie Kills",
+    metaDescription: "Descubra os bastidores da Barbie Kills: gestão profissional, repertório estratégico, time fixo e estética glam que transformam eventos corporativos e casamentos em espetáculos.",
+    excerpt: "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
+    image: "/blog/producao-eventos-luxo-barbie-kills.jpg",
+    imageAlt: "Guitarrista da Barbie Kills tocando entre os convidados em evento de luxo em Campinas SP",
+    date: "2026-01-09",
+    readTime: "6 min",
+    content: `Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Mas você sabe o que garante o sucesso de uma banda para eventos corporativos ou casamentos de alto padrão? Hoje, abrimos o nosso backstage para mostrar como a gestão profissional e o estilo impecável transformam cada apresentação em um espetáculo inesquecível.
+
+## 1. Gestão de Projetos e Planejamento Personalizado
+
+Diferente de bandas comuns, tratamos seu evento com o rigor de uma grande produção. O diferencial da Barbie Kills é a nossa gestão profissional, liderada pelo nosso produtor, Renato.
+
+Com mais de 15 anos de experiência em gestão de projetos para gigantes como Embraer e Serasa Experian, ele garante que a diversão seja acompanhada de uma logística impecável. Para nós, o entretenimento de luxo exige pontualidade, organização e entrega de alto nível.
+
+## 2. Repertório Estratégico e Performance "Non-Stop"
+
+Nosso setlist é planejado para que a energia nunca caia. Focamos nos maiores hits de 2025 e clássicos atemporais, executados com:
+
+**Transições Dinâmicas:** Sem intervalos entre as músicas, mantendo a pista de dança vibrante.
+
+**Arranjos Exclusivos:** Versões potentes que unem a sofisticação do Pop com a força do Rock.
+
+**Curadoria Musical:** Ajustamos a intensidade do show de acordo com o protocolo do seu evento (jantar, brinde ou festa).
+
+## 3. Banda com Time Fixo: A Segurança do Entrosamento
+
+Um erro crítico no mercado de bandas para festas é o uso de músicos substitutos (freelancers). Na Barbie Kills, trabalhamos exclusivamente com um time fixo.
+
+Isso se traduz em uma química real que o público sente. Quando os músicos têm anos de palco juntos, a segurança técnica é total e a entrega artística atinge o seu ápice, garantindo que seu evento não tenha imprevistos.
+
+## 4. Estética Glam e Presença de Palco de Impacto
+
+A Barbie Kills se destaca pelo visual. Nossa estética é Glamour e Estilo, com figurinos que trazem muito brilho, paetês e a elegância de um show internacional.
+
+**Visual de Estrela:** A presença da nossa vocalista e dos músicos é pensada para harmonizar com a decoração de casamentos sofisticados e eventos de gala.
+
+**Infraestrutura Técnica:** Utilizamos sonorização digital e iluminação cênica de última geração, garantindo que o brilho do palco se estenda por todo o salão.
+
+## 5. Do Backstage ao Palco: Criando Memórias Inesquecíveis
+
+Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata. Não somos apenas uma banda tocando músicas; somos uma experiência sensorial completa. Cada detalhe, do brilho do figurino à precisão do áudio, é desenhado para que seus convidados digam: "Esse foi o melhor show que já presenciei!".
+
+## Contrate a Barbie Kills: A Melhor Banda para Eventos em São Paulo
+
+Se você busca uma banda de rock e pop que une o glamour de uma estrela pop com a seriedade de uma gestão corporativa, sua busca termina aqui.`
+  },
+  {
     slug: "banda-festa-aniversario-50-anos-sp",
     title: "Banda para Festa de 50 anos: Como Transformar seu Aniversário em um Show Memorável",
     metaTitle: "Banda para Festa de 50 Anos SP | Aniversário Inesquecível - Barbie Kills",
