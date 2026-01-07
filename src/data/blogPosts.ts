@@ -13,6 +13,42 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "banda-festa-aniversario-50-anos-sp",
+    title: "Banda para Festa de 50 anos: Como Transformar seu Aniversário em um Show Memorável",
+    metaTitle: "Banda para Festa de 50 Anos SP | Aniversário Inesquecível - Barbie Kills",
+    metaDescription: "Descubra como a Barbie Kills transforma festas de 50 anos em shows memoráveis. Performance ao vivo com interatividade, repertório personalizado e estrutura profissional.",
+    excerpt: "Quando o Paulo e a Valéria decidiram comemorar seus aniversários de 50 anos juntos, eles tinham um objetivo claro: fugir do comum. Descubra como transformamos a celebração em um espetáculo.",
+    image: "/blog/banda-festa-aniversario-sp.jpg",
+    imageAlt: "Banda Barbie Kills tocando ao vivo em festa de aniversário de 50 anos em São Paulo",
+    date: "2025-01-07",
+    readTime: "5 min",
+    content: `Quando o Paulo e a Valéria decidiram comemorar seus aniversários de 50 anos juntos, eles tinham um objetivo claro: fugir do comum. Eles queriam uma noite vibrante, com a energia de um show de rock e a sofisticação de um evento de gala.
+
+O local escolhido para essa celebração foi o Grupo Octo, em São Paulo, um espaço moderno que serviu de palco para o que seria mais do que uma festa, mas um espetáculo personalizado pela Barbie Kills.
+
+## Planejando o Repertório para Aniversário de 50 Anos
+
+Para um público que viveu intensamente as melhores décadas da música, o setlist não pode falhar. A Barbie Kills entrou em cena com uma formação especial: banda completa e metais poderosos.
+
+O repertório foi cuidadosamente planejado para conectar gerações, mesclando sucessos atuais com os clássicos dos anos 80 e 90 que marcaram a juventude dos aniversariantes. O resultado? Uma pista cheia do primeiro acorde até o último bis.
+
+## O Diferencial: Interatividade e Performance ao Vivo
+
+O que transforma uma banda para festa de aniversário em uma experiência inesquecível é a capacidade de envolver os convidados.
+
+**Participação no Palco:** Em vários momentos, Paulo e Valéria subiram ao palco para cantar e celebrar, tornando-se os protagonistas do show.
+
+**Experiência Visual:** A iluminação profissional transformou o ambiente, criando uma atmosfera de show internacional dentro do salão de festas.
+
+**Conexão com os Convidados:** Microfones abertos para os refrões mais animados e interação constante garantiram que ninguém ficasse sentado.
+
+## Transforme seu Aniversário em um Evento Épico
+
+O aniversário de 50 anos (ou qualquer marco importante) merece mais do que apenas música mecânica. A história do Paulo e da Valéria mostra que, com a estrutura certa e uma banda profissional, sua festa pode virar o assunto principal nas redes sociais e na memória dos amigos por anos.
+
+Se você está buscando uma banda para aniversário em São Paulo ou região, a Barbie Kills entrega não apenas música, mas uma infraestrutura completa de som, luz e produção técnica para garantir que nada saia do planejado.`
+  },
+  {
     slug: "banda-para-casamento-estrutura-tecnica",
     title: "Banda para Casamento: Por que a Estrutura Técnica da Barbie Kills Garante o Sucesso da sua Festa",
     metaTitle: "Banda para Casamento SP | Estrutura Técnica Profissional - Barbie Kills",
