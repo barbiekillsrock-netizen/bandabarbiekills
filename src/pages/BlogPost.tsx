@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
@@ -12,67 +13,8 @@ const BlogPost = () => {
   const post = slug ? getPostBySlug(slug) : undefined;
 
   useEffect(() => {
-    if (post) {
-      // Update page title
-      document.title = post.metaTitle;
-      
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', post.metaDescription);
-      }
-
-      // Update canonical URL
-      let canonical = document.querySelector('link[rel="canonical"]');
-      if (!canonical) {
-        canonical = document.createElement('link');
-        canonical.setAttribute('rel', 'canonical');
-        document.head.appendChild(canonical);
-      }
-      canonical.setAttribute('href', `https://www.bandabarbiekills.com.br/blog/${post.slug}`);
-
-      // Add structured data for article
-      const existingScript = document.querySelector('script[data-blog-post]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.setAttribute('data-blog-post', 'true');
-      script.text = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": post.title,
-        "description": post.metaDescription,
-        "image": `https://www.bandabarbiekills.com.br${post.image}`,
-        "datePublished": post.date,
-        "author": {
-          "@type": "Organization",
-          "name": "Barbie Kills"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Barbie Kills",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.bandabarbiekills.com.br/logo-barbie-kills.png"
-          }
-        }
-      });
-      document.head.appendChild(script);
-
-      // Scroll to top
-      window.scrollTo(0, 0);
-
-      return () => {
-        const scriptToRemove = document.querySelector('script[data-blog-post]');
-        if (scriptToRemove) {
-          scriptToRemove.remove();
-        }
-      };
-    }
-  }, [post]);
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -80,6 +22,28 @@ const BlogPost = () => {
 
   // Get related posts (exclude current)
   const relatedPosts = blogPosts.filter(p => p.slug !== post.slug).slice(0, 2);
+
+  // Structured data for Article
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.metaDescription,
+    "image": `https://www.bandabarbiekills.com.br${post.image}`,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Organization",
+      "name": "Barbie Kills"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Barbie Kills",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.bandabarbiekills.com.br/logo-barbie-kills.png"
+      }
+    }
+  };
 
   // Parse markdown-like content to HTML
   const renderContent = (content: string) => {
@@ -161,6 +125,21 @@ const BlogPost = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <Helmet>
+        <title>{post.metaTitle}</title>
+        <meta name="description" content={post.metaDescription} />
+        <link rel="canonical" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
+        <meta property="og:title" content={post.metaTitle} />
+        <meta property="og:description" content={post.metaDescription} />
+        <meta property="og:url" content={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
+        <meta property="article:published_time" content={post.date} />
+        <script type="application/ld+json">
+          {JSON.stringify(articleStructuredData)}
+        </script>
+      </Helmet>
+
       <Navbar />
       
       {/* Hero Image */}
