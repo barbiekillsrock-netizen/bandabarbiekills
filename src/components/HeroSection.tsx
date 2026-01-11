@@ -19,7 +19,7 @@ const HeroSection = () => {
 
           {/* H1 - Main SEO Title */}
           <h1 className="font-oswald text-base md:text-lg lg:text-xl text-gray-300 mb-10 max-w-lg animate-fade-in animation-delay-400">
-            A banda de rock para casamentos e eventos corporativos que transforma seu evento em um festival inesquecível.
+            A banda premium para casamentos e eventos corporativos em Campinas e SP. Um show de alta energia com o melhor do Pop, Rock, Indie, Soul, Jazz e Música Brasileira.
           </h1>
 
           {/* CTA Button */}
