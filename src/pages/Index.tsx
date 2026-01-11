@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import HistorySection from '@/components/HistorySection';
@@ -59,20 +59,25 @@ const structuredData = {
 };
 
 const Index = () => {
-  useEffect(() => {
-    // Inject JSON-LD structured data
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
-    
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
+      <Helmet>
+        <title>Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos</title>
+        <meta 
+          name="description" 
+          content="Barbie Kills: Experiência musical premium para eventos. O melhor do Pop, Rock, Soul e Música Brasileira com sofisticação. Atendimento em SP, Campinas e região." 
+        />
+        <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
+        <meta property="og:title" content="Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos" />
+        <meta property="og:description" content="Barbie Kills: Experiência musical premium para eventos. O melhor do Pop, Rock, Soul e Música Brasileira com sofisticação." />
+        <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
       <Navbar />
       <HeroSection />
       <HistorySection />
