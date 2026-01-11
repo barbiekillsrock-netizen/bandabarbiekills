@@ -17,9 +17,9 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header with SEO keywords */}
         <header className="text-center mb-12">
-          <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+          <div className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
             NOSSAS <span className="neon-pink-text">SOLUÇÕES MUSICAIS</span>
-          </h2>
+          </div>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
             Entretenimento de <strong>alto padrão em Campinas</strong> e região para cada momento do seu evento
           </p>

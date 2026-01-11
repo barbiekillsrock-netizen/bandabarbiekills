@@ -8,19 +8,19 @@ const HeroSection = () => {
           {/* Logo */}
           <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in" />
 
-          {/* Headline */}
-          <h1 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
+          {/* Decorative Headline */}
+          <div className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
             EMBLEMÁTICA.
             <br />
             <span className="neon-pink-text">AUTÊNTICA.</span>
             <br />
             ELEGANTE.
-          </h1>
+          </div>
 
-          {/* Subtitle */}
-          <p className="font-oswald text-base md:text-lg lg:text-xl text-gray-300 mb-10 max-w-lg animate-fade-in animation-delay-400">
+          {/* H1 - Main SEO Title */}
+          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-gray-300 mb-10 max-w-lg animate-fade-in animation-delay-400">
             A banda de rock para casamentos e eventos corporativos que transforma seu evento em um festival inesquecível.
-          </p>
+          </h1>
 
           {/* CTA Button */}
           <div className="animate-fade-in animation-delay-600">
