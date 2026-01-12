@@ -177,7 +177,7 @@ const ServicesSection = () => {
                   </ul>
 
                   <a 
-                    href="https://bandaloslibres.lovable.app" 
+                    href="https://bandaloslibres.netlify.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
@@ -186,21 +186,26 @@ const ServicesSection = () => {
                       variant="outline"
                       className="border-neon-pink/50 text-neon-pink hover:bg-neon-pink/10 font-bold rounded-full transition-all group"
                     >
-                      CONHEÇA O PROJETO COMPLETO
+                      CONHEÇA A PROPOSTA COMPLETA
                       <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Button>
                   </a>
                 </div>
 
                 {/* Los Libres Logo */}
-                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-2 border-neon-pink/30 shadow-[0_0_30px_rgba(255,0,128,0.2)]">
+                <a 
+                  href="https://bandaloslibres.netlify.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-2 border-neon-pink/30 shadow-[0_0_30px_rgba(255,0,128,0.2)] hover:shadow-[0_0_40px_rgba(255,0,128,0.4)] transition-all"
+                >
                   <img 
                     src={losLibresLogo} 
                     alt="Los Libres Unplugged Folk - Projeto acústico para cerimônias de casamento em Campinas"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </a>
               </div>
             </article>
           </TabsContent>
