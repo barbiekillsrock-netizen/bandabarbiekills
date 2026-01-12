@@ -22,11 +22,11 @@ export const blogPosts: BlogPost[] = [
     imageAlt: "Guitarrista da Barbie Kills tocando entre os convidados em evento de luxo em Campinas SP",
     date: "2026-01-09",
     readTime: "6 min",
-    content: `Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Mas você sabe o que garante o sucesso de uma banda para eventos corporativos ou casamentos de alto padrão? Hoje, abrimos o nosso backstage para mostrar como a gestão profissional e o estilo impecável transformam cada apresentação em um espetáculo inesquecível.
+    content: `Você já viu a [Barbie Kills](/) no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Mas você sabe o que garante o sucesso de uma [banda para eventos corporativos](/) ou [casamentos de alto padrão](/blog/banda-para-casamento-estrutura-tecnica)? Hoje, abrimos o nosso backstage para mostrar como a gestão profissional e o estilo impecável transformam cada apresentação em um espetáculo inesquecível.
 
 ## 1. Gestão de Projetos e Planejamento Personalizado
 
-Diferente de bandas comuns, tratamos seu evento com o rigor de uma grande produção. O diferencial da Barbie Kills é a nossa gestão profissional, liderada pelo nosso produtor, Renato.
+Diferente de bandas comuns, tratamos seu evento com o rigor de uma grande produção. O diferencial da [Barbie Kills](/) é a nossa gestão profissional, liderada pelo nosso produtor, Renato.
 
 Com mais de 15 anos de experiência em gestão de projetos para gigantes como Embraer e Serasa Experian, ele garante que a diversão seja acompanhada de uma logística impecável. Para nós, o entretenimento de luxo exige pontualidade, organização e entrega de alto nível.
 
@@ -42,7 +42,7 @@ Nosso setlist é planejado para que a energia nunca caia. Focamos nos maiores hi
 
 ## 3. Banda com Time Fixo: A Segurança do Entrosamento
 
-Um erro crítico no mercado de bandas para festas é o uso de músicos substitutos (freelancers). Na Barbie Kills, trabalhamos exclusivamente com um time fixo.
+Um erro crítico no mercado de [bandas para festas](/) é o uso de músicos substitutos (freelancers). Na Barbie Kills, trabalhamos exclusivamente com um time fixo.
 
 Isso se traduz em uma química real que o público sente. Quando os músicos têm anos de palco juntos, a segurança técnica é total e a entrega artística atinge o seu ápice, garantindo que seu evento não tenha imprevistos.
 
@@ -50,17 +50,17 @@ Isso se traduz em uma química real que o público sente. Quando os músicos tê
 
 A Barbie Kills se destaca pelo visual. Nossa estética é Glamour e Estilo, com figurinos que trazem muito brilho, paetês e a elegância de um show internacional.
 
-**Visual de Estrela:** A presença da nossa vocalista e dos músicos é pensada para harmonizar com a decoração de casamentos sofisticados e eventos de gala.
+**Visual de Estrela:** A presença da nossa vocalista e dos músicos é pensada para harmonizar com a decoração de [casamentos sofisticados](/blog/banda-para-casamento-estrutura-tecnica) e eventos de gala.
 
 **Infraestrutura Técnica:** Utilizamos sonorização digital e iluminação cênica de última geração, garantindo que o brilho do palco se estenda por todo o salão.
 
 ## 5. Do Backstage ao Palco: Criando Memórias Inesquecíveis
 
-Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata. Não somos apenas uma banda tocando músicas; somos uma experiência sensorial completa. Cada detalhe, do brilho do figurino à precisão do áudio, é desenhado para que seus convidados digam: "Esse foi o melhor show que já presenciei!".
+Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata. Não somos apenas uma [banda](/) tocando músicas; somos uma experiência sensorial completa. Cada detalhe, do brilho do figurino à precisão do áudio, é desenhado para que seus convidados digam: "Esse foi o melhor show que já presenciei!".
 
 ## Contrate a Barbie Kills: A Melhor Banda para Eventos em São Paulo
 
-Se você busca uma banda de rock e pop que une o glamour de uma estrela pop com a seriedade de uma gestão corporativa, sua busca termina aqui.`
+Se você busca uma [banda de rock e pop](/) que une o glamour de uma estrela pop com a seriedade de uma gestão corporativa, sua busca termina aqui.`
   },
   {
     slug: "banda-festa-aniversario-50-anos-sp",
@@ -74,17 +74,17 @@ Se você busca uma banda de rock e pop que une o glamour de uma estrela pop com 
     readTime: "5 min",
     content: `Quando o Paulo e a Valéria decidiram comemorar seus aniversários de 50 anos juntos, eles tinham um objetivo claro: fugir do comum. Eles queriam uma noite vibrante, com a energia de um show de rock e a sofisticação de um evento de gala.
 
-O local escolhido para essa celebração foi o Grupo Octo, em São Paulo, um espaço moderno que serviu de palco para o que seria mais do que uma festa, mas um espetáculo personalizado pela Barbie Kills.
+O local escolhido para essa celebração foi o Grupo Octo, em São Paulo, um espaço moderno que serviu de palco para o que seria mais do que uma festa, mas um espetáculo personalizado pela [Barbie Kills](/).
 
 ## Planejando o Repertório para Aniversário de 50 Anos
 
-Para um público que viveu intensamente as melhores décadas da música, o setlist não pode falhar. A Barbie Kills entrou em cena com uma formação especial: banda completa e metais poderosos.
+Para um público que viveu intensamente as melhores décadas da música, o setlist não pode falhar. A [banda](/) entrou em cena com uma formação especial: banda completa e metais poderosos.
 
 O repertório foi cuidadosamente planejado para conectar gerações, mesclando sucessos atuais com os clássicos dos anos 80 e 90 que marcaram a juventude dos aniversariantes. O resultado? Uma pista cheia do primeiro acorde até o último bis.
 
 ## O Diferencial: Interatividade e Performance ao Vivo
 
-O que transforma uma banda para festa de aniversário em uma experiência inesquecível é a capacidade de envolver os convidados.
+O que transforma uma [banda para festa de aniversário](/) em uma experiência inesquecível é a capacidade de envolver os convidados.
 
 **Participação no Palco:** Em vários momentos, Paulo e Valéria subiram ao palco para cantar e celebrar, tornando-se os protagonistas do show.
 
@@ -94,9 +94,9 @@ O que transforma uma banda para festa de aniversário em uma experiência inesqu
 
 ## Transforme seu Aniversário em um Evento Épico
 
-O aniversário de 50 anos (ou qualquer marco importante) merece mais do que apenas música mecânica. A história do Paulo e da Valéria mostra que, com a estrutura certa e uma banda profissional, sua festa pode virar o assunto principal nas redes sociais e na memória dos amigos por anos.
+O aniversário de 50 anos (ou qualquer marco importante) merece mais do que apenas música mecânica. A história do Paulo e da Valéria mostra que, com a estrutura certa e uma [banda profissional](/), sua festa pode virar o assunto principal nas redes sociais e na memória dos amigos por anos.
 
-Se você está buscando uma banda para aniversário em São Paulo ou região, a Barbie Kills entrega não apenas música, mas uma infraestrutura completa de som, luz e produção técnica para garantir que nada saia do planejado.`
+Se você está buscando uma [banda para aniversário em São Paulo](/) ou região, a Barbie Kills entrega não apenas música, mas uma infraestrutura completa de som, luz e produção técnica para garantir que nada saia do planejado.`
   },
   {
     slug: "banda-para-casamento-estrutura-tecnica",
@@ -108,9 +108,9 @@ Se você está buscando uma banda para aniversário em São Paulo ou região, a 
     imageAlt: "Noiva dançando na pista com a banda Barbie Kills tocando ao vivo em casamento em Sorocaba",
     date: "2025-01-05",
     readTime: "5 min",
-    content: `Você já foi a um casamento onde a música estava alta demais para conversar ou onde o som falhou na hora do "sim"? Nós sabemos que esses detalhes podem arruinar meses de planejamento e transformar um sonho em frustração. Por isso, na Barbie Kills, acreditamos que uma apresentação inesquecível exige mais do que apenas músicos talentosos; exige domínio técnico e infraestrutura de ponta.
+    content: `Você já foi a um [casamento](/blog/musicas-mais-pedidas-casamento-2025) onde a música estava alta demais para conversar ou onde o som falhou na hora do "sim"? Nós sabemos que esses detalhes podem arruinar meses de planejamento e transformar um sonho em frustração. Por isso, na [Barbie Kills](/), acreditamos que uma apresentação inesquecível exige mais do que apenas músicos talentosos; exige domínio técnico e infraestrutura de ponta.
 
-Se você busca uma banda de rock para casamento que alie performance artística com segurança total, entenda como cuidamos dos bastidores para que seu grande dia seja impecável.
+Se você busca uma [banda de rock para casamento](/) que alie performance artística com segurança total, entenda como cuidamos dos bastidores para que seu grande dia seja impecável.
 
 ## Nosso Som: Tecnologia de Ponta para uma Experiência Cristalina
 
@@ -138,9 +138,9 @@ Para que os noivos fiquem tranquilos, contamos com um time de especialistas que 
 
 ## Por que escolher a Barbie Kills para o seu Casamento?
 
-Ao contratar a Barbie Kills, você tem a tranquilidade de saber que cada detalhe está nas mãos de especialistas. Nossa combinação de tecnologia de última geração e equipe altamente qualificada transforma sua festa em uma experiência única, segura e inesquecível.
+Ao contratar a [Barbie Kills](/), você tem a tranquilidade de saber que cada detalhe está nas mãos de especialistas. Nossa combinação de tecnologia de última geração e equipe altamente qualificada transforma sua festa em uma experiência única, segura e inesquecível.
 
-Se você está planejando seu casamento e quer a segurança de uma trilha sonora profissional, nós queremos te ouvir.`
+Se você está planejando seu [casamento](/blog/musicas-mais-pedidas-casamento-2025) e quer a segurança de uma trilha sonora profissional, nós queremos te ouvir.`
   },
   {
     slug: "musicas-mais-pedidas-casamento-2025",
@@ -152,15 +152,15 @@ Se você está planejando seu casamento e quer a segurança de uma trilha sonora
     imageAlt: "Banda Barbie Kills tocando pop rock ao vivo em festa de casamento com noiva cantando",
     date: "2025-01-03",
     readTime: "6 min",
-    content: `Para garantir uma festa de casamento sofisticada, animada e cheia de energia em 2025, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A Barbie Kills traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
+    content: `Para garantir uma festa de [casamento](/blog/banda-para-casamento-estrutura-tecnica) sofisticada, animada e cheia de energia em 2025, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A [Barbie Kills](/) traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
 
-Você já foi a um casamento onde a música estava alta demais para conversar ou onde o som falhou na hora do "sim"? Nós sabemos que esses detalhes podem arruinar meses de planejamento. Por isso, a escolha do repertório e da banda certa é fundamental para o sucesso do evento.
+Você já foi a um casamento onde a música estava alta demais para conversar ou onde o som falhou na hora do "sim"? Nós sabemos que esses detalhes podem arruinar meses de planejamento. Por isso, a escolha do repertório e da [banda certa](/) é fundamental para o sucesso do evento.
 
 ## Playlist de Festa para Casamento Sofisticado em 2025
 
 Confira os hits que não podem faltar no seu setlist para manter a pista cheia do início ao fim:
 
-1. **Bad Romance – Lady Gaga:** Pop icônico com uma batida marcante e aquela pegada teatral que a interpretação ao vivo da Barbie Kills intensifica.
+1. **Bad Romance – Lady Gaga:** Pop icônico com uma batida marcante e aquela pegada teatral que a interpretação ao vivo da [Barbie Kills](/) intensifica.
 
 2. **Baby One More Time – Britney Spears:** Um dos maiores hits pop dos anos 90, irresistível e cheio de nostalgia para fazer a pista ferver.
 
@@ -186,13 +186,13 @@ Escolher o repertório certo vai além do gosto pessoal; trata-se de criar uma j
 
 **Equilíbrio Geracional:** Misturam a nostalgia dos anos 90/2000 com as tendências atuais, agradando desde os amigos até os familiares.
 
-**Identidade ao Vivo:** Na Barbie Kills, cada música ganha arranjos próprios que imprimem a energia do rock em sucessos do pop.
+**Identidade ao Vivo:** Na [Barbie Kills](/), cada música ganha arranjos próprios que imprimem a energia do rock em sucessos do pop.
 
 **Fluidez da Pista:** A sequência correta garante que não existam "buracos" na animação, mantendo a pista cheia e vibrante.
 
 ## Garanta a Melhor Banda de Rock e Pop para seu Casamento
 
-Com um repertório exclusivo e performance de alta qualidade, a Barbie Kills vai transformar sua festa em um espetáculo memorável. Não deixe a trilha sonora do seu grande dia para a última hora.`
+Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/) vai transformar sua festa em um espetáculo memorável. Não deixe a trilha sonora do seu grande dia para a última hora.`
   },
   {
     slug: "banda-evento-corporativo-sp-campinas",
@@ -204,7 +204,7 @@ Com um repertório exclusivo e performance de alta qualidade, a Barbie Kills vai
     imageAlt: "Vocalista Mariana Chaib da Barbie Kills em performance energética em evento corporativo em Campinas",
     date: "2025-01-01",
     readTime: "5 min",
-    content: `Organizar um evento corporativo de sucesso exige precisão, e a trilha sonora é o coração da experiência. Se você busca uma banda para evento corporativo em São Paulo ou Campinas que una energia visceral, profissionalismo impecável e sofisticação, a Barbie Kills é a parceira estratégica ideal.
+    content: `Organizar um evento corporativo de sucesso exige precisão, e a trilha sonora é o coração da experiência. Se você busca uma [banda para evento corporativo](/) em São Paulo ou Campinas que una energia visceral, profissionalismo impecável e sofisticação, a [Barbie Kills](/) é a parceira estratégica ideal.
 
 ## 1. Versatilidade Musical com Curadoria Premium
 
@@ -214,7 +214,7 @@ Seja para um jantar de gala formal, uma convenção de vendas ou uma festa de co
 
 ## 2. Energia e Interação que Fortalecem sua Cultura
 
-Nossa performance de alta voltagem cria uma conexão real com o público. A banda, liderada pela vocalista Mariana Chaib, interage de forma genuína, transformando a plateia em parte do show. Essa atmosfera vibrante é perfeita para fortalecer o espírito de equipe e celebrar as metas alcançadas com intensidade.
+Nossa performance de alta voltagem cria uma conexão real com o público. A [banda](/), liderada pela vocalista Mariana Chaib, interage de forma genuína, transformando a plateia em parte do show. Essa atmosfera vibrante é perfeita para fortalecer o espírito de equipe e celebrar as metas alcançadas com intensidade.
 
 ## 3. Infraestrutura Técnica e Segurança Operacional (B2B)
 
@@ -230,7 +230,7 @@ Entendemos que no mercado corporativo, o profissionalismo vem antes da música. 
 
 A satisfação de quem nos contrata é o nosso maior selo de qualidade:
 
-> "A energia da Barbie Kills transformou nossa festa de fim de ano em um evento inesquecível. Todos os colaboradores comentaram a animação e a interação da banda."
+> "A energia da [Barbie Kills](/) transformou nossa festa de fim de ano em um evento inesquecível. Todos os colaboradores comentaram a animação e a interação da banda."
 > 
 > — Carina Rocha (Canadian Solar)
 
