@@ -54,6 +54,23 @@ const structuredData = {
         "Itu", "Americana", "Valinhos", "Vinhedo", "Atibaia", 
         "Bragança Paulista", "Limeira"
       ]
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "MusicGroup",
+        "name": "Barbie Kills"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Marcos Mion"
+      },
+      "reviewBody": "A melhor banda de todas! Energia surreal."
     }
   ]
 };
