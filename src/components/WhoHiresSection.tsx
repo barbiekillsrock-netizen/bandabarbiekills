@@ -1,19 +1,19 @@
 import { Star, Music, Heart, Users } from 'lucide-react';
 const features = [{
   icon: Star,
-  title: 'UMA BANDA',
+  title: 'UMA BANDA DE ALTA PERFORMANCE',
   description: 'Tão eletrizante que faz cada convidado sentir que faz parte do show.'
 }, {
   icon: Music,
-  title: 'UM SHOW',
+  title: 'UM SHOW DE POP ROCK INTERATIVO',
   description: 'Que conecta as pessoas e transforma o ambiente em pura diversão, emoção e nostalgia e que não deixa ninguém parado.'
 }, {
   icon: Heart,
-  title: 'MOMENTOS',
+  title: 'MOMENTOS INESQUECÍVEIS NA PISTA',
   description: 'Tão intensos que se transformam em memórias efetivadas guardadas para sempre.'
 }, {
   icon: Users,
-  title: 'ARTISTAS',
+  title: 'MÚSICOS DE ELITE E PRESENÇA DE PALCO',
   description: 'Que sabem fazer a leitura da pista e que se adaptam à qualquer público.'
 }];
 const WhoHiresSection = () => {

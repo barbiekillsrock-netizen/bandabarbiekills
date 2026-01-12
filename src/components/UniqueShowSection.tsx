@@ -8,12 +8,12 @@ const showFeatures = [
   },
   {
     icon: Globe,
-    title: 'ARTISTAS',
+    title: 'MÚSICOS DE ELITE E PRESENÇA DE PALCO',
     description: 'Fluentes em inglês para eventos internacionais.',
   },
   {
     icon: Building2,
-    title: 'TRADIÇÃO',
+    title: 'TRADIÇÃO E SEGURANÇA EM EVENTOS',
     description: 'Honda, Ambev, e grandes corporações confiam em nós.',
   },
   {
