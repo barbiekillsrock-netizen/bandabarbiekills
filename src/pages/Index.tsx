@@ -65,11 +65,11 @@ const Index = () => {
         <title>Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos</title>
         <meta 
           name="description" 
-          content="Barbie Kills: Experiência musical premium para eventos. O melhor do Pop, Rock, Soul e Música Brasileira com sofisticação. Atendimento em SP, Campinas e região." 
+          content="Barbie Kills: Banda Premium para Casamentos e Corporativos em SP e Campinas. Show de alta energia com Pop, Rock, Soul, Indie, Jazz e Música Brasileira." 
         />
         <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
         <meta property="og:title" content="Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos" />
-        <meta property="og:description" content="Barbie Kills: Experiência musical premium para eventos. O melhor do Pop, Rock, Soul e Música Brasileira com sofisticação." />
+        <meta property="og:description" content="Barbie Kills: Banda Premium para Casamentos e Corporativos em SP e Campinas. Show de alta energia com Pop, Rock, Soul, Indie, Jazz e Música Brasileira." />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png" />
