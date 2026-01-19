@@ -45,6 +45,48 @@ const BlogPost = () => {
     }
   };
 
+  // Parse inline markdown (bold and links)
+  const parseInlineMarkdown = (text: string) => {
+    const elements: React.ReactNode[] = [];
+    // Match bold (**text**) and links ([text](url))
+    const regex = /(\*\*(.*?)\*\*|\[(.*?)\]\((.*?)\))/g;
+    let lastIndex = 0;
+    let match;
+    let keyIndex = 0;
+
+    while ((match = regex.exec(text)) !== null) {
+      // Add text before match
+      if (match.index > lastIndex) {
+        elements.push(text.substring(lastIndex, match.index));
+      }
+
+      if (match[0].startsWith('**')) {
+        // Bold text
+        elements.push(
+          <strong key={keyIndex++} className="text-foreground">{match[2]}</strong>
+        );
+      } else if (match[0].startsWith('[')) {
+        // Link
+        const linkText = match[3];
+        const linkUrl = match[4];
+        elements.push(
+          <Link key={keyIndex++} to={linkUrl} className="text-neon-pink hover:underline">
+            {linkText}
+          </Link>
+        );
+      }
+
+      lastIndex = regex.lastIndex;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      elements.push(text.substring(lastIndex));
+    }
+
+    return elements.length > 0 ? elements : text;
+  };
+
   // Parse markdown-like content to HTML
   const renderContent = (content: string) => {
     return content.split('\n\n').map((paragraph, index) => {
@@ -52,7 +94,7 @@ const BlogPost = () => {
       if (paragraph.startsWith('## ')) {
         return (
           <h2 key={index} className="heading-display text-2xl md:text-3xl text-foreground mt-10 mb-4">
-            {paragraph.replace('## ', '')}
+            {parseInlineMarkdown(paragraph.replace('## ', ''))}
           </h2>
         );
       }
@@ -63,7 +105,7 @@ const BlogPost = () => {
         return (
           <blockquote key={index} className="border-l-4 border-neon-pink pl-6 my-8 italic text-muted-foreground">
             {lines.map((line, i) => (
-              <p key={i} className="mb-2">{line.replace(/^> ?/, '')}</p>
+              <p key={i} className="mb-2">{parseInlineMarkdown(line.replace(/^> ?/, ''))}</p>
             ))}
           </blockquote>
         );
@@ -76,13 +118,9 @@ const BlogPost = () => {
           <ul key={index} className="list-disc list-inside space-y-3 my-6 text-body text-lg text-muted-foreground">
             {items.map((item, i) => {
               const text = item.replace('- ', '');
-              // Handle bold text
-              const parts = text.split(/\*\*(.*?)\*\*/g);
               return (
                 <li key={i}>
-                  {parts.map((part, j) => 
-                    j % 2 === 1 ? <strong key={j} className="text-foreground">{part}</strong> : part
-                  )}
+                  {parseInlineMarkdown(text)}
                 </li>
               );
             })}
@@ -97,13 +135,9 @@ const BlogPost = () => {
           <ol key={index} className="list-decimal list-inside space-y-3 my-6 text-body text-lg text-muted-foreground">
             {items.map((item, i) => {
               const text = item.replace(/^\d+\.\s/, '');
-              // Handle bold text
-              const parts = text.split(/\*\*(.*?)\*\*/g);
               return (
                 <li key={i}>
-                  {parts.map((part, j) => 
-                    j % 2 === 1 ? <strong key={j} className="text-foreground">{part}</strong> : part
-                  )}
+                  {parseInlineMarkdown(text)}
                 </li>
               );
             })}
@@ -111,13 +145,10 @@ const BlogPost = () => {
         );
       }
       
-      // Regular paragraphs with bold text support
-      const parts = paragraph.split(/\*\*(.*?)\*\*/g);
+      // Regular paragraphs
       return (
         <p key={index} className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
-          {parts.map((part, j) => 
-            j % 2 === 1 ? <strong key={j} className="text-foreground">{part}</strong> : part
-          )}
+          {parseInlineMarkdown(paragraph)}
         </p>
       );
     });
