@@ -179,7 +179,7 @@ const BlogPost = () => {
           <img
             src={post.image}
             alt={post.imageAlt}
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-center"
             fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
