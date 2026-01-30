@@ -13,6 +13,76 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "banda-para-casamento-estrutura-tecnica",
+    title: "Banda para Casamento: Por que a Estrutura Técnica da Barbie Kills Garante o Sucesso da sua Festa",
+    metaTitle: "Banda para Casamento com Estrutura Técnica | Som e Luz Profissional - Barbie Kills",
+    metaDescription: "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
+    excerpt: "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
+    image: "/blog/banda-pop-rock-casamento.jpg",
+    imageAlt: "Estrutura de som e iluminação profissional da Barbie Kills em casamento",
+    date: "2026-01-09",
+    readTime: "7 min",
+    content: `Você já foi a um [casamento](/#servicos) onde a música estava alta demais a ponto de impedir a conversa nas mesas? Ou, pior, onde o microfone falhou e deu aquele ruído agudo (microfonia) bem na hora do "sim" ou durante o discurso emocionado do pai da noiva?
+
+Nós sabemos que esses detalhes técnicos, muitas vezes invisíveis durante o planejamento, têm o poder de arruinar a experiência e transformar meses de sonhos em frustração. A verdade é que a acústica e a tecnologia são tão importantes quanto o talento dos músicos. Por isso, na [Barbie Kills](/), acreditamos que uma apresentação inesquecível exige um tripé fundamental: performance artística, gestão profissional e infraestrutura de ponta.
+
+Se você busca uma [banda para casamento e eventos](/blog/musicas-mais-pedidas-casamento-2025) que alie versatilidade de repertório com segurança operacional total, entenda agora como cuidamos dos bastidores para que seu grande dia seja impecável, do buffet em Campinas à fazenda histórica em Itatiba.
+
+## 1. Nosso Som: Tecnologia de Ponta para uma Experiência Cristalina
+
+A qualidade sonora (o famoso "PA" ou sistema de som) é o que separa um show amador de garagem de uma experiência memorável de alto nível. Muitos casais não sabem, mas a acústica de salões de festa — muitas vezes com muito vidro, pé-direito alto e piso frio — é um desafio complexo.
+
+Para vencer esse desafio, utilizamos equipamentos de referência internacional. Nosso objetivo é garantir que o som tenha "pressão" na pista de dança, mas seja agradável e inteligível nas mesas de jantar.
+
+**Mesa de Som Digital (Mixagem Móvel):** Esqueça o técnico preso atrás de uma mesa gigante no fundo da sala. Utilizamos mesas digitais controladas via tablet. Isso permite que nosso técnico caminhe pelo salão durante a festa, ajustando o áudio em tempo real de onde os convidados realmente estão. Se o som estiver alto perto da mesa dos avós, ele ajusta na hora, na palma da mão.
+
+**Sistemas Ativos de Alta Definição:** Utilizamos caixas ativas com tecnologia Classe D. Diferente de caixas antigas que "racham" o som quando o volume sobe, nosso equipamento mantém a clareza e a definição dos instrumentos mesmo no auge da festa.
+
+**Microfones Shure e Sennheiser:** São o padrão ouro da indústria musical mundial. Garantimos que cada palavra dos votos, cada nuance da voz da nossa cantora e cada discurso seja captado com clareza cristalina, sem cortes ou interferências.
+
+**Monitoramento In-Ear (Palco Limpo):** Nossos músicos não usam caixas de retorno barulhentas no chão do palco. Todos utilizam fones de ouvido moldados (in-ear monitors). Isso reduz drasticamente o volume no palco, "limpando" o som que vai para a plateia e permitindo uma execução musical muito mais precisa e harmoniosa.
+
+## 2. Iluminação Cênica: Criando a Atmosfera Perfeita
+
+A música dita o ritmo, mas a luz dita a emoção. Uma [banda para festa](/#servicos) completa não pode depender apenas da luz do salão. A Barbie Kills leva uma estrutura de iluminação desenhada para transformar o ambiente.
+
+Não se trata apenas de luzes piscando aleatoriamente. Nossa iluminação é operada em sincronia com o show:
+
+**Momentos Intimistas:** Durante a primeira dança ou músicas românticas, criamos ambientes acolhedores, com luzes quentes e focadas, perfeitas para fotografia.
+
+**A Explosão da Pista:** Quando a festa esquenta com os hits de Pop e Rock, a iluminação se transforma. Utilizamos Moving Heads (luzes robóticas que se movem), painéis de LED e efeitos visuais que trazem a energia de um show internacional para dentro do seu casamento. O resultado são fotos incríveis e convidados muito mais engajados na dança.
+
+## 3. Nossa Equipe Técnica: Os Guardiões do seu Grande Dia
+
+Para que os noivos fiquem tranquilos e aproveitem a festa, contamos com um "exército invisível". A Barbie Kills não é formada apenas por músicos; somos um time técnico coeso.
+
+**Técnico de Som (FOH):** Ele é o ouvido da festa. Sua função é garantir um som limpo, potente e equilibrado, adaptando a equalização à acústica específica do local (seja madeira, vidro ou ao ar livre).
+
+**Roadie (A Engrenagem):** Responsável pela montagem, passagem de cabos, afinação e manutenção dos instrumentos. Com ele no suporte, os músicos ficam livres de preocupações técnicas para focar 100% na performance e na interação com vocês.
+
+**Técnico de Luz (Light Designer):** O artista visual que opera a mesa de luz, criando as cenas e atmosferas que dão vida ao show.
+
+**Produtor (O Maestro dos Bastidores):** É o ponto de contato oficial com a sua Cerimonialista. Ele coordena o cronograma, garante que a banda entre no palco no segundo exato e resolve qualquer imprevisto logístico sem que os noivos sequer percebam.
+
+## 4. O Benefício da "Estrutura Própria" (Turn-Key)
+
+No mercado de casamentos, quanto menos fornecedores separados você tiver que gerenciar, melhor. Ao contratar uma banda que já possui [sonorização e iluminação de eventos](/#servicos) própria, você ganha em três frentes:
+
+**Custo-Benefício:** O pacote completo costuma ser mais vantajoso do que alugar equipamentos de terceiros.
+
+**Confiabilidade:** Nossos equipamentos são revisados semanalmente e nossa equipe conhece cada cabo e cada botão. Isso reduz a zero a chance de falhas por desconhecimento do equipamento.
+
+**Estética:** Nossa montagem é limpa e organizada. Escondemos cabos e utilizamos suportes discretos para não poluir o visual da sua decoração.
+
+## Por que escolher a Barbie Kills para o seu Casamento?
+
+O seu casamento acontece apenas uma vez. Não há "segunda tomada". Ao contratar a Barbie Kills, você não está comprando apenas algumas horas de música; você está investindo na segurança de que a trilha sonora da sua vida será executada com perfeição.
+
+Nossa combinação de repertório vibrante, tecnologia de última geração e equipe altamente qualificada transforma sua festa em uma experiência sensorial única.
+
+Se você está planejando seu casamento em Campinas ou região e quer a tranquilidade de uma estrutura profissional, nós queremos te ouvir. Vamos garantir que o som da sua festa seja tão inesquecível quanto o amor que vocês celebram.`
+  },
+  {
     slug: "producao-eventos-luxo-barbie-kills",
     title: "Produção de Eventos de Luxo: Os Bastidores da Barbie Kills para um Show Impecável",
     metaTitle: "Produção de Eventos de Luxo SP | Banda Premium para Eventos - Barbie Kills",
@@ -20,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
     image: "/blog/producao-eventos-luxo-barbie-kills.jpg",
     imageAlt: "Guitarrista da Barbie Kills tocando entre os convidados em evento de luxo em Campinas SP",
-    date: "2026-01-09",
+    date: "2026-01-08",
     readTime: "6 min",
     content: `Quando você vê a [Barbie Kills](/) no palco, o impacto é imediato: uma energia explosiva, iluminação digna de grandes festivais e uma estética Glam Pop que hipnotiza a plateia. Mas, para quem organiza eventos, a mágica real acontece muito antes do primeiro acorde. Você sabe o que realmente garante o sucesso de uma [banda para eventos corporativos](/blog/banda-evento-corporativo-sp-campinas), coquetéis ou [casamentos de alto padrão](/blog/banda-para-casamento-estrutura-tecnica)?
 
