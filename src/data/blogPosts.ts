@@ -357,54 +357,6 @@ Escolher o repertório certo vai além do gosto pessoal; trata-se de criar uma j
 ## Garanta a Melhor Banda de Rock e Pop para seu Casamento
 
 Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/) vai transformar sua festa em um espetáculo memorável. Não deixe a trilha sonora do seu grande dia para a última hora.`
-  },
-  {
-    slug: "banda-evento-corporativo-sp-campinas",
-    title: "Por que a Barbie Kills é a Banda Ideal para seu Evento Corporativo?",
-    metaTitle: "Banda Evento Corporativo SP Campinas | Shows Empresariais - Barbie Kills",
-    metaDescription: "Banda para evento corporativo em São Paulo e Campinas. Entretenimento premium com energia visceral, profissionalismo e sofisticação para sua empresa.",
-    excerpt: "Organizar um evento corporativo de sucesso exige precisão, e a trilha sonora é o coração da experiência. Descubra por que a Barbie Kills é a parceira estratégica ideal.",
-    image: "/blog/banda-eventos-corporativos.jpg",
-    imageAlt: "Vocalista Mariana Chaib da Barbie Kills em performance energética em evento corporativo em Campinas",
-    date: "2025-01-01",
-    readTime: "5 min",
-    content: `Organizar um evento corporativo de sucesso exige precisão, e a trilha sonora é o coração da experiência. Se você busca uma [banda para evento corporativo](/) em São Paulo ou Campinas que una energia visceral, profissionalismo impecável e sofisticação, a [Barbie Kills](/) é a parceira estratégica ideal.
-
-## 1. Versatilidade Musical com Curadoria Premium
-
-Diferente de bandas comuns, a Barbie Kills é especialista em entretenimento de alto padrão para empresas. Entregamos um repertório sob medida, desenhado para o perfil da sua marca e dos seus convidados, mantendo sempre a elegância.
-
-Seja para um jantar de gala formal, uma convenção de vendas ou uma festa de confraternização descontraída, transitamos com naturalidade pelo Pop, Rock, Soul e clássicos internacionais que agradam a todas as gerações.
-
-## 2. Energia e Interação que Fortalecem sua Cultura
-
-Nossa performance de alta voltagem cria uma conexão real com o público. A [banda](/), liderada pela vocalista Mariana Chaib, interage de forma genuína, transformando a plateia em parte do show. Essa atmosfera vibrante é perfeita para fortalecer o espírito de equipe e celebrar as metas alcançadas com intensidade.
-
-## 3. Infraestrutura Técnica e Segurança Operacional (B2B)
-
-Entendemos que no mercado corporativo, o profissionalismo vem antes da música. Oferecemos uma solução completa:
-
-- **Som e Iluminação High-End:** Equipamentos de última geração que garantem fidelidade sonora em qualquer ambiente.
-
-- **Rigidez Operacional:** Cumprimento rigoroso de horários, normas de segurança e protocolos de carga/descarga.
-
-- **Experiência Comprovada:** Grandes corporações como Honda e Ambev confiam na nossa entrega para seus eventos mais importantes.
-
-## 4. O que dizem os Clientes
-
-A satisfação de quem nos contrata é o nosso maior selo de qualidade:
-
-> "A energia da [Barbie Kills](/) transformou nossa festa de fim de ano em um evento inesquecível. Todos os colaboradores comentaram a animação e a interação da banda."
-> 
-> — Carina Rocha (Canadian Solar)
-
-> "Profissionalismo e talento de sobra! A Barbie Kills entendeu exatamente o que nossa empresa precisava para celebrar com estilo."
-> 
-> — Karina Mendes (Triumph TRX)
-
-## Como contratar a Barbie Kills para seu Evento?
-
-Estamos prontos para elevar o nível da sua próxima convenção ou celebração. Atendemos em São Paulo, Campinas, Alphaville, Barueri e todo o interior de SP.`
   }
 ];
 
