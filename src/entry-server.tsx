@@ -1,9 +1,9 @@
 import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import { StaticRouter } from "react-router";
 import { HelmetProvider, HelmetServerState } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";

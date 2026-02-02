@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
