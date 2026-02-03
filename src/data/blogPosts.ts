@@ -325,23 +325,14 @@ Você já foi a um casamento onde a música estava alta demais para conversar ou
 Confira os hits que não podem faltar no seu setlist para manter a pista cheia do início ao fim:
 
 1. **Bad Romance – Lady Gaga:** Pop icônico com uma batida marcante e aquela pegada teatral que a interpretação ao vivo da [Barbie Kills](/) intensifica.
-
 2. **Baby One More Time – Britney Spears:** Um dos maiores hits pop dos anos 90, irresistível e cheio de nostalgia para fazer a pista ferver.
-
 3. **Wannabe – Spice Girls:** O hino máximo dos anos 90 que traz alegria, empoderamento e diversão garantida.
-
 4. **Blank Space – Taylor Swift:** Em uma versão exclusiva da Barbie Kills, este pop moderno ganha uma pegada sofisticada e envolvente.
-
 5. **Uptown Funk – Bruno Mars:** Funk com estilo, ritmo contagiante e a energia necessária para levantar convidados de todas as idades.
-
 6. **Torn – Natalie Imbruglia:** Clássico dos anos 90 que mistura emoção com uma vibe dançante, perfeita para momentos de conexão na pista.
-
 7. **I Don't Want to Miss a Thing – Aerosmith:** O rock romântico que emociona e faz todos cantarem juntos com os braços para o alto.
-
 8. **I Kissed a Girl – Katy Perry:** Pop ousado e divertido, com uma batida marcante que traz frescor e muita animação.
-
 9. **Mr. Brightside – The Killers:** O hino do rock dos anos 2000 que nunca falha em criar um momento de explosão na festa.
-
 10. **Can't Stop the Feeling! – Justin Timberlake:** Hit vibrante e solar, ideal para manter o astral lá em cima até o último minuto.
 
 ## Por que essas músicas são essenciais em casamentos de luxo?
