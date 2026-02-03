@@ -1,37 +1,45 @@
 
-# Plano: Corrigir Numeração da Playlist de Músicas
+# Plano: Corrigir Imagem e Numeração do Post de Músicas
 
-## Problema Identificado
-O conteúdo do blog post "musicas-mais-pedidas-casamento-2025" tem cada música em um parágrafo separado (com `\n\n` entre eles). O parser de markdown em `BlogPost.tsx` divide o conteúdo por `\n\n`, tratando cada música como um parágrafo individual em vez de itens de uma lista única.
+## Problemas Identificados
 
-**Resultado atual:** Cada música é renderizada como uma lista `<ol>` separada com apenas 1 item, fazendo com que os números não apareçam corretamente na página.
+### 1. Imagem Hero com Rostos Cortados
+- **Arquivo:** `src/pages/BlogPost.tsx` (linha 182)
+- **Problema:** A imagem usa `object-center`, mas como a imagem tem os rostos da vocalista e noiva na parte superior, o enquadramento centralizado corta os rostos
+- **Solução:** Mudar de `object-center` para `object-top` para priorizar a parte superior da imagem
 
-## Solução
-Modificar o conteúdo no arquivo `src/data/blogPosts.ts` para que todas as 10 músicas fiquem no mesmo bloco de texto, separadas apenas por `\n` (uma quebra de linha) em vez de `\n\n` (duas quebras).
+### 2. Lista de Músicas com Numeração Errada (todas mostram "1.")
+- **Arquivo:** `src/data/blogPosts.ts` (linhas 327-345)
+- **Problema:** Cada item numerado está separado por linha em branco (`\n\n`). O parser em `BlogPost.tsx` divide o conteúdo por `\n\n`, tratando cada música como um parágrafo separado. Quando detecta que começa com número, cria uma lista `<ol>` com apenas 1 item
+- **Solução:** Remover as linhas em branco entre os itens da lista, deixando-os separados apenas por `\n`
 
-## Alteração Necessária
+## Alterações Necessárias
 
-**Arquivo:** `src/data/blogPosts.ts`
+### Alteração 1: `src/pages/BlogPost.tsx`
+```tsx
+// Linha 182 - De:
+className="w-full h-full object-cover object-center"
 
-**De (linhas 327-345):**
-```
-1. **Bad Romance – Lady Gaga:** ...
-
-2. **Baby One More Time – Britney Spears:** ...
-
-(cada item separado por linha em branco)
-```
-
-**Para:**
-```
-1. **Bad Romance – Lady Gaga:** ...
-2. **Baby One More Time – Britney Spears:** ...
-3. **Wannabe – Spice Girls:** ...
-(todos os itens em sequência, sem linha em branco entre eles)
+// Para:
+className="w-full h-full object-cover object-top"
 ```
 
-## Detalhes Técnicos
-- O parser em `BlogPost.tsx` (linha 132-145) detecta listas numeradas com regex `/^\d+\.\s/`
-- Faz split por `\n` para encontrar múltiplos itens
-- Renderiza como `<ol className="list-decimal list-inside">`
-- Com a correção, todos os 10 itens serão agrupados em uma única lista ordenada com numeração visível
+### Alteração 2: `src/data/blogPosts.ts`
+Modificar o conteúdo do post (linhas 327-345) para que todos os 10 itens da lista fiquem em sequência sem linhas em branco:
+
+```
+1. **Bad Romance – Lady Gaga:** Pop icônico...
+2. **Baby One More Time – Britney Spears:** Um dos maiores...
+3. **Wannabe – Spice Girls:** O hino máximo...
+4. **Blank Space – Taylor Swift:** Em uma versão...
+5. **Uptown Funk – Bruno Mars:** Funk com estilo...
+6. **Torn – Natalie Imbruglia:** Clássico dos anos 90...
+7. **I Don't Want to Miss a Thing – Aerosmith:** O rock romântico...
+8. **I Kissed a Girl – Katy Perry:** Pop ousado...
+9. **Mr. Brightside – The Killers:** O hino do rock...
+10. **Can't Stop the Feeling! – Justin Timberlake:** Hit vibrante...
+```
+
+## Resultado Esperado
+- A imagem mostrará os rostos da vocalista e da noiva corretamente
+- A lista de músicas será renderizada como uma única `<ol>` com numeração sequencial de 1 a 10
