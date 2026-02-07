@@ -124,15 +124,15 @@ const Section = ({ number, title, children }: { number: string; title: string; c
 
 const InfoCard = ({ label, children }: { label: string; children: React.ReactNode }) => (
   <div className="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-lg p-5">
-    <p className="font-oswald text-neon-pink font-bold text-sm uppercase tracking-wider mb-2">{label}</p>
-    <p className="text-gray-300">{children}</p>
+    <p className="font-oswald text-neon-pink font-bold text-base uppercase tracking-wider mb-2">{label}</p>
+    <p className="text-gray-300 text-base">{children}</p>
   </div>
 );
 
 const DataField = ({ label, value }: { label: string; value: string }) => (
   <div className="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-lg p-4">
-    <p className="text-gray-500 text-xs uppercase tracking-wider font-oswald mb-1">{label}</p>
-    <p className="font-mono text-neon-pink text-lg font-bold">{value}</p>
+    <p className="text-gray-400 text-sm uppercase tracking-wider font-oswald mb-1">{label}</p>
+    <p className="font-mono text-neon-pink text-xl font-bold">{value}</p>
   </div>
 );
 
