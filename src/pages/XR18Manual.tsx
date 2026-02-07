@@ -1,3 +1,4 @@
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router';
 
@@ -41,8 +42,8 @@ const XR18Manual = () => {
           <Section number="2" title="DADOS MESTRES DA REDE">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <DataField label="SSID (NOME DO WI-FI)" value="BARBIEKILLS_WIFI" />
-              <DataField label="SENHA DO WI-FI" value="admin123" />
-              <DataField label="IP DA MESA (MIXER)" value="192.168.1.150" />
+              <DataField label="SENHA DO WI-FI" value="admin123" copiable />
+              <DataField label="IP DA MESA (MIXER)" value="192.168.1.150" copiable />
               <DataField label="ROTEADOR (GATEWAY)" value="192.168.1.1" />
             </div>
           </Section>
@@ -129,12 +130,30 @@ const InfoCard = ({ label, children }: { label: string; children: React.ReactNod
   </div>
 );
 
-const DataField = ({ label, value }: { label: string; value: string }) => (
-  <div className="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-lg p-4">
-    <p className="text-gray-400 text-sm uppercase tracking-wider font-oswald mb-1">{label}</p>
-    <p className="font-mono text-neon-pink text-xl font-bold">{value}</p>
-  </div>
-);
+const DataField = ({ label, value, copiable }: { label: string; value: string; copiable?: boolean }) => {
+  const [copied, setCopied] = React.useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(value);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <div className="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-lg p-4">
+      <p className="text-gray-400 text-sm uppercase tracking-wider font-oswald mb-1">{label}</p>
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-mono text-neon-pink text-xl font-bold">{value}</p>
+        {copiable && (
+          <button
+            onClick={handleCopy}
+            className="flex-shrink-0 px-3 py-1 rounded bg-white/10 hover:bg-neon-pink/20 border border-white/10 hover:border-neon-pink/40 text-xs font-oswald uppercase tracking-wider text-gray-300 hover:text-neon-pink transition-all"
+          >
+            {copied ? '✓ Copiado' : 'Copiar'}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const Code = ({ children }: { children: React.ReactNode }) => (
   <code className="bg-white/10 text-neon-pink px-2 py-0.5 rounded font-mono text-sm">{children}</code>
