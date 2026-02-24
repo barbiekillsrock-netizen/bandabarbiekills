@@ -15,6 +15,7 @@ const socialLinks = [
   { href: 'https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ', icon: null, label: 'Spotify' },
 ];
 
+// v1.1
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
