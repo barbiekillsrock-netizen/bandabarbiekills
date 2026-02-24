@@ -1,45 +1,37 @@
 
-# Plano: Corrigir Imagem e Numeração do Post de Músicas
 
-## Problemas Identificados
+## Adicionar icones sociais no menu superior
 
-### 1. Imagem Hero com Rostos Cortados
-- **Arquivo:** `src/pages/BlogPost.tsx` (linha 182)
-- **Problema:** A imagem usa `object-center`, mas como a imagem tem os rostos da vocalista e noiva na parte superior, o enquadramento centralizado corta os rostos
-- **Solução:** Mudar de `object-center` para `object-top` para priorizar a parte superior da imagem
+Sim, ficaria harmonico! A ideia e posicionar os icones de Instagram, YouTube e Spotify como pequenos icones (18-20px) entre os links de navegacao e o botao "Contrate", separados por um divisor vertical sutil.
 
-### 2. Lista de Músicas com Numeração Errada (todas mostram "1.")
-- **Arquivo:** `src/data/blogPosts.ts` (linhas 327-345)
-- **Problema:** Cada item numerado está separado por linha em branco (`\n\n`). O parser em `BlogPost.tsx` divide o conteúdo por `\n\n`, tratando cada música como um parágrafo separado. Quando detecta que começa com número, cria uma lista `<ol>` com apenas 1 item
-- **Solução:** Remover as linhas em branco entre os itens da lista, deixando-os separados apenas por `\n`
+### Layout proposto (Desktop)
 
-## Alterações Necessárias
-
-### Alteração 1: `src/pages/BlogPost.tsx`
-```tsx
-// Linha 182 - De:
-className="w-full h-full object-cover object-center"
-
-// Para:
-className="w-full h-full object-cover object-top"
+```text
+[Logo]                   Historia | Diferencial | Depoimentos | Midia | Blog | [IG] [YT] [SP] | [Contrate]
 ```
 
-### Alteração 2: `src/data/blogPosts.ts`
-Modificar o conteúdo do post (linhas 327-345) para que todos os 10 itens da lista fiquem em sequência sem linhas em branco:
+### Detalhes da implementacao
 
-```
-1. **Bad Romance – Lady Gaga:** Pop icônico...
-2. **Baby One More Time – Britney Spears:** Um dos maiores...
-3. **Wannabe – Spice Girls:** O hino máximo...
-4. **Blank Space – Taylor Swift:** Em uma versão...
-5. **Uptown Funk – Bruno Mars:** Funk com estilo...
-6. **Torn – Natalie Imbruglia:** Clássico dos anos 90...
-7. **I Don't Want to Miss a Thing – Aerosmith:** O rock romântico...
-8. **I Kissed a Girl – Katy Perry:** Pop ousado...
-9. **Mr. Brightside – The Killers:** O hino do rock...
-10. **Can't Stop the Feeling! – Justin Timberlake:** Hit vibrante...
-```
+**Arquivo:** `src/components/Navbar.tsx`
 
-## Resultado Esperado
-- A imagem mostrará os rostos da vocalista e da noiva corretamente
-- A lista de músicas será renderizada como uma única `<ol>` com numeração sequencial de 1 a 10
+1. **Importar icones** - Instagram e Youtube do lucide-react; Spotify via SVG inline (mesmo SVG ja usado no Footer)
+
+2. **Desktop** - Adicionar um separador vertical (`div` com `w-px h-5 bg-white/20`) seguido dos 3 icones com:
+   - Tamanho: 18px
+   - Cor: `text-foreground/60` com hover `text-neon-pink`
+   - Espacamento: `gap-4` entre icones
+   - Links abrindo em nova aba
+
+3. **Mobile** - Adicionar os icones em linha horizontal no menu mobile, abaixo dos links e acima do botao "Contrate", com tamanho ligeiramente maior (20px)
+
+### Links das redes sociais
+- Instagram: `https://instagram.com/barbiekillsrock`
+- YouTube: `https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1`
+- Spotify: `https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ`
+
+### Por que ficaria harmonico
+- Os icones pequenos e discretos nao competem com os links de texto
+- O separador vertical cria uma divisao visual limpa
+- O efeito hover em neon pink mantem a identidade da marca
+- No mobile, ficam organizados em linha horizontal sem poluir o menu
+
