@@ -7,7 +7,8 @@ const ServicesSection = () => {
   const whatsappLink = "https://wa.me/5519982318180?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20evento.";
 
   return (
-    <section id="servicos" className="py-16 lg:py-24 bg-gradient-to-b from-[#0a0010] via-[#0d0015] to-[#050505]">
+    <section id="servicos" className="relative py-16 lg:py-24 bg-gradient-to-b from-[#0a0010] via-[#0d0015] to-[#050505]">
+      <span id="solucoes-musicais" className="absolute -top-20" />
       {/* Background glow */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-pink/20 rounded-full blur-[120px]" />

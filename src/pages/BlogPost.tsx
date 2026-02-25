@@ -69,11 +69,20 @@ const BlogPost = () => {
         // Link
         const linkText = match[3];
         const linkUrl = match[4];
-        elements.push(
-          <Link key={keyIndex++} to={linkUrl} className="text-neon-pink hover:underline">
-            {linkText}
-          </Link>
-        );
+        const isExternal = linkUrl.startsWith('http');
+        if (isExternal) {
+          elements.push(
+            <a key={keyIndex++} href={linkUrl} target="_blank" rel="noopener noreferrer" className="text-neon-pink hover:underline">
+              {linkText}
+            </a>
+          );
+        } else {
+          elements.push(
+            <Link key={keyIndex++} to={linkUrl} className="text-neon-pink hover:underline">
+              {linkText}
+            </Link>
+          );
+        }
       }
 
       lastIndex = regex.lastIndex;
