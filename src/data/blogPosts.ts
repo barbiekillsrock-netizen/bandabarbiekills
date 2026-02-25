@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
 
 Nós sabemos que esses detalhes técnicos, muitas vezes invisíveis durante o planejamento, têm o poder de arruinar a experiência e transformar meses de sonhos em frustração. A verdade é que a acústica e a tecnologia são tão importantes quanto o talento dos músicos. Por isso, na [Barbie Kills](/), acreditamos que uma apresentação inesquecível exige um tripé fundamental: performance artística, gestão profissional e infraestrutura de ponta.
 
-Se você busca uma [banda para casamento e eventos](/blog/musicas-mais-pedidas-casamento-2025) que alie versatilidade de repertório com segurança operacional total, entenda agora como cuidamos dos bastidores para que seu grande dia seja impecável, do buffet em Campinas à fazenda histórica em Itatiba.
+Se você busca uma [banda para casamento e eventos](/blog/musicas-mais-pedidas-casamento-2026) que alie versatilidade de repertório com segurança operacional total, entenda agora como cuidamos dos bastidores para que seu grande dia seja impecável, do buffet em Campinas à fazenda histórica em Itatiba.
 
 ## 1. Nosso Som: Tecnologia de Ponta para uma Experiência Cristalina
 
@@ -118,7 +118,7 @@ Focamos nos maiores hits de 2026, tendências do TikTok e clássicos atemporais 
 
 ## 3. Banda com Time Fixo: A Segurança do Entrosamento
 
-Um erro crítico e comum no mercado de [bandas para festas](/blog/musicas-mais-pedidas-casamento-2025) é a atuação de agências que montam grupos com músicos substitutos (freelancers) de última hora. Na [Barbie Kills](/), operamos na contramão dessa prática: trabalhamos exclusivamente com um time fixo.
+Um erro crítico e comum no mercado de [bandas para festas](/blog/musicas-mais-pedidas-casamento-2026) é a atuação de agências que montam grupos com músicos substitutos (freelancers) de última hora. Na [Barbie Kills](/), operamos na contramão dessa prática: trabalhamos exclusivamente com um time fixo.
 
 Isso se traduz em uma "química" real e palpável que o público sente e admira. Quando os músicos possuem anos de estrada juntos, a segurança técnica é total. O entrosamento permite improvisos calculados, interações genuínas e uma entrega artística que atinge seu ápice. Para eventos em cidades como Piracicaba ou Americana, onde a exigência do público é alta, essa consistência é fundamental para garantir que não haja imprevistos musicais.
 
@@ -156,7 +156,7 @@ Cada detalhe, do brilho do figurino à precisão cristalina do áudio, é desenh
 
 ## Contrate a Barbie Kills: A Melhor Banda para Eventos no Interior de SP
 
-Se você busca uma [banda de rock e pop](/blog/musicas-mais-pedidas-casamento-2025) que une o glamour magnético de uma estrela pop com a seriedade e segurança de uma gestão corporativa experiente, sua busca termina aqui.
+Se você busca uma [banda de rock e pop](/blog/musicas-mais-pedidas-casamento-2026) que une o glamour magnético de uma estrela pop com a seriedade e segurança de uma gestão corporativa experiente, sua busca termina aqui.
 
 Transforme seu evento corporativo, casamento ou festa particular em um marco. Entre em contato conosco e leve a experiência [Barbie Kills](/) para o seu palco.`
   },
@@ -176,7 +176,7 @@ Foi exatamente esse o desejo de Paulo e Valéria quando decidiram comemorar seus
 
 ## 1. O Repertório Certo: A Trilha Sonora da Sua Vida
 
-Para um público que viveu intensamente as melhores décadas da música, o setlist não pode falhar. Em uma festa de aniversário, a plateia é diversa: amigos de infância, colegas de trabalho, filhos e familiares. O segredo de uma [banda para festa](/blog/musicas-mais-pedidas-casamento-2025) de sucesso é a capacidade de conectar todas essas gerações.
+Para um público que viveu intensamente as melhores décadas da música, o setlist não pode falhar. Em uma festa de aniversário, a plateia é diversa: amigos de infância, colegas de trabalho, filhos e familiares. O segredo de uma [banda para festa](/blog/musicas-mais-pedidas-casamento-2026) de sucesso é a capacidade de conectar todas essas gerações.
 
 No aniversário de Paulo e Valéria, a Barbie Kills entrou em cena com uma formação especial: banda completa somada a um naipe de metais poderosos (saxofone, trompete e trombone). O repertório foi desenhado estrategicamente para criar uma jornada emocional:
 
@@ -307,7 +307,7 @@ Não arrisque o sucesso da sua convenção ou confraternização com amadorismo.
 Se sua empresa está em Campinas, São Paulo ou região, entre em contato agora. Vamos desenhar juntos a estratégia musical para o seu evento.`
   },
   {
-    slug: "musicas-mais-pedidas-casamento-2025",
+    slug: "musicas-mais-pedidas-casamento-2026",
     title: "As 10 Músicas Mais Pedidas para Animar Festas de Casamento Sofisticadas em 2026",
     metaTitle: "Top 10 Músicas Casamento 2026 | Playlist Festa Sofisticada - Barbie Kills",
     metaDescription: "Confira as 10 músicas mais pedidas para casamentos sofisticados em 2026. Playlist com clássicos dos anos 90/2000 e hits modernos para festa inesquecível.",
