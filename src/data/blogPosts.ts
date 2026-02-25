@@ -348,6 +348,55 @@ Escolher o repertório certo vai além do gosto pessoal; trata-se de criar uma j
 ## Garanta a Melhor Banda de Rock e Pop para seu Casamento
 
 Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/) vai transformar sua festa em um espetáculo memorável. Não deixe a trilha sonora do seu grande dia para a última hora.`
+  },
+  {
+    slug: "banda-casamento-campinas-cerimonia-festa",
+    title: "Banda para Casamento em Campinas: O Combo Perfeito da Cerimônia à Festa",
+    metaTitle: "Banda para Casamento em Campinas | Cerimônia + Festa - Barbie Kills & Los Libres",
+    metaDescription: "Banda para casamento em Campinas: combo premium com Los Libres na cerimônia e Barbie Kills na festa. Gestão unificada, logística inteligente e som impecável.",
+    excerpt: "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para o seu grande dia.",
+    image: "/blog/banda-casamento-sorocaba.jpg",
+    imageAlt: "Banda para casamento em Campinas - Barbie Kills e Los Libres combo cerimônia e festa",
+    date: "2026-02-25",
+    readTime: "8 min",
+    content: `Organizar e planejar a trilha sonora ideal para um casamento exige o equilíbrio perfeito entre dois universos completamente distintos: o momento do "sim", que é profundamente emocionado e intimista no altar, e a euforia absoluta da pista de dança durante a recepção. O erro mais comum de muitos casais durante os preparativos é contratar fornecedores musicais desconexos para cada uma dessas etapas, gerando custos duplicados, falhas de comunicação e, muitas vezes, uma grande dor de cabeça logística no dia do evento.
+
+Para garantir uma jornada musical coesa, sem estresse e de altíssimo nível, apresentamos a solução definitiva para o seu grande dia: o Combo Musical Premium. Nós unimos a sofisticação orgânica e acústica do projeto Los Libres para a sua cerimônia à energia explosiva, visual e contagiante da Barbie Kills para a recepção. Veja abaixo por que esta tem sido a escolha favorita e mais segura de noivos em Campinas e em toda a região do interior paulista que buscam música ao vivo de excelência.
+
+## 1. A Emoção da Música para Cerimônia com Los Libres
+
+A cerimônia é, sem dúvida, o coração do evento. É o momento exato em que a trilha sonora precisa traduzir a história de amor do casal com muita elegância, sensibilidade e personalidade. O projeto Los Libres oferece uma proposta de [música para cerimônia](https://bandaloslibres.netlify.app/) com arranjos extremamente originais, fugindo do óbvio e entregando muita emoção.
+
+- **Formação Acústica Rica e Envolvente:** Esqueça o formato básico e limitante. O Los Libres traz uma sonoridade rica, encorpada e de muito bom gosto, formada por uma instrumentação completa: vozes marcantes, o violão, a leveza do ukulele, a emoção clássica do violino, a profundidade do contrabaixo acústico e a marcação rítmica da bateria. Essa combinação cria uma atmosfera orgânica e muito sofisticada.
+- **Repertório Totalmente Personalizado:** Diferente de corais tradicionais com listas engessadas, nós permitimos que você escolha aquele clássico do Indie, do Folk ou do Pop/Rock que marcou a relação de vocês. Criamos arranjos exclusivos que combinam com a essência do casal.
+- **Momentos Inesquecíveis:** Entregamos a trilha sonora perfeita para a entrada da noiva, o cortejo de padrinhos, a entrada do noivo e a saída dos recém-casados, sempre com uma sonoridade impecável e emocionante.
+
+## 2. A Energia da Pista: A Força da Barbie Kills
+
+Após os votos, as lágrimas de alegria e o brinde, é hora de "virar a chave". Os convidados estão prontos para celebrar intensamente. É exatamente aqui que a nossa [banda de eventos](/) assume o comando do palco principal, trazendo sua estética Glam Pop inconfundível e figurinos de alto impacto visual. Nós somos verdadeiros especialistas em transformar recepções tradicionais em espetáculos vibrantes.
+
+- **Setlist Estratégico e Versátil:** Preparamos um repertório inteligente que une os maiores hits atuais do topo das paradas a clássicos atemporais do Pop e do Rock. O objetivo é engajar todas as idades, garantindo que a pista de dança esteja sempre cheia e pulsante.
+- **Show de Casamento Sem Intervalos:** Utilizamos transições dinâmicas e contínuas, sem aquelas pausas constrangedoras entre as músicas. Mantemos a energia lá no alto, do primeiro acorde até o encerramento da festa.
+- **Experiência Visual Premium:** Entregamos um show de nível internacional, com presença de palco contagiante, desenhado especialmente para ser o grande ponto alto da sua festa de casamento e render fotos maravilhosas.
+
+## 3. Vantagens do [pacote musical completo](/#solucoes-musicais) (Logística Inteligente)
+
+Contratar o combo Los Libres e Barbie Kills não é apenas uma escolha artística brilhante; é, acima de tudo, uma decisão inteligente de produção de eventos para quem não quer imprevistos:
+
+- **Gestão e Contrato Unificados:** Você tem um único canal de comunicação e um único produtor responsável. Isso significa menos reuniões na sua agenda corrida, documentação centralizada e total alinhamento de expectativas desde o primeiro contato.
+- **Estruturas Independentes e Coordenadas:** Para que tudo saia perfeito, montamos sistemas de som totalmente independentes para cada momento. Enquanto a cerimônia acontece com sua sonorização dedicada e discreta, o palco da festa já está 100% montado, sonorizado e testado. Não há correria ou carregamento de caixas de som no meio dos seus convidados durante a festa. A transição é imediata e fluida.
+- **Transição Técnica Perfeita:** Sem silêncios ou ruídos entre o fim da cerimônia, o coquetel e o início da festa. Nossa equipe técnica opera de forma perfeitamente integrada sob a mesma batuta.
+- **Melhor Custo-Benefício:** A otimização da logística, do transporte e da equipe técnica envolvida permite oferecermos um valor final muito mais atrativo do que a contratação de duas bandas distintas de alto padrão.
+
+## 4. O Melhor para seu Casamento em Campinas e Interior de SP
+
+Se você vai realizar seu [casamento em Campinas](/), Valinhos, Vinhedo, Paulínia, Indaiatuba, Sorocaba ou demais cidades num raio de até duas horas, nossa base logística está perfeitamente estruturada para te atender com máxima pontualidade e segurança operacional.
+
+Nós conhecemos profundamente as particularidades acústicas e logísticas das principais fazendas para casamento, buffets, espaços ao ar livre, vinícolas e espaços de eventos do interior paulista. Isso garante que o som seja sempre cristalino, adequado e envolvente em qualquer ambiente escolhido por vocês.
+
+**Garanta a Melhor Trilha Sonora para o Seu "Sim"**
+
+Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invista em uma entrega profissional, segura e apaixonante, que ficará marcada para sempre na memória e no coração de todos os seus convidados. Venha conversar conosco e vamos desenhar juntos o cronograma musical perfeito para celebrar a sua história de amor!`
   }
 ];
 
