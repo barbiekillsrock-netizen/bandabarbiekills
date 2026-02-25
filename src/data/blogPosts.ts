@@ -108,7 +108,7 @@ Para nós, o entretenimento de luxo exige mais do que talento; exige pontualidad
 
 Nosso setlist não é uma lista aleatória de músicas; é uma jornada emocional planejada para manter a energia do seu evento sempre no topo. Atuamos com maestria em diferentes formatos, seja em um coquetel sofisticado em Vinhedo ou em uma grande convenção empresarial em Sorocaba.
 
-Focamos nos maiores hits de 2025, tendências do TikTok e clássicos atemporais do Pop e Rock, executados com:
+Focamos nos maiores hits de 2026, tendências do TikTok e clássicos atemporais do Pop e Rock, executados com:
 
 **Transições Dinâmicas ("Non-Stop"):** Utilizamos técnicas de DJ para eliminar os silêncios constrangedores entre as músicas. O show é contínuo, mantendo a pista de dança vibrante do início ao fim.
 
@@ -308,19 +308,19 @@ Se sua empresa está em Campinas, São Paulo ou região, entre em contato agora.
   },
   {
     slug: "musicas-mais-pedidas-casamento-2025",
-    title: "As 10 Músicas Mais Pedidas para Animar Festas de Casamento Sofisticadas em 2025",
-    metaTitle: "Top 10 Músicas Casamento 2025 | Playlist Festa Sofisticada - Barbie Kills",
-    metaDescription: "Confira as 10 músicas mais pedidas para casamentos sofisticados em 2025. Playlist com clássicos dos anos 90/2000 e hits modernos para festa inesquecível.",
-    excerpt: "Para garantir uma festa de casamento sofisticada, animada e cheia de energia em 2025, nada como uma playlist que mistura clássicos inesquecíveis com hits modernos.",
+    title: "As 10 Músicas Mais Pedidas para Animar Festas de Casamento Sofisticadas em 2026",
+    metaTitle: "Top 10 Músicas Casamento 2026 | Playlist Festa Sofisticada - Barbie Kills",
+    metaDescription: "Confira as 10 músicas mais pedidas para casamentos sofisticados em 2026. Playlist com clássicos dos anos 90/2000 e hits modernos para festa inesquecível.",
+    excerpt: "Para garantir uma festa de casamento sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis com hits modernos.",
     image: "/blog/banda-pop-rock-casamento.jpg",
     imageAlt: "Banda Barbie Kills tocando pop rock ao vivo em festa de casamento com noiva cantando",
-    date: "2025-01-03",
+    date: "2026-01-03",
     readTime: "6 min",
-    content: `Para garantir uma festa de [casamento](/blog/banda-para-casamento-estrutura-tecnica) sofisticada, animada e cheia de energia em 2025, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A [Barbie Kills](/) traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
+    content: `Para garantir uma festa de [casamento](/blog/banda-para-casamento-estrutura-tecnica) sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A [Barbie Kills](/) traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
 
 Você já foi a um casamento onde a música estava alta demais para conversar ou onde o som falhou na hora do "sim"? Nós sabemos que esses detalhes podem arruinar meses de planejamento. Por isso, a escolha do repertório e da [banda certa](/) é fundamental para o sucesso do evento.
 
-## Playlist de Festa para Casamento Sofisticado em 2025
+## Playlist de Festa para Casamento Sofisticado em 2026
 
 Confira os hits que não podem faltar no seu setlist para manter a pista cheia do início ao fim:
 
