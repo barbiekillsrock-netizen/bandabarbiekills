@@ -8,7 +8,10 @@ const ManifestoSection = () => {
             <img
               src="/manifesto-vocalista-banda.jpg"
               alt="Vocalista da Barbie Kills cantando com emoção em show ao vivo"
+              width={600}
+              height={600}
               className="w-full h-[500px] lg:h-[600px] object-cover rounded-3xl"
+              loading="lazy"
             />
             {/* Glow Effect */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-neon-pink/20 to-transparent opacity-50 pointer-events-none" />
@@ -17,13 +20,11 @@ const ManifestoSection = () => {
           {/* Coluna da Direita - Manifesto */}
           <div className="flex flex-col justify-center">
             <div className="space-y-4">
-              <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+            <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
                 Tocamos com <span className="neon-pink-text">ALMA.</span>
-              </h2>
-              <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+                <br />
                 Unimos as <span className="neon-pink-text">PESSOAS.</span>
-              </h2>
-              <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+                <br />
                 Transcendemos os <span className="neon-pink-text">SENTIMENTOS.</span>
               </h2>
             </div>
