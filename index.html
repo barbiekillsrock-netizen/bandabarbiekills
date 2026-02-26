@@ -4,13 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG"></script>
+    <!-- Google Analytics: deferred until first user interaction -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-FQYT8C0DFG');
+      (function(){
+        var loaded = false;
+        function loadGA(){
+          if(loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
+          s.async = true;
+          s.onload = function(){
+            gtag('js', new Date());
+            gtag('config', 'G-FQYT8C0DFG');
+          };
+          document.head.appendChild(s);
+          ['scroll','click','touchstart','keydown'].forEach(function(e){
+            document.removeEventListener(e, loadGA, {capture:true});
+          });
+        }
+        if('requestIdleCallback' in window){
+          requestIdleCallback(function(){
+            ['scroll','click','touchstart','keydown'].forEach(function(e){
+              document.addEventListener(e, loadGA, {capture:true, passive:true, once:true});
+            });
+            setTimeout(loadGA, 5000);
+          });
+        } else {
+          setTimeout(loadGA, 3000);
+        }
+      })();
     </script>
     <title>Barbie Kills | Banda para Casamentos, Corporativos e Festas em SP</title>
     <meta name="description" content="Barbie Kills: A banda definitiva de Pop Rock para seu Casamento ou Evento Corporativo. Atendendo SP Capital, Campinas e todo o Interior. Peça um orçamento." />
