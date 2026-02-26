@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.bandabarbiekills.com.br</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-02-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.bandabarbiekills.com.br/blog/producao-eventos-luxo-barbie-kills</loc>
+    <loc>https://www.bandabarbiekills.com.br/blog/banda-casamento-campinas-cerimonia-festa</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/blog/banda-para-casamento-estrutura-tecnica</loc>
     <lastmod>2026-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/blog/producao-eventos-luxo-barbie-kills</loc>
+    <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -25,20 +37,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bandabarbiekills.com.br/blog/banda-para-casamento-estrutura-tecnica</loc>
+    <loc>https://www.bandabarbiekills.com.br/blog/banda-evento-corporativo-sp-campinas</loc>
     <lastmod>2025-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bandabarbiekills.com.br/blog/musicas-mais-pedidas-casamento-2025</loc>
-    <lastmod>2025-01-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.bandabarbiekills.com.br/blog/banda-evento-corporativo-sp-campinas</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://www.bandabarbiekills.com.br/blog/musicas-mais-pedidas-casamento-2026</loc>
+    <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div className="relative z-10 w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen bg-black flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-28 pb-8 lg:pt-24 lg:pb-0">
         <div className="max-w-xl">
           {/* Logo */}
-          <img src="/logo-barbie-kills.png" alt="Barbie Kills" className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in" />
+          <img src="/logo-barbie-kills.png" alt="Logo da banda Barbie Kills" width={320} height={120} className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in" />
 
           {/* Decorative Headline */}
           <div className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
@@ -35,7 +35,9 @@ const HeroSection = () => {
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
         <img 
           src="/Banda_Casamentos_Eventos-2.png" 
-          alt="Barbie Kills ao vivo" 
+          alt="Show da banda Barbie Kills ao vivo em casamento premium em Campinas SP"
+          width={960}
+          height={1080}
           className="w-full h-full object-cover object-top lg:object-center"
           fetchPriority="high"
         />

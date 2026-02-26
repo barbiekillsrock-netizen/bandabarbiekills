@@ -33,6 +33,8 @@ const BlogPreview = () => {
                   <img
                     src={post.image}
                     alt={post.imageAlt}
+                    width={400}
+                    height={192}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     loading="lazy"
                   />

@@ -25,14 +25,14 @@ const MediaSection = () => {
         {/* Main Video */}
         <div className="mb-8">
           <div className="aspect-video rounded-2xl overflow-hidden video-glow">
-            <iframe src={`https://www.youtube.com/embed/${videos[0].id}`} title={videos[0].title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe src={`https://www.youtube.com/embed/${videos[0].id}`} title={videos[0].title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" />
           </div>
         </div>
 
         {/* Secondary Videos */}
         <div className="grid md:grid-cols-2 gap-8">
           {videos.slice(1).map(video => <div key={video.id} className="aspect-video rounded-2xl overflow-hidden video-glow hover:scale-[1.02] transition-transform duration-300">
-              <iframe src={`https://www.youtube.com/embed/${video.id}`} title={video.title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+              <iframe src={`https://www.youtube.com/embed/${video.id}`} title={video.title} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" />
             </div>)}
         </div>
       </div>

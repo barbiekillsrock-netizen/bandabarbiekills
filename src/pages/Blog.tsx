@@ -66,6 +66,8 @@ const Blog = () => {
                       <img
                         src={post.image}
                         alt={post.imageAlt}
+                        width={600}
+                        height={400}
                         className="w-full h-[300px] lg:h-[400px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                         loading="lazy"
                       />
