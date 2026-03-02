@@ -1,17 +1,20 @@
+import { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import HistorySection from '@/components/HistorySection';
-import ServicesSection from '@/components/ServicesSection';
-import ManifestoSection from '@/components/ManifestoSection';
-import ElevateSection from '@/components/ElevateSection';
-import WhoHiresSection from '@/components/WhoHiresSection';
-import UniqueShowSection from '@/components/UniqueShowSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import MediaSection from '@/components/MediaSection';
-import BlogPreview from '@/components/BlogPreview';
-import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
+
+// Lazy load below-the-fold sections to reduce TBT
+const HistorySection = lazy(() => import('@/components/HistorySection'));
+const ServicesSection = lazy(() => import('@/components/ServicesSection'));
+const ManifestoSection = lazy(() => import('@/components/ManifestoSection'));
+const ElevateSection = lazy(() => import('@/components/ElevateSection'));
+const WhoHiresSection = lazy(() => import('@/components/WhoHiresSection'));
+const UniqueShowSection = lazy(() => import('@/components/UniqueShowSection'));
+const TestimonialsSection = lazy(() => import('@/components/TestimonialsSection'));
+const MediaSection = lazy(() => import('@/components/MediaSection'));
+const BlogPreview = lazy(() => import('@/components/BlogPreview'));
+const Footer = lazy(() => import('@/components/Footer'));
+const WhatsAppButton = lazy(() => import('@/components/WhatsAppButton'));
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -97,17 +100,19 @@ const Index = () => {
       
       <Navbar />
       <HeroSection />
-      <HistorySection />
-      <ServicesSection />
-      <ManifestoSection />
-      <ElevateSection />
-      <WhoHiresSection />
-      <UniqueShowSection />
-      <TestimonialsSection />
-      <MediaSection />
-      <BlogPreview />
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={null}>
+        <HistorySection />
+        <ServicesSection />
+        <ManifestoSection />
+        <ElevateSection />
+        <WhoHiresSection />
+        <UniqueShowSection />
+        <TestimonialsSection />
+        <MediaSection />
+        <BlogPreview />
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </main>
   );
 };
