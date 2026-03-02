@@ -35,7 +35,7 @@ const TestimonialsSection = () => {
               </div>
 
               {/* Quote Icon */}
-              <Quote className="w-8 h-8 text-neon-pink/40 mx-auto mb-4" />
+              <Quote className="w-8 h-8 text-neon-pink/40 mx-auto mb-4" aria-hidden="true" />
 
               {/* Quote Text */}
               <p className="text-body text-lg leading-relaxed mb-6 italic">
@@ -44,9 +44,9 @@ const TestimonialsSection = () => {
 
               {/* Name & Role */}
               <div>
-                <h4 className="heading-display text-xl text-foreground">
+                <h3 className="heading-display text-xl text-foreground">
                   {testimonial.name}
-                </h4>
+                </h3>
                 <p className="subtitle text-xs text-muted-foreground mt-1">
                   {testimonial.role}
                 </p>

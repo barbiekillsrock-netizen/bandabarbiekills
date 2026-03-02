@@ -20,7 +20,7 @@ const ManifestoSection = () => {
           {/* Coluna da Direita - Manifesto */}
           <div className="flex flex-col justify-center">
             <div className="space-y-4">
-            <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+              <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
                 Tocamos com <span className="neon-pink-text">ALMA.</span>
                 <br />
                 Unimos as <span className="neon-pink-text">PESSOAS.</span>

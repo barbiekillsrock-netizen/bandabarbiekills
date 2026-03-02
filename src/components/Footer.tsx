@@ -80,15 +80,15 @@ const Footer = () => {
             <div className="font-inter text-sm">
               <p>R. Ferreira Penteado, 1221</p>
               <p>Centro, Campinas</p>
-              <p className="text-xs mt-1 opacity-75">Atendimento mediante agendamento</p>
+              <p className="text-xs mt-1 opacity-80">Atendimento mediante agendamento</p>
             </div>
           </div>
         </div>
 
         {/* SEO Local - Áreas Atendidas */}
         <div className="mt-12 pt-8 border-t border-white/5 text-center">
-          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">Áreas Atendidas</p>
-          <div className="text-[10px] text-muted-foreground/60 max-w-3xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
+          <p className="text-xs text-muted-foreground/90 uppercase tracking-widest mb-4">Áreas Atendidas</p>
+          <div className="text-[11px] text-muted-foreground/80 max-w-3xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
             <span>São Paulo</span>
             <span>•</span>
             <span>Campinas</span>
