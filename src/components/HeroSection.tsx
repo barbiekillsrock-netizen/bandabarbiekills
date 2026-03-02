@@ -45,7 +45,7 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float hidden lg:flex">
-        <a href="#historia" className="flex flex-col items-center gap-2 text-foreground/60 hover:text-neon-pink transition-colors">
+        <a href="#historia" className="flex flex-col items-center gap-2 text-foreground/60 hover:text-neon-pink transition-colors" aria-label="Rolar para a seção Nossa História">
           <span className="font-oswald text-xs uppercase tracking-widest">Descubra</span>
           <ChevronDown className="w-6 h-6" />
         </a>

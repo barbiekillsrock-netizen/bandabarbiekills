@@ -18,9 +18,9 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header with SEO keywords */}
         <header className="text-center mb-12">
-          <div className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+          <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
             NOSSAS <span className="neon-pink-text">SOLUÇÕES MUSICAIS</span>
-          </div>
+          </h2>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
             Entretenimento de <strong>alto padrão em Campinas</strong> e região para cada momento do seu evento
           </p>
@@ -60,9 +60,9 @@ const ServicesSection = () => {
             <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
-                  <h2 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
                     FESTAS DE <span className="neon-pink-text">CASAMENTO</span>
-                  </h2>
+                  </h3>
                   <p className="text-body text-muted-foreground mb-6">
                     Transformamos sua festa no <strong>show da sua vida</strong> com performance de alta voltagem e repertório Pop/Rock.
                   </p>
@@ -104,9 +104,9 @@ const ServicesSection = () => {
             <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
-                  <h2 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
+                  <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
                     EVENTOS <span className="neon-pink-text">CORPORATIVOS</span>
-                  </h2>
+                  </h3>
                   <p className="text-body text-muted-foreground mb-6">
                     Entretenimento premium para convenções e premiações com <strong>infraestrutura de som e luz</strong> de última geração.
                   </p>
