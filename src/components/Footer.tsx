@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
-            <img src="/logo-barbie-kills.png" alt="Logo da banda Barbie Kills" width={200} height={80} className="h-16 lg:h-20" loading="lazy" />
+            <img src="/logo-barbie-kills.png" alt="Logo da banda Barbie Kills" width={200} height={80} className="w-48 md:w-56 lg:w-64 object-contain" loading="lazy" />
           </div>
 
           {/* Social Links - Centered */}
