@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap');
+/* Fonts loaded via index.html preload for non-render-blocking */
 
 @tailwind base;
 @tailwind components;

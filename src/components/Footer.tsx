@@ -116,7 +116,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="text-center mt-12 pt-8 border-t border-white/5">
           <p className="font-inter text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Barbie Kills. Todos os direitos reservados.
+            © 2025 Barbie Kills. Todos os direitos reservados.
           </p>
         </div>
       </div>
