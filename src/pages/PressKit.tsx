@@ -17,7 +17,7 @@ const PressKit = () => {
         <div className="container mx-auto px-6 py-6 flex items-center justify-between">
           <Link to="/" className="transition-transform duration-300 hover:scale-105">
             <img
-              src="/logo-barbie-kills.png"
+              src="/logo-barbie-kills.webp"
               alt="Logo da banda Barbie Kills"
               width={160}
               height={56}

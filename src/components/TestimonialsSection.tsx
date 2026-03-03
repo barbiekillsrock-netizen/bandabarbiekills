@@ -1,6 +1,6 @@
 import { Quote } from 'lucide-react';
 const testimonials = [{
-  image: '/depoimento-marcos-mion-banda.jpg',
+  image: '/depoimento-marcos-mion-banda.webp',
   name: 'Marcos Mion',
   role: 'Apresentador de TV',
   quote: 'Fantástica! A vocalista canta demais, sempre surpreende e a banda toda é espetacular​'

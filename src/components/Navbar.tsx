@@ -58,7 +58,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center transition-transform duration-300 hover:scale-105">
             <img
-              src="/logo-barbie-kills.png"
+              src="/logo-barbie-kills.webp"
               alt="Barbie Kills"
               width={160}
               height={56}
