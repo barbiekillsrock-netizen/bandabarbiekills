@@ -6,11 +6,11 @@ const ManifestoSection = () => {
           {/* Coluna da Esquerda - Imagem */}
           <div className="relative">
             <img
-              src="/manifesto-vocalista-banda.jpg"
+              src="/manifesto-vocalista-banda.webp"
               alt="Vocalista da Barbie Kills cantando com emoção em show ao vivo"
               width={600}
               height={600}
-              className="w-full h-[500px] lg:h-[600px] object-cover rounded-3xl"
+              className="w-full h-auto aspect-[4/5] lg:aspect-square object-cover rounded-3xl"
               loading="lazy"
             />
             {/* Glow Effect */}
