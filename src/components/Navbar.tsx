@@ -53,19 +53,19 @@ const Navbar = () => {
           : 'bg-black'
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center transition-transform duration-300 hover:scale-105">
+          <Link to="/" className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105">
             <img
               src="/logo-barbie-kills.webp"
               alt="Barbie Kills"
-              className="h-12 md:h-14 w-auto"
+              className="h-10 md:h-14 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               link.isRoute ? (
                 <Link
@@ -112,7 +112,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMobileMenuOpen}
@@ -123,7 +123,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
+          <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 link.isRoute ? (
