@@ -5,12 +5,12 @@ const testimonials = [{
   role: 'Apresentador de TV',
   quote: 'Fantástica! A vocalista canta demais, sempre surpreende e a banda toda é espetacular​'
 }, {
-  image: '/depoimento-tiago-kiss-produtor.jpg',
+  image: '/depoimento-tiago-kiss-produtor.webp',
   name: 'Thiago Kiss',
   role: 'Produtor Charlie Brown Jr. e Titãs',
   quote: 'A banda tá f*da, conceito muito bom e a sonoridade está impecável! Impressiona por onde passa'
 }, {
-  image: '/depoimento-tatiane-franco-evento.jpg',
+  image: '/depoimento-tatiane-franco-evento.webp',
   name: 'Tatiane Franco',
   role: 'COO Laboratórios Franco do Amaral',
   quote: 'Completamente apaixonada pelo show da minha festa! Também tive um atendimento excepcional'
