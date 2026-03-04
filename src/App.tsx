@@ -9,6 +9,7 @@ import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import XR18Manual from "./pages/XR18Manual";
 import PressKit from "./pages/PressKit";
+import Rider from "./pages/Rider";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/XR18" element={<XR18Manual />} />
           <Route path="/press-kit" element={<PressKit />} />
+          <Route path="/rider" element={<Rider />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
