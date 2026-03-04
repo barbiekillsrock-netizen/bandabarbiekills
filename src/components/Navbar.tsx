@@ -53,7 +53,7 @@ const Navbar = () => {
           : 'bg-black'
       }`}
     >
-      <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-4">
+      <div className="w-full px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105">
