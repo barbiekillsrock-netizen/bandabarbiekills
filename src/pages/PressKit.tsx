@@ -19,21 +19,9 @@ const PressKit = () => {
             <img
               src="/logo-barbie-kills.webp"
               alt="Logo da banda Barbie Kills"
-              width={160}
-              height={56}
-              className="h-12 md:h-14"
+              className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
-          <Button variant="neonPink" size="lg" asChild>
-            <a
-              href="https://drive.google.com/drive/folders/10an798APQs6ewVd_v-2Dcq-ZjVutEPMP?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Download className="mr-2" size={20} />
-              Baixar Press Kit
-            </a>
-          </Button>
         </div>
       </header>
 
@@ -47,7 +35,7 @@ const PressKit = () => {
             Material oficial para imprensa e contratantes
           </p>
           <p className="text-body text-lg leading-relaxed">
-            Acesse fotos em alta resolução, logotipos, rider técnico e todas as informações necessárias sobre a Barbie Kills.
+            Acesse fotos em alta resolução e logotipos e todas as informações necessárias sobre a Barbie Kills.
           </p>
           <Button variant="hero" size="xl" asChild>
             <a

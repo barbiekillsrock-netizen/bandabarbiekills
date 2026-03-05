@@ -3,22 +3,23 @@ import { Link } from 'react-router';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const channelList = [
-  { canal: '1', instrumento: 'Guitarra (amplificador)', microfone: 'Shure SM57', pedestal: 'Girafa ou de chão' },
-  { canal: '2', instrumento: 'Contrabaixo', microfone: 'Direct Box', pedestal: 'N/A' },
-  { canal: '3', instrumento: 'Caixa / Bateria', microfone: 'Shure SM57', pedestal: 'Clamp' },
-  { canal: '4', instrumento: 'Bumbo / Bateria', microfone: 'AKG D112', pedestal: 'Chão' },
-  { canal: '5', instrumento: 'Chimbal / Bateria', microfone: 'Shure SM57', pedestal: 'Girafa' },
-  { canal: '6', instrumento: 'Tom 1 / Bateria', microfone: 'Sennheiser e604', pedestal: 'Clamp' },
-  { canal: '7', instrumento: 'Tom 2 / Bateria', microfone: 'Sennheiser e604', pedestal: 'Clamp' },
-  { canal: '8', instrumento: 'Surdo / Bateria', microfone: 'Sennheiser e604', pedestal: 'Clamp' },
-  { canal: '9', instrumento: 'Over / Bateria', microfone: 'Shure SM81', pedestal: 'Girafa' },
-  { canal: '10', instrumento: 'Voz 1', microfone: 'Beta58A sem fio', pedestal: 'Girafa' },
-  { canal: '11', instrumento: 'Voz 2', microfone: 'Beta58A sem fio', pedestal: 'Girafa' },
-  { canal: '12', instrumento: 'Voz 3', microfone: 'Shure Beta 58A (com fio)', pedestal: 'Girafa' },
+  { canal: '1', instrumento: 'Kick', microfone: 'AKG D112', pedestal: 'Chão' },
+  { canal: '2', instrumento: 'Snare Top', microfone: 'Shure SM57', pedestal: 'Clamp' },
+  { canal: '3', instrumento: 'Hi-Hat', microfone: 'Shure SM81', pedestal: 'Girafa' },
+  { canal: '4', instrumento: 'Tom 1', microfone: 'Sennheiser e604', pedestal: 'Clamp' },
+  { canal: '5', instrumento: 'Tom 2', microfone: 'Sennheiser e604', pedestal: 'Clamp' },
+  { canal: '6', instrumento: 'Floor', microfone: 'Sennheiser e604', pedestal: 'Clamp' },
+  { canal: '7', instrumento: 'Over L', microfone: 'Shure SM81', pedestal: 'Girafa' },
+  { canal: '8', instrumento: 'Over R', microfone: 'Shure SM81', pedestal: 'Girafa' },
+  { canal: '9', instrumento: 'Contrabaixo', microfone: 'Direct Box', pedestal: 'N/A' },
+  { canal: '10', instrumento: 'Guitarra', microfone: 'Shure SM57', pedestal: 'Girafa ou de chão' },
+  { canal: '11', instrumento: 'Violão', microfone: 'Direct Box', pedestal: 'N/A' },
+  { canal: '12', instrumento: 'Ukulele', microfone: 'Direct Box', pedestal: 'N/A' },
   { canal: '13', instrumento: 'Trompete', microfone: 'Shure Beta 98H/C ou SM58', pedestal: 'Girafa' },
-  { canal: '14', instrumento: 'Violão', microfone: 'Direct Box', pedestal: 'N/A' },
-  { canal: '15', instrumento: 'Ukulele', microfone: 'Direct Box', pedestal: 'N/A' },
-  { canal: '16', instrumento: 'VS', microfone: 'Direct Box', pedestal: 'N/A' },
+  { canal: '14', instrumento: 'VS', microfone: 'Direct Box', pedestal: 'N/A' },
+  { canal: '15', instrumento: 'Voz Principal 1', microfone: 'Beta 58A sem fio', pedestal: 'Girafa' },
+  { canal: '16', instrumento: 'Voz Principal 2', microfone: 'Beta 58A sem fio', pedestal: 'Girafa' },
+  { canal: '17', instrumento: 'Voz Masculino', microfone: 'Shure Beta 58A (com fio)', pedestal: 'Girafa' },
 ];
 
 const Rider = () => {
@@ -34,7 +35,7 @@ const Rider = () => {
         <header className="bg-black border-b border-white/10 py-6 px-4 md:px-8">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <Link to="/">
-              <img src="/logo-barbie-kills.webp" alt="Barbie Kills" className="h-10 md:h-14 w-auto" />
+              <img src="/logo-barbie-kills.webp" alt="Barbie Kills" className="h-10 md:h-14 w-auto object-contain" />
             </Link>
             <span className="font-oswald text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground">
               Rider Técnico & Camarim
