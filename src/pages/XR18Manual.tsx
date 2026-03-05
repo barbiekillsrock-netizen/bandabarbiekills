@@ -13,7 +13,7 @@ const XR18Manual = () => {
       {/* Header */}
       <div className="container mx-auto px-6 py-8">
         <Link to="/" className="inline-block mb-12">
-          <img src="/logo-barbie-kills.webp" alt="Logo da banda Barbie Kills" width={160} height={56} className="h-12 md:h-14" />
+          <img src="/logo-barbie-kills.webp" alt="Logo da banda Barbie Kills" className="h-12 md:h-14 w-auto object-contain" />
         </Link>
 
         <div className="max-w-4xl mx-auto">
