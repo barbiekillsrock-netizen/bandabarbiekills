@@ -400,7 +400,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
   },
   {
     slug: "como-organizar-aniversario-inesquecivel-guia-barbie-kills",
-    title: "🎸 Como Organizar um Aniversário Inesquecível (O Guia Barbie Kills)",
+    title: "Como Organizar um Aniversário Inesquecível (O Guia Barbie Kills)",
     metaTitle: "Como Organizar Aniversário Inesquecível | Banda ao Vivo Campinas - Barbie Kills",
     metaDescription: "Guia completo para transformar sua festa de aniversário em um evento épico. Dicas de som, logística e o fator 'Uau' com banda ao vivo em Campinas e SP.",
     excerpt: "Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e um grand finale. Confira os 4 pilares para uma festa inesquecível.",
