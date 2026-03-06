@@ -96,9 +96,64 @@ const BlogPost = () => {
     return elements.length > 0 ? elements : text;
   };
 
+  // Parse YouTube embed
+  const parseYouTubeEmbed = (url: string) => {
+    // Handle YouTube Shorts and regular URLs
+    const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/);
+    const regularMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+    const videoId = shortsMatch?.[1] || regularMatch?.[1];
+    if (!videoId) return null;
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
+
   // Parse markdown-like content to HTML
   const renderContent = (content: string) => {
     return content.split('\n\n').map((paragraph, index) => {
+      // YouTube embed
+      if (paragraph.startsWith('{{youtube:') && paragraph.endsWith('}}')) {
+        const url = paragraph.slice(10, -2);
+        const embedUrl = parseYouTubeEmbed(url);
+        if (embedUrl) {
+          return (
+            <div key={index} className="my-10 flex justify-center">
+              <div className="w-full max-w-md aspect-[9/16] rounded-lg overflow-hidden border border-white/10 shadow-xl">
+                <iframe
+                  src={embedUrl}
+                  title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
+      }
+
+      // Inline image with caption
+      if (paragraph.startsWith('{{image:') && paragraph.endsWith('}}')) {
+        const parts = paragraph.slice(8, -2).split('|');
+        const src = parts[0];
+        const alt = parts[1] || '';
+        const caption = parts[2] || '';
+        return (
+          <figure key={index} className="my-10 flex flex-col items-center">
+            <img
+              src={src}
+              alt={alt}
+              className="w-full max-w-2xl rounded-lg object-cover"
+              loading="lazy"
+            />
+            {caption && (
+              <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">
+                {caption}
+              </figcaption>
+            )}
+          </figure>
+        );
+      }
+
       // Headers
       if (paragraph.startsWith('## ')) {
         return (
