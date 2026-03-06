@@ -27,6 +27,11 @@
   ],
   "redirects": [
     {
+      "source": "/blog/musicas-mais-pedidas-casamento-2025",
+      "destination": "/blog/musicas-mais-pedidas-casamento-2026",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "bandabarbiekills.com.br" }],
       "destination": "https://www.bandabarbiekills.com.br/:path*",
