@@ -157,7 +157,7 @@ const BlogPost = () => {
       // Headers
       if (paragraph.startsWith('## ')) {
         return (
-          <h2 key={index} className="heading-display text-2xl md:text-3xl text-foreground mt-10 mb-4">
+          <h2 key={index} className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4">
             {parseInlineMarkdown(paragraph.replace('## ', ''))}
           </h2>
         );
