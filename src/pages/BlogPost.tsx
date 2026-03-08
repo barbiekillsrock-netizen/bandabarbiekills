@@ -290,7 +290,7 @@ const BlogPost = () => {
               <p className="text-muted-foreground mb-6">
                 Fale com a Barbie Kills e garanta sua data.
               </p>
-              <Button variant="neonPink" size="lg" asChild>
+              <Button variant="neonPink" size="lg" asChild className="whitespace-normal h-auto py-4 text-center leading-snug">
                 <a 
                   href="https://wa.me/5519981736659" 
                   target="_blank" 
