@@ -296,7 +296,7 @@ const BlogPost = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  SOLICITAR ORÇAMENTO
+                  {post.ctaText || 'SOLICITAR ORÇAMENTO'}
                 </a>
               </Button>
             </div>
