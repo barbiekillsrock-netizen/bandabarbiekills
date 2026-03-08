@@ -9,6 +9,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   content: string;
+  ctaText?: string;
 }
 
 export const blogPosts: BlogPost[] = [
