@@ -493,7 +493,8 @@ Essa presença magnética é o que faz os convidados gravarem stories, postarem 
 
 Escolher a banda certa para um grande casamento no Brasil é escolher entre o "bom o suficiente" e o "inesquecível". Os 5 pilares que apresentamos — engenharia de som, identidade visual, experiência LED, curadoria de repertório e presença de palco — são o filtro que separa bandas comuns de bandas que realmente merecem estar nos maiores eventos do país.
 
-A **Barbie Kills** nasceu em Campinas com a missão de [atender os casamentos mais exclusivos](/blog/banda-casamento-campinas-cerimonia-festa) do interior de São Paulo e da capital. Se o seu evento exige excelência absoluta em cada um desses pilares, estamos prontos para entregar uma experiência que seus convidados jamais esquecerão.`
+A **Barbie Kills** nasceu em Campinas com a missão de [atender os casamentos mais exclusivos](/blog/banda-casamento-campinas-cerimonia-festa) do interior de São Paulo e da capital. Se o seu evento exige excelência absoluta em cada um desses pilares, estamos prontos para entregar uma experiência que seus convidados jamais esquecerão.`,
+    ctaText: "CLIQUE AQUI PARA CONVERSAR SOBRE A PRODUÇÃO MUSICAL DO SEU EVENTO"
   }
 ];
 
