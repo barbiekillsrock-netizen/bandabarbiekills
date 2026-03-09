@@ -18,9 +18,12 @@ const HeroSection = () => {
           </div>
 
           {/* H1 - Main SEO Title */}
-          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
-            A banda premium para casamentos e eventos corporativos em Campinas e SP. Um show de alta energia com o melhor do Pop, Rock, Indie, Soul, Jazz e Música Brasileira.
+          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in animation-delay-400">
+            Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
           </h1>
+          <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
+            Um show de alta energia com o melhor do Pop, Rock, Música Brasileira, MPB, Samba Rock
+          </h2>
 
           {/* CTA Button */}
           <div className="animate-fade-in animation-delay-600">
