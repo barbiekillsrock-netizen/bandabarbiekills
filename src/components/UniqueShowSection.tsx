@@ -38,8 +38,8 @@ const UniqueShowSection = () => {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {showFeatures.map((feature, index) => (
-            <div
+          {showFeatures.map((feature) => (
+            <article
               key={feature.title}
               className="group relative p-8 rounded-2xl bg-card border border-white/5 hover:border-neon-pink/50 transition-all duration-500 hover-lift"
             >
@@ -64,7 +64,7 @@ const UniqueShowSection = () => {
                   {feature.description}
                 </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

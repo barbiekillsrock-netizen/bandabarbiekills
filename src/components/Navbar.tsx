@@ -10,12 +10,12 @@ const SpotifyIcon = ({ size = 18, className = '' }: { size?: number; className?:
 );
 
 const socialLinks = [
-  { href: 'https://instagram.com/barbiekillsrock', icon: Instagram, label: 'Instagram' },
-  { href: 'https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1', icon: Youtube, label: 'YouTube' },
-  { href: 'https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ', icon: null, label: 'Spotify' },
+  { href: 'https://instagram.com/barbiekillsrock', icon: Instagram, label: 'Instagram da Barbie Kills' },
+  { href: 'https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1', icon: Youtube, label: 'YouTube da Barbie Kills' },
+  { href: 'https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ', icon: null, label: 'Spotify da Barbie Kills' },
 ];
 
-// v1.1
+// v1.2
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,16 +31,15 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#historia', label: 'História' },
-    { href: '#diferencial', label: 'Diferencial' },
+    { href: '#historia', label: 'História da Banda' },
+    { href: '#diferencial', label: 'Diferenciais' },
     { href: '#depoimentos', label: 'Depoimentos' },
-    { href: '#midia', label: 'Mídia' },
+    { href: '#midia', label: 'Vídeos e Mídia' },
     { href: '/blog', label: 'Blog', isRoute: true },
   ];
 
   const handleAnchorClick = (href: string) => {
     if (!isHomePage && href.startsWith('#')) {
-      // Navigate to home page with hash
       window.location.href = '/' + href;
     }
   };
@@ -52,11 +51,12 @@ const Navbar = () => {
           ? 'bg-black backdrop-blur-lg border-b border-white/10'
           : 'bg-black'
       }`}
+      aria-label="Navegação principal"
     >
       <div className="w-full px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105">
+          <Link to="/" className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105" aria-label="Barbie Kills - Página Inicial">
             <img
               src="/logo-barbie-kills.webp"
               alt="Barbie Kills"
@@ -116,7 +116,7 @@ const Navbar = () => {
           <button
             className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

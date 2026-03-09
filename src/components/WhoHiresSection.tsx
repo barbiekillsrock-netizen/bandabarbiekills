@@ -29,12 +29,11 @@ const WhoHiresSection = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">QUEM NOS <span className="neon-pink-text">CONTRATA</span> PROCURA</h2>
-          
         </div>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {features.map((feature, index) => <div key={feature.title} className="glass-card p-8 lg:p-10 rounded-2xl hover-lift group" style={{
+          {features.map((feature, index) => <article key={feature.title} className="glass-card p-8 lg:p-10 rounded-2xl hover-lift group" style={{
           animationDelay: `${index * 100}ms`
         }}>
               <div className="flex items-start gap-6">
@@ -52,7 +51,7 @@ const WhoHiresSection = () => {
                   </p>
                 </div>
               </div>
-            </div>)}
+            </article>)}
         </div>
       </div>
     </section>;

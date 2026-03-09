@@ -26,7 +26,7 @@ const ServicesSection = () => {
           </p>
         </header>
 
-        {/* Tabs Component */}
+        {/* Tabs Component - visual navigation */}
         <Tabs defaultValue="casamentos" className="w-full max-w-5xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 bg-[#0a0010] border border-white/10 rounded-xl p-1 mb-8 gap-1">
             <TabsTrigger 
@@ -56,8 +56,8 @@ const ServicesSection = () => {
           </TabsList>
 
           {/* Tab 1: Casamentos */}
-          <TabsContent value="casamentos" className="mt-0">
-            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
+          <TabsContent value="casamentos" className="mt-0" forceMount>
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent data-[state=inactive]:hidden" data-service="casamentos">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
                   <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
@@ -100,8 +100,8 @@ const ServicesSection = () => {
           </TabsContent>
 
           {/* Tab 2: Corporativo */}
-          <TabsContent value="corporativo" className="mt-0">
-            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
+          <TabsContent value="corporativo" className="mt-0" forceMount>
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent data-[state=inactive]:hidden" data-service="corporativo">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
                   <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
@@ -151,8 +151,8 @@ const ServicesSection = () => {
           </TabsContent>
 
           {/* Tab 3: Cerimônias - Los Libres */}
-          <TabsContent value="cerimonias" className="mt-0">
-            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent">
+          <TabsContent value="cerimonias" className="mt-0" forceMount>
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent data-[state=inactive]:hidden" data-service="cerimonias">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
                   <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
