@@ -435,7 +435,7 @@ Para o aniversariante aproveitar, o planejamento deve ser impecável.
 
 **Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece suporte técnico. Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
 
-{{image:/blog/banda-festa-aniversario-campinas.jpg|Vocalista da Barbie Kills em performance ao vivo em festa de aniversário em Campinas|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
+{{image:/blog/banda-festa-aniversario-campinas.webp|Vocalista da Banda Barbie Kills em Show no Interior de SP|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
 
 ## 4. O Fator "Uau"
 
