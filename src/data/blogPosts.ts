@@ -168,7 +168,7 @@ Transforme seu evento corporativo, casamento ou festa particular em um marco. En
     metaDescription: "Descubra como a Barbie Kills transforma festas de aniversário em shows memoráveis. Performance ao vivo com interatividade, repertório personalizado e estrutura profissional.",
     excerpt: "Organizar uma festa de aniversário para celebrar um marco importante traz sempre o mesmo desafio: como fugir do comum? Descubra como transformamos a celebração em um espetáculo.",
     image: "/blog/banda-festa-aniversario-sp.webp",
-    imageAlt: "Banda Barbie Kills tocando ao vivo em festa de aniversário em São Paulo",
+    imageAlt: "Banda para Eventos Corporativos em Americana e Santa Bárbara",
     date: "2026-01-07",
     readTime: "6 min",
     content: `Organizar uma [festa de aniversário](/#servicos) para celebrar um marco importante — sejam 30, 40, 50 ou 60 anos — traz sempre o mesmo desafio: como fugir do comum? O jantar tradicional ou a playlist mecânica de sempre já não surpreendem. Quem busca celebrar a vida em grande estilo quer uma noite vibrante, com a energia pulsante de um festival de rock e a sofisticação de um evento de gala.
