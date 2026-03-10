@@ -90,7 +90,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
     metaDescription: "Descubra os bastidores da Barbie Kills: gestão profissional, repertório estratégico, time fixo e estética glam que transformam eventos corporativos e casamentos em espetáculos.",
     excerpt: "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
     image: "/blog/producao-eventos-luxo-barbie-kills.webp",
-    imageAlt: "Guitarrista da Barbie Kills tocando entre os convidados em evento de luxo em Campinas SP",
+    imageAlt: "Produção Musical para Eventos em Louveira e Jaguariúna",
     date: "2026-01-08",
     readTime: "6 min",
     content: `Quando você vê a [Barbie Kills](/) no palco, o impacto é imediato: uma energia explosiva, iluminação digna de grandes festivais e uma estética Glam Pop que hipnotiza a plateia. Mas, para quem organiza eventos, a mágica real acontece muito antes do primeiro acorde. Você sabe o que realmente garante o sucesso de uma [banda para eventos corporativos](/blog/banda-evento-corporativo-sp-campinas), coquetéis ou [casamentos de alto padrão](/blog/banda-para-casamento-estrutura-tecnica)?
