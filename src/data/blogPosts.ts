@@ -314,7 +314,7 @@ Se sua empresa está em Campinas, São Paulo ou região, entre em contato agora.
     metaDescription: "Confira as 10 músicas mais pedidas para casamentos sofisticados em 2026. Playlist com clássicos dos anos 90/2000 e hits modernos para festa inesquecível.",
     excerpt: "Para garantir uma festa de casamento sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis com hits modernos.",
     image: "/blog/banda-pop-rock-casamento.webp",
-    imageAlt: "Banda Barbie Kills tocando pop rock ao vivo em festa de casamento com noiva cantando",
+    imageAlt: "Melhor Banda de Casamento em Piracicaba e Região",
     date: "2026-01-03",
     readTime: "6 min",
     content: `Para garantir uma festa de [casamento](/blog/banda-para-casamento-estrutura-tecnica) sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A [Barbie Kills](/) traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
