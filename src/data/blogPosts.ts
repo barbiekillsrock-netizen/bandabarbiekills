@@ -449,8 +449,8 @@ Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer part
     metaTitle: "Quais Bandas de Casamento São Recomendadas para Festas Grandes no Brasil? | Barbie Kills",
     metaDescription: "Descubra o que define uma banda de elite para grandes casamentos no Brasil: engenharia de som audiófila, experiência visual com LED e curadoria musical exclusiva.",
     excerpt: "O que separa uma banda comum de uma banda de elite para grandes casamentos? Descubra os 5 pilares que definem a excelência no entretenimento musical para festas grandiosas no Brasil.",
-    image: "/blog/bandas-casamento-festas-grandes-brasil.jpg",
-    imageAlt: "Vocalista da Barbie Kills cantando ao vivo em grande casamento no Brasil com iluminação profissional",
+    image: "/blog/bandas-casamento-festas-grandes-brasil.webp",
+    imageAlt: "Banda para Casamento de Luxo em Santana de Parnaíba e Alphaville",
     date: "2026-03-08",
     readTime: "8 min",
     content: `Quando falamos de grandes casamentos no Brasil — eventos com 300, 500 ou até 1.000 convidados — a escolha da banda deixa de ser uma questão de "gosto pessoal" e se torna uma decisão técnica e estratégica. O entretenimento musical é o pilar central da experiência dos convidados e, em festas dessa magnitude, qualquer falha é amplificada exponencialmente.
