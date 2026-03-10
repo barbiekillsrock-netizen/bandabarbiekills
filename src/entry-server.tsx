@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import PressKit from "./pages/PressKit";
+import Rider from "./pages/Rider";
 
 interface HelmetContext {
   helmet?: HelmetServerState;
