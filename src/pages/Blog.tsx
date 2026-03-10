@@ -21,7 +21,7 @@ const Blog = () => {
           content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP. Assista ao show e peça seu orçamento." 
         />
         <link rel="canonical" href="https://www.bandabarbiekills.com.br/blog" />
-        <meta property="og:title" content="Blog sobre Casamentos e Eventos em Campinas e SP | Barbie Kills" />
+        <meta property="og:title" content="Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills" />
         <meta property="og:description" content="Dicas sobre música ao vivo para casamentos e eventos corporativos em Campinas e Interior de SP." />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br/blog" />
         <meta property="og:type" content="website" />
