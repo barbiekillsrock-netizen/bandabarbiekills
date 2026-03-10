@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
     excerpt: "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
     image: "/blog/banda-pop-rock-casamento.webp",
-    imageAlt: "Estrutura de som e iluminação profissional da Barbie Kills em casamento",
+    imageAlt: "Banda para Casamento em Valinhos e Vinhedo - Barbie Kills",
     date: "2026-01-09",
     readTime: "7 min",
     content: `Você já foi a um [casamento](/#servicos) onde a música estava alta demais a ponto de impedir a conversa nas mesas? Ou, pior, onde o microfone falhou e deu aquele ruído agudo (microfonia) bem na hora do "sim" ou durante o discurso emocionado do pai da noiva?
@@ -90,7 +90,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
     metaDescription: "Descubra os bastidores da Barbie Kills: gestão profissional, repertório estratégico, time fixo e estética glam que transformam eventos corporativos e casamentos em espetáculos.",
     excerpt: "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
     image: "/blog/producao-eventos-luxo-barbie-kills.webp",
-    imageAlt: "Guitarrista da Barbie Kills tocando entre os convidados em evento de luxo em Campinas SP",
+    imageAlt: "Produção Musical para Eventos em Louveira e Jaguariúna",
     date: "2026-01-08",
     readTime: "6 min",
     content: `Quando você vê a [Barbie Kills](/) no palco, o impacto é imediato: uma energia explosiva, iluminação digna de grandes festivais e uma estética Glam Pop que hipnotiza a plateia. Mas, para quem organiza eventos, a mágica real acontece muito antes do primeiro acorde. Você sabe o que realmente garante o sucesso de uma [banda para eventos corporativos](/blog/banda-evento-corporativo-sp-campinas), coquetéis ou [casamentos de alto padrão](/blog/banda-para-casamento-estrutura-tecnica)?
@@ -168,7 +168,7 @@ Transforme seu evento corporativo, casamento ou festa particular em um marco. En
     metaDescription: "Descubra como a Barbie Kills transforma festas de aniversário em shows memoráveis. Performance ao vivo com interatividade, repertório personalizado e estrutura profissional.",
     excerpt: "Organizar uma festa de aniversário para celebrar um marco importante traz sempre o mesmo desafio: como fugir do comum? Descubra como transformamos a celebração em um espetáculo.",
     image: "/blog/banda-festa-aniversario-sp.webp",
-    imageAlt: "Banda Barbie Kills tocando ao vivo em festa de aniversário em São Paulo",
+    imageAlt: "Banda para Eventos Corporativos em Americana e Santa Bárbara",
     date: "2026-01-07",
     readTime: "6 min",
     content: `Organizar uma [festa de aniversário](/#servicos) para celebrar um marco importante — sejam 30, 40, 50 ou 60 anos — traz sempre o mesmo desafio: como fugir do comum? O jantar tradicional ou a playlist mecânica de sempre já não surpreendem. Quem busca celebrar a vida em grande estilo quer uma noite vibrante, com a energia pulsante de um festival de rock e a sofisticação de um evento de gala.
@@ -235,8 +235,8 @@ Pronto para transformar seu evento? Entre em contato conosco e vamos desenhar o 
     metaTitle: "Banda para Evento Corporativo SP Campinas | Festa de Empresa - Barbie Kills",
     metaDescription: "Descubra por que a Barbie Kills é a banda ideal para eventos corporativos em Campinas e região. Versatilidade musical, infraestrutura técnica e logística otimizada.",
     excerpt: "Organizar um evento corporativo de sucesso exige precisão cirúrgica. Descubra por que a Barbie Kills é a parceira estratégica ideal para sua festa empresarial.",
-    image: "/blog/banda-eventos-corporativos.jpg",
-    imageAlt: "Banda Barbie Kills tocando em evento corporativo em Campinas SP",
+    image: "/blog/banda-eventos-corporativos.webp",
+    imageAlt: "Banda Barbie Kills ao vivo em Evento Corporativo em Campinas",
     date: "2025-01-05",
     readTime: "7 min",
     content: `Organizar um [evento corporativo](/#servicos) de sucesso é uma tarefa que exige precisão cirúrgica e alinhamento estratégico. Seja para lançar um produto inovador, celebrar metas anuais batidas ou realizar a tradicional festa de final de ano da empresa, a trilha sonora é o coração da experiência. Um som ruim, um repertório inadequado ou uma performance desanimada podem comprometer meses de planejamento do RH e do Marketing.
@@ -314,7 +314,7 @@ Se sua empresa está em Campinas, São Paulo ou região, entre em contato agora.
     metaDescription: "Confira as 10 músicas mais pedidas para casamentos sofisticados em 2026. Playlist com clássicos dos anos 90/2000 e hits modernos para festa inesquecível.",
     excerpt: "Para garantir uma festa de casamento sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis com hits modernos.",
     image: "/blog/banda-pop-rock-casamento.webp",
-    imageAlt: "Banda Barbie Kills tocando pop rock ao vivo em festa de casamento com noiva cantando",
+    imageAlt: "Melhor Banda de Casamento em Piracicaba e Região",
     date: "2026-01-03",
     readTime: "6 min",
     content: `Para garantir uma festa de [casamento](/blog/banda-para-casamento-estrutura-tecnica) sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A [Barbie Kills](/) traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
@@ -357,7 +357,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
     metaDescription: "Banda para casamento em Campinas: combo premium com Los Libres na cerimônia e Barbie Kills na festa. Gestão unificada, logística inteligente e som impecável.",
     excerpt: "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para o seu grande dia.",
     image: "/blog/banda-casamento-sorocaba.webp",
-    imageAlt: "Banda para casamento em Campinas - Barbie Kills e Los Libres combo cerimônia e festa",
+    imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-25",
     readTime: "8 min",
     content: `Organizar e planejar a trilha sonora ideal para um casamento exige o equilíbrio perfeito entre dois universos completamente distintos: o momento do "sim", que é profundamente emocionado e intimista no altar, e a euforia absoluta da pista de dança durante a recepção. O erro mais comum de muitos casais durante os preparativos é contratar fornecedores musicais desconexos para cada uma dessas etapas, gerando custos duplicados, falhas de comunicação e, muitas vezes, uma grande dor de cabeça logística no dia do evento.
@@ -406,7 +406,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
     metaDescription: "Guia completo para transformar sua festa de aniversário em um evento épico. Dicas de som, logística e o fator 'Uau' com banda ao vivo em Campinas e SP.",
     excerpt: "Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e um grand finale. Confira os 4 pilares para uma festa inesquecível.",
     image: "/blog/banda-casamento-rock-aniversario.jpg",
-    imageAlt: "Noivos cantando no palco com a banda Barbie Kills em festa de aniversário",
+    imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-06",
     readTime: "5 min",
     content: `Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e, claro, um "grand finale". Se você quer que seus convidados falem da sua festa até o próximo ano, esqueça o básico "voz e violão" e pense como um produtor de eventos.
@@ -435,7 +435,7 @@ Para o aniversariante aproveitar, o planejamento deve ser impecável.
 
 **Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece suporte técnico. Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
 
-{{image:/blog/banda-festa-aniversario-campinas.jpg|Vocalista da Barbie Kills em performance ao vivo em festa de aniversário em Campinas|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
+{{image:/blog/banda-festa-aniversario-campinas.webp|Vocalista da Banda Barbie Kills em Show no Interior de SP|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
 
 ## 4. O Fator "Uau"
 
@@ -449,8 +449,8 @@ Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer part
     metaTitle: "Quais Bandas de Casamento São Recomendadas para Festas Grandes no Brasil? | Barbie Kills",
     metaDescription: "Descubra o que define uma banda de elite para grandes casamentos no Brasil: engenharia de som audiófila, experiência visual com LED e curadoria musical exclusiva.",
     excerpt: "O que separa uma banda comum de uma banda de elite para grandes casamentos? Descubra os 5 pilares que definem a excelência no entretenimento musical para festas grandiosas no Brasil.",
-    image: "/blog/bandas-casamento-festas-grandes-brasil.jpg",
-    imageAlt: "Vocalista da Barbie Kills cantando ao vivo em grande casamento no Brasil com iluminação profissional",
+    image: "/blog/bandas-casamento-festas-grandes-brasil.webp",
+    imageAlt: "Banda para Casamento de Luxo em Santana de Parnaíba e Alphaville",
     date: "2026-03-08",
     readTime: "8 min",
     content: `Quando falamos de grandes casamentos no Brasil — eventos com 300, 500 ou até 1.000 convidados — a escolha da banda deixa de ser uma questão de "gosto pessoal" e se torna uma decisão técnica e estratégica. O entretenimento musical é o pilar central da experiência dos convidados e, em festas dessa magnitude, qualquer falha é amplificada exponencialmente.

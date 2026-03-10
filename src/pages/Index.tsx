@@ -65,23 +65,28 @@ const structuredData = {
         "longitude": "-47.0615"
       },
       "areaServed": [
-        { "@type": "City", "name": "Campinas" },
         { "@type": "City", "name": "São Paulo" },
-        { "@type": "City", "name": "Valinhos" },
-        { "@type": "City", "name": "Vinhedo" },
-        { "@type": "City", "name": "Indaiatuba" },
-        { "@type": "City", "name": "Jundiaí" },
-        { "@type": "City", "name": "Sorocaba" },
-        { "@type": "City", "name": "Piracicaba" },
-        { "@type": "City", "name": "Barueri" },
+        { "@type": "City", "name": "Campinas" },
         { "@type": "City", "name": "Alphaville" },
-        { "@type": "City", "name": "Guarulhos" },
+        { "@type": "City", "name": "Barueri" },
         { "@type": "City", "name": "Holambra" },
         { "@type": "City", "name": "Itu" },
+        { "@type": "City", "name": "Jundiaí" },
+        { "@type": "City", "name": "Indaiatuba" },
+        { "@type": "City", "name": "Vinhedo" },
+        { "@type": "City", "name": "Valinhos" },
+        { "@type": "City", "name": "Sorocaba" },
+        { "@type": "City", "name": "Paulínia" },
+        { "@type": "City", "name": "Piracicaba" },
         { "@type": "City", "name": "Americana" },
+        { "@type": "City", "name": "Louveira" },
+        { "@type": "City", "name": "Jaguariúna" },
         { "@type": "City", "name": "Atibaia" },
         { "@type": "City", "name": "Bragança Paulista" },
+        { "@type": "City", "name": "São Caetano do Sul" },
         { "@type": "City", "name": "Limeira" },
+        { "@type": "City", "name": "Santana de Parnaíba" },
+        { "@type": "City", "name": "Guarulhos" },
         { "@type": "State", "name": "Interior de SP" }
       ],
       "priceRange": "$$$$",
@@ -101,10 +106,11 @@ const structuredData = {
       "provider": { "@id": `${SITE_URL}/#band` },
       "description": "Show musical ao vivo para casamentos e eventos corporativos em Campinas, Valinhos, Indaiatuba e todo Interior de SP. Repertório sofisticado sem sertanejo.",
       "areaServed": [
-        "São Paulo", "Campinas", "Barueri", "Alphaville", "Jundiaí", 
-        "Indaiatuba", "Sorocaba", "Piracicaba", "Guarulhos", "Holambra", 
-        "Itu", "Americana", "Valinhos", "Vinhedo", "Atibaia", 
-        "Bragança Paulista", "Limeira"
+        "São Paulo", "Campinas", "Alphaville", "Barueri", "Holambra",
+        "Itu", "Jundiaí", "Indaiatuba", "Vinhedo", "Valinhos",
+        "Sorocaba", "Paulínia", "Piracicaba", "Americana", "Louveira",
+        "Jaguariúna", "Atibaia", "Bragança Paulista", "São Caetano do Sul",
+        "Limeira", "Santana de Parnaíba", "Guarulhos"
       ]
     },
     {

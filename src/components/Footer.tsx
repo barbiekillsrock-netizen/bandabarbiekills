@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
           {/* Logo */}
           <div className="flex justify-center lg:justify-start">
-            <img src="/logo-barbie-kills.webp" alt="Logo da banda Barbie Kills" width={200} height={80} className="w-48 md:w-56 lg:w-64 object-contain" loading="lazy" />
+            <img src="/logo-barbie-kills.webp" alt="Barbie Kills - Banda de Pop Rock para Evento em São Caetano do Sul" width={200} height={80} className="w-48 md:w-56 lg:w-64 object-contain" loading="lazy" />
           </div>
 
           {/* Social Links - Centered */}
@@ -88,28 +88,10 @@ const Footer = () => {
         {/* SEO Local - Áreas Atendidas */}
         <div className="mt-12 pt-8 border-t border-white/5 text-center">
           <p className="text-xs text-muted-foreground/90 uppercase tracking-widest mb-4">Áreas Atendidas</p>
-          <div className="text-[11px] text-muted-foreground/80 max-w-3xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
-            <span>São Paulo</span>
-            <span>•</span>
-            <span>Campinas</span>
-            <span>•</span>
-            <span>Alphaville</span>
-            <span>•</span>
-            <span>Barueri</span>
-            <span>•</span>
-            <span>Holambra</span>
-            <span>•</span>
-            <span>Itu</span>
-            <span>•</span>
-            <span>Jundiaí</span>
-            <span>•</span>
-            <span>Indaiatuba</span>
-            <span>•</span>
-            <span>Vinhedo</span>
-            <span>•</span>
-            <span>Valinhos</span>
-            <span>•</span>
-            <span>Sorocaba</span>
+          <div className="text-[11px] text-muted-foreground/80 max-w-4xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
+            {['São Paulo', 'Campinas', 'Alphaville', 'Barueri', 'Holambra', 'Itu', 'Jundiaí', 'Indaiatuba', 'Vinhedo', 'Valinhos', 'Sorocaba', 'Paulínia', 'Piracicaba', 'Americana', 'Louveira', 'Jaguariúna', 'Atibaia', 'Bragança Paulista', 'São Caetano do Sul', 'Limeira', 'Santana de Parnaíba'].map((city, i, arr) => (
+              <span key={city}>{city}{i < arr.length - 1 ? ' •' : ''}</span>
+            ))}
           </div>
         </div>
 

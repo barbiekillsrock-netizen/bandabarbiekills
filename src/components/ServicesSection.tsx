@@ -202,7 +202,7 @@ const ServicesSection = () => {
                 >
                   <img 
                     src={losLibresLogo} 
-                    alt="Los Libres Unplugged Folk - Projeto acústico para cerimônias de casamento em Campinas"
+                    alt="Barbie Kills - Banda Barbie Kills - Show em Holambra e Artur Nogueira"
                     width={192}
                     height={192}
                     className="w-full h-full object-cover"
