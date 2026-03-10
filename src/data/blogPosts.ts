@@ -406,7 +406,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
     metaDescription: "Guia completo para transformar sua festa de aniversário em um evento épico. Dicas de som, logística e o fator 'Uau' com banda ao vivo em Campinas e SP.",
     excerpt: "Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e um grand finale. Confira os 4 pilares para uma festa inesquecível.",
     image: "/blog/banda-casamento-rock-aniversario.jpg",
-    imageAlt: "Noivos cantando no palco com a banda Barbie Kills em festa de aniversário",
+    imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-06",
     readTime: "5 min",
     content: `Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e, claro, um "grand finale". Se você quer que seus convidados falem da sua festa até o próximo ano, esqueça o básico "voz e violão" e pense como um produtor de eventos.
