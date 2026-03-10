@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.bandabarbiekills.com.br</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/rAVb_-U7OAU/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Barbie Kills ao Vivo — Show Completo de Banda para Casamento e Eventos</video:title>
+      <video:description>Assista ao show completo da Barbie Kills ao vivo. Banda premium para casamentos e eventos corporativos em Campinas e SP.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/rAVb_-U7OAU</video:player_loc>
+      <video:publication_date>2024-06-15</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/s0BHAN9Edew/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Barbie Kills em Casamento — Banda ao Vivo em Campinas</video:title>
+      <video:description>Performance da Barbie Kills em casamento de luxo. Energia, repertório pop rock e interação com os convidados.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/s0BHAN9Edew</video:player_loc>
+      <video:publication_date>2024-08-20</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/RLIIDCt0MlA/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Barbie Kills em Evento Corporativo — Banda para Festas Empresariais</video:title>
+      <video:description>Show da Barbie Kills em evento corporativo. Entretenimento musical premium para confraternizações e convenções.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/RLIIDCt0MlA</video:player_loc>
+      <video:publication_date>2024-10-05</video:publication_date>
+    </video:video>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog</loc>
-    <lastmod>2026-02-26</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -53,6 +75,13 @@
     <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/rQQBiP3XWi0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Barbie Kills — Banda ao Vivo em Festa de Aniversário</video:title>
+      <video:description>Performance da Barbie Kills em festa de aniversário. Energia contagiante e interação com os convidados.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/rQQBiP3XWi0</video:player_loc>
+      <video:publication_date>2026-03-06</video:publication_date>
+    </video:video>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil</loc>
