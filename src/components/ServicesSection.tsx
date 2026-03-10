@@ -56,8 +56,8 @@ const ServicesSection = () => {
           </TabsList>
 
           {/* Tab 1: Casamentos */}
-          <TabsContent value="casamentos" className="mt-0" forceMount>
-            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent data-[state=inactive]:hidden" data-service="casamentos">
+          <TabsContent value="casamentos" className="mt-0 data-[state=inactive]:hidden" forceMount>
+            <article className="glass-card rounded-2xl p-6 lg:p-10 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent" data-service="casamentos">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 <div className="flex-1">
                   <h3 className="heading-display text-2xl lg:text-3xl text-foreground mb-4">
