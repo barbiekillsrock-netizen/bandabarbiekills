@@ -13,15 +13,17 @@ import BlogPreview from '@/components/BlogPreview';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
+const SITE_URL = 'https://www.bandabarbiekills.com.br';
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "MusicGroup",
-      "@id": "https://www.bandabarbiekills.com.br/#band",
+      "@id": `${SITE_URL}/#band`,
       "name": "Barbie Kills",
-      "url": "https://www.bandabarbiekills.com.br",
-      "description": "Banda premium especializada em Casamentos e Eventos Corporativos com repertório de Pop, Rock, Soul e Música Brasileira.",
+      "url": SITE_URL,
+      "description": "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
       "genre": ["Pop", "Rock", "Soul", "Brazilian Music"],
       "foundingDate": "2012",
       "location": {
@@ -44,10 +46,60 @@ const structuredData = {
       ]
     },
     {
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#business`,
+      "name": "Barbie Kills",
+      "description": "Banda especializada em casamentos de luxo e eventos corporativos premium.",
+      "url": SITE_URL,
+      "image": `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
+      "telephone": "+5519981736659",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Campinas",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-22.9068",
+        "longitude": "-47.0615"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Campinas" },
+        { "@type": "City", "name": "São Paulo" },
+        { "@type": "City", "name": "Valinhos" },
+        { "@type": "City", "name": "Vinhedo" },
+        { "@type": "City", "name": "Indaiatuba" },
+        { "@type": "City", "name": "Jundiaí" },
+        { "@type": "City", "name": "Sorocaba" },
+        { "@type": "City", "name": "Piracicaba" },
+        { "@type": "City", "name": "Barueri" },
+        { "@type": "City", "name": "Alphaville" },
+        { "@type": "City", "name": "Guarulhos" },
+        { "@type": "City", "name": "Holambra" },
+        { "@type": "City", "name": "Itu" },
+        { "@type": "City", "name": "Americana" },
+        { "@type": "City", "name": "Atibaia" },
+        { "@type": "City", "name": "Bragança Paulista" },
+        { "@type": "City", "name": "Limeira" },
+        { "@type": "State", "name": "Interior de SP" }
+      ],
+      "priceRange": "$$$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "29"
+      },
+      "sameAs": [
+        "https://www.instagram.com/barbiekillsrock",
+        "https://www.youtube.com/@barbiekillsrock"
+      ]
+    },
+    {
       "@type": "Service",
       "serviceType": "Entretenimento Musical para Eventos",
-      "provider": { "@id": "https://www.bandabarbiekills.com.br/#band" },
-      "description": "Show musical ao vivo para casamentos e eventos corporativos. Repertório sofisticado sem sertanejo.",
+      "provider": { "@id": `${SITE_URL}/#band` },
+      "description": "Show musical ao vivo para casamentos e eventos corporativos em Campinas, Valinhos, Indaiatuba e todo Interior de SP. Repertório sofisticado sem sertanejo.",
       "areaServed": [
         "São Paulo", "Campinas", "Barueri", "Alphaville", "Jundiaí", 
         "Indaiatuba", "Sorocaba", "Piracicaba", "Guarulhos", "Holambra", 
@@ -75,21 +127,34 @@ const structuredData = {
   ]
 };
 
+const META = {
+  title: 'Banda Barbie Kills | Casamentos e Eventos Corporativos em Campinas e SP',
+  description: 'A trilha sonora premium para seu evento. Repertório personalizado e energia única para casamentos e corporativos em Campinas, SP e interior.',
+  keywords: 'banda para casamento campinas, banda casamento sp, banda evento corporativo campinas, banda casamento valinhos, banda casamento indaiatuba, banda pop rock casamento, música ao vivo casamento interior sp, barbie kills',
+  url: SITE_URL,
+  image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
+};
+
 const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
-        <title>Banda Barbie Kills | Casamentos e Eventos Corporativos</title>
-        <meta 
-          name="description" 
-          content="Trilha sonora para casamentos e eventos em Campinas, SP e interior. Repertório personalizado e energia única. Assista aos vídeos e peça seu orçamento!" 
-        />
-        <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
-        <meta property="og:title" content="Banda Barbie Kills | Casamentos e Eventos Corporativos" />
-        <meta property="og:description" content="Trilha sonora para casamentos e eventos em Campinas, SP e interior. Repertório personalizado e energia única. Assista aos vídeos e peça seu orçamento!" />
-        <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
+        <title>{META.title}</title>
+        <meta name="description" content={META.description} />
+        <meta name="keywords" content={META.keywords} />
+        <link rel="canonical" href={META.url} />
+
+        <meta property="og:title" content={META.title} />
+        <meta property="og:description" content={META.description} />
+        <meta property="og:url" content={META.url} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png" />
+        <meta property="og:image" content={META.image} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={META.title} />
+        <meta name="twitter:description" content={META.description} />
+        <meta name="twitter:image" content={META.image} />
+
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
