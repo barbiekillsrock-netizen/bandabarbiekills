@@ -23,26 +23,58 @@ const BlogPost = () => {
   // Get related posts (exclude current)
   const relatedPosts = blogPosts.filter(p => p.slug !== post.slug).slice(0, 2);
 
-  // Structured data for Article
+  // Extract YouTube video IDs from content for VideoObject schema
+  const extractVideos = (content: string) => {
+    const videos: Array<{id: string; isShorts: boolean}> = [];
+    const regex = /\{\{youtube:(.*?)\}\}/g;
+    let match;
+    while ((match = regex.exec(content)) !== null) {
+      const url = match[1];
+      const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/);
+      const regularMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+      const videoId = shortsMatch?.[1] || regularMatch?.[1];
+      if (videoId) videos.push({ id: videoId, isShorts: !!shortsMatch });
+    }
+    return videos;
+  };
+
+  const embeddedVideos = extractVideos(post.content);
+
+  // Structured data for Article + VideoObjects
   const articleStructuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.metaDescription,
-    "image": `https://www.bandabarbiekills.com.br${post.image}`,
-    "datePublished": post.date,
-    "author": {
-      "@type": "Organization",
-      "name": "Barbie Kills"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Barbie Kills",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.bandabarbiekills.com.br/logo-barbie-kills.png"
-      }
-    }
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": post.title,
+        "description": post.metaDescription,
+        "image": `https://www.bandabarbiekills.com.br${post.image}`,
+        "datePublished": post.date,
+        "author": {
+          "@type": "Organization",
+          "name": "Barbie Kills"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Barbie Kills",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.bandabarbiekills.com.br/logo-barbie-kills.png"
+          }
+        }
+      },
+      ...embeddedVideos.map(v => ({
+        "@type": "VideoObject",
+        "name": `Barbie Kills — ${post.title}`,
+        "description": post.metaDescription.substring(0, 150),
+        "thumbnailUrl": `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`,
+        "uploadDate": post.date,
+        "contentUrl": v.isShorts
+          ? `https://www.youtube.com/shorts/${v.id}`
+          : `https://www.youtube.com/watch?v=${v.id}`,
+        "embedUrl": `https://www.youtube.com/embed/${v.id}`
+      }))
+    ]
   };
 
   // Parse inline markdown (bold and links)
