@@ -15,7 +15,7 @@ const Blog = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Blog sobre Casamentos e Eventos em Campinas e SP | Barbie Kills</title>
+        <title>Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills</title>
         <meta 
           name="description" 
           content="Dicas sobre música ao vivo para casamentos e eventos corporativos em Campinas e Interior de SP. Tendências, playlists e como escolher a banda ideal." 
