@@ -106,10 +106,11 @@ const structuredData = {
       "provider": { "@id": `${SITE_URL}/#band` },
       "description": "Show musical ao vivo para casamentos e eventos corporativos em Campinas, Valinhos, Indaiatuba e todo Interior de SP. Repertório sofisticado sem sertanejo.",
       "areaServed": [
-        "São Paulo", "Campinas", "Barueri", "Alphaville", "Jundiaí", 
-        "Indaiatuba", "Sorocaba", "Piracicaba", "Guarulhos", "Holambra", 
-        "Itu", "Americana", "Valinhos", "Vinhedo", "Atibaia", 
-        "Bragança Paulista", "Limeira"
+        "São Paulo", "Campinas", "Alphaville", "Barueri", "Holambra",
+        "Itu", "Jundiaí", "Indaiatuba", "Vinhedo", "Valinhos",
+        "Sorocaba", "Paulínia", "Piracicaba", "Americana", "Louveira",
+        "Jaguariúna", "Atibaia", "Bragança Paulista", "São Caetano do Sul",
+        "Limeira", "Santana de Parnaíba", "Guarulhos"
       ]
     },
     {

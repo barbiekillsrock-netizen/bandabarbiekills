@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => <div key={testimonial.name} className="glass-card p-8 lg:p-10 rounded-2xl text-center hover-lift">
               {/* Avatar */}
               <div className="mb-6 flex justify-center">
-                <img src={testimonial.image} alt={`Depoimento de ${testimonial.name} sobre a banda Barbie Kills`} width={120} height={120} className="testimonial-circle" loading="lazy" />
+                <img src={testimonial.image} alt={`Depoimento de ${testimonial.name} sobre a Banda Barbie Kills - Entretenimento Musical para Casamentos em Sorocaba e Itu`} width={120} height={120} className="testimonial-circle" loading="lazy" />
               </div>
 
               {/* Quote Icon */}

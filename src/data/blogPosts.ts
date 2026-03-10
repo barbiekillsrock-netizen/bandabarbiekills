@@ -357,7 +357,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
     metaDescription: "Banda para casamento em Campinas: combo premium com Los Libres na cerimônia e Barbie Kills na festa. Gestão unificada, logística inteligente e som impecável.",
     excerpt: "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para o seu grande dia.",
     image: "/blog/banda-casamento-sorocaba.webp",
-    imageAlt: "Banda para casamento em Campinas - Barbie Kills e Los Libres combo cerimônia e festa",
+    imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-25",
     readTime: "8 min",
     content: `Organizar e planejar a trilha sonora ideal para um casamento exige o equilíbrio perfeito entre dois universos completamente distintos: o momento do "sim", que é profundamente emocionado e intimista no altar, e a euforia absoluta da pista de dança durante a recepção. O erro mais comum de muitos casais durante os preparativos é contratar fornecedores musicais desconexos para cada uma dessas etapas, gerando custos duplicados, falhas de comunicação e, muitas vezes, uma grande dor de cabeça logística no dia do evento.

@@ -35,6 +35,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.bandabarbiekills.com.br/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/rQQBiP3XWi0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Barbie Kills — Banda ao Vivo em Festa de Aniversário</video:title>
+      <video:description>Performance da Barbie Kills em festa de aniversário. Energia contagiante e interação com os convidados.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/rQQBiP3XWi0</video:player_loc>
+      <video:publication_date>2026-03-06</video:publication_date>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-casamento-campinas-cerimonia-festa</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -67,25 +86,6 @@
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/musicas-mais-pedidas-casamento-2026</loc>
     <lastmod>2026-01-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.bandabarbiekills.com.br/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills</loc>
-    <lastmod>2026-03-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/rQQBiP3XWi0/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Barbie Kills — Banda ao Vivo em Festa de Aniversário</video:title>
-      <video:description>Performance da Barbie Kills em festa de aniversário. Energia contagiante e interação com os convidados.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/rQQBiP3XWi0</video:player_loc>
-      <video:publication_date>2026-03-06</video:publication_date>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://www.bandabarbiekills.com.br/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil</loc>
-    <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

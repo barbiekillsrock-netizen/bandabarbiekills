@@ -4,7 +4,7 @@ const HistorySection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
           <div className="relative group">
-            <img src="/historia-banda-barbie-kills-campinas.webp" alt="Banda Barbie Kills com Mariana Chaib tocando ao vivo em evento premium" width={600} height={600} className="w-full h-[500px] lg:h-[600px] object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+            <img src="/historia-banda-barbie-kills-campinas.webp" alt="Vocalista da Banda Barbie Kills em Show no Interior de SP" width={600} height={600} className="w-full h-[500px] lg:h-[600px] object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
             {/* Decorative Border */}
             <div className="absolute -inset-4 border border-neon-pink/20 rounded-lg -z-10 group-hover:border-neon-pink/40 transition-colors duration-500" />
           </div>

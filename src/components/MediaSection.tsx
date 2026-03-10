@@ -39,7 +39,7 @@ const YouTubeFacade = ({ id, title }: { id: string; title: string }) => {
     >
       <img
         src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
-        alt={title}
+        alt={`Banda Barbie Kills ao vivo - ${title}`}
         width={480}
         height={360}
         className="w-full h-full object-cover"
