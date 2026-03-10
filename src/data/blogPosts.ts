@@ -235,8 +235,8 @@ Pronto para transformar seu evento? Entre em contato conosco e vamos desenhar o 
     metaTitle: "Banda para Evento Corporativo SP Campinas | Festa de Empresa - Barbie Kills",
     metaDescription: "Descubra por que a Barbie Kills é a banda ideal para eventos corporativos em Campinas e região. Versatilidade musical, infraestrutura técnica e logística otimizada.",
     excerpt: "Organizar um evento corporativo de sucesso exige precisão cirúrgica. Descubra por que a Barbie Kills é a parceira estratégica ideal para sua festa empresarial.",
-    image: "/blog/banda-eventos-corporativos.jpg",
-    imageAlt: "Banda Barbie Kills tocando em evento corporativo em Campinas SP",
+    image: "/blog/banda-eventos-corporativos.webp",
+    imageAlt: "Banda Barbie Kills ao vivo em Evento Corporativo em Campinas",
     date: "2025-01-05",
     readTime: "7 min",
     content: `Organizar um [evento corporativo](/#servicos) de sucesso é uma tarefa que exige precisão cirúrgica e alinhamento estratégico. Seja para lançar um produto inovador, celebrar metas anuais batidas ou realizar a tradicional festa de final de ano da empresa, a trilha sonora é o coração da experiência. Um som ruim, um repertório inadequado ou uma performance desanimada podem comprometer meses de planejamento do RH e do Marketing.
