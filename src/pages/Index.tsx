@@ -79,14 +79,14 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
-        <title>Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos - Campinas e SP</title>
+        <title>Banda Barbie Kills | Casamentos e Eventos Corporativos</title>
         <meta 
           name="description" 
-          content="A trilha sonora que agita seu evento. Com repertório eclético e personalizado, levamos energia única para casamentos e corporativos em Campinas e todo o interior. Assista aos vídeos e peça seu orçamento." 
+          content="Trilha sonora para casamentos e eventos em Campinas, SP e interior. Repertório personalizado e energia única. Assista aos vídeos e peça seu orçamento!" 
         />
         <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
-        <meta property="og:title" content="Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos - Campinas e SP" />
-        <meta property="og:description" content="A trilha sonora que agita seu evento. Com repertório eclético e personalizado, levamos energia única para casamentos e corporativos em Campinas e todo o interior. Assista aos vídeos e peça seu orçamento." />
+        <meta property="og:title" content="Banda Barbie Kills | Casamentos e Eventos Corporativos" />
+        <meta property="og:description" content="Trilha sonora para casamentos e eventos em Campinas, SP e interior. Repertório personalizado e energia única. Assista aos vídeos e peça seu orçamento!" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png" />
