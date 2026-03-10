@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
     excerpt: "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
     image: "/blog/banda-pop-rock-casamento.webp",
-    imageAlt: "Estrutura de som e iluminação profissional da Barbie Kills em casamento",
+    imageAlt: "Banda para Casamento em Valinhos e Vinhedo - Barbie Kills",
     date: "2026-01-09",
     readTime: "7 min",
     content: `Você já foi a um [casamento](/#servicos) onde a música estava alta demais a ponto de impedir a conversa nas mesas? Ou, pior, onde o microfone falhou e deu aquele ruído agudo (microfonia) bem na hora do "sim" ou durante o discurso emocionado do pai da noiva?
