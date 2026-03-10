@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import PressKit from "./pages/PressKit";
+import Rider from "./pages/Rider";
 
 interface HelmetContext {
   helmet?: HelmetServerState;
@@ -26,6 +28,8 @@ export function render(url: string) {
               <Route path="/" element={<Index />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/press-kit" element={<PressKit />} />
+              <Route path="/rider" element={<Rider />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </StaticRouter>
