@@ -186,7 +186,7 @@ const Index = () => {
         <meta name="twitter:image" content={META.image} />
 
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify({...structuredData, "@graph": [...structuredData["@graph"], ...homepageVideos]})}
         </script>
       </Helmet>
       

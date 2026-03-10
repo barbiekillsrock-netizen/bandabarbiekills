@@ -151,7 +151,7 @@ const BlogPost = () => {
               <div className="w-full max-w-md aspect-[9/16] rounded-lg overflow-hidden border border-white/10 shadow-xl">
                 <iframe
                   src={embedUrl}
-                  title="YouTube video"
+                  title={`Assista ao vídeo da Barbie Kills: ${post.title}`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="w-full h-full"
