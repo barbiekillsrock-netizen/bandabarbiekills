@@ -38,7 +38,7 @@ const HeroSection = () => {
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
         <img 
           src="/Banda_Casamentos_Eventos-2.webp" 
-          alt="Show da banda Barbie Kills ao vivo em casamento premium em Campinas SP"
+          alt="Banda Barbie Kills - Banda de Casamento em Campinas e SP"
           width={960}
           height={1080}
           className="w-full h-full object-cover object-top lg:object-center"
