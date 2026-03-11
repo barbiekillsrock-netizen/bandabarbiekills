@@ -96,7 +96,7 @@ const Corporativo = () => {
               <div className="rounded-2xl overflow-hidden border border-neon-pink/20 shadow-[0_0_40px_rgba(255,0,128,0.1)]">
                 <img
                   src="/corporativo/banda-evento-sp.webp"
-                  alt="contratar banda para evento campinas"
+                  alt="Banda Barbie Kills em show para evento corporativo premium em Campinas SP"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover"
