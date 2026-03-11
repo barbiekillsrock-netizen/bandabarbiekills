@@ -31,6 +31,7 @@ export function render(url: string) {
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/press-kit" element={<PressKit />} />
               <Route path="/rider" element={<Rider />} />
+              <Route path="/corporativo" element={<Corporativo />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </StaticRouter>
