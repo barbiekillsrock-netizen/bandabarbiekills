@@ -10,6 +10,7 @@ import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import PressKit from "./pages/PressKit";
 import Rider from "./pages/Rider";
+import Corporativo from "./pages/Corporativo";
 
 interface HelmetContext {
   helmet?: HelmetServerState;
