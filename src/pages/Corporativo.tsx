@@ -64,7 +64,7 @@ const Corporativo = () => {
             height={100}
             className="w-48 md:w-64 mx-auto mb-8 animate-fade-in"
           />
-          <h1 className="heading-display text-3xl md:text-5xl lg:text-6xl text-foreground mb-6 animate-fade-in animation-delay-200">
+          <h1 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 animate-fade-in animation-delay-200 max-w-3xl mx-auto">
             Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e Infraestrutura
           </h1>
           <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in animation-delay-400">
