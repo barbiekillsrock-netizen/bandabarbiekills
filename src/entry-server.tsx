@@ -10,6 +10,7 @@ import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import PressKit from "./pages/PressKit";
 import Rider from "./pages/Rider";
+import Corporativo from "./pages/Corporativo";
 
 interface HelmetContext {
   helmet?: HelmetServerState;
@@ -30,6 +31,7 @@ export function render(url: string) {
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/press-kit" element={<PressKit />} />
               <Route path="/rider" element={<Rider />} />
+              <Route path="/corporativo" element={<Corporativo />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </StaticRouter>
