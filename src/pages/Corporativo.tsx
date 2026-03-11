@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Check, Music, Zap, Mic } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -42,6 +43,8 @@ const Corporativo = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
+      <Navbar />
+
       {/* ── HERO ── */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <img
@@ -61,7 +64,7 @@ const Corporativo = () => {
             height={100}
             className="w-48 md:w-64 mx-auto mb-8 animate-fade-in"
           />
-          <h1 className="heading-display text-3xl md:text-5xl lg:text-6xl text-foreground mb-6 animate-fade-in animation-delay-200">
+          <h1 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 animate-fade-in animation-delay-200 max-w-3xl mx-auto">
             Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e Infraestrutura
           </h1>
           <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in animation-delay-400">
@@ -170,7 +173,7 @@ const Corporativo = () => {
               </div>
               <h3 className="heading-display text-xl text-foreground mb-3">Recepção & Networking</h3>
               <p className="text-body text-muted-foreground text-sm">
-                O melhor do Jazz e Pop Acústico com volume controlado. Ideal para welcome coffee e coquetéis.
+                Jazz, Soul e Pop Acústico com volume controlado. A trilha perfeita para facilitar o diálogo entre executivos e criar uma atmosfera de networking sofisticada.
               </p>
               <a href="https://bandaloslibres.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-neon-pink font-oswald text-sm uppercase tracking-wider hover:underline">
                 Los Libres →
@@ -182,9 +185,9 @@ const Corporativo = () => {
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4 mt-6">
                 <Zap className="w-6 h-6 text-neon-pink" />
               </div>
-              <h3 className="heading-display text-xl text-foreground mb-3">O Show Principal</h3>
+              <h3 className="heading-display text-xl text-foreground mb-3">Confraternização & Pista</h3>
               <p className="text-body text-muted-foreground text-sm">
-                Performance eletrizante de Pop e Rock focada em integração e celebração. A energia que transforma qualquer evento.
+                Performance eletrizante com leitura de pista impecável para todas as faixas etárias. Foco total em integração e celebração de resultados.
               </p>
             </article>
 
@@ -193,9 +196,9 @@ const Corporativo = () => {
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4 mt-6">
                 <Mic className="w-6 h-6 text-neon-pink" />
               </div>
-              <h3 className="heading-display text-xl text-foreground mb-3">Formato Motivacional</h3>
+              <h3 className="heading-display text-xl text-foreground mb-3">Pocket Show Motivacional</h3>
               <p className="text-body text-muted-foreground text-sm">
-                Experiência exclusiva unindo música e a trajetória inspiradora de Mariana Chaib. Pocket show com alto impacto emocional.
+                Uma experiência exclusiva que une a trajetória de sucesso de Mariana Chaib (Rede Globo) a momentos musicais de alto impacto emocional.
               </p>
             </article>
           </div>
