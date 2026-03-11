@@ -37,14 +37,14 @@ const ServicesSection = () => {
               <span className="hidden sm:inline">Casamentos</span>
               <span className="sm:hidden">Casamento</span>
             </TabsTrigger>
-            <a
-              href="/corporativo"
-              className="inline-flex items-center justify-center bg-transparent hover:bg-neon-pink/20 rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 text-foreground/80 hover:text-neon-pink"
+            <TabsTrigger 
+              value="corporativo"
+              className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
             >
               <Building2 className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Corporativo</span>
               <span className="sm:hidden">Empresas</span>
-            </a>
+            </TabsTrigger>
             <TabsTrigger 
               value="cerimonias"
               className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
@@ -127,7 +127,7 @@ const ServicesSection = () => {
                   </ul>
 
                   {/* Social Proof - Trusted By */}
-                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
+                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10 mb-6">
                     <span className="text-xs text-muted-foreground uppercase tracking-widest">Trusted By:</span>
                     <div className="flex flex-wrap gap-3">
                       <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-2">
@@ -141,6 +141,10 @@ const ServicesSection = () => {
                       </div>
                     </div>
                   </div>
+
+                  <a href="/corporativo" className="inline-flex items-center gap-2 text-neon-pink font-oswald uppercase tracking-wider text-sm hover:underline transition-colors">
+                    Conheça nossa página exclusiva para eventos corporativos <ArrowUpRight className="w-4 h-4" />
+                  </a>
                 </div>
 
                 <div className="hidden lg:flex w-48 h-48 rounded-full bg-gradient-to-br from-neon-pink/20 to-purple-600/10 items-center justify-center border border-neon-pink/30">
