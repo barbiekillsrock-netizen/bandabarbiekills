@@ -185,9 +185,9 @@ const Corporativo = () => {
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4 mt-6">
                 <Zap className="w-6 h-6 text-neon-pink" />
               </div>
-              <h3 className="heading-display text-xl text-foreground mb-3">O Show Principal</h3>
+              <h3 className="heading-display text-xl text-foreground mb-3">Confraternização & Pista</h3>
               <p className="text-body text-muted-foreground text-sm">
-                Performance eletrizante de Pop e Rock focada em integração e celebração. A energia que transforma qualquer evento.
+                Performance eletrizante com leitura de pista impecável para todas as faixas etárias. Foco total em integração e celebração de resultados.
               </p>
             </article>
 
