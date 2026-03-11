@@ -37,14 +37,14 @@ const ServicesSection = () => {
               <span className="hidden sm:inline">Casamentos</span>
               <span className="sm:hidden">Casamento</span>
             </TabsTrigger>
-            <a
-              href="/corporativo"
-              className="inline-flex items-center justify-center bg-transparent hover:bg-neon-pink/20 rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 text-foreground/80 hover:text-neon-pink"
+            <TabsTrigger 
+              value="corporativo"
+              className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
             >
               <Building2 className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Corporativo</span>
               <span className="sm:hidden">Empresas</span>
-            </a>
+            </TabsTrigger>
             <TabsTrigger 
               value="cerimonias"
               className="bg-transparent data-[state=active]:bg-neon-pink data-[state=active]:text-white data-[state=inactive]:bg-[#0a0010] rounded-lg py-3 px-4 font-bold uppercase tracking-wide text-sm transition-all border-0 shadow-none data-[state=active]:shadow-none"
