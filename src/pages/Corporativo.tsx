@@ -46,16 +46,7 @@ const Corporativo = () => {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <img
-          src="/corporativo/banda-evento-campinas.webp"
-          alt="banda para festa corporativa sp"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover object-top"
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
         <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl pt-24">
           <img
             src="/logo-barbie-kills.webp"
@@ -105,7 +96,7 @@ const Corporativo = () => {
               <div className="rounded-2xl overflow-hidden border border-neon-pink/20 shadow-[0_0_40px_rgba(255,0,128,0.1)]">
                 <img
                   src="/corporativo/banda-evento-sp.webp"
-                  alt="contratar banda para evento campinas"
+                  alt="Banda Barbie Kills em show para evento corporativo premium em Campinas SP"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover"
