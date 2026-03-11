@@ -196,9 +196,9 @@ const Corporativo = () => {
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4 mt-6">
                 <Mic className="w-6 h-6 text-neon-pink" />
               </div>
-              <h3 className="heading-display text-xl text-foreground mb-3">Formato Motivacional</h3>
+              <h3 className="heading-display text-xl text-foreground mb-3">Pocket Show Motivacional</h3>
               <p className="text-body text-muted-foreground text-sm">
-                Experiência exclusiva unindo música e a trajetória inspiradora de Mariana Chaib. Pocket show com alto impacto emocional.
+                Uma experiência exclusiva que une a trajetória de sucesso de Mariana Chaib (Rede Globo) a momentos musicais de alto impacto emocional.
               </p>
             </article>
           </div>
