@@ -173,7 +173,7 @@ const Corporativo = () => {
               </div>
               <h3 className="heading-display text-xl text-foreground mb-3">Recepção & Networking</h3>
               <p className="text-body text-muted-foreground text-sm">
-                O melhor do Jazz e Pop Acústico com volume controlado. Ideal para welcome coffee e coquetéis.
+                Jazz, Soul e Pop Acústico com volume controlado. A trilha perfeita para facilitar o diálogo entre executivos e criar uma atmosfera de networking sofisticada.
               </p>
               <a href="https://bandaloslibres.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-neon-pink font-oswald text-sm uppercase tracking-wider hover:underline">
                 Los Libres →
