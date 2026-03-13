@@ -59,8 +59,8 @@ const Corporativo = () => {
         />
 
         {/* Links corrigidos manualmente sem variáveis */}
-        <link rel="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
-        <link rel="alternate" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/corporativo" />
+        <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
+        <link rel="alternate" key="alternate" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/corporativo" />
 
         <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta
