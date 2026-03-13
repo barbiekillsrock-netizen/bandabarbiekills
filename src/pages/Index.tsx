@@ -148,7 +148,7 @@ const homepageVideos = [
     "name": "Barbie Kills em Casamento — Banda ao Vivo em Campinas",
     "description": "Performance da Barbie Kills em casamento de luxo. Energia, repertório pop rock e interação com os convidados.",
     "thumbnailUrl": "https://img.youtube.com/vi/s0BHAN9Edew/maxresdefault.jpg",
-    "uploadDate": "2024-08-20",
+    "uploadDate": "2024-08-20T09:00:00-03:00",
     "contentUrl": "https://www.youtube.com/watch?v=s0BHAN9Edew",
     "embedUrl": "https://www.youtube.com/embed/s0BHAN9Edew"
   },
