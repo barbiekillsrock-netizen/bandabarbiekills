@@ -446,7 +446,7 @@ Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer part
   {
     slug: "quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil",
     title: "Quais bandas de casamento são recomendadas para festas grandes no Brasil?",
-    metaTitle: "Quais Bandas de Casamento São Recomendadas para Festas Grandes no Brasil? | Barbie Kills",
+    metaTitle: "Melhores Bandas para Casamentos Grandes | Barbie Kills",
     metaDescription: "Descubra o que define uma banda de elite para grandes casamentos no Brasil: engenharia de som audiófila, experiência visual com LED e curadoria musical exclusiva.",
     excerpt: "O que separa uma banda comum de uma banda de elite para grandes casamentos? Descubra os 5 pilares que definem a excelência no entretenimento musical para festas grandiosas no Brasil.",
     image: "/blog/bandas-casamento-festas-grandes-brasil.webp",
