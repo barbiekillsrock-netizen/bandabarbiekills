@@ -1,23 +1,20 @@
-import { Toaster } from "@/components/ui/toaster";
+import { lazy, Suspense } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Index from "./pages/Index";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import NotFound from "./pages/NotFound";
-import XR18Manual from "./pages/XR18Manual";
-import PressKit from "./pages/PressKit";
-import Rider from "./pages/Rider";
-import Corporativo from "./pages/Corporativo";
 
-const queryClient = new QueryClient();
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const XR18Manual = lazy(() => import("./pages/XR18Manual"));
+const PressKit = lazy(() => import("./pages/PressKit"));
+const Rider = lazy(() => import("./pages/Rider"));
+const Corporativo = lazy(() => import("./pages/Corporativo"));
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <BrowserRouter>
+  <TooltipProvider>
+    <BrowserRouter>
+      <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
@@ -26,12 +23,11 @@ const App = () => (
           <Route path="/press-kit" element={<PressKit />} />
           <Route path="/rider" element={<Rider />} />
           <Route path="/corporativo" element={<Corporativo />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </Suspense>
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;
