@@ -256,6 +256,7 @@ const BlogPost = () => {
         <title>{post.metaTitle}</title>
         <meta name="description" content={post.metaDescription} />
         <link rel="canonical" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
+        <link rel="alternate" hrefLang="pt-BR" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
         <meta property="og:title" content={post.metaTitle} />
         <meta property="og:description" content={post.metaDescription} />
         <meta property="og:url" content={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />

@@ -36,6 +36,7 @@ const Corporativo = () => {
         <title>Banda para Eventos Corporativos em SP, Campinas e Região</title>
         <meta name="description" content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP." />
         <link rel="canonical" href={`${SITE_URL}/corporativo`} />
+        <link rel="alternate" hrefLang="pt-BR" href={`${SITE_URL}/corporativo`} />
         <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta property="og:description" content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP." />
         <meta property="og:url" content={`${SITE_URL}/corporativo`} />
