@@ -57,6 +57,8 @@ const structuredData = {
       "openingHours": "Mo-Fr 09:00-18:00",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "R. Ferreira Penteado, 1221",
+        "postalCode": "13010-041",
         "addressLocality": "Campinas",
         "addressRegion": "SP",
         "addressCountry": "BR"
