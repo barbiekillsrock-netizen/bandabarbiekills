@@ -353,7 +353,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
   {
     slug: "banda-casamento-campinas-cerimonia-festa",
     title: "Banda para Casamento em Campinas: O Combo Perfeito da Cerimônia à Festa",
-    metaTitle: "Banda para Casamento em Campinas | Cerimônia + Festa - Barbie Kills & Los Libres",
+    metaTitle: "Banda para Casamento em Campinas | Barbie Kills",
     metaDescription: "Banda para casamento em Campinas: combo premium com Los Libres na cerimônia e Barbie Kills na festa. Gestão unificada, logística inteligente e som impecável.",
     excerpt: "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para o seu grande dia.",
     image: "/blog/banda-casamento-sorocaba.webp",
