@@ -62,7 +62,7 @@ const Corporativo = () => {
         <link rel="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
         <link rel="alternate" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/corporativo" />
 
-        <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
+        <meta property="og:title" content="Banda para Eventos  Corporativos em SP, Campinas e Região" />
         <meta
           property="og:description"
           content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
