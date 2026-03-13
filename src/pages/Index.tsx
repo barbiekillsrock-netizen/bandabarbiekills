@@ -139,7 +139,7 @@ const homepageVideos = [
     "name": "Barbie Kills ao Vivo — Show Completo de Banda para Casamento e Eventos",
     "description": "Assista ao show completo da Barbie Kills ao vivo. Banda premium para casamentos e eventos corporativos em Campinas e SP.",
     "thumbnailUrl": "https://img.youtube.com/vi/rAVb_-U7OAU/maxresdefault.jpg",
-    "uploadDate": "2024-06-15",
+    "uploadDate": "2024-06-15T09:00:00-03:00",
     "contentUrl": "https://www.youtube.com/watch?v=rAVb_-U7OAU",
     "embedUrl": "https://www.youtube.com/embed/rAVb_-U7OAU"
   },
