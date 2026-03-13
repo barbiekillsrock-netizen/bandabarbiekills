@@ -23,65 +23,40 @@ export const blogPosts: BlogPost[] = [
     imageAlt: "Banda para Casamento em Valinhos e Vinhedo - Barbie Kills",
     date: "2026-01-09",
     readTime: "7 min",
-    content: `Você já foi a um [casamento](/#servicos) onde a música estava alta demais a ponto de impedir a conversa nas mesas? Ou, pior, onde o microfone falhou e deu aquele ruído agudo (microfonia) bem na hora do "sim" ou durante o discurso emocionado do pai da noiva?
+    content: content: `Para garantir uma festa de [casamento](/blog/banda-para-casamento-estrutura-tecnica) sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis dos anos 90 e 2000 com hits modernos que fazem todo mundo dançar. A [Barbie Kills](/) traz versões exclusivas desses sucessos para transformar sua pista em um verdadeiro show ao vivo.
 
-Nós sabemos que esses detalhes técnicos, muitas vezes invisíveis durante o planejamento, têm o poder de arruinar a experiência e transformar meses de sonhos em frustração. A verdade é que a acústica e a tecnologia são tão importantes quanto o talento dos músicos. Por isso, na [Barbie Kills](/), acreditamos que uma apresentação inesquecível exige um tripé fundamental: performance artística, gestão profissional e infraestrutura de ponta.
+Você já foi a um casamento onde a música estava alta demais para conversar ou onde o som falhou na hora do "sim"? Nós sabemos que esses detalhes podem arruinar meses de planejamento. Por isso, a escolha do repertório e da [banda certa](/) é fundamental para o sucesso do evento.
 
-Se você busca uma [banda para casamento e eventos](/blog/musicas-mais-pedidas-casamento-2026) que alie versatilidade de repertório com segurança operacional total, entenda agora como cuidamos dos bastidores para que seu grande dia seja impecável, do buffet em Campinas à fazenda histórica em Itatiba.
+## Playlist de Festa para Casamento Sofisticado em 2026
 
-## 1. Nosso Som: Tecnologia de Ponta para uma Experiência Cristalina
+Confira os hits que não podem faltar no seu setlist para manter a pista cheia do início ao fim:
 
-A qualidade sonora (o famoso "PA" ou sistema de som) é o que separa um show amador de garagem de uma experiência memorável de alto nível. Muitos casais não sabem, mas a acústica de salões de festa — muitas vezes com muito vidro, pé-direito alto e piso frio — é um desafio complexo.
+1. **Bad Romance – Lady Gaga:** Pop icônico com uma batida marcante e aquela pegada teatral que a interpretação ao vivo da [Barbie Kills](/) intensifica.
+2. **Baby One More Time – Britney Spears:** Um dos maiores hits pop dos anos 90, irresistível e cheio de nostalgia para fazer a pista ferver.
+3. **Wannabe – Spice Girls:** O hino máximo dos anos 90 que traz alegria, empoderamento e diversão garantida.
+4. **Blank Space – Taylor Swift:** Em uma versão exclusiva da Barbie Kills, este pop moderno ganha uma pegada sofisticada e envolvendo.
+5. **Uptown Funk – Bruno Mars:** Funk com estilo, ritmo contagiante e a energia necessária para levantar convidados de todas as idades.
+6. **Torn – Natalie Imbruglia:** Clássico dos anos 90 que mistura emoção com uma vibe dançante, perfeita para momentos de conexão na pista.
+7. **I Don't Want to Miss a Thing – Aerosmith:** O rock romântico que emociona e faz todos cantarem juntos com os braços para o alto.
+8. **I Kissed a Girl – Katy Perry:** Pop ousado e divertido, com uma batida marcante que traz frescor e muita animação.
+9. **Mr. Brightside – The Killers:** O hino do rock dos anos 2000 que nunca falha em criar um momento de explosão na festa.
+10. **Can't Stop the Feeling! – Justin Timberlake:** Hit vibrante e solar, ideal para manter o astral lá em cima até o último minuto.
 
-Para vencer esse desafio, utilizamos equipamentos de referência internacional. Nosso objetivo é garantir que o som tenha "pressão" na pista de dança, mas seja agradável e inteligível nas mesas de jantar.
+## Por que essas músicas são essenciais em casamentos de luxo?
 
-**Mesa de Som Digital (Mixagem Móvel):** Esqueça o técnico preso atrás de uma mesa gigante no fundo da sala. Utilizamos mesas digitais controladas via tablet. Isso permite que nosso técnico caminhe pelo salão durante a festa, ajustando o áudio em tempo real de onde os convidados realmente estão. Se o som estiver alto perto da mesa dos avós, ele ajusta na hora, na palma da mão.
+Escolher o repertório certo vai além do gosto pessoal; trata-se de criar uma jornada emocional para os convidados. Veja por que essas escolhas funcionam:
 
-**Sistemas Ativos de Alta Definição:** Utilizamos caixas ativas com tecnologia Classe D. Diferente de caixas antigas que "racham" o som quando o volume sobe, nosso equipamento mantém a clareza e a definição dos instrumentos mesmo no auge da festa.
+**Equilíbrio Geracional:** Misturam a nostalgia dos anos 90/2000 com as tendências atuais, agradando desde os amigos até os familiares.
 
-**Microfones Shure e Sennheiser:** São o padrão ouro da indústria musical mundial. Garantimos que cada palavra dos votos, cada nuance da voz da nossa cantora e cada discurso seja captado com clareza cristalina, sem cortes ou interferências.
+**Identidade ao Vivo:** Na [Barbie Kills](/), cada música ganha arranjos próprios que imprimem a energia do rock em sucessos do pop.
 
-**Monitoramento In-Ear (Palco Limpo):** Nossos músicos não usam caixas de retorno barulhentas no chão do palco. Todos utilizam fones de ouvido moldados (in-ear monitors). Isso reduz drasticamente o volume no palco, "limpando" o som que vai para a plateia e permitindo uma execução musical muito mais precisa e harmoniosa.
+**Fluidez da Pista:** A sequência correta garante que não existam "buracos" na animação, mantendo a pista cheia e vibrante.
 
-## 2. Iluminação Cênica: Criando a Atmosfera Perfeita
+## Garanta a Melhor Banda de Rock e Pop para seu Casamento
 
-A música dita o ritmo, mas a luz dita a emoção. Uma [banda para festa](/#servicos) completa não pode depender apenas da luz do salão. A Barbie Kills leva uma estrutura de iluminação desenhada para transformar o ambiente.
+Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/) vai transformar sua festa em um espetáculo memorável. Não deixe a trilha sonora do seu grande dia para a última hora. Planejando um marco pessoal além do casamento? Confira nosso [guia de como organizar um aniversário inesquecível](/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills).`,
+   
 
-Não se trata apenas de luzes piscando aleatoriamente. Nossa iluminação é operada em sincronia com o show:
-
-**Momentos Intimistas:** Durante a primeira dança ou músicas românticas, criamos ambientes acolhedores, com luzes quentes e focadas, perfeitas para fotografia.
-
-**A Explosão da Pista:** Quando a festa esquenta com os hits de Pop e Rock, a iluminação se transforma. Utilizamos Moving Heads (luzes robóticas que se movem), painéis de LED e efeitos visuais que trazem a energia de um show internacional para dentro do seu casamento. O resultado são fotos incríveis e convidados muito mais engajados na dança.
-
-## 3. Nossa Equipe Técnica: Os Guardiões do seu Grande Dia
-
-Para que os noivos fiquem tranquilos e aproveitem a festa, contamos com um "exército invisível". A Barbie Kills não é formada apenas por músicos; somos um time técnico coeso.
-
-**Técnico de Som (FOH):** Ele é o ouvido da festa. Sua função é garantir um som limpo, potente e equilibrado, adaptando a equalização à acústica específica do local (seja madeira, vidro ou ao ar livre).
-
-**Roadie (A Engrenagem):** Responsável pela montagem, passagem de cabos, afinação e manutenção dos instrumentos. Com ele no suporte, os músicos ficam livres de preocupações técnicas para focar 100% na performance e na interação com vocês.
-
-**Técnico de Luz (Light Designer):** O artista visual que opera a mesa de luz, criando as cenas e atmosferas que dão vida ao show.
-
-**Produtor (O Maestro dos Bastidores):** É o ponto de contato oficial com a sua Cerimonialista. Ele coordena o cronograma, garante que a banda entre no palco no segundo exato e resolve qualquer imprevisto logístico sem que os noivos sequer percebam.
-
-## 4. O Benefício da "Estrutura Própria" (Turn-Key)
-
-No mercado de casamentos, quanto menos fornecedores separados você tiver que gerenciar, melhor. Ao contratar uma banda que já possui [sonorização e iluminação de eventos](/#servicos) própria, você ganha em três frentes:
-
-**Custo-Benefício:** O pacote completo costuma ser mais vantajoso do que alugar equipamentos de terceiros.
-
-**Confiabilidade:** Nossos equipamentos são revisados semanalmente e nossa equipe conhece cada cabo e cada botão. Isso reduz a zero a chance de falhas por desconhecimento do equipamento.
-
-**Estética:** Nossa montagem é limpa e organizada. Escondemos cabos e utilizamos suportes discretos para não poluir o visual da sua decoração.
-
-## Por que escolher a Barbie Kills para o seu Casamento?
-
-O seu casamento acontece apenas uma vez. Não há "segunda tomada". Ao contratar a Barbie Kills, você não está comprando apenas algumas horas de música; você está investindo na segurança de que a trilha sonora da sua vida será executada com perfeição.
-
-Nossa combinação de repertório vibrante, tecnologia de última geração e equipe altamente qualificada transforma sua festa em uma experiência sensorial única.
-
-Se você está planejando seu casamento em Campinas ou região e quer a tranquilidade de uma estrutura profissional, nós queremos te ouvir. Vamos garantir que o som da sua festa seja tão inesquecível quanto o amor que vocês celebram.`
   },
   {
     slug: "producao-eventos-luxo-barbie-kills",
