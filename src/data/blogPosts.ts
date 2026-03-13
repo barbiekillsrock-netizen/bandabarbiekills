@@ -164,7 +164,7 @@ Transforme seu evento corporativo, casamento ou festa particular em um marco. En
   {
     slug: "banda-festa-aniversario-50-anos-sp",
     title: "Banda para Festa de Aniversário: Como Transformar sua Comemoração em um Show Memorável",
-    metaTitle: "Banda para Festa de Aniversário SP | Aniversário Inesquecível - Barbie Kills",
+    metaTitle: "Banda para Festa de Aniversário em SP | Barbie Kills",
     metaDescription: "Descubra como a Barbie Kills transforma festas de aniversário em shows memoráveis. Performance ao vivo com interatividade, repertório personalizado e estrutura profissional.",
     excerpt: "Organizar uma festa de aniversário para celebrar um marco importante traz sempre o mesmo desafio: como fugir do comum? Descubra como transformamos a celebração em um espetáculo.",
     image: "/blog/banda-festa-aniversario-sp.webp",
