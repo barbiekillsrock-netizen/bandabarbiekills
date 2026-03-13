@@ -182,7 +182,7 @@ const Index = () => {
         <meta name="keywords" content={META.keywords} />
         <link rel="canonical" href={META.url} />
 
-        <link rel="alternate" hreflang="pt-BR" href={META.url} />
+        <link rel="alternate" hrefLang="pt-BR" href={META.url} />
 
         <meta property="og:title" content={META.title} />
         <meta property="og:description" content={META.description} />
