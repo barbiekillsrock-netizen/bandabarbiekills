@@ -3,46 +3,46 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.bandabarbiekills.com.br</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/rAVb_-U7OAU/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Barbie Kills ao Vivo — Show Completo de Banda para Casamento e Eventos</video:title>
       <video:description>Assista ao show completo da Barbie Kills ao vivo. Banda premium para casamentos e eventos corporativos em Campinas e SP.</video:description>
       <video:player_loc>https://www.youtube.com/embed/rAVb_-U7OAU</video:player_loc>
-      <video:publication_date>2024-06-15</video:publication_date>
+      <video:publication_date>2024-06-15T09:00:00-03:00</video:publication_date>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/s0BHAN9Edew/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Barbie Kills em Casamento — Banda ao Vivo em Campinas</video:title>
       <video:description>Performance da Barbie Kills em casamento de luxo. Energia, repertório pop rock e interação com os convidados.</video:description>
       <video:player_loc>https://www.youtube.com/embed/s0BHAN9Edew</video:player_loc>
-      <video:publication_date>2024-08-20</video:publication_date>
+      <video:publication_date>2024-08-20T09:00:00-03:00</video:publication_date>
     </video:video>
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/RLIIDCt0MlA/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Barbie Kills em Evento Corporativo — Banda para Festas Empresariais</video:title>
       <video:description>Show da Barbie Kills em evento corporativo. Entretenimento musical premium para confraternizações e convenções.</video:description>
       <video:player_loc>https://www.youtube.com/embed/RLIIDCt0MlA</video:player_loc>
-      <video:publication_date>2024-10-05</video:publication_date>
+      <video:publication_date>2024-10-05T09:00:00-03:00</video:publication_date>
     </video:video>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <video:video>
@@ -50,48 +50,48 @@
       <video:title>Barbie Kills — Banda ao Vivo em Festa de Aniversário</video:title>
       <video:description>Performance da Barbie Kills em festa de aniversário. Energia contagiante e interação com os convidados.</video:description>
       <video:player_loc>https://www.youtube.com/embed/rQQBiP3XWi0</video:player_loc>
-      <video:publication_date>2026-03-06</video:publication_date>
+      <video:publication_date>2026-03-06T09:00:00-03:00</video:publication_date>
     </video:video>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-casamento-campinas-cerimonia-festa</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-para-casamento-estrutura-tecnica</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/producao-eventos-luxo-barbie-kills</loc>
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-festa-aniversario-50-anos-sp</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-evento-corporativo-sp-campinas</loc>
-    <lastmod>2025-01-05</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/musicas-mais-pedidas-casamento-2026</loc>
-    <lastmod>2026-01-03</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/corporativo</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
