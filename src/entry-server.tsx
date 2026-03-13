@@ -1,7 +1,6 @@
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { HelmetProvider, HelmetServerState } from "react-helmet-async";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Routes, Route } from "react-router";
 import Index from "./pages/Index";
@@ -18,25 +17,22 @@ interface HelmetContext {
 
 export function render(url: string) {
   const helmetContext: HelmetContext = {};
-  const queryClient = new QueryClient();
 
   const html = renderToString(
     <HelmetProvider context={helmetContext}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <StaticRouter location={url}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/press-kit" element={<PressKit />} />
-              <Route path="/rider" element={<Rider />} />
-              <Route path="/corporativo" element={<Corporativo />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </StaticRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <TooltipProvider>
+        <StaticRouter location={url}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/press-kit" element={<PressKit />} />
+            <Route path="/rider" element={<Rider />} />
+            <Route path="/corporativo" element={<Corporativo />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </StaticRouter>
+      </TooltipProvider>
     </HelmetProvider>
   );
 
