@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "banda-para-casamento-estrutura-tecnica",
     title: "Banda para Casamento: Por que a Estrutura Técnica da Barbie Kills Garante o Sucesso da sua Festa",
-    metaTitle: "Banda para Casamento com Estrutura Técnica | Som e Luz Profissional - Barbie Kills",
+    metaTitle: "Estrutura Técnica para Banda de Casamento | Barbie Kills",
     metaDescription: "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
     excerpt: "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
     image: "/blog/banda-pop-rock-casamento.webp",
@@ -164,7 +164,7 @@ Transforme seu evento corporativo, casamento ou festa particular em um marco. En
   {
     slug: "banda-festa-aniversario-50-anos-sp",
     title: "Banda para Festa de Aniversário: Como Transformar sua Comemoração em um Show Memorável",
-    metaTitle: "Banda para Festa de Aniversário SP | Aniversário Inesquecível - Barbie Kills",
+    metaTitle: "Banda para Festa de Aniversário em SP | Barbie Kills",
     metaDescription: "Descubra como a Barbie Kills transforma festas de aniversário em shows memoráveis. Performance ao vivo com interatividade, repertório personalizado e estrutura profissional.",
     excerpt: "Organizar uma festa de aniversário para celebrar um marco importante traz sempre o mesmo desafio: como fugir do comum? Descubra como transformamos a celebração em um espetáculo.",
     image: "/blog/banda-festa-aniversario-sp.webp",
@@ -353,7 +353,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
   {
     slug: "banda-casamento-campinas-cerimonia-festa",
     title: "Banda para Casamento em Campinas: O Combo Perfeito da Cerimônia à Festa",
-    metaTitle: "Banda para Casamento em Campinas | Cerimônia + Festa - Barbie Kills & Los Libres",
+    metaTitle: "Banda para Casamento em Campinas | Barbie Kills",
     metaDescription: "Banda para casamento em Campinas: combo premium com Los Libres na cerimônia e Barbie Kills na festa. Gestão unificada, logística inteligente e som impecável.",
     excerpt: "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para o seu grande dia.",
     image: "/blog/banda-casamento-sorocaba.webp",
@@ -402,7 +402,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
   {
     slug: "como-organizar-aniversario-inesquecivel-guia-barbie-kills",
     title: "Como Organizar um Aniversário Inesquecível (O Guia Barbie Kills)",
-    metaTitle: "Como Organizar Aniversário Inesquecível | Banda ao Vivo Campinas - Barbie Kills",
+    metaTitle: "Como Organizar Aniversário Inesquecível | Barbie Kills",
     metaDescription: "Guia completo para transformar sua festa de aniversário em um evento épico. Dicas de som, logística e o fator 'Uau' com banda ao vivo em Campinas e SP.",
     excerpt: "Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e um grand finale. Confira os 4 pilares para uma festa inesquecível.",
     image: "/blog/banda-casamento-rock-aniversario.jpg",
@@ -446,7 +446,7 @@ Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer part
   {
     slug: "quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil",
     title: "Quais bandas de casamento são recomendadas para festas grandes no Brasil?",
-    metaTitle: "Quais Bandas de Casamento São Recomendadas para Festas Grandes no Brasil? | Barbie Kills",
+    metaTitle: "Melhores Bandas para Casamentos Grandes | Barbie Kills",
     metaDescription: "Descubra o que define uma banda de elite para grandes casamentos no Brasil: engenharia de som audiófila, experiência visual com LED e curadoria musical exclusiva.",
     excerpt: "O que separa uma banda comum de uma banda de elite para grandes casamentos? Descubra os 5 pilares que definem a excelência no entretenimento musical para festas grandiosas no Brasil.",
     image: "/blog/bandas-casamento-festas-grandes-brasil.webp",
