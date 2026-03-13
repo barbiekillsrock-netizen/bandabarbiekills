@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Youtube, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
   return <footer className="relative py-24 overflow-hidden">
       {/* Gradient Background */}

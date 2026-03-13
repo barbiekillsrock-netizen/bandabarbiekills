@@ -53,6 +53,8 @@ const structuredData = {
       "url": SITE_URL,
       "image": `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
       "telephone": "+5519981736659",
+      "email": "barbiekillsrock@gmail.com",
+      "openingHours": "Mo-Fr 09:00-18:00",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Campinas",

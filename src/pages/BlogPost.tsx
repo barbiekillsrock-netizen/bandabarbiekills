@@ -68,7 +68,7 @@ const BlogPost = () => {
         "name": `Barbie Kills — ${post.title}`,
         "description": post.metaDescription.substring(0, 150),
         "thumbnailUrl": `https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`,
-        "uploadDate": post.date,
+        "uploadDate": `${post.date}T09:00:00-03:00`,
         "contentUrl": v.isShorts
           ? `https://www.youtube.com/shorts/${v.id}`
           : `https://www.youtube.com/watch?v=${v.id}`,
