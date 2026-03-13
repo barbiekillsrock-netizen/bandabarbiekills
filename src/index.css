@@ -75,6 +75,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
+    font-size: 16px;
     font-display: swap;
     overflow-x: hidden;
     max-width: 100vw;
@@ -86,10 +87,19 @@
     min-width: 44px;
   }
 
-  /* Exception for inline text links */
-  p a, span a, li a {
+  /* Exception for inline text links and icon-only elements */
+  p a, span a, li a, .inline-link {
     min-height: auto;
     min-width: auto;
+  }
+
+  /* Ensure tap targets have proper padding on mobile */
+  @media (max-width: 768px) {
+    nav a, nav button, footer a {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {

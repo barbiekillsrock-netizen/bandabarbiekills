@@ -166,8 +166,8 @@ const homepageVideos = [
 ];
 
 const META = {
-  title: 'Banda Barbie Kills | Casamentos e Eventos Premium',
-  description: 'Banda premium para casamentos e eventos corporativos em Campinas, SP e interior. Repertório personalizado e energia única. Peça seu orçamento.',
+  title: 'Banda Barbie Kills | Banda para Casamentos e Eventos Premium',
+  description: 'Banda premium para casamentos e eventos corporativos em Campinas e SP. Infraestrutura completa e repertório personalizado.',
   keywords: 'banda para casamento campinas, banda casamento sp, banda evento corporativo campinas, banda casamento valinhos, banda casamento indaiatuba, banda pop rock casamento, música ao vivo casamento interior sp, barbie kills',
   url: SITE_URL,
   image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
