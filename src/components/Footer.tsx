@@ -43,6 +43,12 @@ const Footer = () => {
               </div>
               <span className="font-inter text-sm text-muted-foreground group-hover:text-neon-pink transition-colors">YouTube</span>
             </a>
+            <a href="https://www.facebook.com/barbiekillsrock" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+              <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
+                <Facebook className="w-8 h-8" />
+              </div>
+              <span className="font-inter text-sm text-muted-foreground group-hover:text-neon-pink transition-colors">Facebook</span>
+            </a>
             <a href="https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
               <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8 fill-current">
