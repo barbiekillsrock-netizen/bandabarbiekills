@@ -157,7 +157,7 @@ const homepageVideos = [
     "name": "Barbie Kills em Evento Corporativo — Banda para Festas Empresariais",
     "description": "Show da Barbie Kills em evento corporativo. Entretenimento musical premium para confraternizações e convenções.",
     "thumbnailUrl": "https://img.youtube.com/vi/RLIIDCt0MlA/maxresdefault.jpg",
-    "uploadDate": "2024-10-05",
+    "uploadDate": "2024-10-05T09:00:00-03:00",
     "contentUrl": "https://www.youtube.com/watch?v=RLIIDCt0MlA",
     "embedUrl": "https://www.youtube.com/embed/RLIIDCt0MlA"
   }
