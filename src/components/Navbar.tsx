@@ -119,11 +119,11 @@ const Navbar = () => {
               ))}
             </div>
             <div className="w-px h-5 bg-white/20" />
-            
+
             {/* BOTÃO ISOLADO E BLINDADO CONTRA CACHE/ANIMAÇÕES */}
-            <a 
-              href="https://wa.me/5519981736659" 
-              target="_blank" 
+            <a
+              href="https://wa.me/5519981736659"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
             >
@@ -154,3 +154,50 @@ const Navbar = () => {
                     className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={isHomePage ? link.href : "/" + link.href}
+                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ),
+              )}
+              {/* Social Icons Mobile */}
+              <div className="flex items-center gap-5 py-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
+                    aria-label={social.label}
+                  >
+                    {social.icon ? <social.icon size={20} /> : <SpotifyIcon size={20} />}
+                  </a>
+                ))}
+              </div>
+
+              {/* BOTÃO MOBILE ISOLADO */}
+              <a
+                href="https://wa.me/5519981736659"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-fit h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
+              >
+                Contrate
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
