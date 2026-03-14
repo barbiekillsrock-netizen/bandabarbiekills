@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        'bebas': ['Bebas Neue', 'sans-serif'],
-        'oswald': ['Oswald', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        bebas: ["Bebas Neue", "sans-serif"],
+        oswald: ["Oswald", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -82,14 +82,14 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "glow-pulse": {
-          "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(330 100% 50% / 0.4), 0 0 40px hsl(330 100% 50% / 0.2)" 
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(330 100% 50% / 0.4), 0 0 40px hsl(330 100% 50% / 0.2)",
           },
-          "50%": { 
-            boxShadow: "0 0 30px hsl(330 100% 50% / 0.6), 0 0 60px hsl(330 100% 50% / 0.3)" 
+          "50%": {
+            boxShadow: "0 0 30px hsl(330 100% 50% / 0.6), 0 0 60px hsl(330 100% 50% / 0.3)",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
@@ -100,7 +100,7 @@ export default {
         "fade-in": "fade-in 0.8s ease-out forwards",
         "fade-in-up": "fade-in-up 1s ease-out forwards",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "float": "float 3s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
       },
     },
   },

@@ -5,7 +5,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-300 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  // Base limpa: removi as sombras e anéis ocultos que davam erro, mas mantive a transição suave
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -16,19 +17,19 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
 
-        // BOTÃO ROSA (CTA): Texto preto e sem sombra pesada
+        // BOTÃO ROSA PRINCIPAL (Barbie Kills) - Fundo rosa, texto branco, sem piscar
         neonPink:
-          "bg-neon-pink text-black font-semibold font-oswald uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform",
+          "bg-neon-pink text-white font-semibold font-oswald uppercase tracking-wider hover:brightness-110 hover:scale-105 active:scale-95",
 
-        // BOTÃO SÓ COM BORDA: Texto rosa que fica preto no hover
+        // BOTÃO SÓ COM BORDA
         neonPinkOutline:
-          "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black transition-colors duration-300",
+          "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-white",
 
-        // BOTÃO DA NAVBAR: Limpo de sombras e anéis (Lighthouse 100%)
-        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black text-sm transition-colors duration-300 shadow-none ring-0",
+        // BOTÃO DA NAVBAR (O seu "Contrate") - Limpo, transparente, elegante
+        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-white text-sm",
 
-        // BOTÃO HERO: Grande e acessível
-        hero: "bg-neon-pink text-black font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:scale-105 active:scale-95 transition-transform",
+        // HERO CTA (Botão grande)
+        hero: "bg-neon-pink text-white font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:brightness-110 hover:scale-105 active:scale-95",
       },
       size: {
         default: "h-10 px-4 py-2",
