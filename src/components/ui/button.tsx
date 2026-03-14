@@ -22,7 +22,8 @@ const buttonVariants = cva(
         neonPinkOutline:
           "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-foreground hover:shadow-[0_0_20px_hsl(330_100%_50%/0.5)]",
         // Nav Button
-        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black text-sm transition-colors duration-300 shadow-none hover:shadow-none",
+        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black text-sm transition-colors duration-300 ring-0 ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none hover:shadow-none",
+
         // Hero CTA
         hero: "bg-neon-pink text-foreground font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:shadow-[0_0_40px_hsl(330_100%_50%/0.7)] hover:scale-105 active:scale-95",
       },
