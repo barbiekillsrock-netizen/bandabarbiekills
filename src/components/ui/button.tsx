@@ -26,7 +26,7 @@ const buttonVariants = cva(
           "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-white",
 
         // BOTÃO DA NAVBAR (O seu "Contrate") - Limpo, transparente, elegante
-        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-white text-sm",
+        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-white text-sm transition-colors duration-200",
 
         // HERO CTA (Botão grande)
         hero: "bg-neon-pink text-white font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:brightness-110 hover:scale-105 active:scale-95",
