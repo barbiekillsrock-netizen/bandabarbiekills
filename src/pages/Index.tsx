@@ -27,6 +27,11 @@ const structuredData = {
         "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
       genre: ["Pop", "Rock", "Soul", "Brazilian Music"],
       foundingDate: "2012",
+      sameAs: [
+        "https://www.instagram.com/barbiekillsrock",
+        "https://www.facebook.com/barbiekillsrock",
+        "https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1",
+      ],
       location: {
         "@type": "Place",
         address: {
@@ -36,12 +41,6 @@ const structuredData = {
           addressCountry: "BR",
         },
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "29",
-      },
-      sameAs: ["https://www.instagram.com/barbiekillsrock", "https://www.youtube.com/@barbiekillsrock"],
     },
     {
       "@type": "LocalBusiness",
