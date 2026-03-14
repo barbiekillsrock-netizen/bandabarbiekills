@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-300 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -15,17 +15,20 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Neon Pink CTA Button
-        neonPink:
-          "bg-neon-pink text-foreground font-semibold font-oswald uppercase tracking-wider hover:shadow-[0_0_30px_hsl(330_100%_50%/0.6)] hover:scale-105 active:scale-95",
-        // Neon Pink Outline Button
-        neonPinkOutline:
-          "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-foreground hover:shadow-[0_0_20px_hsl(330_100%_50%/0.5)]",
-        // Nav Button
-        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black text-sm transition-colors duration-300 ring-0 ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none hover:shadow-none",
 
-        // Hero CTA
-        hero: "bg-neon-pink text-foreground font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:shadow-[0_0_40px_hsl(330_100%_50%/0.7)] hover:scale-105 active:scale-95",
+        // BOTÃO ROSA (CTA): Texto preto e sem sombra pesada
+        neonPink:
+          "bg-neon-pink text-black font-semibold font-oswald uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform",
+
+        // BOTÃO SÓ COM BORDA: Texto rosa que fica preto no hover
+        neonPinkOutline:
+          "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black transition-colors duration-300",
+
+        // BOTÃO DA NAVBAR: Limpo de sombras e anéis (Lighthouse 100%)
+        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-black text-sm transition-colors duration-300 shadow-none ring-0",
+
+        // BOTÃO HERO: Grande e acessível
+        hero: "bg-neon-pink text-black font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:scale-105 active:scale-95 transition-transform",
       },
       size: {
         default: "h-10 px-4 py-2",
