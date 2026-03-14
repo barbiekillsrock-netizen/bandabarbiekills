@@ -178,10 +178,10 @@ const Footer = () => {
         {/* Bio Institucional para SEO */}
         <div className="mt-12 max-w-4xl mx-auto text-center">
           <p className="font-inter text-sm text-muted-foreground leading-relaxed">
-            A <strong>Barbie Kills</strong> é a banda de rock e pop premium referência para casamentos de luxo e eventos
-            corporativos em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um
-            repertório sofisticado e infraestrutura completa, entregamos entretenimento musical de alta energia para
-            quem não abre mão de qualidade e elegância em seu grande dia.
+            A <strong>Barbie Kills</strong> é a banda premium referência para casamentos de luxo e eventos corporativos
+            em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um repertório sofisticado
+            e infraestrutura completa, entregamos entretenimento musical de alta energia para quem não abre mão de
+            qualidade e elegância em seu grande dia.
           </p>
         </div>
 
