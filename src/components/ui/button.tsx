@@ -16,11 +16,13 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Neon Pink CTA Button
-        neonPink: "bg-neon-pink text-foreground font-semibold font-oswald uppercase tracking-wider hover:shadow-[0_0_30px_hsl(330_100%_50%/0.6)] hover:scale-105 active:scale-95",
+        neonPink:
+          "bg-neon-pink text-foreground font-semibold font-oswald uppercase tracking-wider hover:shadow-[0_0_30px_hsl(330_100%_50%/0.6)] hover:scale-105 active:scale-95",
         // Neon Pink Outline Button
-        neonPinkOutline: "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-foreground hover:shadow-[0_0_20px_hsl(330_100%_50%/0.5)]",
+        neonPinkOutline:
+          "border-2 border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-foreground hover:shadow-[0_0_20px_hsl(330_100%_50%/0.5)]",
         // Nav Button
-        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-foreground text-sm",
+        nav: "border border-neon-pink text-neon-pink bg-transparent font-oswald uppercase tracking-wider hover:bg-neon-pink hover:text-foreground text-sm transition-colors duration-300",
         // Hero CTA
         hero: "bg-neon-pink text-foreground font-bold font-oswald uppercase tracking-wider text-lg px-8 py-6 hover:shadow-[0_0_40px_hsl(330_100%_50%/0.7)] hover:scale-105 active:scale-95",
       },
@@ -40,8 +42,7 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
