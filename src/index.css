@@ -279,3 +279,13 @@ a[class*="variant-nav"] {
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* PARAGEM DE EMERGÊNCIA: Anula qualquer piscar nos botões de contacto (WhatsApp) */
+a[href*="wa.me"],
+a[href*="wa.me"] * {
+  animation: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
