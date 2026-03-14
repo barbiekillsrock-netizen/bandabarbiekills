@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
-import { Button } from "@/components/ui/button";
 import { Menu, X, Instagram, Youtube } from "lucide-react";
 
 const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
@@ -29,7 +28,6 @@ const socialLinks = [
   },
 ];
 
-// v1.2
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -121,11 +119,16 @@ const Navbar = () => {
               ))}
             </div>
             <div className="w-px h-5 bg-white/20" />
-            <Button variant="nav" size="sm" asChild>
-              <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
-                Contrate
-              </a>
-            </Button>
+            
+            {/* BOTÃO ISOLADO E BLINDADO CONTRA CACHE/ANIMAÇÕES */}
+            <a 
+              href="https://wa.me/5519981736659" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
+            >
+              Contrate
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -151,45 +154,3 @@ const Navbar = () => {
                     className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={isHomePage ? link.href : "/" + link.href}
-                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ),
-              )}
-              {/* Social Icons Mobile */}
-              <div className="flex items-center gap-5 py-2">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
-                    aria-label={social.label}
-                  >
-                    {social.icon ? <social.icon size={20} /> : <SpotifyIcon size={20} />}
-                  </a>
-                ))}
-              </div>
-              <Button variant="nav" size="sm" className="w-fit" asChild>
-                <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
-                  Contrate
-                </a>
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
