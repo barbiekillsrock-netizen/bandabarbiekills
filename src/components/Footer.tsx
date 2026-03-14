@@ -175,6 +175,16 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Bio Institucional para SEO */}
+        <div className="mt-12 max-w-4xl mx-auto text-center">
+          <p className="font-inter text-sm text-muted-foreground leading-relaxed">
+            A <strong>Barbie Kills</strong> é a banda de rock e pop premium referência para casamentos de luxo e eventos
+            corporativos em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um
+            repertório sofisticado e infraestrutura completa, entregamos entretenimento musical de alta energia para
+            quem não abre mão de qualidade e elegância em seu grande dia.
+          </p>
+        </div>
+
         {/* Copyright */}
         <div className="text-center mt-12 pt-8 border-t border-white/5">
           <p className="font-inter text-sm text-muted-foreground">© 2026 Barbie Kills. Todos os direitos reservados.</p>
