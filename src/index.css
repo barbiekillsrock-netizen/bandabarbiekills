@@ -73,7 +73,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 300;
     font-size: 16px;
     font-display: swap;
@@ -82,28 +82,39 @@
   }
 
   /* Minimum tap target size for mobile accessibility */
-  a, button {
+  a,
+  button {
     min-height: 44px;
     min-width: 44px;
   }
 
   /* Exception for inline text links and icon-only elements */
-  p a, span a, li a, .inline-link {
+  p a,
+  span a,
+  li a,
+  .inline-link {
     min-height: auto;
     min-width: auto;
   }
 
   /* Ensure tap targets have proper padding on mobile */
   @media (max-width: 768px) {
-    nav a, nav button, footer a {
+    nav a,
+    nav button,
+    footer a {
       min-height: 48px;
       display: inline-flex;
       align-items: center;
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bebas Neue", sans-serif;
     letter-spacing: 0.02em;
   }
 }
@@ -117,27 +128,31 @@
   /* Neon Text Effects */
   .neon-pink-text {
     color: hsl(var(--neon-pink));
-    text-shadow: 0 0 10px hsl(var(--neon-pink) / 0.8),
-                 0 0 20px hsl(var(--neon-pink) / 0.6),
-                 0 0 40px hsl(var(--neon-pink) / 0.4);
+    text-shadow:
+      0 0 10px hsl(var(--neon-pink) / 0.8),
+      0 0 20px hsl(var(--neon-pink) / 0.6),
+      0 0 40px hsl(var(--neon-pink) / 0.4);
   }
 
   .neon-cyan-text {
     color: hsl(var(--neon-cyan));
-    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
-                 0 0 20px hsl(var(--neon-cyan) / 0.6),
-                 0 0 40px hsl(var(--neon-cyan) / 0.4);
+    text-shadow:
+      0 0 10px hsl(var(--neon-cyan) / 0.8),
+      0 0 20px hsl(var(--neon-cyan) / 0.6),
+      0 0 40px hsl(var(--neon-cyan) / 0.4);
   }
 
   /* Neon Glow Effects */
   .neon-pink-glow {
-    box-shadow: 0 0 15px hsl(var(--neon-pink) / 0.5),
-                0 0 30px hsl(var(--neon-pink) / 0.3);
+    box-shadow:
+      0 0 15px hsl(var(--neon-pink) / 0.5),
+      0 0 30px hsl(var(--neon-pink) / 0.3);
   }
 
   .neon-cyan-glow {
-    box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.5),
-                0 0 30px hsl(var(--neon-cyan) / 0.3);
+    box-shadow:
+      0 0 15px hsl(var(--neon-cyan) / 0.5),
+      0 0 30px hsl(var(--neon-cyan) / 0.3);
   }
 
   /* Logo Glow */
@@ -147,31 +162,23 @@
 
   /* Section Gradient Background */
   .section-gradient {
-    background: linear-gradient(180deg, 
-      hsl(0 0% 2%) 0%, 
-      hsl(270 100% 3%) 50%, 
-      hsl(270 100% 1%) 100%
-    );
+    background: linear-gradient(180deg, hsl(0 0% 2%) 0%, hsl(270 100% 3%) 50%, hsl(270 100% 1%) 100%);
   }
 
   .section-gradient-alt {
-    background: linear-gradient(180deg, 
-      hsl(270 100% 1%) 0%, 
-      hsl(0 0% 2%) 50%, 
-      hsl(270 100% 2%) 100%
-    );
+    background: linear-gradient(180deg, hsl(270 100% 1%) 0%, hsl(0 0% 2%) 50%, hsl(270 100% 2%) 100%);
   }
 
   /* Subtitle Style */
   .subtitle {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.15em;
   }
 
   /* Heading Style */
   .heading-display {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
     line-height: 0.9;
   }
 
@@ -179,7 +186,7 @@
   .hover-lift {
     @apply transition-all duration-300;
   }
-  
+
   .hover-lift:hover {
     @apply -translate-y-2;
     box-shadow: 0 20px 40px hsl(var(--neon-pink) / 0.2);
@@ -187,8 +194,9 @@
 
   /* Video Glow */
   .video-glow {
-    box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.3),
-                0 0 40px hsl(var(--neon-pink) / 0.1);
+    box-shadow:
+      0 0 20px hsl(var(--neon-pink) / 0.3),
+      0 0 40px hsl(var(--neon-pink) / 0.1);
   }
 
   /* Parallax Container */
@@ -256,4 +264,18 @@
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+} /* <-- FECHA O LAYER UTILITIES AQUI */
+
+/* REGRAS GLOBAIS DE CORREÇÃO (FORA DOS LAYERS PARA GARANTIR PRIORIDADE) */
+.variant-nav,
+button[class*="variant-nav"],
+a[class*="variant-nav"] {
+  box-shadow: none !important;
+  animation: none !important;
+  transition-property: color, background-color !important;
+}
+
+:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
