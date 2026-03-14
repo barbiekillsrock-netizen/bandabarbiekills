@@ -369,9 +369,9 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
     title: "Banda para Casamento em Campinas: O Combo Perfeito da Cerimônia à Festa",
     metaTitle: "Banda para Casamento em Campinas | Barbie Kills",
     metaDescription:
-      "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para casamentos em Campinas.",
+      "Da cerimônia à festa: a Barbie Kills une sofisticação acústica e energia explosiva para seu casamento em Campinas. Confira nossa solução definitiva!",
     excerpt:
-      "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia explosiva da Barbie Kills para a recepção. A solução definitiva para o seu grande dia.",
+      "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia da Barbie Kills para a recepção. A solução coesa que seu grande dia exige.",
     image: "/blog/banda-casamento-sorocaba.webp",
     imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-24",
@@ -422,9 +422,9 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
     title: "Como Organizar um Aniversário Inesquecível (O Guia Barbie Kills)",
     metaTitle: "Como Organizar Aniversário Inesquecível | Barbie Kills",
     metaDescription:
-      "Confira os 4 pilares para transformar sua festa de aniversário em um evento épico. Dicas de tema, som ao vivo, logística e o fator 'uau' da Barbie Kills em Campinas.",
+      "Confira os 4 pilares para transformar sua festa de aniversário em um evento épico. Dicas de tema, música ao vivo e logística com a Barbie Kills em Campinas.",
     excerpt:
-      "Celebrar mais um ano de vida é como montar o setlist perfeito: precisa ter ritmo, energia e um grand finale. Confira os 4 pilares para uma festa inesquecível.",
+      "Celebrar mais um ano de vida exige ritmo, energia e um "grand finale". Saiba por que a música ao vivo é o coração da festa e como os detalhes técnicos transformam sua comemoração em um show real.",
     image: "/blog/banda-casamento-rock-aniversario.jpg",
     imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-05",
