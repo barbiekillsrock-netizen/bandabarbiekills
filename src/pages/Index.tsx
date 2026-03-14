@@ -30,7 +30,7 @@ const structuredData = {
       sameAs: [
         "https://www.instagram.com/barbiekillsrock",
         "https://www.facebook.com/barbiekillsrock",
-        "https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1",
+        "https://www.youtube.com/@barbiekills",
       ],
       location: {
         "@type": "Place",
@@ -96,7 +96,7 @@ const structuredData = {
         ratingValue: "5",
         reviewCount: "29",
       },
-      sameAs: ["https://www.instagram.com/barbiekillsrock", "https://www.youtube.com/@barbiekillsrock"],
+      sameAs: ["https://www.instagram.com/barbiekillsrock", "https://www.youtube.com/@barbiekills"],
     },
     {
       "@type": "Service",
