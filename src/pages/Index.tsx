@@ -23,6 +23,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#band`,
       name: "Barbie Kills",
       url: SITE_URL,
+      image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
       description:
         "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
       genre: ["Pop", "Rock", "Soul", "Brazilian Music"],
@@ -34,6 +35,7 @@ const structuredData = {
       ],
       location: {
         "@type": "Place",
+        name: "Sede Barbie Kills",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Campinas",
@@ -94,6 +96,8 @@ const structuredData = {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
         reviewCount: "29",
       },
       sameAs: ["https://www.instagram.com/barbiekillsrock", "https://www.youtube.com/@barbiekills"],
@@ -134,11 +138,13 @@ const structuredData = {
       itemReviewed: {
         "@type": "MusicGroup",
         name: "Barbie Kills",
+        image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
       },
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
         bestRating: "5",
+        worstRating: "1",
       },
       author: {
         "@type": "Person",
@@ -213,26 +219,20 @@ const Index = () => {
           href="https://www.bandabarbiekills.com.br"
         />
 
+        {/* Open Graph / Redes Sociais */}
         <meta property="og:title" content={META.title} />
         <meta property="og:description" content={META.description} />
-
-        {/* AJUSTE ESTA LINHA: Use o link direto em vez da variável */}
-        <link rel="alternate" key="alternate" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br" />
-
-        <meta property="og:title" content={META.title} />
-        <meta property="og:description" content={META.description} />
-
-        {/* AJUSTE ESTA LINHA TAMBÉM */}
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
-
         <meta property="og:type" content="website" />
         <meta property="og:image" content={META.image} />
 
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={META.title} />
         <meta name="twitter:description" content={META.description} />
         <meta name="twitter:image" content={META.image} />
 
+        {/* Dados Estruturados (Schema Markup) */}
         <script type="application/ld+json">
           {JSON.stringify({ ...structuredData, "@graph": [...structuredData["@graph"], ...homepageVideos] })}
         </script>
