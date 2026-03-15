@@ -200,8 +200,21 @@ const Index = () => {
         <meta name="description" content={META.description} />
         <meta name="keywords" content={META.keywords} />
 
-        {/* ADICIONE ESTA LINHA: É o RG da sua página inicial */}
+        {/* ESTA LINHA É o RG da sua página inicial */}
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
+
+        {/* Tags de Idioma e Versão Padrão (Zera os erros do Ahrefs/Semrush) */}
+        <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br" />
+        <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br" />
+        <link
+          rel="alternate"
+          key="alternate-x-default"
+          hrefLang="x-default"
+          href="https://www.bandabarbiekills.com.br"
+        />
+
+        <meta property="og:title" content={META.title} />
+        <meta property="og:description" content={META.description} />
 
         {/* AJUSTE ESTA LINHA: Use o link direto em vez da variável */}
         <link rel="alternate" key="alternate" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br" />

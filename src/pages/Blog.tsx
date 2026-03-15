@@ -20,8 +20,19 @@ const Blog = () => {
           name="description"
           content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP. Assista ao show e peça seu orçamento."
         />
-        <link rel="canonical" href="https://www.bandabarbiekills.com.br/blog" />
-        <link rel="alternate" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/blog" />
+
+        {/* === AQUI ESTÃO AS TAGS CORRIGIDAS PARA O SEO === */}
+        <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br/blog" />
+        <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/blog" />
+        <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br/blog" />
+        <link
+          rel="alternate"
+          key="alternate-x-default"
+          hrefLang="x-default"
+          href="https://www.bandabarbiekills.com.br/blog"
+        />
+        {/* ================================================ */}
+
         <meta
           property="og:title"
           content="Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills"
