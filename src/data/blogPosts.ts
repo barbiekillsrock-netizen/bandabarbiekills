@@ -145,15 +145,15 @@ Sediada estrategicamente, a [Barbie Kills](/) possui logística otimizada para a
 
 Entendemos a dinâmica dos espaços de eventos no interior de São Paulo. Nossa equipe está habituada a realizar apresentações em locais de prestígio em:
 
-**Campinas e Região:** Paulínia, Sumaré, Hortolândia.
+**Campinas e Região:** [Paulínia](/cidade/evento-corporativo-paulinia), Sumaré, Hortolândia.
 
-**Circuito das Frutas:** Jundiaí, Vinhedo, Valinhos, Louveira, Itatiba.
+**Circuito das Frutas:** [Jundiaí](/cidade/banda-casamento-jundiai), [Vinhedo](/cidade/banda-casamento-vinhedo), [Valinhos](/cidade/banda-casamento-valinhos), [Louveira](/cidade/banda-casamento-louveira), Itatiba.
 
-**Eixo Castello/Bandeirantes:** Sorocaba, Itu, Indaiatuba, Salto.
+**Eixo Castello/Bandeirantes:** [Sorocaba](/cidade/banda-casamento-sorocaba), [Itu](/cidade/banda-casamento-itu), [Indaiatuba](/cidade/casamento-indaiatuba), Salto.
 
-**Região de Piracicaba:** Americana, Santa Bárbara d'Oeste, Limeira e Rio Claro.
+**Região de Piracicaba:** [Americana](/cidade/banda-casamento-americana), Santa Bárbara d'Oeste, [Limeira](/cidade/banda-casamento-limeira) e Rio Claro.
 
-**Grande São Paulo:** Alphaville, Barueri e Capital.
+**Grande São Paulo:** [Alphaville](/cidade/evento-corporativo-alphaville), [Barueri](/cidade/banda-corporativa-barueri) e Capital.
 
 Levar uma atração da capital nem sempre é viável ou necessário quando você tem uma estrutura de show internacional disponível localmente, reduzindo custos de logística sem sacrificar a qualidade.
 
