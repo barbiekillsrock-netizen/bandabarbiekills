@@ -159,7 +159,7 @@ Levar uma atração da capital nem sempre é viável ou necessário quando você
 
 ## 6. Do Backstage ao Palco: Criando Memórias Inesquecíveis
 
-Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata e elétrica. Não somos apenas uma [banda](/#sobre) tocando músicas; somos arquitetos de uma experiência sensorial completa.
+Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata e elétrica. Não somos apenas uma [banda](/#sobre) tocando músicas; somos [arquitetos de uma experiência sensorial completa](/blog/banda-para-casamento-estrutura-tecnica).
 
 Cada detalhe, do brilho do figurino à precisão cristalina do áudio, é desenhado com um único objetivo: fazer com que seus convidados digam, ao final da noite: "Esse foi o melhor show que já presenciei!".
 
