@@ -209,7 +209,7 @@ A interatividade é a marca registrada da [Barbie Kills](/).
 
 **Microfone Aberto:** Criamos momentos onde os convidados participam dos refrões mais famosos, gerando uma conexão única e vídeos incríveis para as redes sociais.
 
-**Atmosfera de Show Internacional:** A nossa iluminação não é apenas decorativa; ela é cênica. Transformamos o salão de festas — seja um buffet em Indaiatuba ou uma chácara em Valinhos — em uma arena de show, com jogos de luzes sincronizados que elevam a energia da festa.
+**Atmosfera de Show Internacional:** A nossa iluminação não é apenas decorativa; ela é cênica. Transformamos o salão de festas — seja um buffet em [Indaiatuba](/cidade/casamento-indaiatuba) ou uma chácara em [Valinhos](/cidade/banda-casamento-valinhos) — em uma arena de show, com jogos de luzes sincronizados que elevam a energia da festa.
 
 ## 3. Estrutura Profissional para Eventos em Campinas e Região
 
