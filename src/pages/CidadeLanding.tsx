@@ -70,7 +70,7 @@ const CidadeLanding = () => {
   const { cidade: nome, foco, hook, venues } = cidade;
   const canonicalUrl = `${SITE_URL}/cidade/${slug}`;
   const metaTitle = `Banda para ${focoLabel(foco)} em ${nome} | Barbie Kills`;
-  const metaDesc = `${hook} Banda premium para ${focoLabel(foco)} em ${nome}. Shows de alta energia com Mariana Chaib. Atendemos ${venues} Infraestrutura completa e repertório.`;
+  const metaDesc = `Banda premium para ${focoLabel(foco)} em ${nome}. Alta energia para sua pista e excelência em espaços como ${venues}`;
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
