@@ -167,7 +167,7 @@ Cada detalhe, do brilho do figurino à precisão cristalina do áudio, é desenh
 
 Se você busca uma [banda de rock e pop](/blog/musicas-mais-pedidas-casamento-2026) que une o glamour magnético de uma estrela pop com a seriedade e segurança de uma gestão corporativa experiente, sua busca termina aqui.
 
-Transforme seu evento corporativo, casamento ou festa particular em um marco. Entre em contato conosco e leve a experiência [Barbie Kills](/) para o seu palco.`,
+Transforme seu evento [corporativo](/corporativo), casamento ou festa particular em um marco. Entre em contato conosco e leve a experiência [Barbie Kills](/) para o seu palco.`,
   },
   {
     slug: "banda-festa-aniversario-50-anos-sp",
