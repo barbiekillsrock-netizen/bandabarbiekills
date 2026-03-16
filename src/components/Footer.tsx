@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Instagram, Youtube, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router";
+import { cidadesData } from "@/data/cidadesData";
 const Footer = () => {
   return (
     <footer className="relative py-24 overflow-hidden">
