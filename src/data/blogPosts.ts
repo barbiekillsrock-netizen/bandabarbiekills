@@ -461,7 +461,7 @@ Para o aniversariante aproveitar, o planejamento deve ser impecável.
 
 ## 4. O Fator "Uau"
 
-O que sua festa terá que as outras não tiveram? O segredo está nos detalhes que surpreendem, como uma performance marcante da sua banda favorita que faz todo mundo tirar o pé do chão. Fuja do comum e invista em uma experiência de show real.
+O que sua festa terá que as outras não tiveram? O segredo está nos detalhes que surpreendem, como uma performance marcante da sua banda favorita que faz todo mundo tirar o pé do chão. Fuja do comum e invista em uma [experiência de show real](/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil).
 
 Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer parte de histórias inesquecíveis. Seja para uma festa íntima ou um grande evento social, garantimos que o seu dia terá a trilha sonora que ele merece, com profissionalismo e a voltagem certa.`,
   },
