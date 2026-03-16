@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Instagram, Youtube, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router";
+import { cidadesData } from "@/data/cidadesData";
 const Footer = () => {
   return (
     <footer className="relative py-24 overflow-hidden">
@@ -144,31 +146,14 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-white/5 text-center">
           <p className="text-xs text-muted-foreground/90 uppercase tracking-widest mb-4">Áreas Atendidas</p>
           <div className="text-[11px] text-muted-foreground/80 max-w-4xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
-            {[
-              "São Paulo",
-              "Campinas",
-              "Alphaville",
-              "Barueri",
-              "Holambra",
-              "Itu",
-              "Jundiaí",
-              "Indaiatuba",
-              "Vinhedo",
-              "Valinhos",
-              "Sorocaba",
-              "Paulínia",
-              "Piracicaba",
-              "Americana",
-              "Louveira",
-              "Jaguariúna",
-              "Atibaia",
-              "Bragança Paulista",
-              "São Caetano do Sul",
-              "Limeira",
-              "Santana de Parnaíba",
-            ].map((city, i, arr) => (
-              <span key={city}>
-                {city}
+            {cidadesData.map((c, i, arr) => (
+              <span key={c.slug}>
+                <Link
+                  to={`/cidade/${c.slug}`}
+                  className="hover:text-neon-pink transition-colors duration-300"
+                >
+                  {c.cidade}
+                </Link>
                 {i < arr.length - 1 ? " •" : ""}
               </span>
             ))}
