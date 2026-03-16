@@ -6,6 +6,7 @@ export interface BlogPost {
   excerpt: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
   date: string;
   readTime: string;
   content: string;
