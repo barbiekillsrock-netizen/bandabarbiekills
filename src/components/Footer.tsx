@@ -12,7 +12,8 @@ const Footer = () => {
         {/* CTA Section */}
         <div className="text-center mb-16">
           <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
-            PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span>
+            PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span> <br />
+            DO SEU EVENTO?
             <br />
             DO SEU EVENTO?
           </h2>
@@ -148,10 +149,7 @@ const Footer = () => {
           <div className="text-[11px] text-muted-foreground/80 max-w-4xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
             {cidadesData.map((c, i, arr) => (
               <span key={c.slug}>
-                <Link
-                  to={`/cidade/${c.slug}`}
-                  className="hover:text-neon-pink transition-colors duration-300"
-                >
+                <Link to={`/cidade/${c.slug}`} className="hover:text-neon-pink transition-colors duration-300">
                   {c.cidade}
                 </Link>
                 {i < arr.length - 1 ? " •" : ""}
