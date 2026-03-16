@@ -44,7 +44,10 @@ const YouTubeFacade = ({ id, title }: { id: string; title: string }) => {
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
         <svg viewBox="0 0 68 48" className="w-16 h-12" aria-hidden="true">
-          <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red" />
+          <path
+            d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"
+            fill="red"
+          />
           <path d="M45 24 27 14v20" fill="white" />
         </svg>
       </div>
@@ -66,8 +69,8 @@ const CidadeLanding = () => {
 
   const { cidade: nome, foco, hook, venues } = cidade;
   const canonicalUrl = `${SITE_URL}/cidade/${slug}`;
-  const metaTitle = `Banda para Casamento e Eventos em ${nome} | Barbie Kills`;
-  const metaDesc = `Banda premium para casamentos e eventos em ${nome}. Shows de alta energia com Mariana Chaib. Atendemos ${venues} Infraestrutura completa e repertório personalizado.`;
+  const metaTitle = `Banda para ${focoLabel(foco)} em ${nome} | Barbie Kills`;
+  const metaDesc = `${hook} Banda premium para ${focoLabel(foco)} em ${nome}. Shows de alta energia com Mariana Chaib. Atendemos ${venues} Infraestrutura completa e repertório.`;
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
@@ -128,7 +131,8 @@ const CidadeLanding = () => {
               Barbie Kills: Banda Premium para {focoLabel(foco)} em {nome}
             </h1>
             <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
-              {hook} Unimos sofisticação e alta performance para transformar seu evento em um momento histórico em {nome}.
+              {hook} Unimos sofisticação e alta performance para transformar seu evento em um momento histórico em{" "}
+              {nome}.
             </p>
             <div className="animate-fade-in animation-delay-600">
               <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
@@ -150,7 +154,10 @@ const CidadeLanding = () => {
           />
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float hidden lg:flex">
-          <a href="#autoridade" className="flex flex-col items-center gap-2 text-foreground/60 hover:text-neon-pink transition-colors">
+          <a
+            href="#autoridade"
+            className="flex flex-col items-center gap-2 text-foreground/60 hover:text-neon-pink transition-colors"
+          >
             <span className="font-oswald text-xs uppercase tracking-widest">Descubra</span>
             <ChevronDown className="w-6 h-6" />
           </a>
@@ -165,7 +172,9 @@ const CidadeLanding = () => {
               REFERÊNCIA EM <span className="neon-pink-text">{focoLabel(foco).toUpperCase()}</span>
             </h2>
             <p className="text-body text-lg md:text-xl leading-relaxed text-muted-foreground mb-12">
-              Com mais de 14 anos de estrada e 600 shows realizados, a Barbie Kills é liderada pela vocalista Mariana Chaib, destaque na Rede Globo. Somos referência em casamentos de luxo e eventos corporativos de alto padrão, entregando uma experiência musical única que transita pelo Pop, Rock, Soul e Música Brasileira.
+              Com mais de 14 anos de estrada e 600 shows realizados, a Barbie Kills é liderada pela vocalista Mariana
+              Chaib, destaque na Rede Globo. Somos referência em casamentos de luxo e eventos corporativos de alto
+              padrão, entregando uma experiência musical única que transita pelo Pop, Rock, Soul e Música Brasileira.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
@@ -220,7 +229,9 @@ const CidadeLanding = () => {
               LOGÍSTICA E ESTRUTURA <span className="neon-pink-text">IMPECÁVEL</span> EM {nome.toUpperCase()}
             </h2>
             <p className="text-body text-lg md:text-xl leading-relaxed text-muted-foreground text-center mb-12">
-              Conhecemos a fundo a acústica e a dinâmica dos principais espaços da região, como {venues} Nossa equipe utiliza tecnologia de última geração em som e luz, garantindo a mesma segurança e qualidade que marcas como Honda e Ambev confiam para seus eventos.
+              Conhecemos a fundo a acústica e a dinâmica dos principais espaços da região, como {venues} Nossa equipe
+              utiliza tecnologia de última geração em som e luz, garantindo a mesma segurança e qualidade que marcas
+              como Honda e Ambev confiam para seus eventos.
             </p>
           </div>
         </div>
