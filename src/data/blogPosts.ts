@@ -512,7 +512,7 @@ Transições sem silêncio (estilo non-stop), medleys explosivos e a capacidade 
 
 O quinto pilar — e talvez o mais difícil de replicar — é a **presença de palco**. Uma banda de elite não apenas toca; ela performa. Há uma conexão teatral entre os músicos e o público que transforma cada música em um momento. O vocalista interage, o guitarrista desce do palco, a energia é contagiante e genuína.
 
-Essa presença magnética é o que faz os convidados gravarem stories, postarem no Instagram e, semanas depois, ainda comentarem: "Aquela banda foi incrível."
+Essa presença magnética é o que faz os convidados gravarem stories, postarem no Instagram e, semanas depois, ainda comentarem: ["Aquela banda foi incrível."](/)
 
 ## Conclusão: A Escolha que Define a Festa
 
