@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Index from "./pages/Index";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -16,6 +17,7 @@ const App = () => (
   <TooltipProvider>
     <BrowserRouter>
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
