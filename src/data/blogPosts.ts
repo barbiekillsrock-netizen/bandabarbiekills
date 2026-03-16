@@ -455,7 +455,7 @@ Para o aniversariante aproveitar, o planejamento deve ser impecável.
 
 **Localização:** Pense na facilidade de acesso em Campinas e região para seus convidados.
 
-**Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece suporte técnico. Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
+**Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece [suporte técnico](/blog/banda-para-casamento-estrutura-tecnica). Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
 
 {{image:/blog/banda-festa-aniversario-campinas.webp|Vocalista da Banda Barbie Kills em Show no Interior de SP|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
 
