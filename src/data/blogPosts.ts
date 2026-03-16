@@ -221,7 +221,7 @@ Se você está planejando sua [festa em Campinas](/#contato) ou cidades vizinhas
 
 **Iluminação de Palco e Pista:** Moving heads, painéis de LED e efeitos visuais.
 
-**Equipe Técnica:** Técnicos de som e roadies que garantem que tudo funcione perfeitamente, permitindo que você aproveite sua festa sem interrupções técnicas.
+**[Equipe Técnica](/blog/banda-para-casamento-estrutura-tecnica):** Técnicos de som e roadies que garantem que tudo funcione perfeitamente, permitindo que você aproveite sua festa sem interrupções técnicas.
 
 Atendemos com agilidade todo o raio de até 2 horas de Campinas, garantindo pontualidade e custos de logística otimizados para o interior de São Paulo.
 
