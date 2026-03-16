@@ -290,7 +290,7 @@ const BlogPost = () => {
             alt={post.imageAlt}
             width={1200}
             height={600}
-            className="w-full h-full object-cover object-center"
+            className={`w-full h-full object-cover ${post.imagePosition || "object-center"}`}
             fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
