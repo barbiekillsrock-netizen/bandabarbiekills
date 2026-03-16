@@ -486,7 +486,7 @@ Reunimos aqui os **5 pilares** que você deve avaliar antes de contratar a banda
 
 ## 1. ENGENHARIA DE SOM E EXPERIÊNCIA AUDIÓFILA
 
-Em um salão para 500 pessoas, o som não pode simplesmente "estar alto". Ele precisa ser inteligente. Uma banda de elite para grandes casamentos opera com engenharia de som de nível audiófilo: mesas digitais controladas remotamente, sistemas line array que distribuem o áudio de forma homogênea por todo o espaço, e monitoramento in-ear para os músicos — eliminando o excesso de volume no palco e garantindo [fidelidade de estúdio ao vivo](/blog/banda-para-casamento-estrutura-tecnica).
+Em um salão para 500 pessoas, o som não pode simplesmente "estar alto". Ele precisa ser inteligente. Uma banda de elite para grandes casamentos opera com [engenharia de som de nível audiófilo](/blog/banda-para-casamento-estrutura-tecnica): mesas digitais controladas remotamente, sistemas line array que distribuem o áudio de forma homogênea por todo o espaço, e monitoramento in-ear para os músicos — eliminando o excesso de volume no palco e garantindo fidelidade de estúdio ao vivo.
 
 O resultado? Som cristalino na pista de dança e conversas confortáveis nas mesas de jantar. Sem microfonia, sem distorção, sem constrangimento.
 
