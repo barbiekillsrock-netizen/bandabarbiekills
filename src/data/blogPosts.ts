@@ -6,6 +6,7 @@ export interface BlogPost {
   excerpt: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
   date: string;
   readTime: string;
   content: string;
@@ -95,6 +96,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
       "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
     image: "/blog/producao-eventos-luxo-barbie-kills.webp",
     imageAlt: "Produção Musical para Eventos em Louveira e Jaguariúna",
+    imagePosition: "object-top",
     date: "2026-01-08",
     readTime: "6 min",
     content: `Quando você vê a [Barbie Kills](/) no palco, o impacto é imediato: uma energia explosiva, iluminação digna de grandes festivais e uma estética Glam Pop que hipnotiza a plateia. Mas, para quem organiza eventos, a mágica real acontece muito antes do primeiro acorde. Você sabe o que realmente garante o sucesso de uma [banda para eventos corporativos](/blog/banda-evento-corporativo-sp-campinas), coquetéis ou [casamentos de alto padrão](/blog/banda-para-casamento-estrutura-tecnica)?
@@ -143,21 +145,21 @@ Sediada estrategicamente, a [Barbie Kills](/) possui logística otimizada para a
 
 Entendemos a dinâmica dos espaços de eventos no interior de São Paulo. Nossa equipe está habituada a realizar apresentações em locais de prestígio em:
 
-**Campinas e Região:** Paulínia, Sumaré, Hortolândia.
+**Campinas e Região:** [Paulínia](/cidade/evento-corporativo-paulinia), Sumaré, Hortolândia.
 
-**Circuito das Frutas:** Jundiaí, Vinhedo, Valinhos, Louveira, Itatiba.
+**Circuito das Frutas:** [Jundiaí](/cidade/banda-casamento-jundiai), [Vinhedo](/cidade/banda-casamento-vinhedo), [Valinhos](/cidade/banda-casamento-valinhos), [Louveira](/cidade/banda-casamento-louveira), Itatiba.
 
-**Eixo Castello/Bandeirantes:** Sorocaba, Itu, Indaiatuba, Salto.
+**Eixo Castello/Bandeirantes:** [Sorocaba](/cidade/banda-casamento-sorocaba), [Itu](/cidade/banda-casamento-itu), [Indaiatuba](/cidade/casamento-indaiatuba), Salto.
 
-**Região de Piracicaba:** Americana, Santa Bárbara d'Oeste, Limeira e Rio Claro.
+**Região de Piracicaba:** [Americana](/cidade/banda-casamento-americana), Santa Bárbara d'Oeste, [Limeira](/cidade/banda-casamento-limeira) e Rio Claro.
 
-**Grande São Paulo:** Alphaville, Barueri e Capital.
+**Grande São Paulo:** [Alphaville](/cidade/evento-corporativo-alphaville), [Barueri](/cidade/banda-corporativa-barueri) e Capital.
 
 Levar uma atração da capital nem sempre é viável ou necessário quando você tem uma estrutura de show internacional disponível localmente, reduzindo custos de logística sem sacrificar a qualidade.
 
 ## 6. Do Backstage ao Palco: Criando Memórias Inesquecíveis
 
-Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata e elétrica. Não somos apenas uma [banda](/#sobre) tocando músicas; somos arquitetos de uma experiência sensorial completa.
+Nosso ritual pré-show garante que, ao pisarmos no palco, a conexão com os convidados seja imediata e elétrica. Não somos apenas uma [banda](/#sobre) tocando músicas; somos [arquitetos de uma experiência sensorial completa](/blog/banda-para-casamento-estrutura-tecnica).
 
 Cada detalhe, do brilho do figurino à precisão cristalina do áudio, é desenhado com um único objetivo: fazer com que seus convidados digam, ao final da noite: "Esse foi o melhor show que já presenciei!".
 
@@ -165,7 +167,7 @@ Cada detalhe, do brilho do figurino à precisão cristalina do áudio, é desenh
 
 Se você busca uma [banda de rock e pop](/blog/musicas-mais-pedidas-casamento-2026) que une o glamour magnético de uma estrela pop com a seriedade e segurança de uma gestão corporativa experiente, sua busca termina aqui.
 
-Transforme seu evento corporativo, casamento ou festa particular em um marco. Entre em contato conosco e leve a experiência [Barbie Kills](/) para o seu palco.`,
+Transforme seu evento [corporativo](/corporativo), casamento ou festa particular em um marco. Entre em contato conosco e leve a experiência [Barbie Kills](/) para o seu palco.`,
   },
   {
     slug: "banda-festa-aniversario-50-anos-sp",
@@ -207,7 +209,7 @@ A interatividade é a marca registrada da [Barbie Kills](/).
 
 **Microfone Aberto:** Criamos momentos onde os convidados participam dos refrões mais famosos, gerando uma conexão única e vídeos incríveis para as redes sociais.
 
-**Atmosfera de Show Internacional:** A nossa iluminação não é apenas decorativa; ela é cênica. Transformamos o salão de festas — seja um buffet em Indaiatuba ou uma chácara em Valinhos — em uma arena de show, com jogos de luzes sincronizados que elevam a energia da festa.
+**Atmosfera de Show Internacional:** A nossa iluminação não é apenas decorativa; ela é cênica. Transformamos o salão de festas — seja um buffet em [Indaiatuba](/cidade/casamento-indaiatuba) ou uma chácara em [Valinhos](/cidade/banda-casamento-valinhos) — em uma arena de show, com jogos de luzes sincronizados que elevam a energia da festa.
 
 ## 3. Estrutura Profissional para Eventos em Campinas e Região
 
@@ -219,7 +221,7 @@ Se você está planejando sua [festa em Campinas](/#contato) ou cidades vizinhas
 
 **Iluminação de Palco e Pista:** Moving heads, painéis de LED e efeitos visuais.
 
-**Equipe Técnica:** Técnicos de som e roadies que garantem que tudo funcione perfeitamente, permitindo que você aproveite sua festa sem interrupções técnicas.
+**[Equipe Técnica](/blog/banda-para-casamento-estrutura-tecnica):** Técnicos de som e roadies que garantem que tudo funcione perfeitamente, permitindo que você aproveite sua festa sem interrupções técnicas.
 
 Atendemos com agilidade todo o raio de até 2 horas de Campinas, garantindo pontualidade e custos de logística otimizados para o interior de São Paulo.
 
@@ -453,13 +455,13 @@ Para o aniversariante aproveitar, o planejamento deve ser impecável.
 
 **Localização:** Pense na facilidade de acesso em Campinas e região para seus convidados.
 
-**Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece suporte técnico. Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
+**Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece [suporte técnico](/blog/banda-para-casamento-estrutura-tecnica). Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
 
 {{image:/blog/banda-festa-aniversario-campinas.webp|Vocalista da Banda Barbie Kills em Show no Interior de SP|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
 
 ## 4. O Fator "Uau"
 
-O que sua festa terá que as outras não tiveram? O segredo está nos detalhes que surpreendem, como uma performance marcante da sua banda favorita que faz todo mundo tirar o pé do chão. Fuja do comum e invista em uma experiência de show real.
+O que sua festa terá que as outras não tiveram? O segredo está nos detalhes que surpreendem, como uma performance marcante da sua banda favorita que faz todo mundo tirar o pé do chão. Fuja do comum e invista em uma [experiência de show real](/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil).
 
 Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer parte de histórias inesquecíveis. Seja para uma festa íntima ou um grande evento social, garantimos que o seu dia terá a trilha sonora que ele merece, com profissionalismo e a voltagem certa.`,
   },
@@ -484,7 +486,7 @@ Reunimos aqui os **5 pilares** que você deve avaliar antes de contratar a banda
 
 ## 1. ENGENHARIA DE SOM E EXPERIÊNCIA AUDIÓFILA
 
-Em um salão para 500 pessoas, o som não pode simplesmente "estar alto". Ele precisa ser inteligente. Uma banda de elite para grandes casamentos opera com engenharia de som de nível audiófilo: mesas digitais controladas remotamente, sistemas line array que distribuem o áudio de forma homogênea por todo o espaço, e monitoramento in-ear para os músicos — eliminando o excesso de volume no palco e garantindo [fidelidade de estúdio ao vivo](/blog/banda-para-casamento-estrutura-tecnica).
+Em um salão para 500 pessoas, o som não pode simplesmente "estar alto". Ele precisa ser inteligente. Uma banda de elite para grandes casamentos opera com [engenharia de som de nível audiófilo](/blog/banda-para-casamento-estrutura-tecnica): mesas digitais controladas remotamente, sistemas line array que distribuem o áudio de forma homogênea por todo o espaço, e monitoramento in-ear para os músicos — eliminando o excesso de volume no palco e garantindo fidelidade de estúdio ao vivo.
 
 O resultado? Som cristalino na pista de dança e conversas confortáveis nas mesas de jantar. Sem microfonia, sem distorção, sem constrangimento.
 
@@ -510,11 +512,11 @@ Transições sem silêncio (estilo non-stop), medleys explosivos e a capacidade 
 
 O quinto pilar — e talvez o mais difícil de replicar — é a **presença de palco**. Uma banda de elite não apenas toca; ela performa. Há uma conexão teatral entre os músicos e o público que transforma cada música em um momento. O vocalista interage, o guitarrista desce do palco, a energia é contagiante e genuína.
 
-Essa presença magnética é o que faz os convidados gravarem stories, postarem no Instagram e, semanas depois, ainda comentarem: "Aquela banda foi incrível."
+Essa presença magnética é o que faz os convidados gravarem stories, postarem no Instagram e, semanas depois, ainda comentarem: ["Aquela banda foi incrível."](/)
 
 ## Conclusão: A Escolha que Define a Festa
 
-Escolher a banda certa para um grande casamento no Brasil é escolher entre o "bom o suficiente" e o "inesquecível". Os 5 pilares que apresentamos — engenharia de som, identidade visual, experiência LED, curadoria de repertório e presença de palco — são o filtro que separa bandas comuns de bandas que realmente merecem estar nos maiores eventos do país.
+Escolher a banda certa para um grande casamento no Brasil é escolher entre o "bom o suficiente" e o "inesquecível". Os 5 pilares que apresentamos — engenharia de som, identidade visual, experiência LED, curadoria de repertório e presença de palco — são o filtro que separa bandas comuns de bandas que realmente merecem estar nos [maiores eventos do país](/).
 
 A **Barbie Kills** nasceu em Campinas com a missão de [atender os casamentos mais exclusivos](/blog/banda-casamento-campinas-cerimonia-festa) do interior de São Paulo e da capital. Se o seu evento exige excelência absoluta em cada um desses pilares, estamos prontos para entregar uma experiência que seus convidados jamais esquecerão.`,
   },
