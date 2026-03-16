@@ -3,7 +3,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.bandabarbiekills.com.br</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <video:video>
@@ -30,19 +30,19 @@
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <video:video>
@@ -55,44 +55,171 @@
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-casamento-campinas-cerimonia-festa</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-para-casamento-estrutura-tecnica</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/producao-eventos-luxo-barbie-kills</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-festa-aniversario-50-anos-sp</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/banda-evento-corporativo-sp-campinas</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/blog/musicas-mais-pedidas-casamento-2026</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.bandabarbiekills.com.br/corporativo</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <!-- City Landing Pages -->
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-campinas</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/evento-corporativo-sao-paulo</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/evento-corporativo-alphaville</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-corporativa-barueri</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-holambra</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-itu</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-jundiai</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/casamento-indaiatuba</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-vinhedo</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-valinhos</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-sorocaba</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/evento-corporativo-paulinia</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-piracicaba</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-americana</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-louveira</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-jaguariuna</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-atibaia</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-braganca</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-evento-sao-caetano</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/banda-casamento-limeira</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bandabarbiekills.com.br/cidade/evento-corporativo-santana-parnaiba</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
