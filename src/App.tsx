@@ -16,6 +16,7 @@ const App = () => (
   <TooltipProvider>
     <BrowserRouter>
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
