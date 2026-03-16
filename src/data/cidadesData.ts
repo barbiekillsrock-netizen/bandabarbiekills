@@ -17,7 +17,7 @@ export const cidadesData: CidadeData[] = [
   {
     cidade: "São Paulo",
     slug: "evento-corporativo-sao-paulo",
-    foco: "Híbrido"
+    foco: "Híbrido",
     hook: "O epicentro dos grandes eventos e casamentos de luxo do país.",
     venues: "Casa Fasano, Villa Jockey, Buffet França.",
   },
