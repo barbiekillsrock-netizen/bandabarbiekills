@@ -69,8 +69,8 @@ const CidadeLanding = () => {
 
   const { cidade: nome, foco, hook, venues } = cidade;
   const canonicalUrl = `${SITE_URL}/cidade/${slug}`;
-  const metaTitle = `Banda para ${focoLabel(foco)} em ${nome} | Barbie Kills`;
-  const metaDesc = `Banda premium para ${focoLabel(foco)} em ${nome}. Alta energia para sua pista e excelência em espaços como ${venues}`;
+  const metaTitle = `${focoLabel(foco)} em ${nome}: Show Premium com a Barbie Kills`;
+  const metaDesc = `Contrate a melhor banda para ${focoLabel(foco).toLowerCase()} em ${nome}. Show de alta energia, infraestrutura premium e repertório personalizado para espaços como ${venues}.`;
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
@@ -78,31 +78,36 @@ const CidadeLanding = () => {
         <title>{metaTitle}</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="pt-BR" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="pt" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+
+        {/* Open Graph - Redes Sociais */}
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDesc} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${SITE_URL}/banda-barbie-kills-casamento-rock.png`} />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
-        <meta name="twitter:image" content={`${SITE_URL}/banda-barbie-kills-casamento-rock.png`} />
+
+        {/* Schema.org - Dados Estruturados */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: `Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}`,
+            "@type": "MusicGroup",
+            name: "Barbie Kills",
             description: metaDesc,
-            provider: {
-              "@type": "MusicGroup",
-              name: "Barbie Kills",
-              url: SITE_URL,
+            url: SITE_URL,
+            location: {
+              "@type": "City",
+              name: nome,
             },
-            areaServed: { "@type": "City", name: nome },
-            url: canonicalUrl,
+            subjectOf: {
+              "@type": "Service",
+              name: `Banda para ${focoLabel(foco)} em ${nome}`,
+              provider: { "@type": "MusicGroup", name: "Barbie Kills" },
+            },
           })}
         </script>
       </Helmet>

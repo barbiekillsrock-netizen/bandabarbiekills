@@ -30,7 +30,7 @@ export const cidadesData: CidadeData[] = [
   },
   {
     cidade: "Barueri",
-    slug: "banda-corporativa-barueri",
+    slug: "evento-corporativo-barueri",
     foco: "Corporativo",
     hook: "Polo empresarial vibrante com foco em tecnologia e serviços.",
     venues: "Centro de Eventos Barueri, Solarium.",
@@ -58,7 +58,7 @@ export const cidadesData: CidadeData[] = [
   },
   {
     cidade: "Indaiatuba",
-    slug: "casamento-indaiatuba",
+    slug: "banda-casamento-indaiatuba",
     foco: "Casamento",
     hook: "Sofisticação rural e exclusividade no polo mundial de Polo.",
     venues: "Clube de Campo Helvetia, Villa de Reggio.",
@@ -135,7 +135,7 @@ export const cidadesData: CidadeData[] = [
   },
   {
     cidade: "São Caetano do Sul",
-    slug: "banda-evento-sao-caetano",
+    slug: "evento-corporativo-sao-caetano",
     foco: "Corporativo",
     hook: "O coração do ABC com foco em eventos corporativos de precisão.",
     venues: "Buffet Napoleão, Espaço Win.",
