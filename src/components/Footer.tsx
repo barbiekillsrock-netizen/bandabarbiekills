@@ -43,7 +43,7 @@ const Footer = () => {
             />
           </div>
 
-          {/* Social Links - Centered (MANTIDOS EXATAMENTE OS ORIGINAIS) */}
+          {/* Social Links - Centered */}
           <div className="flex items-center justify-center gap-8">
             <a
               href="https://instagram.com/barbiekillsrock"
@@ -131,7 +131,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Office Address - Agora Linkado ao GMB e Alinhado Perfeitamente */}
+        {/* Office Address - Agora Linkado ao GMB, Alinhado e Sem Travessão */}
         <div className="flex justify-center mt-8">
           <a
             href="https://maps.app.goo.gl/R8dSjpVorD3Su4xP7"
@@ -140,9 +140,9 @@ const Footer = () => {
             className="flex items-center gap-3 text-muted-foreground hover:text-neon-pink transition-colors group"
           >
             <MapPin className="w-5 h-5 flex-shrink-0" />
-            <div className="font-inter text-sm text-left">
-              <p>R. Ferreira Penteado, 1221 — Centro, Campinas</p>
-              <p className="text-xs opacity-80 mt-0.5">Atendimento mediante agendamento</p>
+            <div className="font-inter text-sm flex flex-col items-center text-center">
+              <p>R. Ferreira Penteado, 1221, Centro, Campinas</p>
+              <p className="text-xs opacity-80 mt-1">Atendimento mediante agendamento</p>
             </div>
           </a>
         </div>
