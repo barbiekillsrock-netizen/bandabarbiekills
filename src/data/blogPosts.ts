@@ -153,7 +153,7 @@ Entendemos a dinâmica dos espaços de eventos no interior de São Paulo. Nossa 
 
 **Região de Piracicaba:** [Americana](/cidade/banda-casamento-americana), Santa Bárbara d'Oeste, [Limeira](/cidade/banda-casamento-limeira) e Rio Claro.
 
-**Grande São Paulo:** [Alphaville](/cidade/evento-corporativo-alphaville), [Barueri](/cidade/banda-corporativa-barueri) e Capital.
+**Grande São Paulo:** [Alphaville](/cidade/evento-corporativo-alphaville), [Barueri](/cidade/evento-corporativo-barueri) e Capital.
 
 Levar uma atração da capital nem sempre é viável ou necessário quando você tem uma estrutura de show internacional disponível localmente, reduzindo custos de logística sem sacrificar a qualidade.
 
