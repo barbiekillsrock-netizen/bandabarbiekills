@@ -149,7 +149,7 @@ Entendemos a dinâmica dos espaços de eventos no interior de São Paulo. Nossa 
 
 **Circuito das Frutas:** [Jundiaí](/cidade/banda-casamento-jundiai), [Vinhedo](/cidade/banda-casamento-vinhedo), [Valinhos](/cidade/banda-casamento-valinhos), [Louveira](/cidade/banda-casamento-louveira), Itatiba.
 
-**Eixo Castello/Bandeirantes:** [Sorocaba](/cidade/banda-casamento-sorocaba), [Itu](/cidade/banda-casamento-itu), [Indaiatuba](/cidade/casamento-indaiatuba), Salto.
+**Eixo Castello/Bandeirantes:** [Sorocaba](/cidade/banda-casamento-sorocaba), [Itu](/cidade/banda-casamento-itu), [Indaiatuba](/cidade/banda-casamento-indaiatuba), Salto.
 
 **Região de Piracicaba:** [Americana](/cidade/banda-casamento-americana), Santa Bárbara d'Oeste, [Limeira](/cidade/banda-casamento-limeira) e Rio Claro.
 
