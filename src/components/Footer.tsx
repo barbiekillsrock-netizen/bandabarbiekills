@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="flex justify-center lg:justify-start">
             <img
               src="/logo-barbie-kills.webp"
-              alt="Barbie Kills - Banda de Pop Rock para Evento em São Caetano do Sul"
+              alt="Banda Barbie Kills - Banda Premium para Casamentos e Eventos Corporativos em SP"
               width={200}
               height={80}
               className="w-48 md:w-56 lg:w-64 object-contain"
@@ -85,7 +85,7 @@ const Footer = () => {
               </span>
             </a>
             <a
-              href="https://open.spotify.com/artist/0"
+              href="https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=sw2mlfrdT7-rFS1GVnvcCA"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
