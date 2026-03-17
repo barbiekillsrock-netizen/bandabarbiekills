@@ -78,6 +78,9 @@ const CidadeLanding = () => {
         <title>{metaTitle}</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="pt-BR" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="pt" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDesc} />
         <meta property="og:url" content={canonicalUrl} />
@@ -125,7 +128,7 @@ const CidadeLanding = () => {
               ELEGANTE.
             </div>
             <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in animation-delay-400">
-              Barbie Kills: Banda Premium para {focoLabel(foco)} em {nome}
+              {focoLabel(foco)} em {nome}: Show Premium com a Barbie Kills
             </h1>
             <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
               {hook} Unimos sofisticação e alta performance para transformar seu evento em um momento histórico em{" "}
