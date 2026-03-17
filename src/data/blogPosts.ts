@@ -149,11 +149,11 @@ Entendemos a dinâmica dos espaços de eventos no interior de São Paulo. Nossa 
 
 **Circuito das Frutas:** [Jundiaí](/cidade/banda-casamento-jundiai), [Vinhedo](/cidade/banda-casamento-vinhedo), [Valinhos](/cidade/banda-casamento-valinhos), [Louveira](/cidade/banda-casamento-louveira), Itatiba.
 
-**Eixo Castello/Bandeirantes:** [Sorocaba](/cidade/banda-casamento-sorocaba), [Itu](/cidade/banda-casamento-itu), [Indaiatuba](/cidade/casamento-indaiatuba), Salto.
+**Eixo Castello/Bandeirantes:** [Sorocaba](/cidade/banda-casamento-sorocaba), [Itu](/cidade/banda-casamento-itu), [Indaiatuba](/cidade/banda-casamento-indaiatuba), Salto.
 
 **Região de Piracicaba:** [Americana](/cidade/banda-casamento-americana), Santa Bárbara d'Oeste, [Limeira](/cidade/banda-casamento-limeira) e Rio Claro.
 
-**Grande São Paulo:** [Alphaville](/cidade/evento-corporativo-alphaville), [Barueri](/cidade/banda-corporativa-barueri) e Capital.
+**Grande São Paulo:** [Alphaville](/cidade/evento-corporativo-alphaville), [Barueri](/cidade/evento-corporativo-barueri) e Capital.
 
 Levar uma atração da capital nem sempre é viável ou necessário quando você tem uma estrutura de show internacional disponível localmente, reduzindo custos de logística sem sacrificar a qualidade.
 
@@ -209,7 +209,7 @@ A interatividade é a marca registrada da [Barbie Kills](/).
 
 **Microfone Aberto:** Criamos momentos onde os convidados participam dos refrões mais famosos, gerando uma conexão única e vídeos incríveis para as redes sociais.
 
-**Atmosfera de Show Internacional:** A nossa iluminação não é apenas decorativa; ela é cênica. Transformamos o salão de festas — seja um buffet em [Indaiatuba](/cidade/casamento-indaiatuba) ou uma chácara em [Valinhos](/cidade/banda-casamento-valinhos) — em uma arena de show, com jogos de luzes sincronizados que elevam a energia da festa.
+**Atmosfera de Show Internacional:** A nossa iluminação não é apenas decorativa; ela é cênica. Transformamos o salão de festas — seja um buffet em [Indaiatuba](/cidade/banda-casamento-indaiatuba) ou uma chácara em [Valinhos](/cidade/banda-casamento-valinhos) — em uma arena de show, com jogos de luzes sincronizados que elevam a energia da festa.
 
 ## 3. Estrutura Profissional para Eventos em Campinas e Região
 
