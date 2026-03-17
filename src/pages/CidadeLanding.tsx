@@ -78,9 +78,6 @@ const CidadeLanding = () => {
         <title>{metaTitle}</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="pt-BR" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="pt" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDesc} />
         <meta property="og:url" content={canonicalUrl} />
