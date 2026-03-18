@@ -3,11 +3,14 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Quote, Music, Mic2, Speaker, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { getCidadeBySlug } from "@/data/cidadesData";
+import { useState, useCallback, lazy, Suspense } from "react";
+
 const Footer = lazy(() => import("@/components/Footer"));
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
-import { getCidadeBySlug } from "@/data/cidadesData";
-import { useState, useCallback } from "react";
+
+const SITE_URL = "https://www.bandabarbiekills.com.br";
 
 const SITE_URL = "https://www.bandabarbiekills.com.br";
 
