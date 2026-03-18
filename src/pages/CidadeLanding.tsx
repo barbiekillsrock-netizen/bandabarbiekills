@@ -3,9 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Quote, Music, Mic2, Speaker, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import TestimonialsSection from "@/components/TestimonialsSection";
+const Footer = lazy(() => import("@/components/Footer"));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 import { getCidadeBySlug } from "@/data/cidadesData";
 import { useState, useCallback } from "react";
 
@@ -243,7 +243,9 @@ const CidadeLanding = () => {
       </section>
 
       {/* Testimonials (reused from Home) */}
-      <TestimonialsSection />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <TestimonialsSection />
+      </Suspense>
 
       {/* Video Section */}
       <section className="py-16 lg:py-20 section-gradient">
@@ -289,8 +291,10 @@ const CidadeLanding = () => {
         </div>
       </section>
 
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={<div />}>
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </main>
   );
 };
