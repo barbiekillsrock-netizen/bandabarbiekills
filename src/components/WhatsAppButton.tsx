@@ -1,4 +1,27 @@
+import { useState, useEffect } from "react";
+
 const WhatsAppButton = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Defer rendering until after first user interaction or 4s idle
+    let mounted = true;
+    const show = () => { if (mounted) setVisible(true); };
+
+    const timer = setTimeout(show, 4000);
+    const events = ["scroll", "click", "touchstart"] as const;
+    const handler = () => { show(); events.forEach(e => document.removeEventListener(e, handler)); };
+    events.forEach(e => document.addEventListener(e, handler, { once: true, passive: true }));
+
+    return () => {
+      mounted = false;
+      clearTimeout(timer);
+      events.forEach(e => document.removeEventListener(e, handler));
+    };
+  }, []);
+
+  if (!visible) return null;
+
   return (
     <a
       href="https://wa.me/5519981736659"
