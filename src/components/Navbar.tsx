@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X, Instagram, Youtube } from "lucide-react";
 
@@ -28,6 +28,14 @@ const socialLinks = [
   },
 ];
 
+const navLinks = [
+  { href: "#historia", label: "História da Banda" },
+  { href: "#diferencial", label: "Diferenciais" },
+  { href: "#depoimentos", label: "Depoimentos" },
+  { href: "#midia", label: "Vídeos e Mídia" },
+  { href: "/blog", label: "Blog", isRoute: true },
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -35,20 +43,22 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "#historia", label: "História da Banda" },
-    { href: "#diferencial", label: "Diferenciais" },
-    { href: "#depoimentos", label: "Depoimentos" },
-    { href: "#midia", label: "Vídeos e Mídia" },
-    { href: "/blog", label: "Blog", isRoute: true },
-  ];
+  const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
+  const toggleMobileMenu = useCallback(() => setIsMobileMenuOpen(prev => !prev), []);
 
   const handleAnchorClick = (href: string) => {
     if (!isHomePage && href.startsWith("#")) {
@@ -65,7 +75,6 @@ const Navbar = () => {
     >
       <div className="w-full px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link
             to="/"
             className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105"
@@ -102,7 +111,6 @@ const Navbar = () => {
                 </a>
               ),
             )}
-            {/* Social Icons */}
             <div className="w-px h-5 bg-white/20" />
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
@@ -119,8 +127,6 @@ const Navbar = () => {
               ))}
             </div>
             <div className="w-px h-5 bg-white/20" />
-
-            {/* BOTÃO ISOLADO E BLINDADO CONTRA CACHE/ANIMAÇÕES */}
             <a
               href="https://wa.me/5519981736659"
               target="_blank"
@@ -134,7 +140,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden text-foreground p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMobileMenu}
             aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -142,7 +148,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Conditional rendering instead of CSS hidden */}
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">
@@ -152,7 +158,7 @@ const Navbar = () => {
                     key={link.href}
                     to={link.href}
                     className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {link.label}
                   </Link>
@@ -161,13 +167,12 @@ const Navbar = () => {
                     key={link.href}
                     href={isHomePage ? link.href : "/" + link.href}
                     className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {link.label}
                   </a>
                 ),
               )}
-              {/* Social Icons Mobile */}
               <div className="flex items-center gap-5 py-2">
                 {socialLinks.map((social) => (
                   <a
@@ -182,8 +187,6 @@ const Navbar = () => {
                   </a>
                 ))}
               </div>
-
-              {/* BOTÃO MOBILE ISOLADO */}
               <a
                 href="https://wa.me/5519981736659"
                 target="_blank"

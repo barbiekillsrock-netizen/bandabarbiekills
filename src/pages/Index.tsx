@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -6,12 +7,16 @@ import ServicesSection from "@/components/ServicesSection";
 import ManifestoSection from "@/components/ManifestoSection";
 import ElevateSection from "@/components/ElevateSection";
 import WhoHiresSection from "@/components/WhoHiresSection";
-import UniqueShowSection from "@/components/UniqueShowSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import MediaSection from "@/components/MediaSection";
-import BlogPreview from "@/components/BlogPreview";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
+// Below-the-fold: lazy loaded to reduce initial JS bundle
+const UniqueShowSection = lazy(() => import("@/components/UniqueShowSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const MediaSection = lazy(() => import("@/components/MediaSection"));
+const BlogPreview = lazy(() => import("@/components/BlogPreview"));
+const Footer = lazy(() => import("@/components/Footer"));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+
+const LazySkeleton = () => <div className="min-h-[200px] bg-background" />;
 
 const SITE_URL = "https://www.bandabarbiekills.com.br";
 
@@ -205,34 +210,19 @@ const Index = () => {
         <title>{META.title}</title>
         <meta name="description" content={META.description} />
         <meta name="keywords" content={META.keywords} />
-
-        {/* ESTA LINHA É o RG da sua página inicial */}
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
-
-        {/* Tags de Idioma e Versão Padrão (Zera os erros do Ahrefs/Semrush) */}
         <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br" />
         <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br" />
-        <link
-          rel="alternate"
-          key="alternate-x-default"
-          hrefLang="x-default"
-          href="https://www.bandabarbiekills.com.br"
-        />
-
-        {/* Open Graph / Redes Sociais */}
+        <link rel="alternate" key="alternate-x-default" hrefLang="x-default" href="https://www.bandabarbiekills.com.br" />
         <meta property="og:title" content={META.title} />
         <meta property="og:description" content={META.description} />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={META.image} />
-
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={META.title} />
         <meta name="twitter:description" content={META.description} />
         <meta name="twitter:image" content={META.image} />
-
-        {/* Dados Estruturados (Schema Markup) */}
         <script type="application/ld+json">
           {JSON.stringify({ ...structuredData, "@graph": [...structuredData["@graph"], ...homepageVideos] })}
         </script>
@@ -245,12 +235,14 @@ const Index = () => {
       <ManifestoSection />
       <ElevateSection />
       <WhoHiresSection />
-      <UniqueShowSection />
-      <TestimonialsSection />
-      <MediaSection />
-      <BlogPreview />
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={<LazySkeleton />}>
+        <UniqueShowSection />
+        <TestimonialsSection />
+        <MediaSection />
+        <BlogPreview />
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </main>
   );
 };
