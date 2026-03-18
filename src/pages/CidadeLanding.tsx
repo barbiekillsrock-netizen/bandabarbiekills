@@ -12,8 +12,6 @@ const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"
 
 const SITE_URL = "https://www.bandabarbiekills.com.br";
 
-const SITE_URL = "https://www.bandabarbiekills.com.br";
-
 const YouTubeFacade = ({ id, title }: { id: string; title: string }) => {
   const [loaded, setLoaded] = useState(false);
   const handleLoad = useCallback(() => setLoaded(true), []);
