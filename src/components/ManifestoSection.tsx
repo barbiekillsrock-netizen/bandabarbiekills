@@ -7,7 +7,7 @@ const ManifestoSection = () => {
           <div className="relative">
             <img
               src="/manifesto-vocalista-banda.webp"
-              alt="Banda de Rock para Eventos em Jundiaí e Itatiba"
+              alt="Banda de alta performance para eventos corporativos e casamentos em Jundiaí e região"
               width={600}
               height={600}
               className="w-full h-auto aspect-[4/5] lg:aspect-square object-cover rounded-3xl"
@@ -30,7 +30,8 @@ const ManifestoSection = () => {
             </div>
 
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Nossa proposta entrega uma experiência musical única e incomparável, capaz de sensibilizar o público mais exigente com repertório seleto.
+              Nossa proposta entrega uma experiência musical única e incomparável, capaz de sensibilizar o público mais
+              exigente com repertório seleto.
             </p>
           </div>
         </div>
