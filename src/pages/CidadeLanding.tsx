@@ -109,25 +109,31 @@ const CidadeLanding = () => {
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
 
-        {/* Schema.org - Dados Estruturados */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MusicGroup",
-            name: "Barbie Kills",
-            description: metaDesc,
-            url: SITE_URL,
-            location: {
-              "@type": "City",
-              name: nome,
-            },
-            subjectOf: {
-              "@type": "Service",
-              name: `Banda para ${focoLabel(foco)} em ${nome}`,
-              provider: { "@type": "MusicGroup", name: "Barbie Kills" },
-            },
-          })}
-        </script>
+        {/* Schema.org - Dados Estruturados Corrigidos */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MusicGroup",
+              name: "Barbie Kills",
+              description: metaDesc,
+              url: canonicalUrl,
+              image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
+              areaServed: {
+                "@type": "City",
+                name: nome,
+              },
+              makesOffer: {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: `Banda para ${focoLabel(foco)} em ${nome}`,
+                },
+              },
+            }),
+          }}
+        />
       </Helmet>
 
       <Navbar />
