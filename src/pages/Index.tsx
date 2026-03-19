@@ -29,7 +29,8 @@ const structuredData = {
       "@id": `${SITE_URL}/#band`,
       name: "Barbie Kills",
       url: SITE_URL,
-      image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
+      logo: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
+      image: `${SITE_URL}/banda-casamentos-eventos-campinas-barbie-kills.webp`,
       description:
         "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
       genre: ["Pop", "Rock", "Soul", "Brazilian Music"],
