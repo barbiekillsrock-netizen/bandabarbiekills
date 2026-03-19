@@ -71,7 +71,15 @@ const CidadeLanding = () => {
   const { cidade: nome, foco, hook, venues } = cidade;
   const canonicalUrl = `${SITE_URL}/cidade/${slug}`;
   const metaTitle = `${focoLabel(foco)} em ${nome}: Show Premium com a Barbie Kills`;
-  const metaDesc = `Contrate a melhor banda para ${focoLabel(foco).toLowerCase()} em ${nome}. Show de alta energia, infraestrutura premium e repertório personalizado para espaços como ${venues}.`;
+  let metaDesc = "";
+
+  if (foco === "Casamento") {
+    metaDesc = `A melhor banda para casamentos em ${nome}. Estrutura premium e a energia impecável do rock, groove e soul para sua pista.`;
+  } else if (foco === "Corporativo") {
+    metaDesc = `Trilha sonora de alto impacto e infraestrutura audiovisual completa para eventos corporativos e empresariais em ${nome}.`;
+  } else {
+    metaDesc = `Banda premium para eventos e casamentos em ${nome}. Estrutura completa, alta energia e o melhor do rock, groove e soul.`;
+  }
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
