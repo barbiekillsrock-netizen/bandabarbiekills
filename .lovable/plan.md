@@ -1,5 +1,3 @@
-
-
 ## Adicionar icones sociais no menu superior
 
 Sim, ficaria harmonico! A ideia e posicionar os icones de Instagram, YouTube e Spotify como pequenos icones (18-20px) entre os links de navegacao e o botao "Contrate", separados por um divisor vertical sutil.
@@ -25,13 +23,14 @@ Sim, ficaria harmonico! A ideia e posicionar os icones de Instagram, YouTube e S
 3. **Mobile** - Adicionar os icones em linha horizontal no menu mobile, abaixo dos links e acima do botao "Contrate", com tamanho ligeiramente maior (20px)
 
 ### Links das redes sociais
-- Instagram: `https://instagram.com/barbiekillsrock`
+
+- Instagram: `https://www.instagram.com/barbiekillsrock/`
 - YouTube: `https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1`
 - Spotify: `https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ`
 
 ### Por que ficaria harmonico
+
 - Os icones pequenos e discretos nao competem com os links de texto
 - O separador vertical cria uma divisao visual limpa
 - O efeito hover em neon pink mantem a identidade da marca
 - No mobile, ficam organizados em linha horizontal sem poluir o menu
-

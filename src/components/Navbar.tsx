@@ -15,7 +15,7 @@ const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?:
 );
 
 const socialLinks = [
-  { href: "https://instagram.com/barbiekillsrock", icon: Instagram, label: "Instagram da Barbie Kills" },
+  { href: "https://www.instagram.com/barbiekillsrock/", icon: Instagram, label: "Instagram da Barbie Kills" },
   {
     href: "https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1",
     icon: Youtube,
@@ -58,7 +58,7 @@ const Navbar = () => {
   }, []);
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
-  const toggleMobileMenu = useCallback(() => setIsMobileMenuOpen(prev => !prev), []);
+  const toggleMobileMenu = useCallback(() => setIsMobileMenuOpen((prev) => !prev), []);
 
   const handleAnchorClick = (href: string) => {
     if (!isHomePage && href.startsWith("#")) {

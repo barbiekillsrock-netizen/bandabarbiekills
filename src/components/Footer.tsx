@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Social Links - Centered */}
           <div className="flex items-center justify-center gap-8">
             <a
-              href="https://instagram.com/barbiekillsrock"
+              href="https://www.instagram.com/barbiekillsrock/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
