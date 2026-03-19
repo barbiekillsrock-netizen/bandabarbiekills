@@ -209,11 +209,15 @@ const Index = () => {
       <Helmet>
         <title>{META.title}</title>
         <meta name="description" content={META.description} />
-        <meta name="keywords" content={META.keywords} />
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
         <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br" />
         <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br" />
-        <link rel="alternate" key="alternate-x-default" hrefLang="x-default" href="https://www.bandabarbiekills.com.br" />
+        <link
+          rel="alternate"
+          key="alternate-x-default"
+          hrefLang="x-default"
+          href="https://www.bandabarbiekills.com.br"
+        />
         <meta property="og:title" content={META.title} />
         <meta property="og:description" content={META.description} />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
