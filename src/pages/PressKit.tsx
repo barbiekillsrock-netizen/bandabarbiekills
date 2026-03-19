@@ -17,8 +17,8 @@ const PressKit = () => {
         <div className="container mx-auto px-6 py-6 flex items-center justify-between">
           <Link to="/" className="transition-transform duration-300 hover:scale-105">
             <img
-              src="/logo-barbie-kills.webp"
-              alt="Logo da banda Barbie Kills"
+              src="/barbie-kills-banda-eventos-casamentos.webp"
+              alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região."
               className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
