@@ -15,16 +15,16 @@ const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?:
 );
 
 const socialLinks = [
-  { href: "https://www.instagram.com/barbiekillsrock/", icon: Instagram, label: "Instagram da Barbie Kills" },
+  { href: "https://www.instagram.com/barbiekillsrock/", icon: Instagram, label: "Siga a Barbie Kills no Instagram" },
   {
     href: "https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1",
     icon: Youtube,
-    label: "YouTube da Barbie Kills",
+    label: "Assista aos vídeos da Barbie Kills no YouTube",
   },
   {
     href: "https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ",
     icon: null,
-    label: "Spotify da Barbie Kills",
+    label: "Ouça a Barbie Kills no Spotify",
   },
 ];
 
