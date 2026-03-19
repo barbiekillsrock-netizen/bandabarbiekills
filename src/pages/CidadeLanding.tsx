@@ -314,7 +314,71 @@ const CidadeLanding = () => {
           </Button>
         </div>
       </section>
+      {/* SEO Content Block & Local FAQ */}
+      <section className="py-24 bg-zinc-950 px-6">
+        <div className="container mx-auto max-w-4xl">
+          <div className="mb-16 text-center">
+            <h2 className="font-oswald text-3xl md:text-4xl text-white mb-6 uppercase tracking-wide">
+              A Melhor Banda para Eventos em {cidade.cidade}
+            </h2>
+            <p className="font-inter text-muted-foreground leading-relaxed text-lg mb-6">
+              Se você está planejando um evento inesquecível em <strong>{cidade.cidade}</strong>, a música é o coração
+              da festa. A Barbie Kills não é apenas uma banda, é uma experiência musical premium. Com um repertório que
+              transita com maestria pelo Rock, Pop, Soul, MPB e sucessos internacionais, nós transformamos casamentos de
+              luxo e convenções corporativas em espetáculos de alta energia. Nossa missão é garantir que a pista de
+              dança do seu evento em {cidade.cidade} esteja sempre cheia.
+            </p>
+            <p className="font-inter text-muted-foreground leading-relaxed text-lg">
+              Levamos uma infraestrutura de som e luz de última geração, adaptável aos melhores espaços e buffets da
+              região. Do coquetel receptivo ao ápice da festa, nossa performance ao vivo é desenhada sob medida para o
+              seu público.
+            </p>
+          </div>
 
+          {/* FAQ Section for SEO */}
+          <div className="space-y-8">
+            <h3 className="font-oswald text-2xl text-neon-pink uppercase tracking-wide border-b border-neon-pink/20 pb-4">
+              Perguntas Frequentes sobre nossa atuação em {cidade.cidade}
+            </h3>
+
+            <div className="space-y-6">
+              <article>
+                <h4 className="font-oswald text-xl text-white mb-2">
+                  Quais tipos de eventos a banda atende em {cidade.cidade}?
+                </h4>
+                <p className="font-inter text-muted-foreground">
+                  Nossa especialidade são casamentos premium, festas de formatura, aniversários de grande porte e
+                  eventos corporativos. Adaptamos nosso show para atender desde cerimônias intimistas até grandes
+                  convenções de empresas localizadas na região de {cidade.cidade}.
+                </p>
+              </article>
+
+              <article>
+                <h4 className="font-oswald text-xl text-white mb-2">
+                  A Barbie Kills fornece os equipamentos de som e luz?
+                </h4>
+                <p className="font-inter text-muted-foreground">
+                  Sim. Para garantir a máxima qualidade sonora e visual, fornecemos uma solução completa de
+                  infraestrutura técnica (PA, monitores, microfonação e iluminação de palco) adequada para os principais
+                  espaços de eventos de {cidade.cidade}, poupando os noivos e organizadores de dores de cabeça com
+                  fornecedores extras.
+                </p>
+              </article>
+
+              <article>
+                <h4 className="font-oswald text-xl text-white mb-2">
+                  Como posso personalizar o repertório do meu casamento?
+                </h4>
+                <p className="font-inter text-muted-foreground">
+                  Acreditamos que cada festa é única. Trabalhamos em conjunto com os clientes para desenhar uma setlist
+                  que reflita a identidade do casal ou da empresa, misturando clássicos do Pop e do Rock com grooves
+                  modernos que mantêm a energia lá no alto durante toda a apresentação.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Footer continua com Suspense pois é pesado */}
       <Suspense fallback={<div className="h-20" />}>
         <Footer />
