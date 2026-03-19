@@ -5,9 +5,9 @@ import { ChevronDown, Quote, Music, Mic2, Speaker, Lightbulb } from "lucide-reac
 import Navbar from "@/components/Navbar";
 import { getCidadeBySlug } from "@/data/cidadesData";
 import { useState, useCallback, lazy, Suspense } from "react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Footer = lazy(() => import("@/components/Footer"));
-const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 
 const SITE_URL = "https://www.bandabarbiekills.com.br";
@@ -315,10 +315,13 @@ const CidadeLanding = () => {
         </div>
       </section>
 
-      <Suspense fallback={<div />}>
+      {/* Footer continua com Suspense pois é pesado */}
+      <Suspense fallback={<div className="h-20" />}>
         <Footer />
-        <WhatsAppButton />
       </Suspense>
+
+      {/* WhatsAppButton FORA do Suspense: Garantia de conversão imediata */}
+      <WhatsAppButton />
     </main>
   );
 };

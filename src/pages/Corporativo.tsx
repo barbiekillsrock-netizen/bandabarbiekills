@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Check, Music, Zap, Mic } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import losLibresLogo from "@/assets/logo-los-libres.jpg";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const Footer = lazy(() => import("@/components/Footer"));
-const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 
 const LazySkeleton = () => <div className="min-h-[200px] bg-background" />;
 
@@ -24,10 +24,27 @@ const structuredData = {
     "@id": `${SITE_URL}/#band`,
   },
   areaServed: [
-    "São Paulo", "Campinas", "Alphaville", "Barueri", "Holambra", "Itu", "Jundiaí",
-    "Indaiatuba", "Vinhedo", "Valinhos", "Sorocaba", "Paulínia", "Piracicaba",
-    "Americana", "Louveira", "Jaguariúna", "Atibaia", "Bragança Paulista",
-    "São Caetano do Sul", "Limeira", "Santana de Parnaíba",
+    "São Paulo",
+    "Campinas",
+    "Alphaville",
+    "Barueri",
+    "Holambra",
+    "Itu",
+    "Jundiaí",
+    "Indaiatuba",
+    "Vinhedo",
+    "Valinhos",
+    "Sorocaba",
+    "Paulínia",
+    "Piracicaba",
+    "Americana",
+    "Louveira",
+    "Jaguariúna",
+    "Atibaia",
+    "Bragança Paulista",
+    "São Caetano do Sul",
+    "Limeira",
+    "Santana de Parnaíba",
   ],
   serviceType: "Entretenimento Musical Corporativo",
 };
@@ -37,7 +54,7 @@ const whatsappLink =
 
 const Corporativo = () => {
   return (
-    <>
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
         <title>Banda para Eventos Corporativos em SP, Campinas e Região</title>
         <meta
@@ -51,7 +68,10 @@ const Corporativo = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br/corporativo" />
         <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
-        <meta property="og:description" content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP." />
+        <meta
+          property="og:description"
+          content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
+        />
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
         <meta property="og:site_name" content="Barbie Kills" />
         <meta property="og:locale" content="pt_BR" />
@@ -59,7 +79,7 @@ const Corporativo = () => {
         <meta name="twitter:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta name="twitter:description" content="Show premium e logística completa para eventos corporativos." />
         <meta name="twitter:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Helmet>
 
       <Navbar />
@@ -67,16 +87,26 @@ const Corporativo = () => {
       {/* ── HERO ── */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
         <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl pt-24">
-          <img src="/logo-barbie-kills.webp" alt="Barbie Kills - Banda para Eventos Corporativos" width={280} height={100} className="w-48 md:w-64 mx-auto mb-8 animate-fade-in" />
+          <img
+            src="/logo-barbie-kills.webp"
+            alt="Barbie Kills - Banda para Eventos Corporativos"
+            width={280}
+            height={100}
+            className="w-48 md:w-64 mx-auto mb-8 animate-fade-in"
+          />
           <h1 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 animate-fade-in animation-delay-200 max-w-3xl mx-auto">
-            Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e Infraestrutura
+            Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e
+            Infraestrutura
           </h1>
           <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in animation-delay-400">
-            Leve a energia da Barbie Kills para sua convenção com a segurança de mais de 600 shows realizados para as maiores marcas do Brasil
+            Leve a energia da Barbie Kills para sua convenção com a segurança de mais de 600 shows realizados para as
+            maiores marcas do Brasil
           </p>
           <div className="animate-fade-in animation-delay-600">
             <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                Solicitar Orçamento
+              </a>
             </Button>
           </div>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
@@ -98,14 +128,25 @@ const Corporativo = () => {
               <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
                 Banda para Festa Corporativa em <span className="neon-pink-text">SP, Campinas e Interior</span>
               </h2>
-              <h3 className="font-oswald text-xl text-neon-pink mb-4">Música Planejada para Cada Momento do Cronograma</h3>
+              <h3 className="font-oswald text-xl text-neon-pink mb-4">
+                Música Planejada para Cada Momento do Cronograma
+              </h3>
               <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                Não entregamos apenas um show, mas uma trilha sonora estratégica. Adaptamos o repertório para a sobriedade de um coquetel, a elegância de um jantar ou a explosão de uma premiação. Com músicos fluentes em inglês, garantimos comunicação bilíngue impecável para executivos internacionais.
+                Não entregamos apenas um show, mas uma trilha sonora estratégica. Adaptamos o repertório para a
+                sobriedade de um coquetel, a elegância de um jantar ou a explosão de uma premiação. Com músicos fluentes
+                em inglês, garantimos comunicação bilíngue impecável para executivos internacionais.
               </p>
             </div>
             <div className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-neon-pink/20 shadow-[0_0_40px_rgba(255,0,128,0.1)]">
-                <img src="/corporativo/banda-evento-sp.webp" alt="Banda Barbie Kills em show para evento corporativo premium em Campinas SP" width={800} height={600} className="w-full h-full object-cover" loading="lazy" />
+                <img
+                  src="/corporativo/banda-evento-sp.webp"
+                  alt="Banda Barbie Kills em show para evento corporativo premium em Campinas SP"
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -120,14 +161,24 @@ const Corporativo = () => {
               <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
                 <span className="neon-pink-text">Infraestrutura Turn-Key</span> com Painel de LED
               </h2>
-              <h3 className="font-oswald text-xl text-neon-pink mb-4">Painel de LED de Alta Definição e Suporte Visual</h3>
+              <h3 className="font-oswald text-xl text-neon-pink mb-4">
+                Painel de LED de Alta Definição e Suporte Visual
+              </h3>
               <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                Disponibilizamos painel de LED próprio para exibição de logotipos, vídeos institucionais e conteúdos personalizados, integrando a identidade da sua empresa à performance musical de forma profissional.
+                Disponibilizamos painel de LED próprio para exibição de logotipos, vídeos institucionais e conteúdos
+                personalizados, integrando a identidade da sua empresa à performance musical de forma profissional.
               </p>
             </div>
             <div className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-neon-pink/20 shadow-[0_0_40px_rgba(255,0,128,0.1)]">
-                <img src="/corporativo/contratar-banda-evento.webp" alt="banda para eventos corporativos interior sp" width={800} height={600} className="w-full h-full object-cover" loading="lazy" />
+                <img
+                  src="/corporativo/contratar-banda-evento.webp"
+                  alt="banda para eventos corporativos interior sp"
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -144,29 +195,57 @@ const Corporativo = () => {
           </header>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <article className="glass-card rounded-2xl p-8 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent hover-lift text-center">
-              <a href="https://bandaloslibres.netlify.app" target="_blank" rel="noopener noreferrer" className="block mb-6">
-                <img src={losLibresLogo} alt="banda para festa corporativa sp" width={120} height={120} className="w-24 h-24 rounded-full object-cover mx-auto border-2 border-neon-pink/30" loading="lazy" />
+              <a
+                href="https://bandaloslibres.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mb-6"
+              >
+                <img
+                  src={losLibresLogo}
+                  alt="banda para festa corporativa sp"
+                  width={120}
+                  height={120}
+                  className="w-24 h-24 rounded-full object-cover mx-auto border-2 border-neon-pink/30"
+                  loading="lazy"
+                />
               </a>
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4">
                 <Music className="w-6 h-6 text-neon-pink" />
               </div>
               <h3 className="heading-display text-xl text-foreground mb-3">Recepção & Networking</h3>
-              <p className="text-body text-muted-foreground text-sm">Jazz, Soul e Pop Acústico com volume controlado. A trilha perfeita para facilitar o diálogo entre executivos e criar uma atmosfera de networking sofisticada.</p>
-              <a href="https://bandaloslibres.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-neon-pink font-oswald text-sm uppercase tracking-wider hover:underline">Los Libres →</a>
+              <p className="text-body text-muted-foreground text-sm">
+                Jazz, Soul e Pop Acústico com volume controlado. A trilha perfeita para facilitar o diálogo entre
+                executivos e criar uma atmosfera de networking sofisticada.
+              </p>
+              <a
+                href="https://bandaloslibres.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 text-neon-pink font-oswald text-sm uppercase tracking-wider hover:underline"
+              >
+                Los Libres →
+              </a>
             </article>
             <article className="glass-card rounded-2xl p-8 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent hover-lift text-center">
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4 mt-6">
                 <Zap className="w-6 h-6 text-neon-pink" />
               </div>
               <h3 className="heading-display text-xl text-foreground mb-3">Confraternização & Pista</h3>
-              <p className="text-body text-muted-foreground text-sm">Performance eletrizante com leitura de pista impecável para todas as faixas etárias. Foco total em integração e celebração de resultados.</p>
+              <p className="text-body text-muted-foreground text-sm">
+                Performance eletrizante com leitura de pista impecável para todas as faixas etárias. Foco total em
+                integração e celebração de resultados.
+              </p>
             </article>
             <article className="glass-card rounded-2xl p-8 border border-neon-pink/20 bg-gradient-to-br from-neon-pink/5 to-transparent hover-lift text-center">
               <div className="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center mx-auto mb-4 mt-6">
                 <Mic className="w-6 h-6 text-neon-pink" />
               </div>
               <h3 className="heading-display text-xl text-foreground mb-3">Pocket Show Motivacional</h3>
-              <p className="text-body text-muted-foreground text-sm">Uma experiência exclusiva que une a trajetória de sucesso de Mariana Chaib (Rede Globo) a momentos musicais de alto impacto emocional.</p>
+              <p className="text-body text-muted-foreground text-sm">
+                Uma experiência exclusiva que une a trajetória de sucesso de Mariana Chaib (Rede Globo) a momentos
+                musicais de alto impacto emocional.
+              </p>
             </article>
           </div>
         </div>
@@ -179,10 +258,16 @@ const Corporativo = () => {
             <div className="flex-1">
               <h3 className="font-oswald text-xl text-neon-pink mb-4">Logística Turn-Key e Compliance Total</h3>
               <p className="text-body text-lg text-muted-foreground leading-relaxed mb-8">
-                Somos seu único ponto de contato para som, luz e imagem. Facilitamos a contratação com emissão de Nota Fiscal, Rider Técnico detalhado e flexibilidade total de cronograma.
+                Somos seu único ponto de contato para som, luz e imagem. Facilitamos a contratação com emissão de Nota
+                Fiscal, Rider Técnico detalhado e flexibilidade total de cronograma.
               </p>
               <ul className="space-y-3 mb-8">
-                {["Emissão de Nota Fiscal e contrato formal", "Rider Técnico detalhado e mapa de palco", "Equipe de roadies e técnicos de som próprios", "Flexibilidade total de cronograma"].map((item) => (
+                {[
+                  "Emissão de Nota Fiscal e contrato formal",
+                  "Rider Técnico detalhado e mapa de palco",
+                  "Equipe de roadies e técnicos de som próprios",
+                  "Flexibilidade total de cronograma",
+                ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-neon-pink flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">{item}</span>
@@ -190,25 +275,31 @@ const Corporativo = () => {
                 ))}
               </ul>
               <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  Solicitar Orçamento
+                </a>
               </Button>
             </div>
             <div className="flex-1 w-full">
               <div className="glass-card rounded-2xl p-8 lg:p-10 border border-neon-pink/20 text-center">
                 <div className="heading-display text-6xl lg:text-8xl text-neon-pink mb-4">600+</div>
-                <p className="text-body text-lg text-muted-foreground">Shows realizados para as maiores marcas do Brasil</p>
+                <p className="text-body text-lg text-muted-foreground">
+                  Shows realizados para as maiores marcas do Brasil
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Suspense fallback={<LazySkeleton />}>
-        <TestimonialsSection />
+      {/* Mantenha o Footer em Suspense se desejar, pois ele é mais pesado */}
+      <Suspense fallback={<div className="h-20" />}>
         <Footer />
-        <WhatsAppButton />
       </Suspense>
-    </>
+
+      {/* O botão de WhatsApp agora carrega instantaneamente, sem depender do Suspense */}
+      <WhatsAppButton />
+    </main>
   );
 };
 
