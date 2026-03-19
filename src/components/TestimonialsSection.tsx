@@ -26,32 +26,27 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {testimonials.map((testimonial, index) => <div key={testimonial.name} className="glass-card p-8 lg:p-10 rounded-2xl text-center hover-lift">
-              {/* Avatar */}
+          {testimonials.map((testimonial) => <article key={testimonial.name} className="glass-card p-8 lg:p-10 rounded-2xl text-center hover-lift">
               <div className="mb-6 flex justify-center">
                 <img src={testimonial.image} alt={`Depoimento de ${testimonial.name} sobre a Banda Barbie Kills - Entretenimento Musical para Casamentos em Sorocaba e Itu`} width={120} height={120} className="testimonial-circle" loading="lazy" />
               </div>
 
-              {/* Quote Icon */}
               <Quote className="w-8 h-8 text-neon-pink/40 mx-auto mb-4" aria-hidden="true" />
 
-              {/* Quote Text */}
-              <p className="text-body text-lg leading-relaxed mb-6 italic">
+              <blockquote className="text-body text-lg leading-relaxed mb-6 italic">
                 "{testimonial.quote}"
-              </p>
+              </blockquote>
 
-              {/* Name & Role */}
-              <div>
+              <footer>
                 <h3 className="heading-display text-xl text-foreground">
                   {testimonial.name}
                 </h3>
                 <p className="subtitle text-xs text-muted-foreground mt-1">
                   {testimonial.role}
                 </p>
-              </div>
-            </div>)}
+              </footer>
+            </article>)}
         </div>
       </div>
     </section>;
