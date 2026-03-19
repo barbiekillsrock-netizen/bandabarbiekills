@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div className="relative z-10 w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen bg-black flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-28 pb-8 lg:pt-24 lg:pb-0">
         <div className="max-w-xl">
           {/* Logo */}
-          <img src="/logo-barbie-kills.webp" alt="Barbie Kills - Banda para Festa de Empresa em Limeira e Cordeirópolis" width={320} height={120} className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in" />
+          <img src="/barbie-kills-banda-eventos-casamentos.webp" alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região." width={320} height={120} className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in" />
 
           {/* Decorative Headline */}
           <div className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
@@ -37,8 +37,8 @@ const HeroSection = () => {
       {/* RIGHT COLUMN - Image Zone */}
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
         <img 
-          src="/banda-casamentos-eventos-2.webp" 
-          alt="Banda Barbie Kills em performance ao vivo para casamentos e eventos corporativos premium"
+          src="/banda-casamentos-eventos-campinas-barbie-kills.webp" 
+          alt="Banda Barbie Kills em show ao vivo com repertório personalizado para festas de casamento e convenções de empresas em Campinas."
           width={960}
           height={1080}
           className="w-full h-full object-cover object-top lg:object-center"

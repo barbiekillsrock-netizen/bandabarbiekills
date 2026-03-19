@@ -81,8 +81,8 @@ const Navbar = () => {
             aria-label="Barbie Kills - Página Inicial"
           >
             <img
-              src="/logo-barbie-kills.webp"
-              alt="Barbie Kills"
+              src="/barbie-kills-banda-eventos-casamentos.webp"
+              alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região."
               width={160}
               height={56}
               className="h-10 md:h-14 w-auto"
