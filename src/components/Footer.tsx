@@ -89,7 +89,15 @@ const Footer = () => {
               aria-label="Ouça a Barbie Kills no Spotify"
             >
               <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
-                <img src="/icons/spotify.svg" alt="" width={32} height={32} className="w-8 h-8 fill-current" loading="lazy" style={{ filter: "brightness(0) invert(1)" }} />
+                <img
+                  src="/icons/spotify.svg"
+                  alt="Ícone do Spotify da Banda Barbie Kills"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 fill-current"
+                  loading="lazy"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />{" "}
               </div>
               <span className="font-inter text-sm text-muted-foreground group-hover:text-neon-pink transition-colors">
                 Spotify
@@ -118,7 +126,17 @@ const Footer = () => {
                 className="flex items-center hover:scale-110 transition-transform ml-1"
                 aria-label="Entre em contato pelo WhatsApp"
               >
-                <img src="/icons/whatsapp.svg" alt="" width={20} height={20} className="w-5 h-5" loading="lazy" style={{ filter: "invert(56%) sepia(81%) saturate(438%) hue-rotate(93deg) brightness(95%) contrast(92%)" }} />
+                <img
+                  src="/icons/whatsapp.svg"
+                  alt="Ícone do WhatsApp para contato com a banda"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                  loading="lazy"
+                  style={{
+                    filter: "invert(56%) sepia(81%) saturate(438%) hue-rotate(93deg) brightness(95%) contrast(92%)",
+                  }}
+                />{" "}
               </a>
             </div>
           </div>
