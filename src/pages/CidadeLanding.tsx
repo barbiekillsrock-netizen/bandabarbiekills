@@ -70,7 +70,16 @@ const CidadeLanding = () => {
 
   const { cidade: nome, foco, hook, venues } = cidade;
   const canonicalUrl = `${SITE_URL}/cidade/${slug}`;
-  const metaTitle = `${focoLabel(foco)} em ${nome}: Show Premium com a Barbie Kills`;
+  let metaTitle = "";
+
+  if (foco === "Casamento") {
+    metaTitle = `Banda de Casamento em ${nome} | Barbie Kills`;
+  } else if (foco === "Corporativo") {
+    metaTitle = `Banda Corporativa em ${nome} | Barbie Kills`;
+  } else {
+    metaTitle = `Banda para Eventos em ${nome} | Barbie Kills`;
+  }
+
   let metaDesc = "";
 
   if (foco === "Casamento") {
