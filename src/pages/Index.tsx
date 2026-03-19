@@ -78,7 +78,7 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
-        <title>Banda Barbie Kills | Banda para Casamentos e Eventos Premium</title>
+        <title>Banda Barbie Kills | Casamentos e Eventos Premium</title>
         <meta
           name="description"
           content="Banda premium para casamentos e eventos corporativos em Campinas e SP. Infraestrutura completa e repertório personalizado de Rock, Pop e Soul."
