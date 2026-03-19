@@ -20,27 +20,12 @@ const Blog = () => {
           name="description"
           content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP. Assista ao show e peça seu orçamento."
         />
-
-        {/* === AQUI ESTÃO AS TAGS CORRIGIDAS PARA O SEO === */}
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br/blog" />
         <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/blog" />
         <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br/blog" />
-        <link
-          rel="alternate"
-          key="alternate-x-default"
-          hrefLang="x-default"
-          href="https://www.bandabarbiekills.com.br/blog"
-        />
-        {/* ================================================ */}
-
-        <meta
-          property="og:title"
-          content="Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills"
-        />
-        <meta
-          property="og:description"
-          content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP."
-        />
+        <link rel="alternate" key="alternate-x-default" hrefLang="x-default" href="https://www.bandabarbiekills.com.br/blog" />
+        <meta property="og:title" content="Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills" />
+        <meta property="og:description" content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP." />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png" />
@@ -48,7 +33,6 @@ const Blog = () => {
 
       <Navbar />
 
-      {/* Hero */}
       <section className="pt-32 pb-16 bg-[#050505]">
         <div className="container mx-auto px-6">
           <Link
@@ -68,7 +52,6 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Posts List */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6">
           <div className="grid gap-12">
@@ -77,7 +60,6 @@ const Blog = () => {
                 <article
                   className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
                 >
-                  {/* Image */}
                   <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="relative overflow-hidden rounded-lg">
                       <img
@@ -92,7 +74,6 @@ const Blog = () => {
                     <div className="absolute -inset-4 border border-neon-pink/20 rounded-lg -z-10 group-hover:border-neon-pink/40 transition-colors duration-500" />
                   </div>
 
-                  {/* Content */}
                   <div className={`${index % 2 === 1 ? "lg:order-1 lg:pr-8" : "lg:pl-8"}`}>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                       <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
