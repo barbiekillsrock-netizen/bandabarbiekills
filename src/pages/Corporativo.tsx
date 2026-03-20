@@ -297,22 +297,7 @@ const Corporativo = () => {
       <Suspense fallback={<div className="h-20" />}>
         <Footer />
       </Suspense>
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="border-t border-white/5 pt-8">
-            <p className="text-[10px] md:text-xs text-muted-foreground/50 leading-relaxed text-center">
-              A <strong>Barbie Kills</strong> é a escolha definitiva para empresas que buscam uma{" "}
-              <strong>banda para evento corporativo em Campinas</strong>, São Paulo e grandes polos industriais do
-              interior. Especialistas em confraternizações, premiações e lançamentos de produtos, entregamos uma
-              infraestrutura completa com painel de LED, rider técnico de som e luz profissional e logística turn-key.
-              Atendemos marcas globais em regiões estratégicas como{" "}
-              <strong>Alphaville, Barueri, Jundiaí, Sorocaba e São José dos Campos</strong>, garantindo compliance
-              total, emissão de nota fiscal e segurança operacional para eventos de pequeno a grande porte. Unimos a
-              experiência de palco à sofisticação necessária para o ambiente empresarial.
-            </p>
-          </div>
-        </div>
-      </section>
+
       {/* O botão de WhatsApp agora carrega instantaneamente, sem depender do Suspense */}
       <WhatsAppButton />
     </main>
