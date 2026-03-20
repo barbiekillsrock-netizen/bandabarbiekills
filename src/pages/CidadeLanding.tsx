@@ -228,8 +228,8 @@ const CidadeLanding = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="/banda-casamento-interacao-noiva.webp"
-                alt={`Barbie Kills interação com convidados em ${nome}`}
+                src="/interacao-banda-casamento-pista-cheia.webp"
+                alt={`Banda Barbie Kills com pista cheia em evento em ${nome}`}
                 width={600}
                 height={400}
                 className="rounded-2xl w-full object-cover"
