@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getPostBySlug, blogPosts } from "@/data/blogPosts";
-
+<h1
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
@@ -318,9 +318,10 @@ const BlogPost = () => {
               <span>{post.readTime} de leitura</span>
             </div>
 
-            {/* Title */}
+            
+            {/* Title (Com Fallback para H1 curto) */}
             <h1 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 leading-tight">
-              {post.title}
+              {post.h1 || post.title}
             </h1>
 
             {/* Content */}
