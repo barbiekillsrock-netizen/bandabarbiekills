@@ -16,7 +16,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "banda-para-casamento-estrutura-tecnica",
-    title: "Banda para Casamento: Por que a Estrutura Técnica da Barbie Kills Garante o Sucesso da sua Festa",
+    title: "Estrutura Técnica para Casamentos: O Guia Completo",
     h1: "A Importância da Estrutura Técnica no Casamento",
     metaTitle: "Estrutura Técnica para Banda de Casamento | Barbie Kills",
     metaDescription:
@@ -172,7 +172,7 @@ Transforme seu evento [corporativo](/corporativo), casamento ou festa particular
   },
   {
     slug: "banda-festa-aniversario-50-anos-sp",
-    title: "Banda para Festa de Aniversário: Como Transformar sua Comemoração em um Show Memorável",
+    title: "Banda para Festa de 50 Anos em SP: Como Escolher",
     metaTitle: "Banda para Festa de Aniversário e 50 Anos | Barbie Kills",
     metaDescription:
       "Shows memoráveis para festas de 30 a 60 anos em SP. Repertório personalizado e estrutura completa da Barbie Kills em Campinas e região.",
@@ -324,7 +324,7 @@ Se sua empresa está em Campinas, São Paulo ou região, entre em contato agora.
   },
   {
     slug: "musicas-mais-pedidas-casamento-2026",
-    title: "As 10 Músicas Mais Pedidas para Animar Festas de Casamento Sofisticadas em 2026",
+    title: "As Músicas Mais Pedidas para Casamentos em 2026",
     metaTitle: "Músicas para Casamento 2026 | Top 10 Hits | Barbie Kills",
     metaDescription:
       "Confira as 10 músicas mais pedidas para festas de casamento sofisticadas em 2026. Pop, Rock e clássicos que fazem a pista ferver. Barbie Kills ao vivo.",
