@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     h1: "A Importância da Estrutura Técnica no Casamento",
     metaTitle: "Estrutura Técnica para Banda de Casamento | Barbie Kills",
     metaDescription:
-      "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
+      "Veja como a estrutura técnica da Barbie Kills garante o sucesso acústico e visual do seu casamento em Campinas com som e iluminação cênica.",
     excerpt:
       "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
     image: "/blog/banda-pop-rock-casamento.webp",
@@ -425,7 +425,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
     title: "Como Organizar um Aniversário Inesquecível (O Guia Barbie Kills)",
     metaTitle: "Como Organizar Aniversário Inesquecível | Barbie Kills",
     metaDescription:
-      "Confira os 4 pilares para transformar sua festa de aniversário em um evento épico. Dicas de tema, música ao vivo e logística com a Barbie Kills em Campinas.",
+      "Descubra os pilares para organizar uma festa de aniversário inesquecível em Campinas e transforme seu evento com a banda Barbie Kills.",
     excerpt:
       "Celebrar mais um ano de vida exige ritmo, energia e um grand finale. Saiba por que a música ao vivo é o coração da festa e como os detalhes técnicos transformam sua comemoração em um show real.",
     image: "/blog/banda-casamento-rock-aniversario.jpg",
