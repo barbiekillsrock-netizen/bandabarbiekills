@@ -175,7 +175,7 @@ const CidadeLanding = () => {
         <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
           <img
             src="/banda-casamento-campinas-premium.webp"
-            alt="Banda Barbie Kills em performance premium para casamentos e eventos corporativos em Campinas e interior de SP."
+            alt="Show da banda de casamento Barbie Kills em Campinas e região"
             width={960}
             height={1080}
             className="w-full h-full object-cover object-top lg:object-center"
