@@ -244,7 +244,7 @@ Pronto para transformar seu evento? Entre em contato conosco e vamos desenhar o 
   },
   {
     slug: "banda-evento-corporativo-sp-campinas",
-    title: "Por que a Barbie Kills é a Banda Ideal para seu Evento Corporativo em Campinas e Região?",
+    title: "Banda para Eventos Corporativos em Campinas e SP"
     metaTitle: "Banda para Eventos Corporativos em Campinas e SP",
     metaDescription:
       "Precisão e parceria estratégica para seu evento empresarial. A banda ideal para festas corporativas em Campinas e SP. Confira!",
@@ -468,7 +468,7 @@ Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer part
   },
   {
     slug: "quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil",
-    title: "Quais bandas de casamento são recomendadas para festas grandes no Brasil?",
+    title: "Melhores Bandas de Casamento para Festas Grandes",
     metaTitle: "Melhores Bandas de Elite para Casamentos Grandes",
     metaDescription:
       "Conheça os 5 pilares de excelência no entretenimento musical para festas e casamentos grandiosos no Brasil com a Barbie Kills.",
