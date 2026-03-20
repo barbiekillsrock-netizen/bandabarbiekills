@@ -18,14 +18,25 @@ const Blog = () => {
         <title>Blog: Dicas para Casamentos e Eventos | Barbie Kills</title>
         <meta
           name="description"
-          content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP. Assista ao show e peça seu orçamento."
+          content="Dicas, tendências e guias completos sobre música ao vivo para casamentos e eventos corporativos de luxo em Campinas com a banda Barbie Kills."
         />
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br/blog" />
         <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/blog" />
         <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br/blog" />
-        <link rel="alternate" key="alternate-x-default" hrefLang="x-default" href="https://www.bandabarbiekills.com.br/blog" />
-        <meta property="og:title" content="Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills" />
-        <meta property="og:description" content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP." />
+        <link
+          rel="alternate"
+          key="alternate-x-default"
+          hrefLang="x-default"
+          href="https://www.bandabarbiekills.com.br/blog"
+        />
+        <meta
+          property="og:title"
+          content="Blog — Assista aos Vídeos e Dicas para Casamentos e Eventos | Barbie Kills"
+        />
+        <meta
+          property="og:description"
+          content="Dicas, vídeos ao vivo e tendências sobre música para casamentos e eventos corporativos em Campinas e Interior de SP."
+        />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/banda-barbie-kills-casamento-rock.png" />
@@ -43,8 +54,9 @@ const Blog = () => {
             Voltar para Home
           </Link>
 
+          {/* H1 OTIMIZADO PARA SEO: Trocado 'NOSSO BLOG' por palavras-chave reais */}
           <h1 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">
-            NOSSO <span className="neon-pink-text">BLOG</span>
+            BLOG DE <span className="neon-pink-text">EVENTOS</span> E CASAMENTOS
           </h1>
           <p className="text-body text-xl text-muted-foreground max-w-2xl">
             Dicas, tendências e tudo sobre música ao vivo para casamentos e eventos corporativos inesquecíveis.
@@ -56,7 +68,12 @@ const Blog = () => {
         <div className="container mx-auto px-6">
           <div className="grid gap-12">
             {blogPosts.map((post, index) => (
-              <Link key={post.slug} to={`/blog/${post.slug}`} className="group">
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                className="group"
+                aria-label={`Ler artigo completo: ${post.title}`}
+              >
                 <article
                   className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
                 >
