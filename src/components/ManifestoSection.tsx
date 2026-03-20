@@ -6,7 +6,7 @@ const ManifestoSection = () => {
           {/* Coluna da Esquerda - Imagem */}
           <div className="relative">
             <img
-              src="/manifesto-vocalista-banda.webp"
+              src="/vocalista-banda-casamento.webp"
               alt="Vocalista da Banda Barbie Kills em performance ao vivo para casamentos e eventos corporativos no interior de SP."
               width={600}
               height={600}

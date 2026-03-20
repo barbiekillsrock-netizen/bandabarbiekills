@@ -174,8 +174,8 @@ const CidadeLanding = () => {
         </div>
         <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
           <img
-            src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
-            alt="Banda Barbie Kills em show ao vivo com repertório personalizado para festas de casamento e convenções de empresas em Campinas."
+            src="/banda-casamento-campinas-premium.webp"
+            alt="Banda Barbie Kills em performance premium para casamentos e eventos corporativos em Campinas e interior de SP."
             width={960}
             height={1080}
             className="w-full h-full object-cover object-top lg:object-center"
@@ -228,8 +228,8 @@ const CidadeLanding = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="/banda-casamento-interacao-noiva.webp"
-                alt={`Barbie Kills interação com convidados em ${nome}`}
+                src="/interacao-banda-casamento-pista-cheia.webp"
+                alt={`Banda Barbie Kills com pista cheia em evento em ${nome}`}
                 width={600}
                 height={400}
                 className="rounded-2xl w-full object-cover"
@@ -238,8 +238,8 @@ const CidadeLanding = () => {
             </div>
             <div>
               <img
-                src="/estrutura-show-banda-baile.webp"
-                alt={`Estrutura de show Barbie Kills em ${nome}`}
+                src="/infraestrutura-palco-som-iluminacao.webp"
+                alt={`Infraestrutura de palco, som e iluminação da Barbie Kills em ${nome}`}
                 width={600}
                 height={400}
                 className="rounded-2xl w-full object-cover"

@@ -32,7 +32,7 @@ const ElevateSection = () => {
 
           {/* Image */}
           <div className="relative lg:w-2/3 h-[400px] lg:h-[650px] -mt-8 lg:mt-0">
-            <img src="/banda-casamento-interacao-noiva.webp" alt="Banda para Casamento em Valinhos e Vinhedo - Barbie Kills" width={800} height={650} className="w-full h-full object-cover rounded-2xl lg:rounded-l-none lg:rounded-r-3xl shadow-2xl" loading="lazy" />
+            <img src="/interacao-banda-casamento-pista-cheia.webp" alt="Interação da Banda Barbie Kills com pista cheia em casamento premium no interior de SP" width={800} height={650} className="w-full h-full object-cover rounded-2xl lg:rounded-l-none lg:rounded-r-3xl shadow-2xl" loading="lazy" />
             {/* Pink Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-neon-pink/10 rounded-2xl lg:rounded-l-none lg:rounded-r-3xl" />
           </div>
