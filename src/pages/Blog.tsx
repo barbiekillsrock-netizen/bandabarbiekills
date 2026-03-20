@@ -59,11 +59,7 @@ const Blog = () => {
             BLOG DE <span className="neon-pink-text">EVENTOS</span> E CASAMENTOS
           </h1>
           <p className="text-body text-xl text-muted-foreground max-w-2xl">
-            Dicas, tendências e tudo sobre música ao vivo para casamentos e eventos corporativos inesquecíveis. Nosso
-            blog é o ponto de encontro para quem busca excelência em entretenimento no interior de São Paulo. Aqui,
-            mergulhamos nos bastidores da Barbie Kills e do projeto Los Libres, trazendo guias práticos sobre como
-            escolher o repertório ideal, entender a logística técnica necessária para cada espaço e como transformar a
-            pista de dança no ponto alto da sua celebração.
+            Dicas, tendências e tudo sobre música ao vivo para casamentos e eventos corporativos inesquecíveis.
           </p>
         </div>
       </section>
