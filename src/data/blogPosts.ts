@@ -177,7 +177,7 @@ Transforme seu evento [corporativo](/corporativo), casamento ou festa particular
       "Shows memoráveis para festas de 30 a 60 anos em SP. Repertório personalizado e estrutura completa da Barbie Kills em Campinas e região.",
     excerpt:
       "Organizar uma festa de aniversário para celebrar um marco importante traz sempre o mesmo desafio: como fugir do comum? Descubra como transformamos a celebração em um espetáculo.",
-    image: "/blog/banda-festa-aniversario-sp.webp",
+    image: "/blog/banda-para-aniversario-sao-paulo.webp",
     imageAlt: "Banda para Eventos Corporativos em Americana e Santa Bárbara",
     date: "2026-01-06",
     readTime: "6 min",
