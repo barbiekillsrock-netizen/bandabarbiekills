@@ -242,10 +242,15 @@ Além da escolha da banda, existem outros detalhes fundamentais. Confira nosso [
 
 Pronto para transformar seu evento? Entre em contato conosco e vamos desenhar o setlist da sua vida.`,
   },
+
   {
     slug: "banda-evento-corporativo-sp-campinas",
+    // Este é o seu H1 (O que aparece GRANDE na página)
     title: "Banda para Eventos Corporativos em Campinas e SP",
-    metaTitle: "Banda para Eventos Corporativos em Campinas e SP",
+
+    // Este é o seu Page Title (O que aparece no Google e na aba)
+    metaTitle: "Banda para Evento Corporativo em Campinas | Barbie Kills",
+
     metaDescription:
       "Precisão e parceria estratégica para seu evento empresarial. A banda ideal para festas corporativas em Campinas e SP. Confira!",
     excerpt:
