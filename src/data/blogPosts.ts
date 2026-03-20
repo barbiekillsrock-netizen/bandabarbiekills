@@ -242,7 +242,7 @@ Além da escolha da banda, existem outros detalhes fundamentais. Confira nosso [
 
 Pronto para transformar seu evento? Entre em contato conosco e vamos desenhar o setlist da sua vida.
 
-<p>Para planejar cada detalhe do seu evento, confira nosso <a href="/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills">guia completo de como organizar um aniversário inesquecível</a>.</p>`,
+Para planejar cada detalhe do seu evento, confira nosso [guia completo de como organizar um aniversário inesquecível](/blog/como-organizar-aniversario-inesquecivel-guia-barbie-kills).
   },
 
   {
@@ -427,7 +427,7 @@ Nós conhecemos profundamente as particularidades acústicas e logísticas das p
 
 Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invista em uma entrega profissional, segura e apaixonante, que ficará marcada para sempre na memória e no coração de todos os seus convidados. Venha conversar conosco e vamos desenhar juntos o cronograma musical perfeito para celebrar a sua história de amor!
 
-<p>Está planejando um evento de grande porte? Veja quais são as <a href="/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil">bandas recomendadas para festas grandes no Brasil</a>.</p>
+Está planejando um evento de grande porte? Veja quais são as <a href="/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil">bandas recomendadas para festas grandes no Brasil.
 `,
   },
   {
