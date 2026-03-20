@@ -89,7 +89,7 @@ const Corporativo = () => {
         <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl pt-24">
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
-            alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região."
+            alt="Banda Barbie Kills em show para casamentos e eventos"
             width={280}
             height={100}
             className="w-48 md:w-64 mx-auto mb-8 animate-fade-in"

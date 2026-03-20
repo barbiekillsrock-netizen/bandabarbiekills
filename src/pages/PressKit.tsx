@@ -1,14 +1,17 @@
-import { Helmet } from 'react-helmet-async';
-import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
-import { Link } from 'react-router';
+import { Helmet } from "react-helmet-async";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
+import { Link } from "react-router";
 
 const PressKit = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005] flex flex-col">
       <Helmet>
         <title>Press Kit - Barbie Kills</title>
-        <meta name="description" content="Press Kit oficial da banda Barbie Kills. Fotos, logos, rider técnico e informações para imprensa." />
+        <meta
+          name="description"
+          content="Press Kit oficial da banda Barbie Kills. Fotos, logos, rider técnico e informações para imprensa."
+        />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -18,7 +21,7 @@ const PressKit = () => {
           <Link to="/" className="transition-transform duration-300 hover:scale-105">
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
-              alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região."
+              alt="Banda Barbie Kills em show para casamentos e eventos"
               className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
@@ -28,9 +31,7 @@ const PressKit = () => {
       {/* Hero */}
       <section className="flex-1 flex items-center justify-center py-24 px-6">
         <div className="text-center max-w-3xl mx-auto space-y-8">
-          <h1 className="heading-display text-6xl md:text-8xl neon-pink-text">
-            Press Kit
-          </h1>
+          <h1 className="heading-display text-6xl md:text-8xl neon-pink-text">Press Kit</h1>
           <p className="subtitle text-sm md:text-base text-muted-foreground tracking-widest">
             Material oficial para imprensa e contratantes
           </p>

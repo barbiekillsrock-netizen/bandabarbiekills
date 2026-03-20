@@ -30,7 +30,7 @@ const Footer = () => {
           <div className="flex justify-center lg:justify-start">
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
-              alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região."
+              alt="Banda Barbie Kills em show para casamentos e eventos"
               width={200}
               height={80}
               className="w-48 md:w-56 lg:w-64 object-contain"

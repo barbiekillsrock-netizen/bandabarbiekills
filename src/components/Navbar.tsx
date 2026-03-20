@@ -82,7 +82,7 @@ const Navbar = () => {
           >
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
-              alt="Banda pop rock para casamentos e eventos sociais Barbie Kills"
+              alt="Banda Barbie Kills em show para casamentos e eventos"
               width={160}
               height={56}
               className="h-10 md:h-14 w-auto"
