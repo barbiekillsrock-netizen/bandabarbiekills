@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Check, Music, Zap, Mic } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import losLibresLogo from "@/assets/logo-banda-cerimonia-coquetel.jpg";
+import losLibresLogo from "@/assets/logo-banda-cerimonia-coquetel.webp";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));

@@ -1,7 +1,7 @@
 import { Heart, Building2, Music, ArrowUpRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import losLibresLogo from '@/assets/logo-banda-cerimonia-coquetel.jpg';
+import losLibresLogo from '@/assets/logo-banda-cerimonia-coquetel.webp';
 
 const ServicesSection = () => {
   const whatsappLink = "https://wa.me/5519982318180?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20para%20meu%20evento.";
