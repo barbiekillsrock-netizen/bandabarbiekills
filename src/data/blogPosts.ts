@@ -17,6 +17,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "banda-para-casamento-estrutura-tecnica",
     title: "Banda para Casamento: Por que a Estrutura Técnica da Barbie Kills Garante o Sucesso da sua Festa",
+    h1: "A Importância da Estrutura Técnica no Casamento",
     metaTitle: "Estrutura Técnica para Banda de Casamento | Barbie Kills",
     metaDescription:
       "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
