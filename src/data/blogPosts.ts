@@ -94,7 +94,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
       "Gestão profissional e estética glam para eventos de luxo. Transforme seu evento em um espetáculo com a Barbie Kills em Campinas e SP.",
     excerpt:
       "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
-    image: "/blog/producao-eventos-luxo-barbie-kills.webp",
+    image: "/blog/producao-eventos-corporativos-luxo.webp",
     imageAlt: "Produção Musical para Eventos em Louveira e Jaguariúna",
     imagePosition: "object-top",
     date: "2026-01-08",
