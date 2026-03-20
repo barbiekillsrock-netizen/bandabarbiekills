@@ -374,7 +374,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
       "Da cerimônia à festa: a Barbie Kills une sofisticação acústica e energia explosiva para seu casamento em Campinas. Confira nossa solução definitiva!",
     excerpt:
       "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia da Barbie Kills para a recepção. A solução coesa que seu grande dia exige.",
-    image: "/blog/banda-casamento-sorocaba.webp",
+    image: "/blog/banda-de-casamento-sorocaba-sp.webp",
     imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-24",
     readTime: "8 min",
