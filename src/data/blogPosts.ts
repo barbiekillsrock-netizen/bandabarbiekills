@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
       "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
     excerpt:
       "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
-    image: "/blog/banda-pop-rock-casamento.webp",
+    image: "/blog/banda-pop-rock-festa-casamento.webp",
     imageAlt: "Banda para Casamento em Valinhos e Vinhedo - Barbie Kills",
     date: "2026-01-09",
     readTime: "7 min",
