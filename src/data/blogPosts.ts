@@ -244,7 +244,7 @@ Pronto para transformar seu evento? Entre em contato conosco e vamos desenhar o 
   },
   {
     slug: "banda-evento-corporativo-sp-campinas",
-    title: "Banda para Eventos Corporativos em Campinas e SP"
+    title: "Banda para Eventos Corporativos em Campinas e SP",
     metaTitle: "Banda para Eventos Corporativos em Campinas e SP",
     metaDescription:
       "Precisão e parceria estratégica para seu evento empresarial. A banda ideal para festas corporativas em Campinas e SP. Confira!",
