@@ -428,7 +428,6 @@ Nós conhecemos profundamente as particularidades acústicas e logísticas das p
 Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invista em uma entrega profissional, segura e apaixonante, que ficará marcada para sempre na memória e no coração de todos os seus convidados. Venha conversar conosco e vamos desenhar juntos o cronograma musical perfeito para celebrar a sua história de amor!
 
 Está planejando um evento de grande porte? Veja quais são as <a href="/blog/quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil">bandas recomendadas para festas grandes no Brasil.`,
-`,
   },
   {
     slug: "como-organizar-aniversario-inesquecivel-guia-barbie-kills",
