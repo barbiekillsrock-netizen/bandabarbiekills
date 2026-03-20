@@ -4,6 +4,7 @@ export interface CidadeData {
   foco: string;
   hook: string;
   venues: string;
+  h1Custom?: string; // Adicionamos esta linha com a interrogação (indica que é opcional)
 }
 
 export const cidadesData: CidadeData[] = [
@@ -139,6 +140,7 @@ export const cidadesData: CidadeData[] = [
     foco: "Corporativo",
     hook: "O coração do ABC com foco em eventos corporativos de precisão.",
     venues: "Buffet Napoleão, Espaço Win.",
+    h1Custom: "Banda para Eventos em São Caetano do Sul", // Copie esta linha
   },
   {
     cidade: "Limeira",
@@ -146,6 +148,7 @@ export const cidadesData: CidadeData[] = [
     foco: "Híbrido",
     hook: "Potência do agronegócio e joias, ideal para festas grandiosas.",
     venues: "Zarzuela Eventos, Maison de Luxe.",
+    h1Custom: "Banda para Eventos em Santana de Parnaíba", // Copie esta linha
   },
   {
     cidade: "Santana de Parnaíba",

@@ -157,7 +157,7 @@ const CidadeLanding = () => {
               ELEGANTE.
             </div>
             <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in animation-delay-400">
-              {focoLabel(foco)} em {nome}: Show Premium com a Barbie Kills
+              {cidade.h1Custom || `${focoLabel(foco)} em ${nome}: Show com a Barbie Kills`}
             </h1>
             <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
               {hook} Unimos sofisticação e alta performance para transformar seu evento em um momento histórico em{" "}
