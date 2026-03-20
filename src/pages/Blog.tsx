@@ -58,14 +58,12 @@ const Blog = () => {
           <h1 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">
             BLOG DE <span className="neon-pink-text">EVENTOS</span> E CASAMENTOS
           </h1>
-          <p className="text-muted-foreground text-lg text-center max-w-3xl mx-auto mb-12 leading-relaxed">
-            Bem-vindo ao canal de conteúdo da <strong>Barbie Kills</strong>. Aqui, compartilhamos guias práticos e dicas
-            exclusivas para noivos que planejam o casamento dos sonhos e empresas que buscam excelência em eventos
-            corporativos. Explore nossos artigos sobre tendências musicais, logística de eventos em Campinas e região, e
-            descubra como transformar sua celebração em um show inesquecível.
-          </p>
           <p className="text-body text-xl text-muted-foreground max-w-2xl">
-            Dicas, tendências e tudo sobre música ao vivo para casamentos e eventos corporativos inesquecíveis.
+            Dicas, tendências e tudo sobre música ao vivo para casamentos e eventos corporativos inesquecíveis. Nosso
+            blog é o ponto de encontro para quem busca excelência em entretenimento no interior de São Paulo. Aqui,
+            mergulhamos nos bastidores da Barbie Kills e do projeto Los Libres, trazendo guias práticos sobre como
+            escolher o repertório ideal, entender a logística técnica necessária para cada espaço e como transformar a
+            pista de dança no ponto alto da sua celebração.
           </p>
         </div>
       </section>
