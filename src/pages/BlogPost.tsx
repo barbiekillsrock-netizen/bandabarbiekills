@@ -173,11 +173,12 @@ const BlogPost = () => {
       if (paragraph.startsWith("{{image:") && paragraph.endsWith("}}")) {
         const parts = paragraph.slice(8, -2).split("|");
         const src = parts[0];
-        const alt = parts[1] || "";
+        // PLANO B: Se não tiver o texto no split, ele usa o título do post para o SEO não quebrar
+        const altText = parts[1] || post.title;
         const caption = parts[2] || "";
         return (
           <figure key={index} className="my-10 flex flex-col items-center">
-            <img src={src} alt={alt} className="w-full max-w-2xl rounded-lg object-cover" loading="lazy" />
+            <img src={src} alt={altText} className="w-full max-w-2xl rounded-lg object-cover" loading="lazy" />
             {caption && (
               <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{caption}</figcaption>
             )}
