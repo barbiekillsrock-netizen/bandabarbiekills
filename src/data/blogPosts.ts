@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
       "Descubra como a estrutura técnica da Barbie Kills garante o sucesso do seu casamento. Som digital, iluminação cênica e equipe profissional em Campinas e região.",
     excerpt:
       "A acústica e a tecnologia são tão importantes quanto o talento dos músicos. Descubra como cuidamos dos bastidores para que seu grande dia seja impecável.",
-    image: "/blog/banda-pop-rock-festa-casamento.webp",
+    image: "/blog/banda-pop-rock-casamento.webp",
     imageAlt: "Banda para Casamento em Valinhos e Vinhedo - Barbie Kills",
     date: "2026-01-09",
     readTime: "7 min",
@@ -94,7 +94,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
       "Gestão profissional e estética glam para eventos de luxo. Transforme seu evento em um espetáculo com a Barbie Kills em Campinas e SP.",
     excerpt:
       "Você já viu a Barbie Kills no palco: energia explosiva, iluminação de cinema e uma estética Glam Pop que hipnotiza. Hoje, abrimos o nosso backstage para mostrar como a gestão profissional transforma cada apresentação em um espetáculo.",
-    image: "/blog/producao-eventos-corporativos-luxo.webp",
+    image: "/blog/producao-eventos-luxo-barbie-kills.webp",
     imageAlt: "Produção Musical para Eventos em Louveira e Jaguariúna",
     imagePosition: "object-top",
     date: "2026-01-08",
@@ -177,7 +177,7 @@ Transforme seu evento [corporativo](/corporativo), casamento ou festa particular
       "Shows memoráveis para festas de 30 a 60 anos em SP. Repertório personalizado e estrutura completa da Barbie Kills em Campinas e região.",
     excerpt:
       "Organizar uma festa de aniversário para celebrar um marco importante traz sempre o mesmo desafio: como fugir do comum? Descubra como transformamos a celebração em um espetáculo.",
-    image: "/blog/banda-para-aniversario-sao-paulo.webp",
+    image: "/blog/banda-festa-aniversario-sp.webp",
     imageAlt: "Banda para Eventos Corporativos em Americana e Santa Bárbara",
     date: "2026-01-06",
     readTime: "6 min",
@@ -329,7 +329,7 @@ Se sua empresa está em Campinas, São Paulo ou região, entre em contato agora.
       "Confira as 10 músicas mais pedidas para festas de casamento sofisticadas em 2026. Pop, Rock e clássicos que fazem a pista ferver. Barbie Kills ao vivo.",
     excerpt:
       "Para garantir uma festa de casamento sofisticada, animada e cheia de energia em 2026, nada como uma playlist que mistura clássicos inesquecíveis com hits modernos.",
-    image: "/blog/banda-pop-rock-festa-casamento.webp",
+    image: "/blog/banda-pop-rock-casamento.webp",
     imageAlt: "Melhor Banda de Casamento em Piracicaba e Região",
     date: "2026-01-02",
     readTime: "6 min",
@@ -374,7 +374,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
       "Da cerimônia à festa: a Barbie Kills une sofisticação acústica e energia explosiva para seu casamento em Campinas. Confira nossa solução definitiva!",
     excerpt:
       "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia da Barbie Kills para a recepção. A solução coesa que seu grande dia exige.",
-    image: "/blog/banda-de-casamento-sorocaba-sp.webp",
+    image: "/blog/banda-casamento-sorocaba.webp",
     imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-24",
     readTime: "8 min",
@@ -427,7 +427,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
       "Confira os 4 pilares para transformar sua festa de aniversário em um evento épico. Dicas de tema, música ao vivo e logística com a Barbie Kills em Campinas.",
     excerpt:
       "Celebrar mais um ano de vida exige ritmo, energia e um grand finale. Saiba por que a música ao vivo é o coração da festa e como os detalhes técnicos transformam sua comemoração em um show real.",
-    image: "/blog/banda-casamento-rock-aniversario.webp",
+    image: "/blog/banda-casamento-rock-aniversario.jpg",
     imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-05",
     readTime: "5 min",
@@ -457,7 +457,7 @@ Para o aniversariante aproveitar, o planejamento deve ser impecável.
 
 **Infraestrutura:** Ao **contratar banda para evento corporativo e social**, certifique-se de que o grupo oferece [suporte técnico](/blog/banda-para-casamento-estrutura-tecnica). Nós utilizamos sistemas de som digital de última geração para garantir qualidade máxima sem complicações para você.
 
-{{image:/blog/banda-festa-aniversario-campinas.webp|Vocalista da Banda Barbie Kills em Show no Interior de SP|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
+{{image:/blog/banda-festa-aniversario-campinas.webp|Banda Barbie Kills animando festa de aniversário premium em Campinas|📸 A energia contagiante de um show ao vivo da Barbie Kills}}
 
 ## 4. O Fator "Uau"
 
