@@ -238,8 +238,8 @@ const CidadeLanding = () => {
             </div>
             <div>
               <img
-                src="/estrutura-show-banda-baile.webp"
-                alt={`Estrutura de show Barbie Kills em ${nome}`}
+                src="/infraestrutura-palco-som-iluminacao.webp"
+                alt={`Infraestrutura de palco, som e iluminação da Barbie Kills em ${nome}`}
                 width={600}
                 height={400}
                 className="rounded-2xl w-full object-cover"

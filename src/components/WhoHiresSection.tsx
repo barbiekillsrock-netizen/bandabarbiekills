@@ -20,7 +20,7 @@ const WhoHiresSection = () => {
   return <section id="diferencial" className="relative py-16 lg:py-20 overflow-hidden">
       {/* Parallax Background */}
       <div className="absolute inset-0 parallax-bg" style={{
-      backgroundImage: 'url(/estrutura-show-banda-baile.webp)',
+      backgroundImage: 'url(/infraestrutura-palco-som-iluminacao.webp)',
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }} />
