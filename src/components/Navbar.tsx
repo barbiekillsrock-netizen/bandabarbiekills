@@ -82,7 +82,7 @@ const Navbar = () => {
           >
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
-              alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região."
+              alt="Banda pop rock para casamentos e eventos sociais Barbie Kills"
               width={160}
               height={56}
               className="h-10 md:h-14 w-auto"
