@@ -427,7 +427,7 @@ Não deixe a música do dia mais importante da sua vida nas mãos do acaso. Invi
       "Confira os 4 pilares para transformar sua festa de aniversário em um evento épico. Dicas de tema, música ao vivo e logística com a Barbie Kills em Campinas.",
     excerpt:
       "Celebrar mais um ano de vida exige ritmo, energia e um grand finale. Saiba por que a música ao vivo é o coração da festa e como os detalhes técnicos transformam sua comemoração em um show real.",
-    image: "/blog/banda-casamento-rock-aniversario.jpg",
+    image: "/blog/banda-casamento-rock-aniversario.webp",
     imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-05",
     readTime: "5 min",
