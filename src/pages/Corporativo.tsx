@@ -264,7 +264,7 @@ const Corporativo = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-12 items-center max-w-6xl mx-auto">
             <div className="flex-1">
-              <h3 className="font-oswald text-xl text-neon-pink mb-4">Logística Turn-Key e Compliance Total</h3>
+              <h2 className="font-oswald text-xl text-neon-pink mb-4">Logística Turn-Key e Compliance Total</h2>
               <p className="text-body text-lg text-muted-foreground leading-relaxed mb-8">
                 Somos seu único ponto de contato para som, luz e imagem. Facilitamos a contratação com emissão de Nota
                 Fiscal, Rider Técnico detalhado e flexibilidade total de cronograma.

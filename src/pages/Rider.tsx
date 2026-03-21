@@ -110,7 +110,7 @@ const Rider = () => {
                 </ul>
               </div>
               <div className="glass-card rounded-xl p-6 md:p-8 space-y-4">
-                <h2 className="heading-display text-2xl md:text-3xl text-neon-pink">Amplificador de Guitarra</h2>
+                <h3 className="heading-display text-2xl md:text-3xl text-neon-pink">Amplificador de Guitarra</h3>
                 <ul className="space-y-3 text-sm text-foreground/80 font-light list-disc list-inside marker:text-neon-pink">
                   <li>1 amplificador valvulado: Fender Bassman, Twin Reverb, Marshall Plexi ou Marshall JCM800</li>
                   <li><strong className="text-neon-cyan">Não aceitamos Roland Jazz Chorus, transistorizados nem marcas nacionais</strong></li>
