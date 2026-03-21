@@ -1,6 +1,7 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  h1?: string;
   metaTitle: string;
   metaDescription: string;
   excerpt: string;
