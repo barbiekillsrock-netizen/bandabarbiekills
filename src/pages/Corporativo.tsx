@@ -94,9 +94,10 @@ const Corporativo = () => {
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
             alt="Banda Barbie Kills em show para casamentos e eventos"
-            width={280}
-            height={100}
+            width={600}
+            height={214}
             className="w-48 md:w-64 mx-auto mb-8 animate-fade-in"
+            decoding="async"
           />
           <h1 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 animate-fade-in animation-delay-200 max-w-3xl mx-auto">
             Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e
