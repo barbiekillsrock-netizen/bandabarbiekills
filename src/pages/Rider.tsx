@@ -103,7 +103,7 @@ const Rider = () => {
             {/* Amplificadores */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="glass-card rounded-xl p-6 md:p-8 space-y-4">
-                <h2 className="heading-display text-2xl md:text-3xl text-neon-pink">Amplificador de Contrabaixo</h2>
+                <h3 className="heading-display text-2xl md:text-3xl text-neon-pink">Amplificador de Contrabaixo</h3>
                 <ul className="space-y-3 text-sm text-foreground/80 font-light list-disc list-inside marker:text-neon-pink">
                   <li>Marca importada — 1ª linha: MarkBass, Ampeg, GK, Hartke, Carlsbro</li>
                   <li>Potência mínima de 500W</li>
