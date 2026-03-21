@@ -149,9 +149,10 @@ const CidadeLanding = () => {
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
               alt={`Logotipo oficial da Banda Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}`}
-              width={320}
-              height={120}
+              width={600}
+              height={214}
               className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
+              decoding="async"
             />
             <div className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
               EMBLEMÁTICA.
