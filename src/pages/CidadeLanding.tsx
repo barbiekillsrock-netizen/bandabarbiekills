@@ -149,9 +149,10 @@ const CidadeLanding = () => {
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
               alt={`Logotipo oficial da Banda Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}`}
-              width={320}
-              height={120}
+              width={600}
+              height={214}
               className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
+              decoding="async"
             />
             <div className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-none mb-6 animate-fade-in animation-delay-200">
               EMBLEMÁTICA.
@@ -179,11 +180,15 @@ const CidadeLanding = () => {
         <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
           <img
             src="/banda-casamento-campinas-premium.webp"
+            srcSet="/banda-casamento-campinas-premium.webp 1200w"
+            sizes="(max-width: 768px) 100vw, 50vw"
             alt="Show da banda de casamento Barbie Kills em Campinas e região"
-            width={960}
-            height={1080}
+            width={1200}
+            height={1350}
             className="w-full h-full object-cover object-top lg:object-center"
             fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float hidden lg:flex">
