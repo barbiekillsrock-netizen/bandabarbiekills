@@ -164,9 +164,9 @@ const Corporativo = () => {
               <h3 className="font-oswald text-xl text-neon-pink mb-4">
                 Painel de LED de Alta Definição e Suporte Visual
               </h3>
-              <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                Elevamos o padrão visual do seu evento com uma infraestrutura de painel de LED de alta definição própria, eliminando a necessidade de múltiplos fornecedores. Nossa solução permite a exibição estratégica de logotipos, vídeos institucionais de alta resolução, conteúdos de motion graphics e apresentações personalizadas, integrando a identidade visual da sua marca diretamente à performance musical. Essa sinergia entre som e imagem cria uma experiência imersiva e profissional, ideal para lançamentos de produtos, premiações corporativas e convenções de vendas que exigem um palco impactante e alinhado ao branding da empresa.
-              </p>
+      <p className="text-body text-lg text-muted-foreground leading-relaxed">
+  {`Elevamos o padrão visual do seu evento com uma infraestrutura de painel de LED de alta definição própria, eliminando a necessidade de múltiplos fornecedores. Nossa solução permite a exibição estratégica de logotipos, vídeos institucionais de alta resolução, conteúdos de motion graphics e apresentações personalizadas, integrando a identidade visual da sua marca diretamente à performance musical. Essa sinergia entre som e imagem cria uma experiência imersiva e profissional, ideal para lançamentos de produtos, premiações corporativas e convenções de vendas que exigem um palco impactante e alinhado ao branding da empresa.`}
+</p>
             </div>
             <div className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-neon-pink/20 shadow-[0_0_40px_rgba(255,0,128,0.1)]">
