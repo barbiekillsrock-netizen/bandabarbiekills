@@ -165,8 +165,7 @@ const Corporativo = () => {
                 Painel de LED de Alta Definição e Suporte Visual
               </h3>
               <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                Disponibilizamos painel de LED próprio para exibição de logotipos, vídeos institucionais e conteúdos
-                personalizados, integrando a identidade da sua empresa à performance musical de forma profissional.
+                Elevamos o padrão visual do seu evento com uma infraestrutura de painel de LED de alta definição própria, eliminando a necessidade de múltiplos fornecedores. Nossa solução permite a exibição estratégica de logotipos, vídeos institucionais de alta resolução, conteúdos de motion graphics e apresentações personalizadas, integrando a identidade visual da sua marca diretamente à performance musical. Essa sinergia entre som e imagem cria uma experiência imersiva e profissional, ideal para lançamentos de produtos, premiações corporativas e convenções de vendas que exigem um palco impactante e alinhado ao branding da empresa.
               </p>
             </div>
             <div className="flex-1 w-full">
