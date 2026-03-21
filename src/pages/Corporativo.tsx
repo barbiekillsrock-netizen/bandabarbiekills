@@ -61,8 +61,11 @@ const Corporativo = () => {
           name="description"
           content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
         />
-        <link rel="alternate" hrefLang="pt-br" href="https://www.bandabarbiekills.com.br/corporativo" />
         <link rel="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
+        <link rel="alternate" hrefLang="pt-br" href="https://www.bandabarbiekills.com.br/corporativo" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.bandabarbiekills.com.br/corporativo" />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br/corporativo" />
         <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
@@ -73,10 +76,13 @@ const Corporativo = () => {
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
         <meta property="og:site_name" content="Barbie Kills" />
         <meta property="og:locale" content="pt_BR" />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta name="twitter:description" content="Show premium e logística completa para eventos corporativos." />
         <meta name="twitter:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
+
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Helmet>
 

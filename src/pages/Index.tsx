@@ -78,6 +78,9 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
+        <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
+        <link rel="alternate" hrefLang="pt-br" href="https://www.bandabarbiekills.com.br" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.bandabarbiekills.com.br" />
         <title>Banda Barbie Kills | Casamentos e Eventos Premium</title>
         <meta
           name="description"

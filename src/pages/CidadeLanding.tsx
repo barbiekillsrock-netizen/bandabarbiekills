@@ -95,7 +95,11 @@ const CidadeLanding = () => {
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDesc} />
+
+        {/* Tags de Idioma e Canonical unificadas */}
         <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="pt-br" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
         {/* Open Graph - Redes Sociais */}
         <meta property="og:title" content={metaTitle} />
@@ -109,7 +113,7 @@ const CidadeLanding = () => {
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
 
-        {/* Schema.org - Dados Estruturados Corrigidos */}
+        {/* Schema.org */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
