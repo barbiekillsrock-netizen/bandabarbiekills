@@ -90,7 +90,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
   },
   {
     slug: "producao-eventos-luxo-barbie-kills",
-    title: "Produção de Eventos de Luxo: Bastidores de um Show Impecável",
+    title: "Produção de Eventos de Luxo: Bastidores Impecáveis",
     metaTitle: "Produção de Eventos de Luxo com Barbie Kills",
     metaDescription:
       "Gestão profissional e estética glam para eventos de luxo. Transforme seu evento em um espetáculo com a Barbie Kills em Campinas e SP.",
