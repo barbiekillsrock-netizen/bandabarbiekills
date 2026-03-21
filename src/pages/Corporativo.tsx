@@ -130,9 +130,11 @@ const Corporativo = () => {
                 Música Planejada para Cada Momento do Cronograma
               </h3>
               <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                Não entregamos apenas um show, mas uma trilha sonora estratégica. Adaptamos o repertório para a
-                sobriedade de um coquetel, a elegância de um jantar ou a explosão de uma premiação. Com músicos fluentes
-                em inglês, garantimos comunicação bilíngue impecável para executivos internacionais.
+              Não entregamos apenas um show, mas uma trilha sonora estratégica desenhada para o sucesso do seu evento corporativo. 
+            Nossa expertise permite adaptar o repertório com precisão: desde a sobriedade necessária para um <strong>welcome coffee</strong> ou coquetel de networking, até a elegância de um jantar de gala ou a explosão de energia de uma premiação de final de ano. 
+  Com músicos fluentes em inglês, garantimos uma comunicação bilíngue impecável, ideal para recepções com executivos internacionais e multinacionais sediadas em <strong>Campinas, São Paulo e nos principais polos industriais do interior paulista</strong>. 
+  Entendemos que cada minuto do seu cronograma é vital, por isso trabalhamos em total sinergia com o cerimonial e a produção do evento.
+</p>
               </p>
             </div>
             <div className="flex-1 w-full">
