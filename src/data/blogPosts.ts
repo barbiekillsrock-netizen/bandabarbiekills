@@ -383,7 +383,7 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
       "Da cerimônia à festa: a Barbie Kills une sofisticação acústica e energia explosiva para seu casamento em Campinas. Confira nossa solução definitiva!",
     excerpt:
       "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia da Barbie Kills para a recepção. A solução coesa que seu grande dia exige.",
-    image: "/blog/banda-casamento-sorocaba.webp",
+    image: "/blog/banda-de-casamento-sorocaba-sp.webp",
     imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-24",
     readTime: "8 min",
@@ -438,7 +438,7 @@ Está planejando um evento de grande porte? Veja quais são as <a href="/blog/qu
       "Descubra os pilares para organizar uma festa de aniversário inesquecível em Campinas e transforme seu evento com a banda Barbie Kills.",
     excerpt:
       "Celebrar mais um ano de vida exige ritmo, energia e um grand finale. Saiba por que a música ao vivo é o coração da festa e como os detalhes técnicos transformam sua comemoração em um show real.",
-    image: "/blog/banda-casamento-rock-aniversario.jpg",
+    image: "/blog/banda-casamento-rock-aniversario.webp",
     imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-05",
     readTime: "5 min",
