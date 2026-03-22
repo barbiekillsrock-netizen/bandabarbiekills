@@ -6,6 +6,14 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
+    <title>Banda Barbie Kills | Casamentos e Eventos Premium em SP</title>
+    <meta
+      name="description"
+      content="A melhor banda para casamentos e eventos corporativos em Campinas e região. Show premium, estrutura completa e repertório de Rock, Pop e Soul."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -28,11 +36,12 @@
       media="print"
       onload="this.media='all'"
     />
-    <noscript
-      ><link
+    <noscript>
+      <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
-    /></noscript>
+      />
+    </noscript>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG"></script>
     <script>
@@ -40,45 +49,9 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      // 'send_page_view: false' é essencial para não duplicar dados no React
+      // 'send_page_view: false' garante que o React controle o rastreio das subpáginas
       gtag('config', 'G-FQYT8C0DFG', { send_page_view: false });
     </script>
-
-    ``
-    <script>
-      --> SCRIPT ANTIGO, foi alterado pelo de cima de 22/03 para remover o lazy loading
-           window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);}
-           (function(){
-             var loaded = false;
-             function loadGA(){
-               if(loaded) return;
-               loaded = true;
-               var s = document.createElement('script');
-               s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
-               s.async = true;
-               s.onload = function(){
-                 gtag('js', new Date());
-                 gtag('config', 'G-FQYT8C0DFG');
-               };
-               document.head.appendChild(s);
-               ['scroll','click','touchstart','keydown'].forEach(function(e){
-                 document.removeEventListener(e, loadGA, {capture:true});
-               });
-             }
-             if('requestIdleCallback' in window){
-               requestIdleCallback(function(){
-                 ['scroll','click','touchstart','keydown'].forEach(function(e){
-                   document.addEventListener(e, loadGA, {capture:true, passive:true, once:true});
-                 });
-                 setTimeout(loadGA, 5000);
-               });
-             } else {
-               setTimeout(loadGA, 3000);
-             }
-           })();
-    </script>
-    ``
 
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" type="image/png" href="/banda-barbie-kills-casamento-rock.png" />
@@ -142,7 +115,7 @@
   </head>
 
   <body>
-    <div id="root"><!--ssr-outlet--></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
