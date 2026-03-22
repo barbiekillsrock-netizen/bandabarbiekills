@@ -25,7 +25,7 @@ const HeroSection = () => {
             ELEGANTE.
           </div>
 
-          <h1 className="font-oswald text-4xl md:text-6xl lg:text-7xl text-white mb-6 max-w-4xl animate-fade-in animation-delay-400 leading-tight">
+          <h1 className="font-oswald text-xl md:text-2xl lg:text-3xl text-white mb-6 max-w-2xl animate-fade-in uppercase tracking-[0.2em] leading-relaxed">
             Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
           </h1>
           <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
