@@ -40,7 +40,13 @@ const App = () => (
     <BrowserRouter>
       {/* O Tracker deve ficar dentro do BrowserRouter para acessar a localização */}
       <AnalyticsTracker />
-      <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <Suspense
+        fallback={
+          <div className="min-h-screen bg-black flex items-center justify-center">
+            <img src="/barbie-kills-banda-eventos-casamentos.webp" className="w-32 opacity-20" alt="Carregando..." />
+          </div>
+        }
+      >
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
