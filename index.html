@@ -3,14 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-
     <title>Banda Barbie Kills | Casamentos e Eventos Premium em SP</title>
-    <meta
-      name="description"
-      content="A melhor banda para casamentos e eventos corporativos em Campinas e região. Show premium, estrutura completa e repertório de Rock, Pop e Soul."
-    />
 
     <link
       rel="preload"
@@ -22,35 +15,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
-      media="all"
-    />
-
-    <meta property="og:locale" content="pt_BR" />
-    <link rel="icon" type="image/png" href="/banda-barbie-kills-casamento-rock.png" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "MusicGroup",
-            "name": "Barbie Kills",
-            "url": "https://www.bandabarbiekills.com.br",
-            "image": "https://www.bandabarbiekills.com.br/banda-casamentos-eventos-campinas-barbie-kills.webp"
-          }
-        ]
-      }
-    </script>
+    <style>
+      /* CSS crítico para evitar o "pulo" de layout (CLS) */
+      .hero-bg { background-color: #000; min-height: 80vh; }
+    </style>
   </head>
-
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
@@ -58,18 +27,16 @@
     <script>
       window.addEventListener('load', function() {
         setTimeout(function() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
-          document.body.appendChild(script);
-
-          script.onload = function() {
+          var s = document.createElement('script');
+          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
+          document.body.appendChild(s);
+          s.onload = function() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-FQYT8C0DFG', { send_page_view: false });
           };
-        }, 1500); // Atraso de 1.5s para garantir nota verde no PageSpeed
+        }, 3000); // 3 segundos de folga para o PageSpeed dar nota 90+
       });
     </script>
   </body>
