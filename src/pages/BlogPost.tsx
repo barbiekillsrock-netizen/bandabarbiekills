@@ -253,7 +253,7 @@ const BlogPost = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title}</title>
+        <title>{post.metaTitle}</title>
         <meta name="description" content={post.metaDescription} />
 
         {/* === AQUI ESTÃO AS TAGS CORRIGIDAS PARA O SEO DOS POSTS === */}

@@ -17,7 +17,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "banda-para-casamento-estrutura-tecnica",
-    title: "Guia de Estrutura Técnica para Banda de Casamento",
+    title: "Estrutura Técnica para Casamentos: O Guia Completo",
     h1: "A Importância da Estrutura Técnica no Casamento",
     metaTitle: "Estrutura Técnica para Banda de Casamento | Barbie Kills",
     metaDescription:
@@ -90,7 +90,7 @@ Se você está planejando seu casamento em Campinas ou região e quer a tranquil
   },
   {
     slug: "producao-eventos-luxo-barbie-kills",
-    title: "Produção de Eventos de Luxo: Bastidores Impecáveis",
+    title: "Produção de Eventos de Luxo: Bastidores de um Show Impecável",
     metaTitle: "Produção de Eventos de Luxo com Barbie Kills",
     metaDescription:
       "Gestão profissional e estética glam para eventos de luxo. Transforme seu evento em um espetáculo com a Barbie Kills em Campinas e SP.",
@@ -173,7 +173,7 @@ Transforme seu evento [corporativo](/corporativo), casamento ou festa particular
   },
   {
     slug: "banda-festa-aniversario-50-anos-sp",
-    title: "Banda para Festa de 50 Anos em SP: Guia de Escolha",
+    title: "Banda para Festa de 50 Anos em SP: Como Escolher",
     metaTitle: "Banda para Festa de Aniversário e 50 Anos | Barbie Kills",
     metaDescription:
       "Shows memoráveis para festas de 30 a 60 anos em SP. Repertório personalizado e estrutura completa da Barbie Kills em Campinas e região.",
@@ -377,13 +377,13 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
   },
   {
     slug: "banda-casamento-campinas-cerimonia-festa",
-    title: "Banda para Casamento em Campinas: Cerimônia e Festa",
+    title: "Banda para Casamento em Campinas | Cerimônia + Festa",
     metaTitle: "Banda Casamento Campinas: Cerimônia e Festa | Barbie Kills",
     metaDescription:
       "Da cerimônia à festa: a Barbie Kills une sofisticação acústica e energia explosiva para seu casamento em Campinas. Confira nossa solução definitiva!",
     excerpt:
       "Unimos a sofisticação acústica do projeto Los Libres para a cerimônia à energia da Barbie Kills para a recepção. A solução coesa que seu grande dia exige.",
-    image: "/blog/banda-de-casamento-sorocaba-sp.webp",
+    image: "/blog/banda-casamento-sorocaba.webp",
     imageAlt: "Música ao Vivo para Casamentos em Bragança Paulista e Atibaia",
     date: "2026-02-24",
     readTime: "8 min",
@@ -432,13 +432,13 @@ Está planejando um evento de grande porte? Veja quais são as <a href="/blog/qu
   },
   {
     slug: "como-organizar-aniversario-inesquecivel-guia-barbie-kills",
-    title: "Como Organizar um Aniversário Inesquecível: Guia VIP",
+    title: "Como Organizar um Aniversário Inesquecível (O Guia Barbie Kills)",
     metaTitle: "Como Organizar Aniversário Inesquecível | Barbie Kills",
     metaDescription:
       "Descubra os pilares para organizar uma festa de aniversário inesquecível em Campinas e transforme seu evento com a banda Barbie Kills.",
     excerpt:
       "Celebrar mais um ano de vida exige ritmo, energia e um grand finale. Saiba por que a música ao vivo é o coração da festa e como os detalhes técnicos transformam sua comemoração em um show real.",
-    image: "/blog/banda-casamento-rock-aniversario.webp",
+    image: "/blog/banda-casamento-rock-aniversario.jpg",
     imageAlt: "Show de Banda de Rock para Casamento em Paulínia e Indaiatuba",
     date: "2026-03-05",
     readTime: "5 min",
@@ -478,7 +478,7 @@ Quer levar a [Barbie Kills](/) para o seu aniversário? Nós adoramos fazer part
   },
   {
     slug: "quais-bandas-de-casamento-sao-recomendadas-para-festas-grandes-no-brasil",
-    title: "Melhores Bandas para Grandes Casamentos no Brasil", // 51 caracteres
+    title: "Melhores Bandas de Casamento para Festas Grandes",
     metaTitle: "Melhores Bandas de Elite para Casamentos Grandes",
     metaDescription:
       "Conheça os 5 pilares de excelência no entretenimento musical para festas e casamentos grandiosos no Brasil com a Barbie Kills.",

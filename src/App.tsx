@@ -1,30 +1,8 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
-
-// Definição global para o TypeScript não reclamar do Google Analytics
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
-}
-
-// Componente para monitorar a mudança de rotas
-const AnalyticsTracker = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (typeof window.gtag === "function") {
-      window.gtag("config", "G-FQYT8C0DFG", {
-        page_path: location.pathname + location.search,
-      });
-    }
-  }, [location]);
-
-  return null;
-};
 
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -38,15 +16,7 @@ const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const App = () => (
   <TooltipProvider>
     <BrowserRouter>
-      {/* O Tracker deve ficar dentro do BrowserRouter para acessar a localização */}
-      <AnalyticsTracker />
-      <Suspense
-        fallback={
-          <div className="min-h-screen bg-black flex items-center justify-center">
-            <img src="/barbie-kills-banda-eventos-casamentos.webp" className="w-32 opacity-20" alt="Carregando..." />
-          </div>
-        }
-      >
+      <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />

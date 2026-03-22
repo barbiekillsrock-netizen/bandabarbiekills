@@ -61,11 +61,8 @@ const Corporativo = () => {
           name="description"
           content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
         />
-        <link rel="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
         <link rel="alternate" hrefLang="pt-br" href="https://www.bandabarbiekills.com.br/corporativo" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.bandabarbiekills.com.br/corporativo" />
-
-        {/* Open Graph */}
+        <link rel="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br/corporativo" />
         <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
@@ -76,13 +73,10 @@ const Corporativo = () => {
         <meta property="og:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
         <meta property="og:site_name" content="Barbie Kills" />
         <meta property="og:locale" content="pt_BR" />
-
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta name="twitter:description" content="Show premium e logística completa para eventos corporativos." />
         <meta name="twitter:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
-
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Helmet>
 
@@ -94,10 +88,9 @@ const Corporativo = () => {
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
             alt="Banda Barbie Kills em show para casamentos e eventos"
-            width={600}
-            height={214}
+            width={280}
+            height={100}
             className="w-48 md:w-64 mx-auto mb-8 animate-fade-in"
-            decoding="async"
           />
           <h1 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 animate-fade-in animation-delay-200 max-w-3xl mx-auto">
             Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e
@@ -265,7 +258,7 @@ const Corporativo = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-12 items-center max-w-6xl mx-auto">
             <div className="flex-1">
-              <h2 className="font-oswald text-xl text-neon-pink mb-4">Logística Turn-Key e Compliance Total</h2>
+              <h3 className="font-oswald text-xl text-neon-pink mb-4">Logística Turn-Key e Compliance Total</h3>
               <p className="text-body text-lg text-muted-foreground leading-relaxed mb-8">
                 Somos seu único ponto de contato para som, luz e imagem. Facilitamos a contratação com emissão de Nota
                 Fiscal, Rider Técnico detalhado e flexibilidade total de cronograma.
