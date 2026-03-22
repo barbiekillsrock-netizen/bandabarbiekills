@@ -6,12 +6,6 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <title>Banda Barbie Kills | Casamentos e Eventos Premium em SP</title>
-    <meta
-      name="description"
-      content="A melhor banda para casamentos e eventos corporativos em Campinas e região. Show premium, estrutura completa e repertório de Rock, Pop e Soul."
-    />
-
     <link
       rel="preload"
       as="image"
@@ -33,27 +27,40 @@
       media="all"
     />
 
+    <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Barbie Kills" />
+    <meta
+      property="og:image"
+      content="https://www.bandabarbiekills.com.br/banda-casamentos-eventos-campinas-barbie-kills.webp"
+    />
+
     <link rel="icon" type="image/png" href="/banda-barbie-kills-casamento-rock.png" />
+    <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
   </head>
 
-  <body>
-    <div id="root"></div>
+  <body style="background-color: #000;">
+    <div id="root">
+      <h1 style="display:none;">Banda Barbie Kills | Casamentos e Eventos Premium em Campinas e SP</h1>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
 
     <script>
       window.addEventListener('load', function() {
         setTimeout(function() {
           var s = document.createElement('script');
-          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
           document.body.appendChild(s);
           s.onload = function() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-FQYT8C0DFG', { send_page_view: false });
+            // Configuração manual do page_view para o SPA funcionar
+            gtag('config', 'G-FQYT8C0DFG', { send_page_view: true });
           };
-        }, 2500);
+        }, 3000);
       });
     </script>
   </body>
