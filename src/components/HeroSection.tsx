@@ -25,8 +25,7 @@ const HeroSection = () => {
             ELEGANTE.
           </div>
 
-          {/* H1 - Main SEO Title */}
-          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in animation-delay-400">
+          <h1 className="font-oswald text-4xl md:text-6xl lg:text-7xl text-white mb-6 max-w-4xl animate-fade-in animation-delay-400 leading-tight">
             Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
           </h1>
           <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
@@ -47,8 +46,8 @@ const HeroSection = () => {
       {/* RIGHT COLUMN - Image Zone */}
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
         <img
-          src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
-          srcSet="/banda-casamentos-eventos-campinas-barbie-kills.webp 1200w"
+          src="/banda-casamento-campinas-premium.webp"
+          srcSet="/banda-casamento-campinas-premium.webp 1200w"
           sizes="(max-width: 768px) 100vw, 50vw"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
           width={1200}
