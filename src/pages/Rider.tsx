@@ -35,7 +35,7 @@ const Rider = () => {
         <header className="bg-black border-b border-white/10 py-6 px-4 md:px-8">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <Link to="/">
-              <img src="/barbie-kills-banda-eventos-casamentos.webp" alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região." className="h-10 md:h-14 w-auto object-contain" />
+              <img src="/logo-banda-casamento-campinas-barbie-kills-nav.webp" alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região." className="h-10 md:h-14 w-auto object-contain" />
             </Link>
             <span className="font-oswald text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground">
               Rider Técnico & Camarim

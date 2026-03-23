@@ -86,7 +86,7 @@ const Corporativo = () => {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
         <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl pt-24">
           <img
-            src="/barbie-kills-banda-eventos-casamentos.webp"
+            src="/logo-banda-casamento-campinas-barbie-kills-nav.webp"
             alt="Banda Barbie Kills em show para casamentos e eventos"
             width={280}
             height={100}
