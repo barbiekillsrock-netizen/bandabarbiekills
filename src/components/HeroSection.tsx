@@ -54,8 +54,8 @@ const HeroSection = () => {
           sizes="(max-width: 768px) 100vw, 50vw"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
           width={1200}
-          height={1350}
-          className="w-full h-full object-cover object-top lg:object-center"
+          height={800}
+          className="w-full h-full object-cover object-top lg:object-center aspect-video"
           fetchPriority="high"
           loading="eager"
           decoding="async"
