@@ -107,7 +107,8 @@ const BlogPost = () => {
               key={keyIndex++}
               href={linkUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              /* Adicionamos o nofollow aqui para proteger sua autoridade */
+              rel="noopener noreferrer nofollow"
               className="text-neon-pink hover:underline"
             >
               {linkText}
