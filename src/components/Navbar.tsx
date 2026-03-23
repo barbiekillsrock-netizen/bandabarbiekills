@@ -81,7 +81,7 @@ const Navbar = () => {
             aria-label="Barbie Kills - Página Inicial"
           >
             <img
-              src="/logo-banda-casamento-campinas-barbie-kills-nav.webp"
+              src="/barbie-kills-banda-eventos-casamentos-nav.webp"
               alt="Banda Barbie Kills em show para casamentos e eventos"
               title="Banda Barbie Kills - Home"
               width={320}
