@@ -84,9 +84,11 @@ const Navbar = () => {
               src="/logo-banda-casamento-campinas-barbie-kills-nav.webp"
               alt="Banda Barbie Kills em show para casamentos e eventos"
               title="Banda Barbie Kills - Home"
-              width={160}
-              height={56}
+              width={320}
+              height={112}
               className="h-10 md:h-14 w-auto"
+              fetchPriority="high"
+              loading="eager"
             />
           </Link>
 
