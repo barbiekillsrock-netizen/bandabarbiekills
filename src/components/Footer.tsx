@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
           <div className="flex justify-center lg:justify-start">
             <img
-              src="/barbie-kills-banda-eventos-casamentos.webp"
+              src="/logo-banda-casamento-campinas-barbie-kills-hero-footer.webp"
               alt="Banda Barbie Kills em show para casamentos e eventos"
               width={640}
               height={228}

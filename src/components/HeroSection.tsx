@@ -10,8 +10,8 @@ const HeroSection = () => {
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
             alt="Banda Barbie Kills em show para casamentos e eventos"
-            width={640}
-            height={228}
+            width={320}
+            height={120}
             className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
             fetchPriority="high"
             loading="eager"
@@ -50,7 +50,7 @@ const HeroSection = () => {
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
         <img
           src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
-          srcSet="/banda-casamentos-eventos-campinas-barbie-kills.webp 1200w"
+          srcSet="/hero-banda-mobile.webp 640w, /banda-casamentos-eventos-campinas-barbie-kills.webp 1200w"
           sizes="(max-width: 768px) 100vw, 50vw"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
           width={1200}
