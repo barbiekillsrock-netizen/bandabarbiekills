@@ -253,10 +253,11 @@ const BlogPost = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
+        {/* 1. Identidade e Título: Puxa o título otimizado do Blogposts.ts */}
         <title>{post.metaTitle}</title>
         <meta name="description" content={post.metaDescription} />
 
-        {/* === AQUI ESTÃO AS TAGS CORRIGIDAS PARA O SEO DOS POSTS === */}
+        {/* 2. Canonical e Hreflang: Resolve o erro de x-default e idiomas do Ahrefs */}
         <link rel="canonical" key="canonical" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
         <link
           rel="alternate"
@@ -266,24 +267,28 @@ const BlogPost = () => {
         />
         <link
           rel="alternate"
-          key="alternate-pt"
-          hrefLang="pt"
-          href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`}
-        />
-        <link
-          rel="alternate"
           key="alternate-x-default"
           hrefLang="x-default"
           href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`}
         />
-        {/* ========================================================== */}
 
+        {/* 3. Open Graph: Garante o "Card" perfeito no WhatsApp, Instagram e FB */}
         <meta property="og:title" content={post.metaTitle} />
         <meta property="og:description" content={post.metaDescription} />
         <meta property="og:url" content={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
+        <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
+        <meta property="og:site_name" content="Barbie Kills" />
         <meta property="article:published_time" content={post.date} />
+
+        {/* 4. Twitter Cards: Vital para autoridade de SEO e compartilhamento */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.metaTitle} />
+        <meta name="twitter:description" content={post.metaDescription} />
+        <meta name="twitter:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
+
+        {/* 5. Dados Estruturados: Injeta o JSON-LD para resultados ricos no Google */}
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
       </Helmet>
 
