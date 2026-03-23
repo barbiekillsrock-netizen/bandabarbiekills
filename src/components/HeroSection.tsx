@@ -12,7 +12,7 @@ const HeroSection = () => {
             alt="Banda Barbie Kills em show para casamentos e eventos"
             width={320}
             height={120}
-            className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
+            className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in aspect-[320/120]"
             fetchPriority="high"
             loading="eager"
             decoding="async"
@@ -54,8 +54,8 @@ const HeroSection = () => {
           sizes="(max-width: 768px) 100vw, 50vw"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
           width={1200}
-          height={1350}
-          className="w-full h-full object-cover object-top lg:object-center"
+          height={800}
+          className="w-full h-full object-cover object-top lg:object-center aspect-video"
           fetchPriority="high"
           loading="eager"
           decoding="async"
