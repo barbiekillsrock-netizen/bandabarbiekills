@@ -377,8 +377,8 @@ Com um repertório exclusivo e performance de alta qualidade, a [Barbie Kills](/
   },
   {
     slug: "banda-casamento-campinas-cerimonia-festa",
-    title: "Banda para Casamento em Campinas: Cerimônia e Festa", // Removi o "|" para alinhar com metaTitle
-    metaTitle: "Banda de Casamento em Campinas: Cerimônia e Festa", // Removi o " | Barbie Kills" daqui
+    title: "Banda para Casamento em Campinas | Cerimônia + Festa",
+    metaTitle: "Banda Casamento Campinas: Cerimônia e Festa | Barbie Kills",
     metaDescription:
       "Da cerimônia à festa: a Barbie Kills une sofisticação acústica e energia explosiva para seu casamento em Campinas. Confira nossa solução definitiva!",
     excerpt:
