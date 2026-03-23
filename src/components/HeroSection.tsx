@@ -10,8 +10,8 @@ const HeroSection = () => {
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
             alt="Banda Barbie Kills em show para casamentos e eventos"
-            width={640}
-            height={228}
+            width={320}
+            height={120}
             className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
             fetchPriority="high"
             loading="eager"
