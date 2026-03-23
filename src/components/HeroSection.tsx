@@ -47,10 +47,12 @@ const HeroSection = () => {
       {/* RIGHT COLUMN - Image Zone */}
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-screen lg:absolute lg:right-0 lg:top-0 overflow-hidden">
         <img
-          src="/banda-casamento-campinas-premium.webp"
+          src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
+          srcSet="/banda-casamentos-eventos-campinas-barbie-kills.webp 1200w"
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
-          width={960}
-          height={1080}
+          width={1200}
+          height={1350}
           className="w-full h-full object-cover object-top lg:object-center"
           fetchPriority="high"
           loading="eager"

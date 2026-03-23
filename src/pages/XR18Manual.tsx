@@ -13,7 +13,7 @@ const XR18Manual = () => {
       {/* Header */}
       <div className="container mx-auto px-6 py-8">
         <Link to="/" className="inline-block mb-12">
-          <img src="/barbie-kills-banda-eventos-casamentos.webp" alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região." className="h-12 md:h-14 w-auto object-contain" />
+          <img src="/logo-banda-casamento-campinas-barbie-kills-nav.webp" alt="Logotipo oficial da Banda Barbie Kills - Banda para eventos corporativos, casamentos e festas em Campinas e região." className="h-12 md:h-14 w-auto object-contain" />
         </Link>
 
         <div className="max-w-4xl mx-auto">
