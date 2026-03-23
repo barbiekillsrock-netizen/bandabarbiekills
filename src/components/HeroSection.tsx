@@ -7,16 +7,15 @@ const HeroSection = () => {
       <div className="relative z-10 w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen bg-black flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-28 pb-8 lg:pt-24 lg:pb-0">
         <div className="max-w-xl">
           {/* Logo */}
-
-          {/* Logo com Aspect Ratio travado */}
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
             alt="Logo Barbie Kills - Banda para Eventos Premium"
             width={320}
             height={120}
-            className="w-48 md:w-64 lg:w-72 xl:w-80 h-auto aspect-[8/3] object-contain animate-fade-in"
+            className="w-48 md:w-64 lg:w-72 xl:w-80 h-auto object-contain animate-fade-in animation-delay-400"
             fetchPriority="high"
             loading="eager"
+            decoding="async"
           />
 
           {/* Decorative Headline */}

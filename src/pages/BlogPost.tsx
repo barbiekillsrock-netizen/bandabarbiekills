@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getPostBySlug, blogPosts } from "@/data/blogPosts";
-
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
@@ -20,8 +19,10 @@ const BlogPost = () => {
     return <Navigate to="/blog" replace />;
   }
 
+  // Get related posts (exclude current)
   const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
+  // Extract YouTube video IDs from content for VideoObject schema
   const extractVideos = (content: string) => {
     const videos: Array<{ id: string; isShorts: boolean }> = [];
     const regex = /\{\{youtube:(.*?)\}\}/g;
@@ -38,6 +39,7 @@ const BlogPost = () => {
 
   const embeddedVideos = extractVideos(post.content);
 
+  // Structured data for Article + VideoObjects
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -47,11 +49,17 @@ const BlogPost = () => {
         description: post.metaDescription,
         image: `https://www.bandabarbiekills.com.br${post.image}`,
         datePublished: post.date,
-        author: { "@type": "Organization", name: "Barbie Kills" },
+        author: {
+          "@type": "Organization",
+          name: "Barbie Kills",
+        },
         publisher: {
           "@type": "Organization",
           name: "Barbie Kills",
-          logo: { "@type": "ImageObject", url: "https://www.bandabarbiekills.com.br/logo-barbie-kills.png" },
+          logo: {
+            "@type": "ImageObject",
+            url: "https://www.bandabarbiekills.com.br/logo-barbie-kills.png",
+          },
         },
       },
       ...embeddedVideos.map((v) => ({
@@ -66,25 +74,30 @@ const BlogPost = () => {
     ],
   };
 
+  // Parse inline markdown (bold and links)
   const parseInlineMarkdown = (text: string) => {
     const elements: React.ReactNode[] = [];
+    // Match bold (**text**) and links ([text](url))
     const regex = /(\*\*(.*?)\*\*|\[(.*?)\]\((.*?)\))/g;
     let lastIndex = 0;
     let match;
     let keyIndex = 0;
 
     while ((match = regex.exec(text)) !== null) {
+      // Add text before match
       if (match.index > lastIndex) {
         elements.push(text.substring(lastIndex, match.index));
       }
 
       if (match[0].startsWith("**")) {
+        // Bold text
         elements.push(
           <strong key={keyIndex++} className="text-foreground">
             {match[2]}
           </strong>,
         );
       } else if (match[0].startsWith("[")) {
+        // Link
         const linkText = match[3];
         const linkUrl = match[4];
         const isExternal = linkUrl.startsWith("http");
@@ -108,39 +121,127 @@ const BlogPost = () => {
           );
         }
       }
+
       lastIndex = regex.lastIndex;
     }
-    if (lastIndex < text.length) elements.push(text.substring(lastIndex));
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      elements.push(text.substring(lastIndex));
+    }
+
     return elements.length > 0 ? elements : text;
   };
 
+  // Parse YouTube embed
+  const parseYouTubeEmbed = (url: string) => {
+    // Handle YouTube Shorts and regular URLs
+    const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/);
+    const regularMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+    const videoId = shortsMatch?.[1] || regularMatch?.[1];
+    if (!videoId) return null;
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
+
+  // Parse markdown-like content to HTML
   const renderContent = (content: string) => {
     return content.split("\n\n").map((paragraph, index) => {
-      // YouTube embed logic... (mantido conforme original)
+      // YouTube embed
       if (paragraph.startsWith("{{youtube:") && paragraph.endsWith("}}")) {
-        // ... (código original omitido para brevidade, mas deve ser mantido)
+        const url = paragraph.slice(10, -2);
+        const embedUrl = parseYouTubeEmbed(url);
+        if (embedUrl) {
+          return (
+            <div key={index} className="my-10 flex justify-center">
+              <div className="w-full max-w-md aspect-[9/16] rounded-lg overflow-hidden border border-white/10 shadow-xl">
+                <iframe
+                  src={embedUrl}
+                  title={`Assista ao vídeo da Barbie Kills: ${post.title}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        }
       }
 
+      // Inline image with caption
       if (paragraph.startsWith("{{image:") && paragraph.endsWith("}}")) {
         const parts = paragraph.slice(8, -2).split("|");
+        const src = parts[0];
+        const altText = parts[1] || post.title;
+        const caption = parts[2] || "";
         return (
           <figure key={index} className="my-10 flex flex-col items-center">
+            {/* CORREÇÃO: Adicionadas as tags estáticas width e height para evitar CLS */}
             <img
-              src={parts[0]}
-              alt={parts[1] || post.title}
+              src={src}
+              alt={altText}
               width="800"
               height="533"
-              className="w-full max-w-2xl rounded-lg object-cover aspect-[3/2]"
+              className="w-full max-w-2xl rounded-lg object-cover"
               loading="lazy"
             />
-            {parts[2] && (
-              <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{parts[2]}</figcaption>
+            {caption && (
+              <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{caption}</figcaption>
             )}
           </figure>
         );
       }
 
-      // Outros parsers (Headers, Lists, Blockquotes) mantidos conforme original...
+      // Headers
+      if (paragraph.startsWith("## ")) {
+        return (
+          <h2 key={index} className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4">
+            {parseInlineMarkdown(paragraph.replace("## ", ""))}
+          </h2>
+        );
+      }
+
+      // Blockquotes
+      if (paragraph.startsWith("> ")) {
+        const lines = paragraph.split("\n").filter((line) => line.startsWith("> "));
+        return (
+          <blockquote key={index} className="border-l-4 border-neon-pink pl-6 my-8 italic text-muted-foreground">
+            {lines.map((line, i) => (
+              <p key={i} className="mb-2">
+                {parseInlineMarkdown(line.replace(/^> ?/, ""))}
+              </p>
+            ))}
+          </blockquote>
+        );
+      }
+
+      // Lists
+      if (paragraph.includes("\n- ") || paragraph.startsWith("- ")) {
+        const items = paragraph.split("\n").filter((item) => item.startsWith("- "));
+        return (
+          <ul key={index} className="list-disc list-inside space-y-3 my-6 text-body text-lg text-muted-foreground">
+            {items.map((item, i) => {
+              const text = item.replace("- ", "");
+              return <li key={i}>{parseInlineMarkdown(text)}</li>;
+            })}
+          </ul>
+        );
+      }
+
+      // Numbered lists
+      if (/^\d+\.\s/.test(paragraph)) {
+        const items = paragraph.split("\n").filter((item) => /^\d+\.\s/.test(item));
+        return (
+          <ol key={index} className="list-decimal list-inside space-y-3 my-6 text-body text-lg text-muted-foreground">
+            {items.map((item, i) => {
+              const text = item.replace(/^\d+\.\s/, "");
+              return <li key={i}>{parseInlineMarkdown(text)}</li>;
+            })}
+          </ol>
+        );
+      }
+
+      // Regular paragraphs
       return (
         <p key={index} className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
           {parseInlineMarkdown(paragraph)}
@@ -152,36 +253,43 @@ const BlogPost = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        {/* RESOLVE: SERP title mismatch e Semrush (Título diferente do H1) */}
-        <title>{`${post.metaTitle} | Barbie Kills`}</title>
+        <title>{post.metaTitle}</title>
         <meta name="description" content={post.metaDescription} />
 
-        {/* RESOLVE: Erro de x-default hreflang do Ahrefs */}
-        <link rel="canonical" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
-        <link rel="alternate" hrefLang="pt-BR" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
-        <link rel="alternate" hrefLang="x-default" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
+        {/* === AQUI ESTÃO AS TAGS CORRIGIDAS PARA O SEO DOS POSTS === */}
+        <link rel="canonical" key="canonical" href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
+        <link
+          rel="alternate"
+          key="alternate-pt-BR"
+          hrefLang="pt-BR"
+          href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`}
+        />
+        <link
+          rel="alternate"
+          key="alternate-pt"
+          hrefLang="pt"
+          href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`}
+        />
+        <link
+          rel="alternate"
+          key="alternate-x-default"
+          hrefLang="x-default"
+          href={`https://www.bandabarbiekills.com.br/blog/${post.slug}`}
+        />
+        {/* ========================================================== */}
 
-        {/* OPEN GRAPH: Card premium para redes sociais */}
-        <meta property="og:title" content={`${post.metaTitle} | Barbie Kills`} />
+        <meta property="og:title" content={post.metaTitle} />
         <meta property="og:description" content={post.metaDescription} />
         <meta property="og:url" content={`https://www.bandabarbiekills.com.br/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
-        <meta property="og:site_name" content="Barbie Kills" />
         <meta property="article:published_time" content={post.date} />
-
-        {/* TWITTER: Autoridade visual no compartilhamento */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${post.metaTitle} | Barbie Kills`} />
-        <meta name="twitter:description" content={post.metaDescription} />
-        <meta name="twitter:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
-
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
       </Helmet>
 
       <Navbar />
 
+      {/* Hero Image */}
       <section className="pt-24">
         <div className="relative h-[50vh] min-h-[400px]">
           <img
@@ -189,16 +297,93 @@ const BlogPost = () => {
             alt={post.imageAlt}
             width={1200}
             height={600}
-            /* RESOLVE: CLS (Cumulative Layout Shift) */
-            className={`w-full h-full object-cover aspect-video ${post.imagePosition || "object-center"}`}
+            className={`w-full h-full object-cover ${post.imagePosition || "object-center"}`}
             fetchPriority="high"
-            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
       </section>
 
-      {/* Conteúdo mantido conforme original... */}
+      {/* Content */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            {/* Back Link */}
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-neon-pink transition-colors mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Voltar para o Blog
+            </Link>
+
+            {/* Meta */}
+            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+              <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
+              <span>•</span>
+              <span>{post.readTime} de leitura</span>
+            </div>
+
+            {/* Title (Com Fallback para H1 curto) */}
+            <h1 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 leading-tight">
+              {post.h1 || post.title}
+            </h1>
+
+            {/* Content */}
+            <article className="prose prose-invert prose-lg max-w-none">{renderContent(post.content)}</article>
+
+            {/* CTA */}
+            <div className="mt-12 p-8 bg-gradient-to-r from-neon-pink/10 to-purple-900/10 border border-neon-pink/20 rounded-lg text-center">
+              <h3 className="heading-display text-2xl text-foreground mb-4">Pronto para transformar seu evento?</h3>
+              <p className="text-muted-foreground mb-6">Fale com a Barbie Kills e garanta sua data.</p>
+              <Button
+                variant="neonPink"
+                size="lg"
+                asChild
+                className="whitespace-normal h-auto py-4 text-center leading-snug"
+              >
+                <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+                  {post.ctaText || "SOLICITAR ORÇAMENTO"}
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="py-16 bg-[#050505]">
+          <div className="container mx-auto px-6">
+            <h2 className="heading-display text-3xl text-foreground mb-8 text-center">Leia também</h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {relatedPosts.map((relatedPost) => (
+                <Link key={relatedPost.slug} to={`/blog/${relatedPost.slug}`} className="group">
+                  <article className="bg-background/30 border border-white/10 rounded-lg overflow-hidden transition-all duration-500 hover:border-neon-pink/40">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={relatedPost.image}
+                        alt={relatedPost.imageAlt}
+                        width={400}
+                        height={192}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-oswald text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-neon-pink transition-colors">
+                        {relatedPost.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">{relatedPost.excerpt}</p>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <Footer />
       <WhatsAppButton />
     </main>
