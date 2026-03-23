@@ -31,8 +31,8 @@ const Footer = () => {
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
               alt="Banda Barbie Kills em show para casamentos e eventos"
-              width={200}
-              height={80}
+              width={640}
+              height={228}
               className="w-48 md:w-56 lg:w-64 object-contain"
               loading="lazy"
             />
