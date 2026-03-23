@@ -89,13 +89,13 @@ const Corporativo = () => {
           {/* Logótipo Otimizado: Trocado para o arquivo de 640px para garantir nitidez */}
           <img
             src="/barbie-kills-banda-eventos-casamentos.webp"
-            alt="Logo Barbie Kills - Banda para Eventos Premium"
+            alt="Banda Barbie Kills"
             width={280}
             height={100}
-            className="w-48 md:w-64 mx-auto mb-8 animate-fade-in h-auto object-contain"
+            className="w-48 md:w-64 mx-auto mb-8 animate-fade-in h-auto aspect-[28/10] object-contain"
             fetchPriority="high"
-            loading="eager"
           />
+
           <h1 className="heading-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 animate-fade-in animation-delay-200 max-w-3xl mx-auto">
             Contratar Banda para Evento Corporativo: <span className="neon-pink-text">Show Premium</span> e
             Infraestrutura
@@ -132,13 +132,12 @@ const Corporativo = () => {
                 {/* Imagem principal com prioridade de carregamento (LCP) */}
                 <img
                   src="/corporativo/banda-evento-sp.webp"
-                  alt="Banda Barbie Kills em show para evento corporativo premium em Campinas SP"
+                  alt="..."
                   width={800}
                   height={600}
                   className="w-full h-full object-cover"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
+                  fetchPriority="high" /* Adicione esta linha */
+                  loading="eager" /* Adicione esta linha */
                 />
               </div>
             </div>
