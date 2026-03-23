@@ -12,7 +12,7 @@ const HeroSection = () => {
             alt="Banda Barbie Kills em show para casamentos e eventos"
             width={320}
             height={120}
-            className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
+            className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in aspect-[320/120]"
             fetchPriority="high"
             loading="eager"
             decoding="async"
