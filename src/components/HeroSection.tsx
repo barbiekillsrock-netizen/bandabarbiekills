@@ -32,7 +32,7 @@ const HeroSection = () => {
             Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
           </h1>
           <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
-            Um show de alta energia com o melhor do Pop, Rock, Música Brasileira, MPB, Samba Rock
+            Um show de alta energia com o melhor do Pop, Rock, MPB e Samba Rock
           </h2>
 
           {/* CTA Button */}
