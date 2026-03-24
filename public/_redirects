@@ -1,3 +1,10 @@
-http://bandabarbiekills.com.br/* https://www.bandabarbiekills.com.br/:splat 301!
-https://bandabarbiekills.com.br/* https://www.bandabarbiekills.com.br/:splat 301!
-http://www.bandabarbiekills.com.br/* https://www.bandabarbiekills.com.br/:splat 301!
+# 1. Redirecionamento específico do post (Resolve o erro do Google Search Console)
+/blog/musicas-mais-pedidas-casamento-2025  /blog/musicas-mais-pedidas-casamento-2026  301
+
+# 2. Regras de Domínio e HTTPS (Removido o '!' para parar o loop infinito)
+http://bandabarbiekills.com.br/* https://www.bandabarbiekills.com.br/:splat 301
+https://bandabarbiekills.com.br/* https://www.bandabarbiekills.com.br/:splat 301
+http://www.bandabarbiekills.com.br/* https://www.bandabarbiekills.com.br/:splat 301
+
+# 3. Regra de Ouro para SPAs (O que fará o post de 2026 abrir finalmente)
+/* /index.html  200
