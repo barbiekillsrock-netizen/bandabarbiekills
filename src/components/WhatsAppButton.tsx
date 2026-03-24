@@ -1,17 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { MessageCircle, FileText } from "lucide-react";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { Calendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+
+const WHATSAPP_NUMBER = "5519981736659";
 
 const WhatsAppButton = () => {
   const [visible, setVisible] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  // Form state
+  const [nome, setNome] = useState("");
+  const [tipoEvento, setTipoEvento] = useState("");
+  const [outroEvento, setOutroEvento] = useState("");
+  const [data, setData] = useState<Date | undefined>();
+  const [local, setLocal] = useState("");
+  const [publico, setPublico] = useState("");
+  const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
     let mounted = true;
     const show = () => { if (mounted) setVisible(true); };
-
     const timer = setTimeout(show, 4000);
     const events = ["scroll", "click", "touchstart"] as const;
     const handler = () => { show(); events.forEach(e => document.removeEventListener(e, handler)); };
     events.forEach(e => document.addEventListener(e, handler, { once: true, passive: true }));
-
     return () => {
       mounted = false;
       clearTimeout(timer);
@@ -19,18 +40,168 @@ const WhatsAppButton = () => {
     };
   }, []);
 
+  const resetForm = useCallback(() => {
+    setNome("");
+    setTipoEvento("");
+    setOutroEvento("");
+    setData(undefined);
+    setLocal("");
+    setPublico("");
+    setShowCalendar(false);
+  }, []);
+
+  const handleFalarAgora = () => {
+    setPopoverOpen(false);
+    const msg = encodeURIComponent("Olá, Banda Barbie Kills! Entrei em contato pelo site.");
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank", "noopener,noreferrer");
+  };
+
+  const handleOpenForm = () => {
+    setPopoverOpen(false);
+    setDialogOpen(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nome.trim() || !tipoEvento || !data || !local.trim()) return;
+
+    const evento = tipoEvento === "Outros" ? `Outros - ${outroEvento}` : tipoEvento;
+    const dataFormatada = format(data, "dd/MM/yyyy", { locale: ptBR });
+
+    const msg = `🎸 *NOVO ORÇAMENTO - BARBIE KILLS*
+
+👤 *Cliente:* ${nome.trim()}
+🎭 *Evento:* ${evento}
+📅 *Data:* ${dataFormatada}
+📍 *Local:* ${local.trim()}
+👥 *Público:* ${publico.trim() || "Não informado"}
+
+_Enviado via barbiekills.com.br_`;
+
+    setDialogOpen(false);
+    resetForm();
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+  };
+
   if (!visible) return null;
 
   return (
-    <a
-      href="https://wa.me/5519981736659"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
-      aria-label="Entre em contato pelo WhatsApp"
-    >
-      <img src="/icons/whatsapp-white.svg" alt="" width={28} height={28} className="w-7 h-7" />
-    </a>
+    <>
+      <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+        <PopoverTrigger asChild>
+          <button
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
+            aria-label="Entre em contato pelo WhatsApp"
+          >
+            <img src="/icons/whatsapp-white.svg" alt="" width={28} height={28} className="w-7 h-7" />
+          </button>
+        </PopoverTrigger>
+        <PopoverContent side="top" align="end" sideOffset={12} className="w-64 p-3 border-border bg-card">
+          <div className="flex flex-col gap-2">
+            <button
+              onClick={handleFalarAgora}
+              className="flex items-center gap-3 w-full rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+            >
+              <MessageCircle size={18} className="text-[#25D366] shrink-0" />
+              Falar Agora
+            </button>
+            <button
+              onClick={handleOpenForm}
+              className="flex items-center gap-3 w-full rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+            >
+              <FileText size={18} className="text-neon-pink shrink-0" />
+              Pedir Orçamento
+            </button>
+          </div>
+        </PopoverContent>
+      </Popover>
+
+      <Dialog open={dialogOpen} onOpenChange={(open) => { setDialogOpen(open); if (!open) resetForm(); }}>
+        <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto border-border bg-background">
+          <DialogHeader>
+            <DialogTitle className="font-oswald text-xl uppercase tracking-wider text-foreground">
+              Pedir Orçamento
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground text-sm">
+              Preencha os dados e enviaremos pelo WhatsApp.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2">
+            {/* Nome */}
+            <div className="space-y-1.5">
+              <Label htmlFor="nome">Nome</Label>
+              <Input id="nome" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Seu nome completo" required maxLength={100} />
+            </div>
+
+            {/* Tipo de Evento */}
+            <div className="space-y-1.5">
+              <Label>Tipo de Evento</Label>
+              <Select value={tipoEvento} onValueChange={(v) => { setTipoEvento(v); if (v !== "Outros") setOutroEvento(""); }}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione o tipo" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Casamento">Casamento</SelectItem>
+                  <SelectItem value="Corporativo">Corporativo</SelectItem>
+                  <SelectItem value="Aniversário">Aniversário</SelectItem>
+                  <SelectItem value="Outros">Outros</SelectItem>
+                </SelectContent>
+              </Select>
+              {tipoEvento === "Outros" && (
+                <Input
+                  value={outroEvento}
+                  onChange={(e) => setOutroEvento(e.target.value)}
+                  placeholder="Especifique o tipo de evento"
+                  className="mt-2"
+                  maxLength={100}
+                />
+              )}
+            </div>
+
+            {/* Data */}
+            <div className="space-y-1.5">
+              <Label>Data do Evento</Label>
+              <button
+                type="button"
+                onClick={() => setShowCalendar(!showCalendar)}
+                className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {data ? format(data, "dd/MM/yyyy", { locale: ptBR }) : <span className="text-muted-foreground">Selecione a data</span>}
+              </button>
+              {showCalendar && (
+                <div className="rounded-md border border-border bg-card p-1">
+                  <Calendar
+                    mode="single"
+                    selected={data}
+                    onSelect={(d) => { setData(d); setShowCalendar(false); }}
+                    disabled={(date) => date < new Date()}
+                    locale={ptBR}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Local e Cidade */}
+            <div className="space-y-1.5">
+              <Label htmlFor="local">Local e Cidade</Label>
+              <Input id="local" value={local} onChange={(e) => setLocal(e.target.value)} placeholder="Ex: Fazenda Vila Rica, Campinas" required maxLength={200} />
+            </div>
+
+            {/* Público Estimado */}
+            <div className="space-y-1.5">
+              <Label htmlFor="publico">Público Estimado</Label>
+              <Input id="publico" value={publico} onChange={(e) => setPublico(e.target.value)} placeholder="Ex: 200 pessoas" maxLength={50} />
+            </div>
+
+            {/* Submit */}
+            <Button type="submit" variant="neonPink" size="lg" className="w-full mt-2">
+              Enviar pelo WhatsApp
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
