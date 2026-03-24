@@ -44,7 +44,7 @@ const HeroSection = () => {
             width={320}
             height={120}
             className="w-48 md:w-64 lg:w-72 xl:w-80 h-auto object-contain animate-fade-in animation-delay-400"
-            style={{ filter: "drop-shadow(0px 0px 20px rgba(255, 0, 255, 0.4))" }}
+            // Removido o style com filter aqui
             fetchPriority="high"
             loading="eager"
             decoding="async"
