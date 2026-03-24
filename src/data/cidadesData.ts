@@ -54,7 +54,7 @@ export const cidadesData: CidadeData[] = [
     cidade: "Jundiaí",
     slug: "banda-casamento-jundiai",
     foco: "Híbrido",
-    hook: "Referência em infraestrutura técnica para eventos entre São Paulo e Campinas, atendendo as principais fazendas e espaços da Serra do Japi.",
+    hook: "Referência em infraestrutura técnica e shows de alta energia na Serra do Japi. Atendemos com logística ágil os principais condomínios e fazendas da região de Jundiaí e Itatiba.",
     venues: "Espaço G9, Solar da Marquesa, Multiplan, Fazenda Montanhas.",
     h1Custom: "Banda para Casamentos e Eventos em Jundiaí",
   },
@@ -149,7 +149,7 @@ export const cidadesData: CidadeData[] = [
     foco: "Híbrido",
     hook: "Potência do agronegócio e joias no interior paulista, ideal para festas grandiosas e casamentos luxuosos.",
     venues: "Zarzuela Eventos, Maison de Luxe.",
-    h1Custom: "Banda para Eventos em Limeira",
+    h1Custom: "Banda para Casamento e Eventos em Limeira",
   },
   {
     cidade: "Santana de Parnaíba",
