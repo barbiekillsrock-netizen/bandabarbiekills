@@ -16,7 +16,7 @@ const BlogPost = () => {
   }, [slug]);
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <div className="text-white pt-32 text-center">Post não encontrado. Slug atual: {slug}</div>;
   }
 
   // Get related posts (exclude current)
