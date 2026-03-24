@@ -43,8 +43,10 @@ const HeroSection = () => {
             alt="Logo Barbie Kills - Banda para Eventos Premium"
             width={320}
             height={120}
-            className="w-48 md:w-64 lg:w-72 xl:w-80 h-auto object-contain animate-fade-in animation-delay-400"
-            // Removido o style com filter aqui
+            // 1. Mantemos as larguras responsivas
+            // 2. Removemos animações complexas se o site estiver travando (opcional)
+            // 3. Garantimos que ele não tenha filtros inline
+            className="w-48 md:w-64 lg:w-72 xl:w-80 h-auto object-contain animate-fade-in relative z-10"
             fetchPriority="high"
             loading="eager"
             decoding="async"
