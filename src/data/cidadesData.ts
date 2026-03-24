@@ -54,8 +54,9 @@ export const cidadesData: CidadeData[] = [
     cidade: "Jundiaí",
     slug: "banda-casamento-jundiai",
     foco: "Híbrido",
-    hook: "Tradição e infraestrutura completa entre a capital e o interior.",
-    venues: "Espaço G9, Solar da Marquesa, Multiplan.",
+    hook: "Referência em infraestrutura técnica para eventos entre São Paulo e Campinas, atendendo as principais fazendas e espaços da Serra do Japi.",
+    venues: "Espaço G9, Solar da Marquesa, Multiplan, Fazenda Montanhas.",
+    h1Custom: "Banda para Casamentos e Eventos em Jundiaí",
   },
   {
     cidade: "Indaiatuba",
@@ -146,15 +147,15 @@ export const cidadesData: CidadeData[] = [
     cidade: "Limeira",
     slug: "banda-casamento-limeira",
     foco: "Híbrido",
-    hook: "Potência do agronegócio e joias, ideal para festas grandiosas.",
+    hook: "Potência do agronegócio e joias no interior paulista, ideal para festas grandiosas e casamentos luxuosos.",
     venues: "Zarzuela Eventos, Maison de Luxe.",
-    h1Custom: "Banda para Eventos em Santana de Parnaíba", // Copie esta linha
+    h1Custom: "Banda para Eventos em Limeira",
   },
   {
     cidade: "Santana de Parnaíba",
     slug: "evento-corporativo-santana-parnaiba",
     foco: "Corporativo",
-    hook: "Cenário histórico preservado vizinho a grandes centros empresariais.",
+    hook: "Cenário histórico preservado e logística privilegiada para convenções empresariais e eventos de alto padrão em Alphaville.",
     venues: "Ville Sport Show, Espaços em Alphaville.",
   },
 ];
