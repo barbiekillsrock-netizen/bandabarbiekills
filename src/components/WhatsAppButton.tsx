@@ -9,16 +9,27 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "5519981736659";
+
+const formatPhone = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length <= 2) return `(${digits}`;
+  if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+};
 
 const WhatsAppButton = () => {
   const [visible, setVisible] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   // Form state
   const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
   const [tipoEvento, setTipoEvento] = useState("");
   const [outroEvento, setOutroEvento] = useState("");
   const [data, setData] = useState<Date | undefined>();
@@ -42,6 +53,7 @@ const WhatsAppButton = () => {
 
   const resetForm = useCallback(() => {
     setNome("");
+    setTelefone("");
     setTipoEvento("");
     setOutroEvento("");
     setData(undefined);
@@ -61,16 +73,42 @@ const WhatsAppButton = () => {
     setDialogOpen(true);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nome.trim() || !tipoEvento || !data || !local.trim()) return;
+    if (!nome.trim() || !tipoEvento || !data || !local.trim() || submitting) return;
 
-    const evento = tipoEvento === "Outros" ? `Outros - ${outroEvento}` : tipoEvento;
+    setSubmitting(true);
+
+    const evento = tipoEvento === "Outros" ? (outroEvento.trim() || "Outros") : tipoEvento;
     const dataFormatada = format(data, "dd/MM/yyyy", { locale: ptBR });
+    const dataISO = format(data, "yyyy-MM-dd");
+    const phoneDigits = telefone.replace(/\D/g, "");
+    const guestsNum = parseInt((publico.match(/\d+/) || ["0"])[0], 10) || null;
+
+    // Persist to Supabase
+    const { error } = await supabase.from("opportunities").insert([
+      {
+        client_name: nome.trim(),
+        phone: phoneDigits || null,
+        event_type: evento,
+        event_date: dataISO,
+        location: local.trim(),
+        guests: guestsNum,
+      },
+    ]);
+
+    if (error) {
+      toast.error("Erro ao salvar. Tente novamente.");
+      setSubmitting(false);
+      return;
+    }
+
+    toast.success("Orçamento enviado com sucesso!");
 
     const msg = `🎸 *NOVO ORÇAMENTO - BARBIE KILLS*
 
 👤 *Cliente:* ${nome.trim()}
+📱 *Telefone:* ${telefone || "Não informado"}
 🎭 *Evento:* ${evento}
 📅 *Data:* ${dataFormatada}
 📍 *Local:* ${local.trim()}
@@ -80,6 +118,7 @@ _Enviado via barbiekills.com.br_`;
 
     setDialogOpen(false);
     resetForm();
+    setSubmitting(false);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
   };
 
@@ -134,6 +173,19 @@ _Enviado via barbiekills.com.br_`;
               <Input id="nome" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Seu nome completo" required maxLength={100} />
             </div>
 
+            {/* Telefone */}
+            <div className="space-y-1.5">
+              <Label htmlFor="telefone">Seu WhatsApp / Telefone</Label>
+              <Input
+                id="telefone"
+                value={telefone}
+                onChange={(e) => setTelefone(formatPhone(e.target.value))}
+                placeholder="(00) 00000-0000"
+                maxLength={15}
+                type="tel"
+              />
+            </div>
+
             {/* Tipo de Evento */}
             <div className="space-y-1.5">
               <Label>Tipo de Evento</Label>
@@ -177,6 +229,7 @@ _Enviado via barbiekills.com.br_`;
                     onSelect={(d) => { setData(d); setShowCalendar(false); }}
                     disabled={(date) => date < new Date()}
                     locale={ptBR}
+                    className="pointer-events-auto"
                   />
                 </div>
               )}
@@ -195,8 +248,8 @@ _Enviado via barbiekills.com.br_`;
             </div>
 
             {/* Submit */}
-            <Button type="submit" variant="neonPink" size="lg" className="w-full mt-2">
-              Enviar pelo WhatsApp
+            <Button type="submit" variant="neonPink" size="lg" className="w-full mt-2" disabled={submitting}>
+              {submitting ? "Enviando..." : "Enviar pelo WhatsApp"}
             </Button>
           </form>
         </DialogContent>
