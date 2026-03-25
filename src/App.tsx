@@ -1,8 +1,10 @@
 import { lazy, Suspense } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router";
+import { Toaster } from "sonner";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
+import AdminRoute from "./components/AdminRoute";
 
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -12,10 +14,14 @@ const PressKit = lazy(() => import("./pages/PressKit"));
 const Rider = lazy(() => import("./pages/Rider"));
 const Corporativo = lazy(() => import("./pages/Corporativo"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const AdminOpportunityDetail = lazy(() => import("./pages/AdminOpportunityDetail"));
 
 const App = () => (
   <TooltipProvider>
     <BrowserRouter>
+      <Toaster position="top-right" richColors theme="dark" />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <ScrollToTop />
         <Routes>
@@ -27,6 +33,9 @@ const App = () => (
           <Route path="/rider" element={<Rider />} />
           <Route path="/corporativo" element={<Corporativo />} />
           <Route path="/cidade/:slug" element={<CidadeLanding />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+          <Route path="/admin/opportunity/:id" element={<AdminRoute><AdminOpportunityDetail /></AdminRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
