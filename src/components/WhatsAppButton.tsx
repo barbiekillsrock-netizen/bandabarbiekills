@@ -43,15 +43,20 @@ const WhatsAppButton = () => {
 
   useEffect(() => {
     let mounted = true;
-    const show = () => { if (mounted) setVisible(true); };
+    const show = () => {
+      if (mounted) setVisible(true);
+    };
     const timer = setTimeout(show, 4000);
     const events = ["scroll", "click", "touchstart"] as const;
-    const handler = () => { show(); events.forEach(e => document.removeEventListener(e, handler)); };
-    events.forEach(e => document.addEventListener(e, handler, { once: true, passive: true }));
+    const handler = () => {
+      show();
+      events.forEach((e) => document.removeEventListener(e, handler));
+    };
+    events.forEach((e) => document.addEventListener(e, handler, { once: true, passive: true }));
     return () => {
       mounted = false;
       clearTimeout(timer);
-      events.forEach(e => document.removeEventListener(e, handler));
+      events.forEach((e) => document.removeEventListener(e, handler));
     };
   }, []);
 
@@ -79,59 +84,68 @@ const WhatsAppButton = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nome.trim() || !tipoEvento || !data || !local.trim() || submitting) return;
+
+    // Validação básica de PM: se não tem o essencial, nem tenta.
+    if (!nome.trim() || !tipoEvento || !data || !local.trim() || submitting) {
+      toast.error("Por favor, preencha todos os campos obrigatórios.");
+      return;
+    }
 
     setSubmitting(true);
 
-    const evento = tipoEvento === "Outros" ? (outroEvento.trim() || "Outros") : tipoEvento;
+    // 1. Tratamento de Dados (Sanitização)
+    const eventoFinal = tipoEvento === "Outros" ? outroEvento.trim() || "Outros" : tipoEvento;
     const dataFormatada = format(data, "dd/MM/yyyy", { locale: ptBR });
-    const dataISO = format(data, "yyyy-MM-dd");
+    const dataISO = format(data, "yyyy-MM-dd"); // Formato que o Postgres AMA
+
     const phoneDigits = telefone.replace(/\D/g, "");
+
+    // Limpeza do Público: Garante que "200 p" vire 200 (Integer)
     const guestsMatch = publico.replace(/\D/g, "");
     const guestsNum = guestsMatch ? parseInt(guestsMatch, 10) : null;
+
     const opportunityPayload = {
       client_name: nome.trim(),
       phone: phoneDigits || null,
-      event_type: evento,
+      event_type: eventoFinal,
       event_date: dataISO,
       location: local.trim(),
       guests: guestsNum,
+      status: "new", // Garante o status inicial
     };
 
     const whatsappMessage = `🎸 *NOVO ORÇAMENTO - BARBIE KILLS*
 
 👤 *Cliente:* ${nome.trim()}
 📱 *Telefone:* ${telefone || "Não informado"}
-🎭 *Evento:* ${evento}
+🎭 *Evento:* ${eventoFinal}
 📅 *Data:* ${dataFormatada}
 📍 *Local:* ${local.trim()}
 👥 *Público:* ${publico.trim() || "Não informado"}
 
 _Enviado via barbiekills.com.br_`;
 
-    // Always send WhatsApp message regardless of DB result
-    let dbSaved = false;
     try {
+      // Tenta salvar no banco
       const { error } = await publicSupabase.from("opportunities").insert([opportunityPayload]);
+
       if (error) {
-        console.error("Supabase insert error:", JSON.stringify(error), JSON.stringify(opportunityPayload));
+        // Se der erro no banco, logamos mas NÃO travamos o usuário
+        console.error("Erro no Supabase:", error.message);
+        toast.warning("Nota: Lead salvo apenas no WhatsApp (Erro de sincronização).");
       } else {
-        dbSaved = true;
+        toast.success("🤘 Orçamento registrado com sucesso!");
       }
     } catch (err) {
-      console.error("Supabase network error:", err);
+      console.error("Erro crítico de rede:", err);
+    } finally {
+      // INDEPENDENTE de erro no banco, abrimos o WhatsApp.
+      // O lead é mais importante que o log!
+      setDialogOpen(false);
+      resetForm();
+      setSubmitting(false);
+      openWhatsAppQuote(whatsappMessage);
     }
-
-    if (dbSaved) {
-      toast.success("Orçamento enviado com sucesso!");
-    } else {
-      toast("Orçamento enviado pelo WhatsApp. Salvamento no sistema será tentado novamente.");
-    }
-
-    setDialogOpen(false);
-    resetForm();
-    setSubmitting(false);
-    openWhatsAppQuote(whatsappMessage);
   };
 
   if (!visible) return null;
@@ -167,7 +181,13 @@ _Enviado via barbiekills.com.br_`;
         </PopoverContent>
       </Popover>
 
-      <Dialog open={dialogOpen} onOpenChange={(open) => { setDialogOpen(open); if (!open) resetForm(); }}>
+      <Dialog
+        open={dialogOpen}
+        onOpenChange={(open) => {
+          setDialogOpen(open);
+          if (!open) resetForm();
+        }}
+      >
         <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto border-border bg-background">
           <DialogHeader>
             <DialogTitle className="font-oswald text-xl uppercase tracking-wider text-foreground">
@@ -182,7 +202,14 @@ _Enviado via barbiekills.com.br_`;
             {/* Nome */}
             <div className="space-y-1.5">
               <Label htmlFor="nome">Nome</Label>
-              <Input id="nome" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Seu nome completo" required maxLength={100} />
+              <Input
+                id="nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                placeholder="Seu nome completo"
+                required
+                maxLength={100}
+              />
             </div>
 
             {/* Telefone */}
@@ -201,7 +228,13 @@ _Enviado via barbiekills.com.br_`;
             {/* Tipo de Evento */}
             <div className="space-y-1.5">
               <Label>Tipo de Evento</Label>
-              <Select value={tipoEvento} onValueChange={(v) => { setTipoEvento(v); if (v !== "Outros") setOutroEvento(""); }}>
+              <Select
+                value={tipoEvento}
+                onValueChange={(v) => {
+                  setTipoEvento(v);
+                  if (v !== "Outros") setOutroEvento("");
+                }}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione o tipo" />
                 </SelectTrigger>
@@ -231,14 +264,21 @@ _Enviado via barbiekills.com.br_`;
                 onClick={() => setShowCalendar(!showCalendar)}
                 className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                {data ? format(data, "dd/MM/yyyy", { locale: ptBR }) : <span className="text-muted-foreground">Selecione a data</span>}
+                {data ? (
+                  format(data, "dd/MM/yyyy", { locale: ptBR })
+                ) : (
+                  <span className="text-muted-foreground">Selecione a data</span>
+                )}
               </button>
               {showCalendar && (
                 <div className="rounded-md border border-border bg-card p-1">
                   <Calendar
                     mode="single"
                     selected={data}
-                    onSelect={(d) => { setData(d); setShowCalendar(false); }}
+                    onSelect={(d) => {
+                      setData(d);
+                      setShowCalendar(false);
+                    }}
                     disabled={(date) => date < new Date()}
                     locale={ptBR}
                     className="pointer-events-auto"
@@ -250,13 +290,26 @@ _Enviado via barbiekills.com.br_`;
             {/* Local e Cidade */}
             <div className="space-y-1.5">
               <Label htmlFor="local">Local e Cidade</Label>
-              <Input id="local" value={local} onChange={(e) => setLocal(e.target.value)} placeholder="Ex: Fazenda Vila Rica, Campinas" required maxLength={200} />
+              <Input
+                id="local"
+                value={local}
+                onChange={(e) => setLocal(e.target.value)}
+                placeholder="Ex: Fazenda Vila Rica, Campinas"
+                required
+                maxLength={200}
+              />
             </div>
 
             {/* Público Estimado */}
             <div className="space-y-1.5">
               <Label htmlFor="publico">Público Estimado</Label>
-              <Input id="publico" value={publico} onChange={(e) => setPublico(e.target.value)} placeholder="Ex: 200 pessoas" maxLength={50} />
+              <Input
+                id="publico"
+                value={publico}
+                onChange={(e) => setPublico(e.target.value)}
+                placeholder="Ex: 200 pessoas"
+                maxLength={50}
+              />
             </div>
 
             {/* Submit */}
