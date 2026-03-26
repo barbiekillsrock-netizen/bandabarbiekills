@@ -9,7 +9,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { supabase } from "@/integrations/supabase/client";
+import { publicSupabase } from "@/integrations/supabase/publicClient";
 import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "5519981736659";
@@ -19,6 +19,10 @@ const formatPhone = (value: string) => {
   if (digits.length <= 2) return `(${digits}`;
   if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+};
+
+const openWhatsAppQuote = (message: string) => {
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
 };
 
 const WhatsAppButton = () => {
@@ -83,29 +87,18 @@ const WhatsAppButton = () => {
     const dataFormatada = format(data, "dd/MM/yyyy", { locale: ptBR });
     const dataISO = format(data, "yyyy-MM-dd");
     const phoneDigits = telefone.replace(/\D/g, "");
-    const guestsNum = parseInt((publico.match(/\d+/) || ["0"])[0], 10) || null;
+    const guestsMatch = publico.replace(/\D/g, "");
+    const guestsNum = guestsMatch ? parseInt(guestsMatch, 10) : null;
+    const opportunityPayload = {
+      client_name: nome.trim(),
+      phone: phoneDigits || null,
+      event_type: evento,
+      event_date: dataISO,
+      location: local.trim(),
+      guests: guestsNum,
+    };
 
-    // Persist to Supabase
-    const { error } = await supabase.from("opportunities").insert([
-      {
-        client_name: nome.trim(),
-        phone: phoneDigits || null,
-        event_type: evento,
-        event_date: dataISO,
-        location: local.trim(),
-        guests: guestsNum,
-      },
-    ]);
-
-    if (error) {
-      toast.error("Erro ao salvar. Tente novamente.");
-      setSubmitting(false);
-      return;
-    }
-
-    toast.success("Orçamento enviado com sucesso!");
-
-    const msg = `🎸 *NOVO ORÇAMENTO - BARBIE KILLS*
+    const whatsappMessage = `🎸 *NOVO ORÇAMENTO - BARBIE KILLS*
 
 👤 *Cliente:* ${nome.trim()}
 📱 *Telefone:* ${telefone || "Não informado"}
@@ -116,10 +109,20 @@ const WhatsAppButton = () => {
 
 _Enviado via barbiekills.com.br_`;
 
+    const { error } = await publicSupabase.from("opportunities").insert([opportunityPayload]);
+
+    if (error) {
+      console.error("Erro ao salvar orçamento no Supabase", error, opportunityPayload);
+      toast.error("Erro ao salvar. Tente novamente.");
+      setSubmitting(false);
+      return;
+    }
+
+    toast.success("Orçamento enviado com sucesso!");
     setDialogOpen(false);
     resetForm();
     setSubmitting(false);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    openWhatsAppQuote(whatsappMessage);
   };
 
   if (!visible) return null;
