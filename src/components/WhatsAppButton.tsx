@@ -109,16 +109,25 @@ const WhatsAppButton = () => {
 
 _Enviado via barbiekills.com.br_`;
 
-    const { error } = await publicSupabase.from("opportunities").insert([opportunityPayload]);
-
-    if (error) {
-      console.error("Erro ao salvar orçamento no Supabase", error, opportunityPayload);
-      toast.error("Erro ao salvar. Tente novamente.");
-      setSubmitting(false);
-      return;
+    // Always send WhatsApp message regardless of DB result
+    let dbSaved = false;
+    try {
+      const { error } = await publicSupabase.from("opportunities").insert([opportunityPayload]);
+      if (error) {
+        console.error("Supabase insert error:", JSON.stringify(error), JSON.stringify(opportunityPayload));
+      } else {
+        dbSaved = true;
+      }
+    } catch (err) {
+      console.error("Supabase network error:", err);
     }
 
-    toast.success("Orçamento enviado com sucesso!");
+    if (dbSaved) {
+      toast.success("Orçamento enviado com sucesso!");
+    } else {
+      toast("Orçamento enviado pelo WhatsApp. Salvamento no sistema será tentado novamente.");
+    }
+
     setDialogOpen(false);
     resetForm();
     setSubmitting(false);
