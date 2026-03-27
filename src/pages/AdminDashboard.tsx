@@ -75,11 +75,23 @@ const AdminDashboard = () => {
           <h1 className="font-bebas text-3xl md:text-4xl tracking-wider text-foreground">
             CRM BARBIE KILLS
           </h1>
-          <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground">
-            <LogOut size={18} />
-            <span className="hidden md:inline ml-2">Sair</span>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="neonPinkOutline" size="sm" onClick={() => setNewDialogOpen(true)}>
+              <Plus size={16} />
+              <span className="hidden md:inline">Nova Oportunidade</span>
+            </Button>
+            <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground">
+              <LogOut size={18} />
+              <span className="hidden md:inline ml-2">Sair</span>
+            </Button>
+          </div>
         </div>
+
+        <AdminNewOpportunityDialog
+          open={newDialogOpen}
+          onOpenChange={setNewDialogOpen}
+          onCreated={fetchData}
+        />
 
         {/* Search */}
         <div className="relative max-w-md mb-6">
