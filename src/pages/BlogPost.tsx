@@ -343,7 +343,7 @@ const BlogPost = () => {
                 asChild
                 className="whitespace-normal h-auto py-4 text-center leading-snug"
               >
-                <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
                   {post.ctaText || "SOLICITAR ORÇAMENTO"}
                 </a>
               </Button>

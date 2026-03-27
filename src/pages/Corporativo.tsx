@@ -50,7 +50,7 @@ const structuredData = {
 };
 
 const whatsappLink =
-  "https://wa.me/5519981736659?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20evento%20corporativo.";
+  "https://wa.me/5519982846842?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20evento%20corporativo.";
 
 const Corporativo = () => {
   return (

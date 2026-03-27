@@ -131,7 +131,7 @@ const Navbar = () => {
             </div>
             <div className="w-px h-5 bg-white/20" />
             <a
-              href="https://wa.me/5519981736659"
+              href="https://wa.me/5519982846842"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
@@ -191,7 +191,7 @@ const Navbar = () => {
                 ))}
               </div>
               <a
-                href="https://wa.me/5519981736659"
+                href="https://wa.me/5519982846842"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-fit h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"

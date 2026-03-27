@@ -44,7 +44,7 @@ const structuredData = {
       url: SITE_URL,
       logo: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
       image: `${SITE_URL}/banda-casamentos-eventos-campinas-barbie-kills.webp`,
-      telephone: "+5519981736659",
+      telephone: "+5519982846842",
       priceRange: "$$$$",
       address: {
         "@type": "PostalAddress",

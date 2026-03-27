@@ -12,7 +12,7 @@ import { ptBR } from "date-fns/locale";
 import { publicSupabase } from "@/integrations/supabase/publicClient";
 import { toast } from "sonner";
 
-const WHATSAPP_NUMBER = "5519981736659";
+const WHATSAPP_NUMBER = "5519982846842";
 
 const formatPhone = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 11);

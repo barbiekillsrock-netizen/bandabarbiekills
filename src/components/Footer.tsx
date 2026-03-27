@@ -18,7 +18,7 @@ const Footer = () => {
             Entre em contato e faça seu orçamento agora mesmo
           </p>
           <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-            <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
               Contrate Já
             </a>
           </Button>
@@ -115,12 +115,12 @@ const Footer = () => {
             </a>
 
             <div className="flex items-center gap-3">
-              <a href="tel:+5519981736659" className="flex items-center gap-2 hover:text-neon-pink transition-colors">
+              <a href="tel:+5519982846842" className="flex items-center gap-2 hover:text-neon-pink transition-colors">
                 <Phone className="w-4 h-4" />
-                <span className="font-inter text-sm">(19) 98173-6659</span>
+                <span className="font-inter text-sm">(19) 98284-6842</span>
               </a>
               <a
-                href="https://wa.me/5519981736659"
+                href="https://wa.me/5519982846842"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center hover:scale-110 transition-transform ml-1"

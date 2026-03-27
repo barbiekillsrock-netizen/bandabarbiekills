@@ -165,7 +165,7 @@ const CidadeLanding = () => {
             </p>
             <div className="animate-fade-in animation-delay-600">
               <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-                <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
                   CONTRATE JÁ
                 </a>
               </Button>
@@ -310,7 +310,7 @@ const CidadeLanding = () => {
             Clique em "Contrate Já" para um orçamento personalizado
           </p>
           <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-            <a href="https://wa.me/5519981736659" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
               Contrate Já
             </a>
           </Button>
