@@ -5,9 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
-} from "@/components/ui/table";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { LogOut, Search, Eye, Plus } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 import AdminNewOpportunityDialog from "@/components/AdminNewOpportunityDialog";
@@ -40,22 +38,18 @@ const AdminDashboard = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("opportunities")
-      .select("*")
-      .order("created_at", { ascending: false });
+    const { data } = await supabase.from("opportunities").select("*").order("created_at", { ascending: false });
     if (data) setOpportunities(data);
     setLoading(false);
   };
 
-  useEffect(() => { fetchData(); }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const filtered = useMemo(
-    () =>
-      opportunities.filter((o) =>
-        o.client_name.toLowerCase().includes(search.toLowerCase())
-      ),
-    [opportunities, search]
+    () => opportunities.filter((o) => o.client_name.toLowerCase().includes(search.toLowerCase())),
+    [opportunities, search],
   );
 
   const handleLogout = async () => {
@@ -72,11 +66,14 @@ const AdminDashboard = () => {
       <div className="min-h-screen bg-background p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <h1 className="font-bebas text-3xl md:text-4xl tracking-wider text-foreground">
-            CRM BARBIE KILLS
-          </h1>
+          <h1 className="font-bebas text-3xl md:text-4xl tracking-wider text-foreground">CRM BARBIE KILLS</h1>
           <div className="flex items-center gap-2">
-            <Button variant="neonPinkOutline" size="sm" onClick={() => setNewDialogOpen(true)}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setNewDialogOpen(true)}
+              className="border-neon-pink text-neon-pink hover:bg-neon-pink/10"
+            >
               <Plus size={16} />
               <span className="hidden md:inline">Nova Oportunidade</span>
             </Button>
@@ -87,11 +84,7 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        <AdminNewOpportunityDialog
-          open={newDialogOpen}
-          onOpenChange={setNewDialogOpen}
-          onCreated={fetchData}
-        />
+        <AdminNewOpportunityDialog open={newDialogOpen} onOpenChange={setNewDialogOpen} onCreated={fetchData} />
 
         {/* Search */}
         <div className="relative max-w-md mb-6">
@@ -124,17 +117,21 @@ const AdminDashboard = () => {
               </TableHeader>
               <TableBody>
                 {filtered.map((opp) => (
-                  <TableRow key={opp.id} className="cursor-pointer hover:bg-muted/30" onClick={() => navigate(`/admin/opportunity/${opp.id}`)}>
+                  <TableRow
+                    key={opp.id}
+                    className="cursor-pointer hover:bg-muted/30"
+                    onClick={() => navigate(`/admin/opportunity/${opp.id}`)}
+                  >
                     <TableCell className="font-medium">{opp.client_name}</TableCell>
                     <TableCell className="hidden md:table-cell">{opp.event_type || "—"}</TableCell>
                     <TableCell className="hidden md:table-cell">
-                      {opp.event_date
-                        ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR")
-                        : "—"}
+                      {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
                     </TableCell>
                     <TableCell className="hidden md:table-cell">{opp.location || "—"}</TableCell>
                     <TableCell>
-                      <span className={`inline-block px-2 py-0.5 text-xs rounded-full border ${statusColors[opp.status || "new"] || statusColors.new}`}>
+                      <span
+                        className={`inline-block px-2 py-0.5 text-xs rounded-full border ${statusColors[opp.status || "new"] || statusColors.new}`}
+                      >
                         {statusLabel[opp.status || "new"] || opp.status}
                       </span>
                     </TableCell>
