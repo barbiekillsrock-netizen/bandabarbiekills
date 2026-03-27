@@ -8,8 +8,9 @@ import { Input } from "@/components/ui/input";
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
 } from "@/components/ui/table";
-import { LogOut, Search, Eye } from "lucide-react";
+import { LogOut, Search, Eye, Plus } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
+import AdminNewOpportunityDialog from "@/components/AdminNewOpportunityDialog";
 
 type Opportunity = Tables<"opportunities">;
 
@@ -33,20 +34,21 @@ const AdminDashboard = () => {
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+  const [newDialogOpen, setNewDialogOpen] = useState(false);
   const { logout } = useAdminAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await supabase
-        .from("opportunities")
-        .select("*")
-        .order("created_at", { ascending: false });
-      if (data) setOpportunities(data);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    setLoading(true);
+    const { data } = await supabase
+      .from("opportunities")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (data) setOpportunities(data);
+    setLoading(false);
+  };
+
+  useEffect(() => { fetchData(); }, []);
 
   const filtered = useMemo(
     () =>
@@ -73,11 +75,23 @@ const AdminDashboard = () => {
           <h1 className="font-bebas text-3xl md:text-4xl tracking-wider text-foreground">
             CRM BARBIE KILLS
           </h1>
-          <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground">
-            <LogOut size={18} />
-            <span className="hidden md:inline ml-2">Sair</span>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="neonPinkOutline" size="sm" onClick={() => setNewDialogOpen(true)}>
+              <Plus size={16} />
+              <span className="hidden md:inline">Nova Oportunidade</span>
+            </Button>
+            <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground">
+              <LogOut size={18} />
+              <span className="hidden md:inline ml-2">Sair</span>
+            </Button>
+          </div>
         </div>
+
+        <AdminNewOpportunityDialog
+          open={newDialogOpen}
+          onOpenChange={setNewDialogOpen}
+          onCreated={fetchData}
+        />
 
         {/* Search */}
         <div className="relative max-w-md mb-6">
