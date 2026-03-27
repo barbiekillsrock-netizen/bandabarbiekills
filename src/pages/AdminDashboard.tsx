@@ -56,9 +56,9 @@ const AdminDashboard = () => {
     [opportunities, search]
   );
 
-  const handleLogout = () => {
-    logout();
-    navigate("/admin/login", { replace: true });
+  const handleLogout = async () => {
+    await logout();
+    navigate("/", { replace: true });
   };
 
   return (
