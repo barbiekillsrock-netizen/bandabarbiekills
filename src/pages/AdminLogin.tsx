@@ -8,22 +8,30 @@ import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { toast } from "sonner";
 
 const AdminLogin = () => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, isAuthenticated } = useAdminAuth();
+  const [submitting, setSubmitting] = useState(false);
+  const { isAuthenticated, loading, login } = useAdminAuth();
   const navigate = useNavigate();
 
-  if (isAuthenticated()) {
+  if (!loading && isAuthenticated()) {
     navigate("/admin", { replace: true });
     return null;
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (login(password)) {
+    setSubmitting(true);
+    const result = await login(email, password);
+    setSubmitting(false);
+
+    if (result.success) {
       toast.success("Acesso autorizado!");
       navigate("/admin", { replace: true });
     } else {
-      toast.error("Senha incorreta.");
+      toast.error(result.error === "Invalid login credentials"
+        ? "Credenciais inválidas."
+        : result.error || "Erro de conexão. Tente novamente.");
       setPassword("");
     }
   };
@@ -44,8 +52,20 @@ const AdminLogin = () => {
               ÁREA RESTRITA
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              Insira a senha de administrador
+              Insira suas credenciais de administrador
             </p>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="admin-email">E-mail</Label>
+            <Input
+              id="admin-email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="admin@barbiekills.com.br"
+              required
+              autoFocus
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="admin-pw">Senha</Label>
@@ -56,11 +76,10 @@ const AdminLogin = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               required
-              autoFocus
             />
           </div>
-          <Button type="submit" variant="neonPink" className="w-full">
-            Entrar
+          <Button type="submit" variant="neonPink" className="w-full" disabled={submitting}>
+            {submitting ? "Entrando..." : "Entrar"}
           </Button>
         </form>
       </div>

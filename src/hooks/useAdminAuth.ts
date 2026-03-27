@@ -1,20 +1,38 @@
-const ADMIN_KEY = "bk_admin_session";
-const ADMIN_PASSWORD = "BK_ADMIN_2026";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import type { Session } from "@supabase/supabase-js";
 
 export const useAdminAuth = () => {
-  const isAuthenticated = () => localStorage.getItem(ADMIN_KEY) === "true";
+  const [session, setSession] = useState<Session | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const login = (password: string): boolean => {
-    if (password === ADMIN_PASSWORD) {
-      localStorage.setItem(ADMIN_KEY, "true");
-      return true;
-    }
-    return false;
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setSession(session);
+        setLoading(false);
+      }
+    );
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const isAuthenticated = () => !!session;
+
+  const login = async (email: string, password: string): Promise<{ success: boolean; error?: string }> => {
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) return { success: false, error: error.message };
+    return { success: true };
   };
 
-  const logout = () => {
-    localStorage.removeItem(ADMIN_KEY);
+  const logout = async () => {
+    await supabase.auth.signOut();
   };
 
-  return { isAuthenticated, login, logout };
+  return { session, loading, isAuthenticated, login, logout };
 };
