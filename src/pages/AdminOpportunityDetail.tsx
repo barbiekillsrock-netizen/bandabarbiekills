@@ -187,7 +187,18 @@ const AdminOpportunityDetail = () => {
                 • {opp.location || "Local não informado"}
               </p>
               {opp.phone && (
-                <p className="text-muted-foreground text-sm">📱 {opp.phone}</p>
+                <div className="flex items-center gap-2 mt-1">
+                  <p className="text-muted-foreground text-sm">📱 {opp.phone}</p>
+                  <a
+                    href={`https://wa.me/55${opp.phone}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors text-xs"
+                  >
+                    <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                </div>
               )}
             </div>
             <Select value={opp.status || "new"} onValueChange={handleStatusChange}>

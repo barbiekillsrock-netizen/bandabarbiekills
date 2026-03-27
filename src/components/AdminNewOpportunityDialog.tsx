@@ -56,6 +56,7 @@ const AdminNewOpportunityDialog = ({ open, onOpenChange, onCreated }: Props) => 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const isBar = tipoEvento === "Bar";
     if (!nome.trim() || !tipoEvento || submitting) {
       toast.error("Preencha ao menos o nome do cliente e o tipo de evento.");
       return;
