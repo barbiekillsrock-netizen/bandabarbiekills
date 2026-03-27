@@ -48,17 +48,7 @@ const AdminDashboard = () => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await supabase
-        .from("opportunities")
-        .select("*")
-        .order("created_at", { ascending: false });
-      if (data) setOpportunities(data);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  useEffect(() => { fetchData(); }, []);
 
   const filtered = useMemo(
     () =>
