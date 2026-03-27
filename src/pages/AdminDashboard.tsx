@@ -34,8 +34,19 @@ const AdminDashboard = () => {
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+  const [newDialogOpen, setNewDialogOpen] = useState(false);
   const { logout } = useAdminAuth();
   const navigate = useNavigate();
+
+  const fetchData = async () => {
+    setLoading(true);
+    const { data } = await supabase
+      .from("opportunities")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (data) setOpportunities(data);
+    setLoading(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
