@@ -10,8 +10,7 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    // Busca a sua chave do Google que você salvou no Supabase
-    // O código tenta os nomes mais prováveis que você cadastrou
+    // Busca a chave nos Secrets do Supabase
     const GOOGLE_API_KEY =
       Deno.env.get("AI_API_KEY") || Deno.env.get("VITE_AI_API_KEY") || Deno.env.get("GOOGLE_AI_API_KEY");
 
@@ -21,7 +20,7 @@ serve(async (req) => {
 
     const { leadData, masterPrompt } = await req.json();
 
-    // Monta a pergunta para o Gemini
+    // Monta o prompt combinando a estratégia de vendas e os dados do lead
     const userPrompt = `
       ${masterPrompt}
 
@@ -32,31 +31,31 @@ serve(async (req) => {
       - Histórico: ${leadData.negotiation_history || "Nenhum"}
     `.trim();
 
-    // Chamada DIRETA para o Google Gemini (Bypassing Lovable Gateway)
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GOOGLE_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [{ text: userPrompt }],
-            },
-          ],
-        }),
-      },
-    );
+    // MODELO ATUALIZADO: gemini-3-flash-preview
+    const model = "gemini-3-flash-preview";
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GOOGLE_API_KEY}`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: userPrompt }],
+          },
+        ],
+      }),
+    });
 
     if (!response.ok) {
       const errorData = await response.text();
       console.error("Erro na API do Google:", errorData);
-      throw new Error(`Erro do Google: ${response.status}`);
+      throw new Error(`Erro do Google: ${response.status} - ${errorData}`);
     }
 
     const data = await response.json();
 
-    // Extrai o texto da estrutura de resposta do Google
+    // Extrai o texto da estrutura de resposta do Gemini 3
     const message = data.candidates?.[0]?.content?.parts?.[0]?.text || "Não foi possível gerar a mensagem.";
 
     return new Response(JSON.stringify({ message }), {
