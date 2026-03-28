@@ -60,7 +60,7 @@ const AiMessageModal = ({ open, onOpenChange, message, opportunityId, phone }: A
           value={editedMessage}
           onChange={(e) => setEditedMessage(e.target.value)}
         />
-        <DialogFooter className="flex flex-col sm:flex-row gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 pt-4">
           <Button variant="outline" onClick={handleCopy} className="flex-1">
             <Copy size={16} className="mr-2" />
             Copiar
