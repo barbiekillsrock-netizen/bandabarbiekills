@@ -73,7 +73,7 @@ const AiMessageModal = ({ open, onOpenChange, message, opportunityId, phone }: A
             <img src="/icons/whatsapp-white.svg" alt="" className="w-4 h-4 mr-2" />
             Enviar WhatsApp
           </Button>
-        </DialogFooter>
+        </div>
       </DialogContent>
     </Dialog>
   );

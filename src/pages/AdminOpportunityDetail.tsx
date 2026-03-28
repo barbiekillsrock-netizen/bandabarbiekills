@@ -10,9 +10,11 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
 } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Save } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
+import { generateAISalesMessage } from "@/services/aiService";
+import AiMessageModal from "@/components/AiMessageModal";
 
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items">;
@@ -43,9 +45,15 @@ const AdminOpportunityDetail = () => {
   const [costs, setCosts] = useState<CostItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Debounce refs for text areas
+  // AI state
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiMessage, setAiMessage] = useState("");
+  const [aiModalOpen, setAiModalOpen] = useState(false);
+
+  // Debounce refs
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
+  const profileRef = useRef<ReturnType<typeof setTimeout>>();
 
   // New item forms
   const [newRevTitle, setNewRevTitle] = useState("");
@@ -55,7 +63,7 @@ const AdminOpportunityDetail = () => {
 
   useEffect(() => {
     if (!id) return;
-    const fetch = async () => {
+    const fetchData = async () => {
       const [oppRes, revRes, costRes] = await Promise.all([
         supabase.from("opportunities").select("*").eq("id", id).single(),
         supabase.from("revenue_items").select("*").eq("opportunity_id", id).order("created_at"),
@@ -66,7 +74,7 @@ const AdminOpportunityDetail = () => {
       if (costRes.data) setCosts(costRes.data);
       setLoading(false);
     };
-    fetch();
+    fetchData();
   }, [id]);
 
   const updateField = useCallback(
@@ -93,6 +101,33 @@ const AdminOpportunityDetail = () => {
   const handleStatusChange = async (status: string) => {
     await updateField("status", status);
     toast.success(`Status atualizado para "${statusOptions.find((s) => s.value === status)?.label}"`);
+  };
+
+  // AI generate
+  const handleGenerateAI = async () => {
+    if (!opp) return;
+    setAiLoading(true);
+    try {
+      const { data: settingsData } = await supabase
+        .from("site_settings")
+        .select("value")
+        .eq("key", "master_sales_prompt")
+        .single();
+
+      if (!settingsData?.value) {
+        toast.error("Configure o Prompt Mestre em Configurações antes de gerar mensagens.");
+        setAiLoading(false);
+        return;
+      }
+
+      const message = await generateAISalesMessage(opp, settingsData.value);
+      setAiMessage(message);
+      setAiModalOpen(true);
+    } catch (err: any) {
+      toast.error(err.message || "Erro ao gerar mensagem de IA");
+    } finally {
+      setAiLoading(false);
+    }
   };
 
   // Revenue items
@@ -201,20 +236,39 @@ const AdminOpportunityDetail = () => {
                 </div>
               )}
             </div>
-            <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
-              <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {statusOptions.map((s) => (
-                  <SelectItem key={s.value} value={s.value}>
-                    {s.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={handleGenerateAI}
+                disabled={aiLoading}
+                className="bg-neon-pink hover:bg-neon-pink/80 text-white"
+              >
+                <Sparkles size={16} className="mr-2" />
+                {aiLoading ? "Gerando..." : "Gerar Mensagem"}
+              </Button>
+              <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
+                <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {statusOptions.map((s) => (
+                    <SelectItem key={s.value} value={s.value}>
+                      {s.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
+
+        {/* AI Modal */}
+        <AiMessageModal
+          open={aiModalOpen}
+          onOpenChange={setAiModalOpen}
+          message={aiMessage}
+          opportunityId={opp.id}
+          phone={opp.phone}
+        />
 
         {/* Tabs */}
         <Tabs defaultValue="resumo">
@@ -259,6 +313,20 @@ const AdminOpportunityDetail = () => {
               </div>
             </div>
 
+            {/* Client Profile */}
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-muted-foreground text-xs uppercase tracking-wider mb-2 block">
+                Perfil do Cliente
+              </Label>
+              <textarea
+                className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm text-foreground resize-y focus:ring-2 focus:ring-ring focus:outline-none"
+                value={opp.client_profile || ""}
+                onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)}
+                placeholder="Descreva o perfil do cliente, preferências, referências..."
+              />
+              <p className="text-xs text-muted-foreground mt-1">Salva automaticamente após 2s</p>
+            </div>
+
             {/* Negotiation History */}
             <div className="glass-card rounded-lg p-6">
               <Label className="text-muted-foreground text-xs uppercase tracking-wider mb-2 block">
@@ -296,7 +364,7 @@ const AdminOpportunityDetail = () => {
                           R$ {(r.sale_value || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                         </TableCell>
                         <TableCell>
-                          <button onClick={() => deleteRevenue(r.id)} className="text-destructive hover:text-red-400 p-1 inline-link">
+                          <button onClick={() => deleteRevenue(r.id)} className="text-destructive hover:text-red-400 p-1">
                             <Trash2 size={14} />
                           </button>
                         </TableCell>
@@ -332,7 +400,7 @@ const AdminOpportunityDetail = () => {
                           R$ {(c.cost_value || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                         </TableCell>
                         <TableCell>
-                          <button onClick={() => deleteCost(c.id)} className="text-destructive hover:text-red-400 p-1 inline-link">
+                          <button onClick={() => deleteCost(c.id)} className="text-destructive hover:text-red-400 p-1">
                             <Trash2 size={14} />
                           </button>
                         </TableCell>
