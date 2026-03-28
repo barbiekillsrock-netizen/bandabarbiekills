@@ -7,9 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import {
-  Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
-} from "@/components/ui/table";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { ArrowLeft, Plus, Trash2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
@@ -80,10 +78,13 @@ const AdminOpportunityDetail = () => {
   const updateField = useCallback(
     async (field: string, value: string | number | null) => {
       if (!id) return;
-      await supabase.from("opportunities").update({ [field]: value }).eq("id", id);
+      await supabase
+        .from("opportunities")
+        .update({ [field]: value })
+        .eq("id", id);
       setOpp((prev) => (prev ? { ...prev, [field]: value } : prev));
     },
-    [id]
+    [id],
   );
 
   const handleDebouncedSave = useCallback(
@@ -95,7 +96,7 @@ const AdminOpportunityDetail = () => {
         toast.success("Salvo automaticamente");
       }, 2000);
     },
-    [updateField]
+    [updateField],
   );
 
   const handleStatusChange = async (status: string) => {
@@ -211,9 +212,7 @@ const AdminOpportunityDetail = () => {
         <div className="glass-card rounded-lg p-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="font-bebas text-3xl tracking-wider text-foreground">
-                {opp.client_name}
-              </h1>
+              <h1 className="font-bebas text-3xl tracking-wider text-foreground">{opp.client_name}</h1>
               <p className="text-muted-foreground text-sm mt-1">
                 {opp.event_type || "Tipo não informado"} •{" "}
                 {opp.event_date
@@ -297,9 +296,7 @@ const AdminOpportunityDetail = () => {
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
                   <p className="text-foreground">
-                    {opp.event_date
-                      ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR")
-                      : "—"}
+                    {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
                   </p>
                 </div>
                 <div>
@@ -364,7 +361,10 @@ const AdminOpportunityDetail = () => {
                           R$ {(r.sale_value || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                         </TableCell>
                         <TableCell>
-                          <button onClick={() => deleteRevenue(r.id)} className="text-destructive hover:text-red-400 p-1">
+                          <button
+                            onClick={() => deleteRevenue(r.id)}
+                            className="text-destructive hover:text-red-400 p-1"
+                          >
                             <Trash2 size={14} />
                           </button>
                         </TableCell>
@@ -374,9 +374,23 @@ const AdminOpportunityDetail = () => {
                 </Table>
               )}
               <div className="flex gap-2 mt-3">
-                <Input value={newRevTitle} onChange={(e) => setNewRevTitle(e.target.value)} placeholder="Descrição" className="flex-1" />
-                <Input value={newRevValue} onChange={(e) => setNewRevValue(e.target.value)} placeholder="Valor" className="w-28" type="number" step="0.01" />
-                <Button variant="neonPink" size="sm" onClick={addRevenue}><Plus size={16} /></Button>
+                <Input
+                  value={newRevTitle}
+                  onChange={(e) => setNewRevTitle(e.target.value)}
+                  placeholder="Descrição"
+                  className="flex-1"
+                />
+                <Input
+                  value={newRevValue}
+                  onChange={(e) => setNewRevValue(e.target.value)}
+                  placeholder="Valor"
+                  className="w-28"
+                  type="number"
+                  step="0.01"
+                />
+                <Button variant="neonPink" size="sm" onClick={addRevenue}>
+                  <Plus size={16} />
+                </Button>
               </div>
             </div>
 
@@ -410,9 +424,23 @@ const AdminOpportunityDetail = () => {
                 </Table>
               )}
               <div className="flex gap-2 mt-3">
-                <Input value={newCostDesc} onChange={(e) => setNewCostDesc(e.target.value)} placeholder="Descrição" className="flex-1" />
-                <Input value={newCostValue} onChange={(e) => setNewCostValue(e.target.value)} placeholder="Valor" className="w-28" type="number" step="0.01" />
-                <Button variant="neonPink" size="sm" onClick={addCost}><Plus size={16} /></Button>
+                <Input
+                  value={newCostDesc}
+                  onChange={(e) => setNewCostDesc(e.target.value)}
+                  placeholder="Descrição"
+                  className="flex-1"
+                />
+                <Input
+                  value={newCostValue}
+                  onChange={(e) => setNewCostValue(e.target.value)}
+                  placeholder="Valor"
+                  className="w-28"
+                  type="number"
+                  step="0.01"
+                />
+                <Button variant="neonPink" size="sm" onClick={addCost}>
+                  <Plus size={16} />
+                </Button>
               </div>
             </div>
 
