@@ -49,11 +49,13 @@ export type Database = {
       opportunities: {
         Row: {
           client_name: string
+          client_profile: string | null
           created_at: string | null
           event_date: string | null
           event_type: string | null
           guests: number | null
           id: string
+          last_ai_script: string | null
           location: string | null
           negotiation_history: string | null
           phone: string | null
@@ -62,11 +64,13 @@ export type Database = {
         }
         Insert: {
           client_name: string
+          client_profile?: string | null
           created_at?: string | null
           event_date?: string | null
           event_type?: string | null
           guests?: number | null
           id?: string
+          last_ai_script?: string | null
           location?: string | null
           negotiation_history?: string | null
           phone?: string | null
@@ -75,11 +79,13 @@ export type Database = {
         }
         Update: {
           client_name?: string
+          client_profile?: string | null
           created_at?: string | null
           event_date?: string | null
           event_type?: string | null
           guests?: number | null
           id?: string
+          last_ai_script?: string | null
           location?: string | null
           negotiation_history?: string | null
           phone?: string | null
@@ -122,6 +128,27 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      site_settings: {
+        Row: {
+          description: string | null
+          id: string
+          key: string
+          value: string
+        }
+        Insert: {
+          description?: string | null
+          id?: string
+          key: string
+          value: string
+        }
+        Update: {
+          description?: string | null
+          id?: string
+          key?: string
+          value?: string
+        }
+        Relationships: []
       }
     }
     Views: {
