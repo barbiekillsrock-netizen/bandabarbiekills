@@ -77,6 +77,15 @@ const AdminDashboard = () => {
               <Plus size={16} />
               <span className="hidden md:inline">Nova Oportunidade</span>
             </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate("/admin/settings")}
+              className="border-muted-foreground text-muted-foreground hover:bg-muted/20"
+            >
+              <Settings size={16} />
+              <span className="hidden md:inline">Config</span>
+            </Button>
             <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground">
               <LogOut size={18} />
               <span className="hidden md:inline ml-2">Sair</span>
