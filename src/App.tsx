@@ -17,6 +17,7 @@ const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminOpportunityDetail = lazy(() => import("./pages/AdminOpportunityDetail"));
+const AdminSettings = lazy(() => import("./pages/AdminSettings"));
 
 const App = () => (
   <TooltipProvider>
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/admin/opportunity/:id" element={<AdminRoute><AdminOpportunityDetail /></AdminRoute>} />
+          <Route path="/admin/settings" element={<AdminRoute><AdminSettings /></AdminRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

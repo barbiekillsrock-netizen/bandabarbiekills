@@ -6,7 +6,7 @@ import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { LogOut, Search, Eye, Plus } from "lucide-react";
+import { LogOut, Search, Eye, Plus, Settings } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 import AdminNewOpportunityDialog from "@/components/AdminNewOpportunityDialog";
 
@@ -76,6 +76,15 @@ const AdminDashboard = () => {
             >
               <Plus size={16} />
               <span className="hidden md:inline">Nova Oportunidade</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate("/admin/settings")}
+              className="border-muted-foreground text-muted-foreground hover:bg-muted/20"
+            >
+              <Settings size={16} />
+              <span className="hidden md:inline">Config</span>
             </Button>
             <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground">
               <LogOut size={18} />
