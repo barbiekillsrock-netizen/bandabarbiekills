@@ -11,8 +11,7 @@ serve(async (req) => {
   try {
     const GOOGLE_KEY =
       Deno.env.get("AI_API_KEY") || Deno.env.get("VITE_AI_API_KEY") || Deno.env.get("GOOGLE_AI_API_KEY");
-
-    if (!GOOGLE_KEY) throw new Error("Chave de API não encontrada nos Secrets.");
+    if (!GOOGLE_KEY) throw new Error("API_KEY_NAO_CONFIGURADA");
 
     const { leadData, masterPrompt } = await req.json();
 
@@ -23,12 +22,11 @@ serve(async (req) => {
       Nome: ${leadData.client_name}
       Evento: ${leadData.event_type}
       Perfil: ${leadData.client_profile || "Não informado"}
-      Histórico: ${leadData.negotiation_history || "Nenhum"}
     `.trim();
 
-    // AJUSTE DE PM: Usando a rota v1 (estável) e o ID do Gemini 3 que você confirmou
+    // AJUSTE DE OURO: Usando v1beta em vez de v1
     const MODEL_ID = "gemini-3-flash-preview";
-    const url = `https://generativelanguage.googleapis.com/v1/models/${MODEL_ID}:generateContent?key=${GOOGLE_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_ID}:generateContent?key=${GOOGLE_KEY}`;
 
     const response = await fetch(url, {
       method: "POST",
@@ -41,17 +39,17 @@ serve(async (req) => {
     const result = await response.json();
 
     if (!response.ok) {
-      console.error("ERRO DETALHADO GOOGLE:", JSON.stringify(result));
+      console.error("ERRO_GOOGLE_LOG:", JSON.stringify(result));
       throw new Error(result.error?.message || `Erro Google: ${response.status}`);
     }
 
-    const message = result.candidates?.[0]?.content?.parts?.[0]?.text || "IA não gerou resposta.";
+    const message = result.candidates?.[0]?.content?.parts?.[0]?.text || "IA sem resposta.";
 
     return new Response(JSON.stringify({ message }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
-    console.error("LOG DE ERRO FINAL:", e.message);
+    console.error("LOG_DE_ERRO_FINAL:", e.message);
     return new Response(JSON.stringify({ error: e.message }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
