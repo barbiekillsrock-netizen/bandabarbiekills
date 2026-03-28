@@ -17,6 +17,7 @@ const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminOpportunityDetail = lazy(() => import("./pages/AdminOpportunityDetail"));
+const AdminSettings = lazy(() => import("./pages/AdminSettings"));
 
 const App = () => (
   <TooltipProvider>
