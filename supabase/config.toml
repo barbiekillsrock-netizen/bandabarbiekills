@@ -1,1 +1,4 @@
 project_id = "etecpuvmzqubfatqiipx"
+
+[functions.generate-sales-message]
+verify_jwt = true
