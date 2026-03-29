@@ -21,6 +21,7 @@ export type Database = {
           description: string
           id: string
           opportunity_id: string | null
+          revenue_item_id: string | null
         }
         Insert: {
           cost_value?: number | null
@@ -28,6 +29,7 @@ export type Database = {
           description: string
           id?: string
           opportunity_id?: string | null
+          revenue_item_id?: string | null
         }
         Update: {
           cost_value?: number | null
@@ -35,6 +37,7 @@ export type Database = {
           description?: string
           id?: string
           opportunity_id?: string | null
+          revenue_item_id?: string | null
         }
         Relationships: [
           {
@@ -42,6 +45,13 @@ export type Database = {
             columns: ["opportunity_id"]
             isOneToOne: false
             referencedRelation: "opportunities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cost_items_revenue_item_id_fkey"
+            columns: ["revenue_item_id"]
+            isOneToOne: false
+            referencedRelation: "revenue_items"
             referencedColumns: ["id"]
           },
         ]
@@ -150,6 +160,27 @@ export type Database = {
           id?: string
           key?: string
           value?: string
+        }
+        Relationships: []
+      }
+      standard_revenue_items: {
+        Row: {
+          created_at: string | null
+          default_description: string | null
+          id: string
+          title: string
+        }
+        Insert: {
+          created_at?: string | null
+          default_description?: string | null
+          id?: string
+          title: string
+        }
+        Update: {
+          created_at?: string | null
+          default_description?: string | null
+          id?: string
+          title?: string
         }
         Relationships: []
       }
