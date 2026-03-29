@@ -8,11 +8,12 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, FileText } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, FileText, Package } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
 import AiMessageModal from "@/components/AiMessageModal";
+import ImportCatalogModal from "@/components/ImportCatalogModal";
 
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items"> & { cost_items?: Tables<"cost_items">[] };
@@ -52,7 +53,7 @@ const AdminOpportunityDetail = () => {
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
   const [newRevTitle, setNewRevTitle] = useState("");
-
+  const [catalogOpen, setCatalogOpen] = useState(false);
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
@@ -71,7 +72,7 @@ const AdminOpportunityDetail = () => {
       setMasterPrompt(mPrompt);
       setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
     }
-    if (revRes.data) setRevenues(revRes.data as RevenueItem[]);
+    if (revRes.data) setRevenues(revRes.data as unknown as RevenueItem[]);
     setLoading(false);
   }, [id]);
 
@@ -262,6 +263,13 @@ const AdminOpportunityDetail = () => {
           phone={opp.phone}
         />
 
+        <ImportCatalogModal
+          open={catalogOpen}
+          onOpenChange={setCatalogOpen}
+          opportunityId={opp.id}
+          onImported={fetchData}
+        />
+
         <Tabs defaultValue="resumo">
           <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg">
             <TabsTrigger value="resumo" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
@@ -386,6 +394,13 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <Button variant="neonPink" onClick={addRevenue} className="font-bold px-10 h-11 uppercase text-xs">
                   Adicionar
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setCatalogOpen(true)}
+                  className="h-11 border-neon-pink text-neon-pink hover:bg-neon-pink/10 font-bold uppercase text-xs px-6"
+                >
+                  <Package size={16} className="mr-2" /> Importar do Catálogo
                 </Button>
               </div>
             </div>
