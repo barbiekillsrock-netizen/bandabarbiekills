@@ -16,7 +16,7 @@ const statusColors: Record<string, string> = {
   new: "bg-blue-500/20 text-blue-300 border-blue-500/30",
   contacted: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
   negotiating: "bg-purple-500/20 text-purple-300 border-purple-500/30",
-  won: "bg-green-500/20 text-green-300 border-green-500/30",
+  won: "bg-pink-500/20 text-pink-300 border-pink-500/30",
   lost: "bg-red-500/20 text-red-300 border-red-500/30",
 };
 
@@ -66,7 +66,17 @@ const AdminDashboard = () => {
       <div className="min-h-screen bg-background p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <h1 className="font-bebas text-3xl md:text-4xl tracking-wider text-foreground">CRM BARBIE KILLS</h1>
+          {/* Header com Logo + CRM */}
+          <div className="flex items-center gap-4 mb-8">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="h-12 md:h-14 w-auto object-contain"
+              onError={(e) => (e.currentTarget.style.display = "none")}
+            />
+            <h1 className="font-bebas text-3xl md:text-4xl tracking-[0.15em] text-foreground">CRM</h1>
+          </div>
+
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
