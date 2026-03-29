@@ -67,14 +67,15 @@ const AdminDashboard = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           {/* Header com Logo + CRM */}
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4">
             <img
               src="/barbie-kills-banda-eventos-casamentos-nav.webp"
-              alt="Logo"
-              className="h-12 md:h-14 w-auto object-contain"
-              onError={(e) => (e.currentTarget.style.display = "none")}
+              alt="Barbie Kills"
+              className="h-14 w-auto object-contain block" // Adicionei 'block' para forçar a renderização
             />
-            <h1 className="font-bebas text-3xl md:text-4xl tracking-[0.15em] text-foreground">CRM</h1>
+            <h1 className="font-bebas text-4xl tracking-[0.15em] text-foreground border-l border-white/10 pl-4 leading-none">
+              CRM
+            </h1>
           </div>
 
           <div className="flex items-center gap-2">
