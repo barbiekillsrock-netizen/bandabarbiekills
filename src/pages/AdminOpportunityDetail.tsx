@@ -66,14 +66,16 @@ const AdminOpportunityDetail = () => {
   useEffect(() => {
     if (!id) return;
     const fetchData = async () => {
-      const [oppRes, revRes, costRes] = await Promise.all([
+      const [oppRes, revRes, costRes, settingsRes] = await Promise.all([
         supabase.from("opportunities").select("*").eq("id", id).single(),
         supabase.from("revenue_items").select("*").eq("opportunity_id", id).order("created_at"),
         supabase.from("cost_items").select("*").eq("opportunity_id", id).order("created_at"),
+        supabase.from("site_settings").select("value").eq("key", "master_sales_prompt").single(),
       ]);
       if (oppRes.data) setOpp(oppRes.data);
       if (revRes.data) setRevenues(revRes.data);
       if (costRes.data) setCosts(costRes.data);
+      if (settingsRes.data?.value) setMasterPrompt(settingsRes.data.value);
       setLoading(false);
     };
     fetchData();
