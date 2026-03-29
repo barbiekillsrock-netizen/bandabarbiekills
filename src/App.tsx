@@ -2,9 +2,12 @@ import { lazy, Suspense } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Toaster } from "sonner";
-import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminRoute from "./components/AdminRoute";
+
+// FIX 1: Transformamos a Index em lazy.
+// Isso reduz o "Main Bundle" significativamente, atacando o problema de JS não usado.
+const Index = lazy(() => import("./pages/Index"));
 
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -22,8 +25,14 @@ const AdminSettings = lazy(() => import("./pages/AdminSettings"));
 const App = () => (
   <TooltipProvider>
     <BrowserRouter>
+      {/* O Toaster é leve, pode permanecer aqui para feedback global */}
       <Toaster position="top-right" richColors theme="dark" />
-      <Suspense fallback={<div className="min-h-screen bg-background" />}>
+
+      {/* FIX 2: O Suspense agora engloba também a Index. 
+        Enquanto a Home carrega, o navegador mostra um fundo preto limpo, 
+        evitando "Layout Shift" e melhorando a percepção de velocidade.
+      */}
+      <Suspense fallback={<div className="min-h-screen bg-black" />}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -35,9 +44,30 @@ const App = () => (
           <Route path="/corporativo" element={<Corporativo />} />
           <Route path="/cidade/:slug" element={<CidadeLanding />} />
           <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
-          <Route path="/admin/opportunity/:id" element={<AdminRoute><AdminOpportunityDetail /></AdminRoute>} />
-          <Route path="/admin/settings" element={<AdminRoute><AdminSettings /></AdminRoute>} />
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/opportunity/:id"
+            element={
+              <AdminRoute>
+                <AdminOpportunityDetail />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/settings"
+            element={
+              <AdminRoute>
+                <AdminSettings />
+              </AdminRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
