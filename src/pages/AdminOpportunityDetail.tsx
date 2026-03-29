@@ -8,15 +8,14 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, RotateCcw, Save, AlertTriangle, X } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, FileText } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
 import AiMessageModal from "@/components/AiMessageModal";
 
 type Opportunity = Tables<"opportunities">;
-type RevenueItem = Tables<"revenue_items">;
-type CostItem = Tables<"cost_items">;
+type RevenueItem = Tables<"revenue_items"> & { cost_items?: Tables<"cost_items">[] };
 
 const statusOptions = [
   { value: "new", label: "Novo" },
@@ -40,38 +39,32 @@ const AdminOpportunityDetail = () => {
 
   const [opp, setOpp] = useState<Opportunity | null>(null);
   const [revenues, setRevenues] = useState<RevenueItem[]>([]);
-  const [costs, setCosts] = useState<CostItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Estados da Nova Estratégia
+  // AI & Prompt States
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiMessage, setAiMessage] = useState("");
+  const [aiModalOpen, setAiModalOpen] = useState(false);
   const [masterPrompt, setMasterPrompt] = useState("");
   const [localCustomPrompt, setLocalCustomPrompt] = useState("");
   const [isSavingPrompt, setIsSavingPrompt] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
-  // AI state
-  const [aiLoading, setAiLoading] = useState(false);
-  const [aiMessage, setAiMessage] = useState("");
-  const [aiModalOpen, setAiModalOpen] = useState(false);
+  // Form states
+  const [newRevTitle, setNewRevTitle] = useState("");
+  const [newRevValue, setNewRevValue] = useState("");
 
   // Debounce refs
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
 
-  // New item forms
-  const [newRevTitle, setNewRevTitle] = useState("");
-  const [newRevValue, setNewRevValue] = useState("");
-  const [newCostDesc, setNewCostDesc] = useState("");
-  const [newCostValue, setNewCostValue] = useState("");
-
   useEffect(() => {
     if (!id) return;
     const fetchData = async () => {
-      const [oppRes, revRes, costRes, settingsRes] = await Promise.all([
+      const [oppRes, revRes, settingsRes] = await Promise.all([
         supabase.from("opportunities").select("*").eq("id", id).single(),
-        supabase.from("revenue_items").select("*").eq("opportunity_id", id).order("created_at"),
-        supabase.from("cost_items").select("*").eq("opportunity_id", id).order("created_at"),
+        supabase.from("revenue_items").select("*, cost_items(*)").eq("opportunity_id", id).order("created_at"),
         supabase.from("site_settings").select("value").eq("key", "master_sales_prompt").single(),
       ]);
 
@@ -79,128 +72,83 @@ const AdminOpportunityDetail = () => {
         setOpp(oppRes.data);
         const mPrompt = settingsRes.data?.value || "";
         setMasterPrompt(mPrompt);
-        // Hidratação: Se não tiver custom, carrega o mestre para edição
         setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
       }
       if (revRes.data) setRevenues(revRes.data);
-      if (costRes.data) setCosts(costRes.data);
       setLoading(false);
     };
     fetchData();
   }, [id]);
 
-  const updateField = useCallback(
-    async (field: string, value: any) => {
-      if (!id) return;
-      await supabase
-        .from("opportunities")
-        .update({ [field]: value })
-        .eq("id", id);
-      setOpp((prev) => (prev ? { ...prev, [field]: value } : prev));
-    },
-    [id],
-  );
+  const updateField = useCallback(async (field: string, value: any) => {
+    if (!id) return;
+    await supabase.from("opportunities").update({ [field]: value }).eq("id", id);
+    setOpp((prev) => (prev ? { ...prev, [field]: value } : prev));
+  }, [id]);
 
-  // Salvar Estratégia Manualmente
-  const handleSaveCustomPrompt = async () => {
-    setIsSavingPrompt(true);
-    try {
-      await updateField("custom_prompt", localCustomPrompt);
-      toast.success("Estratégia salva com sucesso!");
-    } catch (error) {
-      toast.error("Erro ao salvar estratégia.");
-    } finally {
-      setIsSavingPrompt(false);
-    }
-  };
-
-  const handleResetPromptConfirm = async () => {
-    setLocalCustomPrompt(masterPrompt);
-    await updateField("custom_prompt", null);
-    setResetDialogOpen(false);
-    toast.success("Resetado para o padrão global.");
-  };
-
-  const handleDebouncedSave = useCallback(
-    (field: string, value: string, ref: React.MutableRefObject<ReturnType<typeof setTimeout> | undefined>) => {
-      setOpp((prev) => (prev ? { ...prev, [field]: value } : prev));
-      if (ref.current) clearTimeout(ref.current);
-      ref.current = setTimeout(() => {
-        updateField(field, value || null);
-        toast.success("Salvo automaticamente", { duration: 1000 });
-      }, 2000);
-    },
-    [updateField],
-  );
+  const handleDebouncedSave = useCallback((field: string, value: string, ref: React.MutableRefObject<ReturnType<typeof setTimeout> | undefined>) => {
+    setOpp((prev) => (prev ? { ...prev, [field]: value } : prev));
+    if (ref.current) clearTimeout(ref.current);
+    ref.current = setTimeout(() => {
+      updateField(field, value || null);
+      toast.success("Salvo automaticamente");
+    }, 2000);
+  }, [updateField]);
 
   const handleStatusChange = async (status: string) => {
     await updateField("status", status);
-    toast.success(`Status atualizado`);
+    toast.success(`Status atualizado para "${statusOptions.find((s) => s.value === status)?.label}"`);
+  };
+
+  // --- REVENUE & COST LOGIC ---
+  const addRevenue = async () => {
+    if (!newRevTitle.trim() || !id) return;
+    const { data } = await supabase.from("revenue_items").insert([{ title: newRevTitle.trim(), sale_value: parseFloat(newRevValue) || 0, opportunity_id: id }]).select().single();
+    if (data) {
+      setRevenues(prev => [...prev, { ...data, cost_items: [] }]);
+      setNewRevTitle(""); setNewRevValue("");
+      toast.success("Receita adicionada");
+    }
+  };
+
+  const addCostToRevenue = async (revId: string, desc: string, val: number) => {
+    const { data } = await supabase.from("cost_items").insert([{ description: desc, cost_value: val, opportunity_id: id, revenue_item_id: revId }]).select().single();
+    if (data) {
+      setRevenues(prev => prev.map(r => r.id === revId ? { ...r, cost_items: [...(r.cost_items || []), data] } : r));
+      toast.success("Custo adicionado");
+    }
+  };
+
+  const deleteRevenue = async (revId: string) => {
+    await supabase.from("revenue_items").delete().eq("id", revId);
+    setRevenues(prev => prev.filter(r => r.id !== revId));
+  };
+
+  const deleteCost = async (costId: string, revId: string) => {
+    await supabase.from("cost_items").delete().eq("id", costId);
+    setRevenues(prev => prev.map(r => r.id === revId ? { ...r, cost_items: r.cost_items?.filter(c => c.id !== costId) } : r));
   };
 
   const handleGenerateAI = async () => {
     if (!opp) return;
     setAiLoading(true);
     try {
-      // Prioriza o que está na tela (mesmo que não tenha salvado no banco ainda)
       const message = await generateAISalesMessage(opp, localCustomPrompt);
       setAiMessage(message);
       setAiModalOpen(true);
     } catch (err: any) {
-      toast.error("IA ocupada agora. Tente em instantes.");
+      toast.error(err.message || "Erro ao gerar mensagem");
     } finally {
       setAiLoading(false);
     }
   };
 
-  // Funções Financeiras Restauradas
-  const addRevenue = async () => {
-    if (!newRevTitle.trim() || !id) return;
-    const { data } = await supabase
-      .from("revenue_items")
-      .insert([{ title: newRevTitle.trim(), sale_value: parseFloat(newRevValue) || 0, opportunity_id: id }])
-      .select()
-      .single();
-    if (data) {
-      setRevenues((prev) => [...prev, data]);
-      setNewRevTitle("");
-      setNewRevValue("");
-      toast.success("Receita adicionada");
-    }
-  };
-
-  const deleteRevenue = async (revId: string) => {
-    await supabase.from("revenue_items").delete().eq("id", revId);
-    setRevenues((prev) => prev.filter((r) => r.id !== revId));
-  };
-
-  const addCost = async () => {
-    if (!newCostDesc.trim() || !id) return;
-    const { data } = await supabase
-      .from("cost_items")
-      .insert([{ description: newCostDesc.trim(), cost_value: parseFloat(newCostValue) || 0, opportunity_id: id }])
-      .select()
-      .single();
-    if (data) {
-      setCosts((prev) => [...prev, data]);
-      setNewCostDesc("");
-      setNewCostValue("");
-      toast.success("Custo adicionado");
-    }
-  };
-
-  const deleteCost = async (costId: string) => {
-    await supabase.from("cost_items").delete().eq("id", costId);
-    setCosts((prev) => prev.filter((c) => c.id !== costId));
-  };
-
-  const totalRevenue = revenues.reduce((sum, r) => sum + (r.sale_value || 0), 0);
-  const totalCost = costs.reduce((sum, c) => sum + (c.cost_value || 0), 0);
+  const totalRevenue = revenues.reduce((sum, r) => sum + (Number(r.sale_value) || 0), 0);
+  const totalCost = revenues.reduce((sum, r) => sum + (r.cost_items?.reduce((s, c) => s + (Number(c.cost_value) || 0), 0) || 0), 0);
   const profit = totalRevenue - totalCost;
 
-  if (loading)
-    return <div className="p-20 text-center font-bebas text-2xl text-neon-pink">CARREGANDO BACKSTAGE...</div>;
-  if (!opp) return null;
+  if (loading) return <div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Carregando...</p></div>;
+  if (!opp) return <div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Oportunidade não encontrada.</p></div>;
 
   return (
     <>
@@ -209,73 +157,41 @@ const AdminOpportunityDetail = () => {
         <title>{opp.client_name} | CRM Barbie Kills</title>
       </Helmet>
       <div className="min-h-screen bg-background p-4 md:p-8 max-w-5xl mx-auto">
-        {/* --- VOLTAR --- */}
         <Button variant="ghost" onClick={() => navigate("/admin")} className="mb-6 text-muted-foreground">
-          <ArrowLeft size={18} />
-          <span className="ml-2">Voltar</span>
+          <ArrowLeft size={18} /><span className="ml-2">Voltar</span>
         </Button>
 
-        {/* --- HEADER (TOTALMENTE RESTAURADO) --- */}
+        {/* --- HEADER ORIGINAL (RESTAURADO) --- */}
         <div className="glass-card rounded-lg p-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h1 className="font-bebas text-3xl tracking-wider text-foreground">{opp.client_name}</h1>
               <p className="text-muted-foreground text-sm mt-1">
-                {opp.event_type || "Tipo não informado"} •{" "}
-                {opp.event_date
-                  ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR")
-                  : "Data não informada"}{" "}
-                • {opp.location || "Local não informado"}
+                {opp.event_type || "Tipo não informado"} • {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "Data não informada"} • {opp.location || "Local não informado"}
               </p>
               {opp.phone && (
                 <div className="flex items-center gap-2 mt-1">
                   <p className="text-muted-foreground text-sm">📱 {opp.phone}</p>
-                  <a
-                    href={`https://wa.me/55${opp.phone.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors text-xs"
-                  >
-                    <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4" />
-                    WhatsApp
+                  <a href={`https://wa.me/55${opp.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors text-xs">
+                    <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4" />WhatsApp
                   </a>
                 </div>
               )}
             </div>
             <div className="flex items-center gap-2">
-              <Button
-                onClick={handleGenerateAI}
-                disabled={aiLoading}
-                className="bg-neon-pink hover:bg-neon-pink/80 text-white"
-              >
-                <Sparkles size={16} className="mr-2" />
-                {aiLoading ? "Gerando..." : "Gerar Mensagem"}
+              <Button onClick={handleGenerateAI} disabled={aiLoading} className="bg-neon-pink hover:bg-neon-pink/80 text-white">
+                <Sparkles size={16} className="mr-2" />{aiLoading ? "Gerando..." : "Gerar Mensagem"}
               </Button>
               <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
-                <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {statusOptions.map((s) => (
-                    <SelectItem key={s.value} value={s.value}>
-                      {s.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
+                <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}><SelectValue /></SelectTrigger>
+                <SelectContent>{statusOptions.map((s) => (<SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>))}</SelectContent>
               </Select>
             </div>
           </div>
         </div>
 
-        <AiMessageModal
-          open={aiModalOpen}
-          onOpenChange={setAiModalOpen}
-          message={aiMessage}
-          opportunityId={opp.id}
-          phone={opp.phone}
-        />
+        <AiMessageModal open={aiModalOpen} onOpenChange={setAiModalOpen} message={aiMessage} opportunityId={opp.id} phone={opp.phone} />
 
-        {/* --- ABAS --- */}
         <Tabs defaultValue="resumo">
           <TabsList className="w-full md:w-auto mb-4">
             <TabsTrigger value="resumo">Resumo</TabsTrigger>
@@ -283,263 +199,55 @@ const AdminOpportunityDetail = () => {
             <TabsTrigger value="repertorio">Repertório / Setlist</TabsTrigger>
           </TabsList>
 
-          {/* --- TAB RESUMO (INFO GRID + ESTRATÉGIA) --- */}
+          {/* --- ABA RESUMO --- */}
           <TabsContent value="resumo" className="space-y-6">
             <div className="glass-card rounded-lg p-6 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Cliente</Label>
-                  <p>{opp.client_name}</p>
-                </div>
-                <div>
-                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Telefone</Label>
-                  <p>{opp.phone || "—"}</p>
-                </div>
-                <div>
-                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Evento</Label>
-                  <p>{opp.event_type || "—"}</p>
-                </div>
-                <div>
-                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
-                  <p>{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
-                </div>
-                <div>
-                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
-                  <p>{opp.location || "—"}</p>
-                </div>
-                <div>
-                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Público</Label>
-                  <p>{opp.guests || "—"}</p>
-                </div>
+                <div><Label className="text-muted-foreground text-xs uppercase tracking-wider">Cliente</Label><p className="text-foreground">{opp.client_name}</p></div>
+                <div><Label className="text-muted-foreground text-xs uppercase tracking-wider">Telefone</Label><p className="text-foreground">{opp.phone || "—"}</p></div>
+                <div><Label className="text-muted-foreground text-xs uppercase tracking-wider">Evento</Label><p className="text-foreground">{opp.event_type || "—"}</p></div>
+                <div><Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label><p className="text-foreground">{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p></div>
+                <div><Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label><p className="text-foreground">{opp.location || "—"}</p></div>
+                <div><Label className="text-muted-foreground text-xs uppercase tracking-wider">Público</Label><p className="text-foreground">{opp.guests || "—"}</p></div>
               </div>
             </div>
 
-            {/* NOVA ESTRATÉGIA EDITÁVEL (MANUAL) */}
-            <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 relative">
-              <div className="flex justify-between items-center mb-4">
-                <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">
-                  🎯 Estratégia de Abordagem Personalizada
-                </Label>
-                <div className="flex gap-3">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setResetDialogOpen(true)}
-                    className="h-7 text-[10px] text-muted-foreground hover:text-white"
-                  >
-                    <RotateCcw size={10} className="mr-1" /> RESETAR PADRÃO
-                  </Button>
-                  <Button
-                    onClick={handleSaveCustomPrompt}
-                    disabled={isSavingPrompt}
-                    size="sm"
-                    className="h-8 bg-green-600 hover:bg-green-500 text-white font-bold text-xs px-4"
-                  >
-                    <Save size={14} className="mr-1" /> {isSavingPrompt ? "SALVANDO..." : "SALVAR ESTRATÉGIA"}
-                  </Button>
+            {/* ESTRATÉGIA COM SALVAMENTO MANUAL */}
+            <div className="glass-card rounded-lg p-6 border border-neon-pink/30 relative">
+              <div className="flex justify-between items-center mb-2">
+                <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">🎯 Estratégia de Abordagem Personalizada</Label>
+                <div className="flex gap-2">
+                  <Button variant="ghost" size="sm" onClick={() => setResetDialogOpen(true)} className="h-7 text-[10px] text-muted-foreground hover:text-white"><RotateCcw size={10} className="mr-1" /> Resetar Padrão</Button>
+                  <Button size="sm" onClick={() => { updateField("custom_prompt", localCustomPrompt); toast.success("Estratégia salva!"); }} className="h-7 bg-green-600 hover:bg-green-500 text-white text-xs font-bold"><Save size={12} className="mr-1" /> Salvar Estratégia</Button>
                 </div>
               </div>
-              <textarea
-                className="w-full min-h-[180px] bg-background border border-neon-pink/40 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none transition-all"
-                value={localCustomPrompt}
-                onChange={(e) => setLocalCustomPrompt(e.target.value)}
-              />
-              <p className="text-[10px] text-muted-foreground mt-2 uppercase italic opacity-50">
-                Atenção: Este campo requer salvamento manual no botão verde.
-              </p>
+              <textarea className="w-full min-h-[140px] bg-background border border-neon-pink/40 rounded-md p-3 text-sm text-foreground focus:ring-2 focus:ring-neon-pink focus:outline-none" value={localCustomPrompt} onChange={(e) => setLocalCustomPrompt(e.target.value)} />
+              <p className="text-[10px] text-muted-foreground mt-1 italic">Salva apenas no botão verde.</p>
             </div>
 
             <div className="glass-card rounded-lg p-6">
-              <Label className="text-muted-foreground text-xs uppercase mb-2 block">
-                Perfil do Cliente (Auto-save)
-              </Label>
-              <textarea
-                className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm"
-                value={opp.client_profile || ""}
-                onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)}
-              />
+              <Label className="text-muted-foreground text-xs uppercase mb-2 block">Perfil do Cliente (Auto-save)</Label>
+              <textarea className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm" value={opp.client_profile || ""} onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)} />
             </div>
 
             <div className="glass-card rounded-lg p-6">
-              <Label className="text-muted-foreground text-xs uppercase mb-2 block">
-                Histórico de Negociação (Auto-save)
-              </Label>
-              <textarea
-                className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm"
-                value={opp.negotiation_history || ""}
-                onChange={(e) => handleDebouncedSave("negotiation_history", e.target.value, negotiationRef)}
-              />
+              <Label className="text-muted-foreground text-xs uppercase mb-2 block">Histórico de Negociação (Auto-save)</Label>
+              <textarea className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm" value={opp.negotiation_history || ""} onChange={(e) => handleDebouncedSave("negotiation_history", e.target.value, negotiationRef)} />
             </div>
           </TabsContent>
 
-          {/* --- TAB FINANCEIRO (RESTAURADA TOTALMENTE) --- */}
+          {/* --- ABA FINANCEIRA (REVISADA) --- */}
           <TabsContent value="financeiro" className="space-y-6">
-            <div className="glass-card rounded-lg p-6">
-              <h2 className="font-bebas text-xl tracking-wider text-foreground mb-4">Receitas</h2>
-              {revenues.length > 0 && (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Descrição</TableHead>
-                      <TableHead className="text-right">Valor</TableHead>
-                      <TableHead className="w-12" />
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {revenues.map((r) => (
-                      <TableRow key={r.id}>
-                        <TableCell>{r.title}</TableCell>
-                        <TableCell className="text-right text-green-400">
-                          R$ {r.sale_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                        </TableCell>
-                        <TableCell>
-                          <button onClick={() => deleteRevenue(r.id)} className="text-destructive p-1">
-                            <Trash2 size={14} />
-                          </button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              )}
-              <div className="flex gap-2 mt-3">
-                <Input
-                  value={newRevTitle}
-                  onChange={(e) => setNewRevTitle(e.target.value)}
-                  placeholder="Descrição"
-                  className="flex-1"
-                />
-                <Input
-                  value={newRevValue}
-                  onChange={(e) => setNewRevValue(e.target.value)}
-                  placeholder="Valor"
-                  className="w-28"
-                  type="number"
-                  step="0.01"
-                />
-                <Button variant="neonPink" size="sm" onClick={addRevenue}>
-                  <Plus size={16} />
-                </Button>
+            <div className="glass-card rounded-lg p-6 border border-white/10">
+              <h2 className="font-bebas text-xl mb-4 text-foreground">Novo Item de Receita</h2>
+              <div className="flex gap-2">
+                <Input value={newRevTitle} onChange={e => setNewRevTitle(e.target.value)} placeholder="Ex: Show Quarteto" className="flex-1" />
+                <Input value={newRevValue} onChange={e => setNewRevValue(e.target.value)} type="number" placeholder="Valor Venda" className="w-32" />
+                <Button variant="neonPink" onClick={addRevenue}><Plus size={16} /></Button>
               </div>
             </div>
 
-            <div className="glass-card rounded-lg p-6">
-              <h2 className="font-bebas text-xl tracking-wider text-foreground mb-4">Custos</h2>
-              {costs.length > 0 && (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Descrição</TableHead>
-                      <TableHead className="text-right">Valor</TableHead>
-                      <TableHead className="w-12" />
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {costs.map((c) => (
-                      <TableRow key={c.id}>
-                        <TableCell>{c.description}</TableCell>
-                        <TableCell className="text-right text-red-400">
-                          R$ {c.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                        </TableCell>
-                        <TableCell>
-                          <button onClick={() => deleteCost(c.id)} className="text-destructive p-1">
-                            <Trash2 size={14} />
-                          </button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              )}
-              <div className="flex gap-2 mt-3">
-                <Input
-                  value={newCostDesc}
-                  onChange={(e) => setNewCostDesc(e.target.value)}
-                  placeholder="Descrição"
-                  className="flex-1"
-                />
-                <Input
-                  value={newCostValue}
-                  onChange={(e) => setNewCostValue(e.target.value)}
-                  placeholder="Valor"
-                  className="w-28"
-                  type="number"
-                  step="0.01"
-                />
-                <Button variant="neonPink" size="sm" onClick={addCost}>
-                  <Plus size={16} />
-                </Button>
-              </div>
-            </div>
-
-            <div className="glass-card rounded-lg p-6">
-              <h2 className="font-bebas text-xl tracking-wider text-foreground mb-4">Resumo Financeiro</h2>
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-xs text-muted-foreground uppercase">Receita</p>
-                  <p className="text-xl font-semibold text-green-400">
-                    R$ {totalRevenue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground uppercase">Custos</p>
-                  <p className="text-xl font-semibold text-red-400">
-                    R$ {totalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground uppercase">Lucro</p>
-                  <p className={`text-xl font-semibold ${profit >= 0 ? "text-green-400" : "text-red-400"}`}>
-                    R$ {profit.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* --- TAB REPERTORIO --- */}
-          <TabsContent value="repertorio">
-            <div className="glass-card rounded-lg p-6">
-              <Label className="text-muted-foreground text-xs uppercase mb-2 block">
-                Repertório Solicitado / Setlist (Auto-save)
-              </Label>
-              <textarea
-                className="w-full min-h-[300px] bg-background border border-input rounded-md p-3 text-sm"
-                value={opp.requested_repertoire || ""}
-                onChange={(e) => handleDebouncedSave("requested_repertoire", e.target.value, repertoireRef)}
-                placeholder="Liste as músicas solicitadas..."
-              />
-            </div>
-          </TabsContent>
-        </Tabs>
-
-        {/* --- MODAL RESET BK --- */}
-        {resetDialogOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in">
-            <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-2xl border-2 border-neon-pink shadow-[0_0_50px_rgba(255,0,128,0.2)]">
-              <h2 className="font-bebas text-4xl mb-4 text-white flex items-center gap-3">
-                <AlertTriangle className="text-neon-pink" /> RESETAR?
-              </h2>
-              <p className="text-gray-400 text-sm mb-10 leading-relaxed">
-                Apagar sua edição e voltar ao texto padrão da banda?
-              </p>
-              <div className="flex flex-col gap-3 font-bold">
-                <Button
-                  onClick={handleResetPromptConfirm}
-                  className="bg-neon-pink hover:bg-neon-pink/80 text-white py-6"
-                >
-                  SIM, RESETAR
-                </Button>
-                <Button variant="ghost" onClick={() => setResetDialogOpen(false)} className="text-white">
-                  CANCELAR
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </>
-  );
-};
-
-export default AdminOpportunityDetail;
+            {revenues.map((rev) => (
+              <div key={rev.id} className="glass-card rounded-lg p-6 border border-white/5 space-y-4">
+                <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                  <div><h3 className="font-bold text-foreground">{rev.title}</h3><p className="text-xs text-green-400 font-bold uppercase">Venda: R$ {rev.
