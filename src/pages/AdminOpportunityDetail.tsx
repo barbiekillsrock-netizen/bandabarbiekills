@@ -263,6 +263,13 @@ const AdminOpportunityDetail = () => {
           phone={opp.phone}
         />
 
+        <ImportCatalogModal
+          open={catalogOpen}
+          onOpenChange={setCatalogOpen}
+          opportunityId={opp.id}
+          onImported={fetchData}
+        />
+
         <Tabs defaultValue="resumo">
           <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg">
             <TabsTrigger value="resumo" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
