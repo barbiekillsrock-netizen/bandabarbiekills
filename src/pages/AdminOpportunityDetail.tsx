@@ -72,7 +72,7 @@ const AdminOpportunityDetail = () => {
       setMasterPrompt(mPrompt);
       setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
     }
-    if (revRes.data) setRevenues(revRes.data as RevenueItem[]);
+    if (revRes.data) setRevenues(revRes.data as unknown as RevenueItem[]);
     setLoading(false);
   }, [id]);
 
