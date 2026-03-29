@@ -8,15 +8,9 @@
 
     <link
       rel="preload"
-      as="image"
-      href="/banda-casamentos-eventos-campinas-barbie-kills.webp"
-      type="image/webp"
-      fetchpriority="high"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
+      as="style"
     />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
@@ -24,12 +18,30 @@
       onload="this.media='all'"
     />
 
-    <noscript>
-      <link
+    <link
+      rel="preload"
+      as="image"
+      href="/banda-casamentos-eventos-campinas-barbie-kills.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
-      />
-    </noscript>
+    /></noscript>
 
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -126,7 +138,7 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><!--ssr-outlet--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
