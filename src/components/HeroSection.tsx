@@ -47,7 +47,6 @@ const HeroSection = () => {
             // 2. Removemos animações complexas se o site estiver travando (opcional)
             // 3. Garantimos que ele não tenha filtros inline
             className="w-48 md:w-64 lg:w-72 xl:w-80 h-auto object-contain animate-fade-in relative z-10"
-            fetchPriority="high"
             loading="eager"
             decoding="async"
           />
@@ -65,7 +64,7 @@ const HeroSection = () => {
           </div>
 
           {/* H1 - Main SEO Title */}
-          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in animation-delay-400">
+          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in ">
             Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
           </h1>
           <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
