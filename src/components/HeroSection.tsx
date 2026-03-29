@@ -53,7 +53,7 @@ const HeroSection = () => {
 
           {/* Decorative Headline */}
           <div
-            className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 animate-fade-in animation-delay-200"
+            className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 animate-fade-in"
             style={{ lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
             EMBLEMÁTICA.
@@ -67,7 +67,7 @@ const HeroSection = () => {
           <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in ">
             Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
           </h1>
-          <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in animation-delay-400">
+          <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg">
             Um show de alta energia com o melhor do Pop, Rock, MPB e Samba Rock
           </h2>
 
