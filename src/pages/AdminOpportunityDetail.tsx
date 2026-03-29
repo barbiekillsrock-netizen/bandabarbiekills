@@ -110,24 +110,17 @@ const AdminOpportunityDetail = () => {
     toast.success(`Status atualizado para "${statusOptions.find((s) => s.value === status)?.label}"`);
   };
 
-  // AI generate
+  // AI generate — uses local custom_prompt, falls back to master prompt
   const handleGenerateAI = async () => {
     if (!opp) return;
+    const promptToUse = opp.custom_prompt?.trim() || masterPrompt;
+    if (!promptToUse) {
+      toast.error("Configure o Prompt Mestre em Configurações ou personalize a estratégia deste lead.");
+      return;
+    }
     setAiLoading(true);
     try {
-      const { data: settingsData } = await supabase
-        .from("site_settings")
-        .select("value")
-        .eq("key", "master_sales_prompt")
-        .single();
-
-      if (!settingsData?.value) {
-        toast.error("Configure o Prompt Mestre em Configurações antes de gerar mensagens.");
-        setAiLoading(false);
-        return;
-      }
-
-      const message = await generateAISalesMessage(opp, settingsData.value);
+      const message = await generateAISalesMessage(opp, promptToUse);
       setAiMessage(message);
       setAiModalOpen(true);
     } catch (err: any) {
