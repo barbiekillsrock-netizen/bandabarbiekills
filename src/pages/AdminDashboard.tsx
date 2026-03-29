@@ -66,12 +66,7 @@ const AdminDashboard = () => {
       <div className="min-h-screen bg-background p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-5">
-            <img src="/logo.png" alt="Barbie Kills" className="h-20 md:h-24 w-auto" />
-            <h1 className="font-bebas text-5xl md:text-7xl tracking-[0.2em] text-foreground border-l-2 border-white/10 pl-6 leading-none">
-              CRM
-            </h1>
-          </div>
+          <h1 className="font-bebas text-3xl md:text-4xl tracking-wider text-foreground">CRM BARBIE KILLS</h1>
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
