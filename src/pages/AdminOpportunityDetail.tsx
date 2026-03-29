@@ -52,6 +52,10 @@ const AdminOpportunityDetail = () => {
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
+  const customPromptRef = useRef<ReturnType<typeof setTimeout>>();
+
+  // Master prompt fallback
+  const [masterPrompt, setMasterPrompt] = useState("");
 
   // New item forms
   const [newRevTitle, setNewRevTitle] = useState("");
@@ -62,14 +66,16 @@ const AdminOpportunityDetail = () => {
   useEffect(() => {
     if (!id) return;
     const fetchData = async () => {
-      const [oppRes, revRes, costRes] = await Promise.all([
+      const [oppRes, revRes, costRes, settingsRes] = await Promise.all([
         supabase.from("opportunities").select("*").eq("id", id).single(),
         supabase.from("revenue_items").select("*").eq("opportunity_id", id).order("created_at"),
         supabase.from("cost_items").select("*").eq("opportunity_id", id).order("created_at"),
+        supabase.from("site_settings").select("value").eq("key", "master_sales_prompt").single(),
       ]);
       if (oppRes.data) setOpp(oppRes.data);
       if (revRes.data) setRevenues(revRes.data);
       if (costRes.data) setCosts(costRes.data);
+      if (settingsRes.data?.value) setMasterPrompt(settingsRes.data.value);
       setLoading(false);
     };
     fetchData();
@@ -104,24 +110,17 @@ const AdminOpportunityDetail = () => {
     toast.success(`Status atualizado para "${statusOptions.find((s) => s.value === status)?.label}"`);
   };
 
-  // AI generate
+  // AI generate — uses local custom_prompt, falls back to master prompt
   const handleGenerateAI = async () => {
     if (!opp) return;
+    const promptToUse = opp.custom_prompt?.trim() || masterPrompt;
+    if (!promptToUse) {
+      toast.error("Configure o Prompt Mestre em Configurações ou personalize a estratégia deste lead.");
+      return;
+    }
     setAiLoading(true);
     try {
-      const { data: settingsData } = await supabase
-        .from("site_settings")
-        .select("value")
-        .eq("key", "master_sales_prompt")
-        .single();
-
-      if (!settingsData?.value) {
-        toast.error("Configure o Prompt Mestre em Configurações antes de gerar mensagens.");
-        setAiLoading(false);
-        return;
-      }
-
-      const message = await generateAISalesMessage(opp, settingsData.value);
+      const message = await generateAISalesMessage(opp, promptToUse);
       setAiMessage(message);
       setAiModalOpen(true);
     } catch (err: any) {
@@ -308,6 +307,22 @@ const AdminOpportunityDetail = () => {
                   <p className="text-foreground">{opp.guests || "—"}</p>
                 </div>
               </div>
+            </div>
+
+            {/* Custom Prompt */}
+            <div className="glass-card rounded-lg p-6 border border-neon-pink/30">
+              <Label className="text-neon-pink text-xs uppercase tracking-wider mb-2 block font-bold">
+                🎯 Estratégia de Abordagem Personalizada
+              </Label>
+              <textarea
+                className="w-full min-h-[140px] bg-background border border-neon-pink/40 rounded-md p-3 text-sm text-foreground resize-y focus:ring-2 focus:ring-neon-pink focus:outline-none placeholder:text-muted-foreground/50"
+                value={opp.custom_prompt || ""}
+                onChange={(e) => handleDebouncedSave("custom_prompt", e.target.value, customPromptRef)}
+                placeholder={masterPrompt || "Defina a estratégia de abordagem para este lead..."}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                {opp.custom_prompt?.trim() ? "Prompt personalizado ativo" : "Usando prompt global como base"} • Salva automaticamente após 2s
+              </p>
             </div>
 
             {/* Client Profile */}
