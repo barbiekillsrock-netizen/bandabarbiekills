@@ -8,23 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import {
-  ArrowLeft,
-  Sparkles,
-  RotateCcw,
-  Save,
-  AlertTriangle,
-  X,
-  ClipboardList,
-  UserCircle2,
-  Calendar,
-  MapPin,
-  Users,
-  Phone,
-  Trash2,
-  Plus,
-  DollarSign,
-} from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, RotateCcw, Save, AlertTriangle, X } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
@@ -33,6 +17,14 @@ import AiMessageModal from "@/components/AiMessageModal";
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items">;
 type CostItem = Tables<"cost_items">;
+
+const statusOptions = [
+  { value: "new", label: "Novo" },
+  { value: "contacted", label: "Contatado" },
+  { value: "negotiating", label: "Negociando" },
+  { value: "won", label: "Fechado" },
+  { value: "lost", label: "Perdido" },
+];
 
 const statusColors: Record<string, string> = {
   new: "bg-blue-500/20 text-blue-300 border-blue-500/30",
@@ -50,24 +42,28 @@ const AdminOpportunityDetail = () => {
   const [revenues, setRevenues] = useState<RevenueItem[]>([]);
   const [costs, setCosts] = useState<CostItem[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Estados da Nova Estratégia
   const [masterPrompt, setMasterPrompt] = useState("");
   const [localCustomPrompt, setLocalCustomPrompt] = useState("");
   const [isSavingPrompt, setIsSavingPrompt] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
+
+  // AI state
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiMessage, setAiMessage] = useState("");
+  const [aiModalOpen, setAiModalOpen] = useState(false);
+
+  // Debounce refs
+  const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
+  const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
+  const profileRef = useRef<ReturnType<typeof setTimeout>>();
 
   // New item forms
   const [newRevTitle, setNewRevTitle] = useState("");
   const [newRevValue, setNewRevValue] = useState("");
   const [newCostDesc, setNewCostDesc] = useState("");
   const [newCostValue, setNewCostValue] = useState("");
-
-  const profileRef = useRef<ReturnType<typeof setTimeout>>();
-  const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
-  const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
-
-  const [aiLoading, setAiLoading] = useState(false);
-  const [aiMessage, setAiMessage] = useState("");
-  const [aiModalOpen, setAiModalOpen] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -83,6 +79,7 @@ const AdminOpportunityDetail = () => {
         setOpp(oppRes.data);
         const mPrompt = settingsRes.data?.value || "";
         setMasterPrompt(mPrompt);
+        // Hidratação: Se não tiver custom, carrega o mestre para edição
         setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
       }
       if (revRes.data) setRevenues(revRes.data);
@@ -104,16 +101,24 @@ const AdminOpportunityDetail = () => {
     [id],
   );
 
+  // Salvar Estratégia Manualmente
   const handleSaveCustomPrompt = async () => {
     setIsSavingPrompt(true);
     try {
       await updateField("custom_prompt", localCustomPrompt);
-      toast.success("Estratégia salva!");
+      toast.success("Estratégia salva com sucesso!");
     } catch (error) {
-      toast.error("Erro ao salvar.");
+      toast.error("Erro ao salvar estratégia.");
     } finally {
       setIsSavingPrompt(false);
     }
+  };
+
+  const handleResetPromptConfirm = async () => {
+    setLocalCustomPrompt(masterPrompt);
+    await updateField("custom_prompt", null);
+    setResetDialogOpen(false);
+    toast.success("Resetado para o padrão global.");
   };
 
   const handleDebouncedSave = useCallback(
@@ -122,26 +127,33 @@ const AdminOpportunityDetail = () => {
       if (ref.current) clearTimeout(ref.current);
       ref.current = setTimeout(() => {
         updateField(field, value || null);
+        toast.success("Salvo automaticamente", { duration: 1000 });
       }, 2000);
     },
     [updateField],
   );
 
+  const handleStatusChange = async (status: string) => {
+    await updateField("status", status);
+    toast.success(`Status atualizado`);
+  };
+
   const handleGenerateAI = async () => {
     if (!opp) return;
     setAiLoading(true);
     try {
+      // Prioriza o que está na tela (mesmo que não tenha salvado no banco ainda)
       const message = await generateAISalesMessage(opp, localCustomPrompt);
       setAiMessage(message);
       setAiModalOpen(true);
     } catch (err: any) {
-      toast.error("IA ocupada.");
+      toast.error("IA ocupada agora. Tente em instantes.");
     } finally {
       setAiLoading(false);
     }
   };
 
-  // Funções Financeiras (RESTAURADAS)
+  // Funções Financeiras Restauradas
   const addRevenue = async () => {
     if (!newRevTitle.trim() || !id) return;
     const { data } = await supabase
@@ -187,260 +199,329 @@ const AdminOpportunityDetail = () => {
   const profit = totalRevenue - totalCost;
 
   if (loading)
-    return (
-      <div className="p-20 text-center font-bebas text-2xl text-neon-pink animate-pulse">SINCRONIZANDO DADOS...</div>
-    );
+    return <div className="p-20 text-center font-bebas text-2xl text-neon-pink">CARREGANDO BACKSTAGE...</div>;
   if (!opp) return null;
 
   return (
     <>
       <Helmet>
-        <meta name="robots" content="noindex" />
-        <title>{opp.client_name} | CRM BK</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>{opp.client_name} | CRM Barbie Kills</title>
       </Helmet>
-
-      <div className="min-h-screen bg-[#050505] text-white p-4 md:p-8 max-w-6xl mx-auto">
-        <Button variant="ghost" onClick={() => navigate("/admin")} className="mb-6 opacity-60 hover:opacity-100">
-          <ArrowLeft size={18} className="mr-2" /> VOLTAR
+      <div className="min-h-screen bg-background p-4 md:p-8 max-w-5xl mx-auto">
+        {/* --- VOLTAR --- */}
+        <Button variant="ghost" onClick={() => navigate("/admin")} className="mb-6 text-muted-foreground">
+          <ArrowLeft size={18} />
+          <span className="ml-2">Voltar</span>
         </Button>
 
-        {/* --- HEADER --- */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6 bg-black/40 p-8 rounded-2xl border border-white/5">
-          <h1 className="font-bebas text-5xl tracking-widest uppercase">{opp.client_name}</h1>
-          <div className="flex gap-3">
-            <Button
-              onClick={handleGenerateAI}
-              disabled={aiLoading}
-              className="bg-neon-pink hover:bg-neon-pink/80 text-white font-black px-10 py-7 text-lg shadow-lg shadow-neon-pink/30"
-            >
-              <Sparkles size={20} className="mr-2" /> {aiLoading ? "GERANDO..." : "GERAR MENSAGEM"}
-            </Button>
-            <Select value={opp.status || "new"} onValueChange={(val) => updateField("status", val)}>
-              <SelectTrigger className={`w-40 border-2 ${statusColors[opp.status || "new"]}`}>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-black border-white/10">
-                <SelectItem value="new">NOVO</SelectItem>
-                <SelectItem value="contacted">CONTATADO</SelectItem>
-                <SelectItem value="negotiating">NEGOCIANDO</SelectItem>
-                <SelectItem value="won">FECHADO</SelectItem>
-                <SelectItem value="lost">PERDIDO</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        {/* --- GRID DE DADOS DO EVENTO (RESTORED) --- */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white/[0.03] p-4 rounded-xl border border-white/5">
-            <p className="text-[10px] text-muted-foreground uppercase font-bold flex items-center gap-2 mb-1">
-              <Calendar size={12} /> Data
-            </p>
-            <p className="text-sm">
-              {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
-            </p>
-          </div>
-          <div className="bg-white/[0.03] p-4 rounded-xl border border-white/5">
-            <p className="text-[10px] text-muted-foreground uppercase font-bold flex items-center gap-2 mb-1">
-              <MapPin size={12} /> Local
-            </p>
-            <p className="text-sm">{opp.location || "—"}</p>
-          </div>
-          <div className="bg-white/[0.03] p-4 rounded-xl border border-white/5">
-            <p className="text-[10px] text-muted-foreground uppercase font-bold flex items-center gap-2 mb-1">
-              <Users size={12} /> Público
-            </p>
-            <p className="text-sm">{opp.guests || "—"}</p>
-          </div>
-          <div className="bg-white/[0.03] p-4 rounded-xl border border-white/5">
-            <p className="text-[10px] text-muted-foreground uppercase font-bold flex items-center gap-2 mb-1">
-              <Phone size={12} /> WhatsApp
-            </p>
-            <div className="flex items-center gap-2">
-              <p className="text-sm">{opp.phone || "—"}</p>
+        {/* --- HEADER (TOTALMENTE RESTAURADO) --- */}
+        <div className="glass-card rounded-lg p-6 mb-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="font-bebas text-3xl tracking-wider text-foreground">{opp.client_name}</h1>
+              <p className="text-muted-foreground text-sm mt-1">
+                {opp.event_type || "Tipo não informado"} •{" "}
+                {opp.event_date
+                  ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR")
+                  : "Data não informada"}{" "}
+                • {opp.location || "Local não informado"}
+              </p>
               {opp.phone && (
-                <a
-                  href={`https://wa.me/55${opp.phone.replace(/\D/g, "")}`}
-                  target="_blank"
-                  className="p-1 bg-green-500/20 text-green-400 rounded"
-                >
-                  <Phone size={10} />
-                </a>
+                <div className="flex items-center gap-2 mt-1">
+                  <p className="text-muted-foreground text-sm">📱 {opp.phone}</p>
+                  <a
+                    href={`https://wa.me/55${opp.phone.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors text-xs"
+                  >
+                    <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                </div>
               )}
+            </div>
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={handleGenerateAI}
+                disabled={aiLoading}
+                className="bg-neon-pink hover:bg-neon-pink/80 text-white"
+              >
+                <Sparkles size={16} className="mr-2" />
+                {aiLoading ? "Gerando..." : "Gerar Mensagem"}
+              </Button>
+              <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
+                <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {statusOptions.map((s) => (
+                    <SelectItem key={s.value} value={s.value}>
+                      {s.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
         </div>
 
+        <AiMessageModal
+          open={aiModalOpen}
+          onOpenChange={setAiModalOpen}
+          message={aiMessage}
+          opportunityId={opp.id}
+          phone={opp.phone}
+        />
+
+        {/* --- ABAS --- */}
         <Tabs defaultValue="resumo">
-          <TabsList className="bg-white/5 p-1 h-14 mb-8">
-            <TabsTrigger value="resumo" className="px-8 font-bold uppercase tracking-widest">
-              RESUMO
-            </TabsTrigger>
-            <TabsTrigger value="financeiro" className="px-8 font-bold uppercase tracking-widest">
-              CALCULADORA
-            </TabsTrigger>
-            <TabsTrigger value="repertorio" className="px-8 font-bold uppercase tracking-widest">
-              REPERTÓRIO
-            </TabsTrigger>
+          <TabsList className="w-full md:w-auto mb-4">
+            <TabsTrigger value="resumo">Resumo</TabsTrigger>
+            <TabsTrigger value="financeiro">Calculadora Financeira</TabsTrigger>
+            <TabsTrigger value="repertorio">Repertório / Setlist</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="resumo" className="space-y-8 animate-in fade-in duration-500">
-            <section className="glass-card rounded-3xl p-8 border-2 border-neon-pink/40 bg-black/40">
-              <div className="flex justify-between items-center mb-6">
-                <Label className="text-neon-pink text-xs font-black uppercase tracking-widest">
-                  Estratégia Personalizada
+          {/* --- TAB RESUMO (INFO GRID + ESTRATÉGIA) --- */}
+          <TabsContent value="resumo" className="space-y-6">
+            <div className="glass-card rounded-lg p-6 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Cliente</Label>
+                  <p>{opp.client_name}</p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Telefone</Label>
+                  <p>{opp.phone || "—"}</p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Evento</Label>
+                  <p>{opp.event_type || "—"}</p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
+                  <p>{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
+                  <p>{opp.location || "—"}</p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground text-xs uppercase tracking-wider">Público</Label>
+                  <p>{opp.guests || "—"}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* NOVA ESTRATÉGIA EDITÁVEL (MANUAL) */}
+            <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 relative">
+              <div className="flex justify-between items-center mb-4">
+                <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">
+                  🎯 Estratégia de Abordagem Personalizada
                 </Label>
-                <div className="flex gap-4">
-                  <Button variant="ghost" size="sm" onClick={() => setResetDialogOpen(true)} className="text-[9px]">
-                    <RotateCcw size={12} className="mr-1" /> RESETAR
+                <div className="flex gap-3">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setResetDialogOpen(true)}
+                    className="h-7 text-[10px] text-muted-foreground hover:text-white"
+                  >
+                    <RotateCcw size={10} className="mr-1" /> RESETAR PADRÃO
                   </Button>
                   <Button
                     onClick={handleSaveCustomPrompt}
                     disabled={isSavingPrompt}
-                    className="bg-green-600 hover:bg-green-500 text-white font-black px-6"
+                    size="sm"
+                    className="h-8 bg-green-600 hover:bg-green-500 text-white font-bold text-xs px-4"
                   >
-                    <Save size={16} className="mr-2" /> SALVAR ESTRATÉGIA
+                    <Save size={14} className="mr-1" /> {isSavingPrompt ? "SALVANDO..." : "SALVAR ESTRATÉGIA"}
                   </Button>
                 </div>
               </div>
               <textarea
-                className="w-full min-h-[220px] bg-black/60 border border-white/10 rounded-2xl p-6 text-base text-gray-200 focus:border-neon-pink outline-none"
+                className="w-full min-h-[180px] bg-background border border-neon-pink/40 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none transition-all"
                 value={localCustomPrompt}
                 onChange={(e) => setLocalCustomPrompt(e.target.value)}
               />
-            </section>
+              <p className="text-[10px] text-muted-foreground mt-2 uppercase italic opacity-50">
+                Atenção: Este campo requer salvamento manual no botão verde.
+              </p>
+            </div>
 
-            <section className="space-y-4">
-              <Label className="text-[10px] uppercase font-bold opacity-50">Perfil do Lead (Auto-save)</Label>
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-muted-foreground text-xs uppercase mb-2 block">
+                Perfil do Cliente (Auto-save)
+              </Label>
               <textarea
-                className="w-full min-h-[150px] bg-white/5 border border-white/10 rounded-2xl p-6 text-gray-300 outline-none focus:border-white/30"
+                className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm"
                 value={opp.client_profile || ""}
                 onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)}
               />
-            </section>
+            </div>
 
-            <section className="space-y-4">
-              <Label className="text-[10px] uppercase font-bold opacity-50">Histórico de Negociação (Auto-save)</Label>
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-muted-foreground text-xs uppercase mb-2 block">
+                Histórico de Negociação (Auto-save)
+              </Label>
               <textarea
-                className="w-full min-h-[150px] bg-white/5 border border-white/10 rounded-2xl p-6 text-gray-300 outline-none focus:border-white/30"
+                className="w-full min-h-[120px] bg-background border border-input rounded-md p-3 text-sm"
                 value={opp.negotiation_history || ""}
                 onChange={(e) => handleDebouncedSave("negotiation_history", e.target.value, negotiationRef)}
               />
-            </section>
-          </TabsContent>
-
-          <TabsContent value="financeiro" className="space-y-8 animate-in fade-in duration-500">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Receitas */}
-              <div className="bg-black/30 p-6 rounded-2xl border border-white/5">
-                <h3 className="font-bebas text-2xl mb-4 text-green-400">Receitas</h3>
-                <div className="flex gap-2 mb-4">
-                  <Input
-                    value={newRevTitle}
-                    onChange={(e) => setNewRevTitle(e.target.value)}
-                    placeholder="Item"
-                    className="bg-black/40"
-                  />
-                  <Input
-                    value={newRevValue}
-                    onChange={(e) => setNewRevValue(e.target.value)}
-                    placeholder="R$"
-                    type="number"
-                    className="w-24 bg-black/40"
-                  />
-                  <Button onClick={addRevenue} className="bg-green-600">
-                    <Plus size={16} />
-                  </Button>
-                </div>
-                {revenues.map((r) => (
-                  <div key={r.id} className="flex justify-between items-center py-2 border-b border-white/5">
-                    <span className="text-sm">{r.title}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-green-400 font-bold">R$ {r.sale_value?.toLocaleString("pt-BR")}</span>
-                      <button onClick={() => deleteRevenue(r.id)}>
-                        <Trash2 size={14} className="text-red-500" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {/* Custos */}
-              <div className="bg-black/30 p-6 rounded-2xl border border-white/5">
-                <h3 className="font-bebas text-2xl mb-4 text-red-400">Custos</h3>
-                <div className="flex gap-2 mb-4">
-                  <Input
-                    value={newCostDesc}
-                    onChange={(e) => setNewCostDesc(e.target.value)}
-                    placeholder="Custo"
-                    className="bg-black/40"
-                  />
-                  <Input
-                    value={newCostValue}
-                    onChange={(e) => setNewCostValue(e.target.value)}
-                    placeholder="R$"
-                    type="number"
-                    className="w-24 bg-black/40"
-                  />
-                  <Button onClick={addCost} className="bg-red-600">
-                    <Plus size={16} />
-                  </Button>
-                </div>
-                {costs.map((c) => (
-                  <div key={c.id} className="flex justify-between items-center py-2 border-b border-white/5">
-                    <span className="text-sm">{c.description}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-red-400 font-bold">R$ {c.cost_value?.toLocaleString("pt-BR")}</span>
-                      <button onClick={() => deleteCost(c.id)}>
-                        <Trash2 size={14} className="text-red-500" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Resumo Financeiro */}
-            <div className="bg-neon-pink/10 p-8 rounded-3xl border border-neon-pink/30 flex justify-around text-center">
-              <div>
-                <p className="text-xs uppercase opacity-60 mb-2">Total Receita</p>
-                <p className="text-3xl font-bebas text-green-400">R$ {totalRevenue.toLocaleString("pt-BR")}</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase opacity-60 mb-2">Total Custos</p>
-                <p className="text-3xl font-bebas text-red-400">R$ {totalCost.toLocaleString("pt-BR")}</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase opacity-60 mb-2">Lucro BK</p>
-                <p className={`text-4xl font-bebas ${profit >= 0 ? "text-green-400" : "text-red-400"}`}>
-                  R$ {profit.toLocaleString("pt-BR")}
-                </p>
-              </div>
             </div>
           </TabsContent>
 
-          <TabsContent value="repertorio" className="animate-in fade-in duration-500">
-            <section className="glass-card rounded-3xl p-8 border border-white/10">
-              <Label className="text-xs font-bold uppercase opacity-50 mb-4 block">
-                Setlist e Observações Técnicas (Auto-save)
+          {/* --- TAB FINANCEIRO (RESTAURADA TOTALMENTE) --- */}
+          <TabsContent value="financeiro" className="space-y-6">
+            <div className="glass-card rounded-lg p-6">
+              <h2 className="font-bebas text-xl tracking-wider text-foreground mb-4">Receitas</h2>
+              {revenues.length > 0 && (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Descrição</TableHead>
+                      <TableHead className="text-right">Valor</TableHead>
+                      <TableHead className="w-12" />
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {revenues.map((r) => (
+                      <TableRow key={r.id}>
+                        <TableCell>{r.title}</TableCell>
+                        <TableCell className="text-right text-green-400">
+                          R$ {r.sale_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        </TableCell>
+                        <TableCell>
+                          <button onClick={() => deleteRevenue(r.id)} className="text-destructive p-1">
+                            <Trash2 size={14} />
+                          </button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+              <div className="flex gap-2 mt-3">
+                <Input
+                  value={newRevTitle}
+                  onChange={(e) => setNewRevTitle(e.target.value)}
+                  placeholder="Descrição"
+                  className="flex-1"
+                />
+                <Input
+                  value={newRevValue}
+                  onChange={(e) => setNewRevValue(e.target.value)}
+                  placeholder="Valor"
+                  className="w-28"
+                  type="number"
+                  step="0.01"
+                />
+                <Button variant="neonPink" size="sm" onClick={addRevenue}>
+                  <Plus size={16} />
+                </Button>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-lg p-6">
+              <h2 className="font-bebas text-xl tracking-wider text-foreground mb-4">Custos</h2>
+              {costs.length > 0 && (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Descrição</TableHead>
+                      <TableHead className="text-right">Valor</TableHead>
+                      <TableHead className="w-12" />
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {costs.map((c) => (
+                      <TableRow key={c.id}>
+                        <TableCell>{c.description}</TableCell>
+                        <TableCell className="text-right text-red-400">
+                          R$ {c.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        </TableCell>
+                        <TableCell>
+                          <button onClick={() => deleteCost(c.id)} className="text-destructive p-1">
+                            <Trash2 size={14} />
+                          </button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
+              <div className="flex gap-2 mt-3">
+                <Input
+                  value={newCostDesc}
+                  onChange={(e) => setNewCostDesc(e.target.value)}
+                  placeholder="Descrição"
+                  className="flex-1"
+                />
+                <Input
+                  value={newCostValue}
+                  onChange={(e) => setNewCostValue(e.target.value)}
+                  placeholder="Valor"
+                  className="w-28"
+                  type="number"
+                  step="0.01"
+                />
+                <Button variant="neonPink" size="sm" onClick={addCost}>
+                  <Plus size={16} />
+                </Button>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-lg p-6">
+              <h2 className="font-bebas text-xl tracking-wider text-foreground mb-4">Resumo Financeiro</h2>
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase">Receita</p>
+                  <p className="text-xl font-semibold text-green-400">
+                    R$ {totalRevenue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase">Custos</p>
+                  <p className="text-xl font-semibold text-red-400">
+                    R$ {totalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase">Lucro</p>
+                  <p className={`text-xl font-semibold ${profit >= 0 ? "text-green-400" : "text-red-400"}`}>
+                    R$ {profit.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+
+          {/* --- TAB REPERTORIO --- */}
+          <TabsContent value="repertorio">
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-muted-foreground text-xs uppercase mb-2 block">
+                Repertório Solicitado / Setlist (Auto-save)
               </Label>
               <textarea
-                className="w-full min-h-[400px] bg-black/40 border border-white/10 rounded-2xl p-8 text-base text-gray-200 outline-none focus:border-neon-pink transition-all font-mono"
+                className="w-full min-h-[300px] bg-background border border-input rounded-md p-3 text-sm"
                 value={opp.requested_repertoire || ""}
                 onChange={(e) => handleDebouncedSave("requested_repertoire", e.target.value, repertoireRef)}
-                placeholder="Músicas pedidas, restrições de volume, formação técnica específica..."
+                placeholder="Liste as músicas solicitadas..."
               />
-            </section>
+            </div>
           </TabsContent>
         </Tabs>
 
-        {/* --- MODAL RESET --- */}
+        {/* --- MODAL RESET BK --- */}
         {resetDialogOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in">
-            <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-3xl border-2 border-neon-pink">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in">
+            <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-2xl border-2 border-neon-pink shadow-[0_0_50px_rgba(255,0,128,0.2)]">
               <h2 className="font-bebas text-4xl mb-4 text-white flex items-center gap-3">
                 <AlertTriangle className="text-neon-pink" /> RESETAR?
               </h2>
               <p className="text-gray-400 text-sm mb-10 leading-relaxed">
-                Apagar sua estratégia personalizada para este lead?
+                Apagar sua edição e voltar ao texto padrão da banda?
               </p>
               <div className="flex flex-col gap-3 font-bold">
                 <Button
@@ -456,14 +537,6 @@ const AdminOpportunityDetail = () => {
             </div>
           </div>
         )}
-
-        <AiMessageModal
-          open={aiModalOpen}
-          onOpenChange={setAiModalOpen}
-          message={aiMessage}
-          opportunityId={opp.id}
-          phone={opp.phone}
-        />
       </div>
     </>
   );
