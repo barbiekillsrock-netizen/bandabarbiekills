@@ -51,6 +51,7 @@ export type Database = {
           client_name: string
           client_profile: string | null
           created_at: string | null
+          custom_prompt: string | null
           event_date: string | null
           event_type: string | null
           guests: number | null
@@ -66,6 +67,7 @@ export type Database = {
           client_name: string
           client_profile?: string | null
           created_at?: string | null
+          custom_prompt?: string | null
           event_date?: string | null
           event_type?: string | null
           guests?: number | null
@@ -81,6 +83,7 @@ export type Database = {
           client_name?: string
           client_profile?: string | null
           created_at?: string | null
+          custom_prompt?: string | null
           event_date?: string | null
           event_type?: string | null
           guests?: number | null
