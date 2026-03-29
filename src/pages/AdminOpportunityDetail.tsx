@@ -46,6 +46,7 @@ const AdminOpportunityDetail = () => {
   const [aiModalOpen, setAiModalOpen] = useState(false);
   const [masterPrompt, setMasterPrompt] = useState("");
   const [localCustomPrompt, setLocalCustomPrompt] = useState("");
+  const [isSavingPrompt, setIsSavingPrompt] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
   const [newRevTitle, setNewRevTitle] = useState("");
@@ -128,7 +129,7 @@ const AdminOpportunityDetail = () => {
     if (data) {
       setRevenues((prev) => [...prev, { ...data, cost_items: [] }]);
       setNewRevTitle("");
-      toast.success("Serviço adicionado");
+      toast.success("Item adicionado");
     }
   };
 
@@ -200,12 +201,12 @@ const AdminOpportunityDetail = () => {
           <span className="ml-2">Voltar</span>
         </Button>
 
-        {/* --- HEADER ORIGINAL --- */}
+        {/* --- HEADER --- */}
         <div className="glass-card rounded-lg p-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h1 className="font-bebas text-3xl tracking-wider text-foreground">{opp.client_name}</h1>
-              <p className="text-muted-foreground text-sm mt-1">
+              <p className="text-muted-foreground text-sm mt-1 uppercase">
                 {opp.event_type || "Tipo não informado"} •{" "}
                 {opp.event_date
                   ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR")
@@ -214,7 +215,7 @@ const AdminOpportunityDetail = () => {
               </p>
               {opp.phone && (
                 <div className="flex items-center gap-2 mt-1">
-                  <p className="text-muted-foreground text-sm font-mono">📱 {opp.phone}</p>
+                  <p className="text-muted-foreground text-sm tabular-nums">📱 {opp.phone}</p>
                   <a
                     href={`https://wa.me/55${opp.phone.replace(/\D/g, "")}`}
                     target="_blank"
@@ -277,16 +278,17 @@ const AdminOpportunityDetail = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="resumo" className="space-y-6">
+          {/* --- TAB RESUMO (RECOMPOSIÇÃO FIEL) --- */}
+          <TabsContent value="resumo" className="space-y-6 animate-in fade-in duration-300">
             <div className="glass-card rounded-lg p-6 space-y-4 bg-black/20">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Cliente</Label>
-                  <p>{opp.client_name}</p>
+                  <p className="text-foreground font-bold">{opp.client_name}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Telefone</Label>
-                  <p className="font-mono">{opp.phone || "—"}</p>
+                  <p className="tabular-nums">{opp.phone || "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Evento</Label>
@@ -294,7 +296,9 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
-                  <p>{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
+                  <p className="tabular-nums">
+                    {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
+                  </p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
@@ -302,12 +306,12 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Público</Label>
-                  <p>{opp.guests || "—"}</p>
+                  <p className="tabular-nums">{opp.guests || "—"}</p>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 relative bg-black/40">
+            <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 relative bg-black/40 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
               <div className="flex justify-between items-center mb-4">
                 <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">
                   🎯 Estratégia de Abordagem Personalizada
@@ -317,7 +321,7 @@ const AdminOpportunityDetail = () => {
                     variant="ghost"
                     size="sm"
                     onClick={() => setResetDialogOpen(true)}
-                    className="h-7 text-[10px] text-muted-foreground hover:text-white transition-all"
+                    className="h-7 text-[10px] text-muted-foreground hover:text-white"
                   >
                     <RotateCcw size={10} className="mr-1" /> Resetar Padrão
                   </Button>
@@ -334,7 +338,7 @@ const AdminOpportunityDetail = () => {
                 </div>
               </div>
               <textarea
-                className="w-full min-h-[160px] bg-background border border-neon-pink/40 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-mono"
+                className="w-full min-h-[160px] bg-background border border-neon-pink/40 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed"
                 value={localCustomPrompt}
                 onChange={(e) => setLocalCustomPrompt(e.target.value)}
               />
@@ -365,7 +369,7 @@ const AdminOpportunityDetail = () => {
             </div>
           </TabsContent>
 
-          {/* --- TAB FINANCEIRA --- */}
+          {/* --- TAB FINANCEIRA (BI-DIRECIONAL HARMONIZADA) --- */}
           <TabsContent value="financeiro" className="space-y-8 animate-in fade-in duration-300">
             <div className="glass-card rounded-lg p-6 border border-white/10 bg-black/20">
               <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
@@ -380,7 +384,11 @@ const AdminOpportunityDetail = () => {
                     className="bg-black/40 border-white/10 h-11"
                   />
                 </div>
-                <Button variant="neonPink" onClick={addRevenue} className="font-bold px-10 h-11 uppercase text-xs">
+                <Button
+                  variant="neonPink"
+                  onClick={addRevenue}
+                  className="font-bold px-10 h-11 uppercase text-xs tracking-widest"
+                >
                   Adicionar Serviço
                 </Button>
               </div>
@@ -399,7 +407,7 @@ const AdminOpportunityDetail = () => {
                   >
                     <div className="p-6 bg-white/5 flex justify-between items-center border-b border-white/10">
                       <div className="flex items-center gap-4">
-                        <div className="bg-neon-pink/20 p-2 rounded text-neon-pink font-bold text-xs uppercase">
+                        <div className="bg-neon-pink/20 p-2 rounded text-neon-pink font-bold text-xs uppercase tracking-widest">
                           ITEM BK
                         </div>
                         <h3 className="font-bebas text-2xl text-foreground tracking-wide">{rev.title}</h3>
@@ -415,6 +423,7 @@ const AdminOpportunityDetail = () => {
                     </div>
 
                     <div className="p-8 grid md:grid-cols-2 gap-12 bg-gradient-to-br from-transparent to-white/[0.01]">
+                      {/* 1. CUSTOS (FONTE AUMENTADA E HARMONIZADA) */}
                       <div className="space-y-6">
                         <Label className="text-xs uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-2">
                           1. Definição de Custos
@@ -425,16 +434,16 @@ const AdminOpportunityDetail = () => {
                               key={cost.id}
                               className="flex justify-between items-center bg-white/[0.03] p-4 rounded-lg border border-white/5 group transition-all"
                             >
-                              <span className="text-base text-gray-200 font-medium">{cost.description}</span>
+                              <span className="text-lg text-gray-200 font-medium">{cost.description}</span>
                               <div className="flex items-center gap-4">
-                                <span className="text-white font-mono font-bold text-lg">
+                                <span className="text-white font-bold text-xl tabular-nums">
                                   R$ {cost.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                                 </span>
                                 <button
                                   onClick={() => deleteCost(cost.id, rev.id)}
                                   className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-500"
                                 >
-                                  <X size={18} />
+                                  <X size={20} />
                                 </button>
                               </div>
                             </div>
@@ -443,7 +452,7 @@ const AdminOpportunityDetail = () => {
                         <div className="flex gap-2 pt-2">
                           <Input
                             id={`cn-${rev.id}`}
-                            placeholder="Item de custo..."
+                            placeholder="Item..."
                             className="h-11 text-base bg-transparent border-white/10"
                           />
                           <Input
@@ -465,37 +474,41 @@ const AdminOpportunityDetail = () => {
                               }
                             }}
                           >
-                            <Plus size={20} />
+                            <Plus size={24} />
                           </Button>
                         </div>
                         <div className="bg-white/5 p-5 rounded-xl flex justify-between items-center border border-white/5">
-                          <span className="text-xs uppercase font-bold text-muted-foreground">Total de Custos</span>
-                          <span className="text-2xl font-mono text-white">
+                          <span className="text-xs uppercase font-bold text-muted-foreground tracking-wider">
+                            Total de Custos
+                          </span>
+                          <span className="text-2xl text-white font-bold tabular-nums">
                             R$ {itemTotalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                           </span>
                         </div>
                       </div>
 
+                      {/* 2. PRECIFICAÇÃO (BI-DIRECIONAL E SEM VERDE) */}
                       <div className="space-y-6">
                         <Label className="text-xs uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-2">
-                          2. Precificação Bi-direcional
+                          2. Precificação & Margem
                         </Label>
-                        <div className="grid grid-cols-1 gap-6 bg-black/20 p-6 rounded-2xl border border-white/5">
-                          {/* MARGEM ABSOLUTA -> RECALCULA RECEITA */}
+
+                        <div className="grid grid-cols-1 gap-6 bg-black/20 p-6 rounded-2xl border border-white/5 shadow-inner">
+                          {/* VIA A: MARGEM ABSOLUTA */}
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase text-muted-foreground font-bold">
+                            <Label className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest">
                               Definir Margem Absoluta (Lucro R$)
                             </Label>
                             <div className="flex gap-2">
                               <Input
                                 id={`ma-${rev.id}`}
                                 type="number"
-                                placeholder="R$ desejado"
-                                className="bg-black/40 border-white/10 h-10 font-bold text-white"
+                                placeholder="Ex: 2000"
+                                className="bg-black/40 border-white/10 h-10 font-bold text-white text-lg tabular-nums"
                               />
                               <Button
                                 size="sm"
-                                className="h-10 bg-neon-pink text-white font-bold"
+                                className="h-10 bg-neon-pink text-white font-bold text-xs px-4"
                                 onClick={() => {
                                   const val = (document.getElementById(`ma-${rev.id}`) as HTMLInputElement).value;
                                   if (val) updateRevenueValue(rev.id, itemTotalCost + parseFloat(val));
@@ -506,15 +519,15 @@ const AdminOpportunityDetail = () => {
                             </div>
                           </div>
 
-                          {/* MARGEM PERCENTUAL -> RECALCULA RECEITA */}
+                          {/* VIA B: MARGEM PERCENTUAL */}
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase text-muted-foreground font-bold">
+                            <Label className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest">
                               Definir Margem Desejada (%)
                             </Label>
                             <Input
                               type="number"
                               placeholder="%"
-                              className="bg-black/40 border-white/10 h-10 font-bold text-white focus:border-neon-pink"
+                              className="bg-black/40 border-white/10 h-10 font-bold text-white text-lg tabular-nums focus:border-neon-pink"
                               onChange={(e) => {
                                 const m = parseFloat(e.target.value);
                                 if (!isNaN(m) && m < 100) {
@@ -525,38 +538,43 @@ const AdminOpportunityDetail = () => {
                             />
                           </div>
 
-                          <div className="space-y-2 pt-2 border-t border-white/5">
-                            <Label className="text-[10px] uppercase text-neon-pink font-bold">
+                          {/* VIA C: VALOR DE VENDA FINAL */}
+                          <div className="space-y-2 pt-2 border-t border-white/10">
+                            <Label className="text-[10px] uppercase text-neon-pink font-bold tracking-widest">
                               Valor Final de Venda (R$)
                             </Label>
                             <Input
                               type="number"
                               value={rev.sale_value || ""}
                               onChange={(e) => updateRevenueValue(rev.id, parseFloat(e.target.value))}
-                              className="bg-black/40 border-neon-pink/40 h-12 text-xl font-bold text-white focus:border-neon-pink"
+                              className="bg-black/40 border-neon-pink/40 h-12 text-2xl font-bold text-white focus:border-neon-pink tabular-nums"
                             />
                           </div>
 
-                          <div className="flex justify-between items-center bg-white/5 p-4 rounded-lg">
+                          <div className="flex justify-between items-center bg-white/5 p-4 rounded-lg border border-white/5">
                             <div className="space-y-1">
-                              <p className="text-[10px] uppercase text-muted-foreground font-bold">Sobra (Margem R$)</p>
-                              <p className="text-xl font-mono text-white">
+                              <p className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest">
+                                Lucro Líquido
+                              </p>
+                              <p className="text-xl text-white font-bold tabular-nums">
                                 R$ {marginAbs.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                               </p>
                             </div>
                             <div className="text-right space-y-1">
-                              <p className="text-[10px] uppercase text-pink-400 font-bold">Margem Atual (%)</p>
-                              <p className="text-xl font-mono text-pink-400 font-bold">{marginPerc.toFixed(1)}%</p>
+                              <p className="text-[10px] uppercase text-neon-pink font-bold tracking-widest">
+                                Margem Real
+                              </p>
+                              <p className="text-xl text-neon-pink font-bold tabular-nums">{marginPerc.toFixed(1)}%</p>
                             </div>
                           </div>
                         </div>
 
                         <div className="space-y-2">
                           <Label className="text-[10px] uppercase font-bold text-muted-foreground flex items-center gap-2">
-                            <FileText size={12} /> Justificativa Comercial
+                            <FileText size={12} /> Justificativa para o Pitch
                           </Label>
                           <textarea
-                            className="w-full h-[100px] bg-black/40 border border-white/5 rounded-xl p-4 text-sm text-gray-300 outline-none focus:border-neon-pink/50 transition-all leading-relaxed shadow-inner"
+                            className="w-full h-[100px] bg-black/40 border border-white/5 rounded-xl p-4 text-base text-gray-300 outline-none focus:border-neon-pink/50 transition-all leading-relaxed"
                             value={rev.description || ""}
                             onChange={(e) => {
                               const val = e.target.value;
@@ -565,7 +583,7 @@ const AdminOpportunityDetail = () => {
                               );
                               supabase.from("revenue_items").update({ description: val }).eq("id", rev.id).then();
                             }}
-                            placeholder="Descreva benefícios técnicos para o pitch..."
+                            placeholder="Descreva benefícios técnicos, formação musical..."
                           />
                         </div>
                       </div>
@@ -575,27 +593,31 @@ const AdminOpportunityDetail = () => {
               })}
             </div>
 
-            {/* SUMÁRIO FINAL PADRONIZADO */}
+            {/* SUMÁRIO FINAL (SIMÉTRICO E PADRONIZADO) */}
             <div className="glass-card rounded-2xl p-10 bg-white/[0.02] border-2 border-white/10 shadow-2xl">
-              <h2 className="font-bebas text-2xl tracking-[0.3em] mb-10 text-center text-white uppercase opacity-40">
+              <h2 className="font-bebas text-2xl tracking-[0.3em] mb-10 text-center text-white uppercase opacity-50 underline underline-offset-8 decoration-neon-pink/30">
                 Dossiê de Resultados
               </h2>
               <div className="grid grid-cols-3 gap-8 text-center items-center">
                 <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground uppercase font-black tracking-widest">Receita Bruta</p>
-                  <p className="text-3xl font-bebas text-white tracking-widest">
+                  <p className="text-xs text-muted-foreground uppercase font-black tracking-widest opacity-60">
+                    Receita Bruta
+                  </p>
+                  <p className="text-3xl font-bebas text-white tracking-widest tabular-nums">
                     R$ {totalRevenue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground uppercase font-black tracking-widest">Custos Totais</p>
-                  <p className="text-3xl font-bebas text-white tracking-widest">
+                  <p className="text-xs text-muted-foreground uppercase font-black tracking-widest opacity-60">
+                    Custos Totais
+                  </p>
+                  <p className="text-3xl font-bebas text-white tracking-widest tabular-nums">
                     R$ {totalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
-                <div className="space-y-2 p-6 bg-neon-pink/10 rounded-2xl border border-neon-pink/20">
+                <div className="space-y-2 p-6 bg-neon-pink/10 rounded-2xl border-2 border-neon-pink/20 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
                   <p className="text-xs text-neon-pink uppercase font-black tracking-widest">Lucro BK</p>
-                  <p className="text-3xl font-bebas text-white tracking-widest">
+                  <p className="text-3xl font-bebas text-white tracking-widest tabular-nums">
                     R$ {profit.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
@@ -603,9 +625,10 @@ const AdminOpportunityDetail = () => {
             </div>
           </TabsContent>
 
+          {/* --- TAB REPERTORIO --- */}
           <TabsContent value="repertorio">
             <div className="glass-card rounded-lg p-6 bg-black/10 border border-white/5 shadow-2xl">
-              <Label className="text-muted-foreground text-xs uppercase mb-4 block tracking-widest text-center opacity-60">
+              <Label className="text-muted-foreground text-xs uppercase mb-4 block tracking-widest text-center opacity-60 font-bold">
                 Setlist / Obs Técnicas (Auto-save)
               </Label>
               <textarea
@@ -623,8 +646,8 @@ const AdminOpportunityDetail = () => {
             <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-3xl border-2 border-neon-pink shadow-2xl text-center">
               <AlertTriangle className="text-neon-pink mx-auto mb-6" size={48} />
               <h2 className="font-bebas text-4xl mb-4 text-white tracking-[0.1em] uppercase">Resetar?</h2>
-              <p className="text-gray-400 text-sm mb-10 leading-relaxed uppercase font-bold tracking-widest opacity-60">
-                Restaurar o prompt mestre (QI 147)?
+              <p className="text-gray-400 text-xs mb-10 leading-relaxed uppercase font-bold tracking-widest opacity-60">
+                Apagar estratégia personalizada e restaurar o Dossiê Mestre (QI 147)?
               </p>
               <div className="flex flex-col gap-3 font-bold">
                 <Button
