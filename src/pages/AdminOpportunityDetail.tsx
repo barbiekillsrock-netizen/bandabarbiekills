@@ -8,11 +8,12 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, FileText } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, FileText, Package } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
 import AiMessageModal from "@/components/AiMessageModal";
+import ImportCatalogModal from "@/components/ImportCatalogModal";
 
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items"> & { cost_items?: Tables<"cost_items">[] };

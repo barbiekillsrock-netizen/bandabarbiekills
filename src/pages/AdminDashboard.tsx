@@ -97,64 +97,81 @@ const AdminDashboard = () => {
 
         <AdminNewOpportunityDialog open={newDialogOpen} onOpenChange={setNewDialogOpen} onCreated={fetchData} />
 
-        {/* Search */}
-        <div className="relative max-w-md mb-6">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar por nome do cliente..."
-            className="pl-9"
-          />
-        </div>
+        <Tabs defaultValue="leads" className="mt-2">
+          <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg">
+            <TabsTrigger value="leads" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
+              Leads
+            </TabsTrigger>
+            <TabsTrigger value="templates" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
+              Templates de Proposta
+            </TabsTrigger>
+          </TabsList>
 
-        {/* Table */}
-        {loading ? (
-          <p className="text-muted-foreground">Carregando...</p>
-        ) : filtered.length === 0 ? (
-          <p className="text-muted-foreground">Nenhuma oportunidade encontrada.</p>
-        ) : (
-          <div className="glass-card rounded-lg overflow-hidden">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Cliente</TableHead>
-                  <TableHead className="hidden md:table-cell">Evento</TableHead>
-                  <TableHead className="hidden md:table-cell">Data</TableHead>
-                  <TableHead className="hidden md:table-cell">Local</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="w-12" />
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filtered.map((opp) => (
-                  <TableRow
-                    key={opp.id}
-                    className="cursor-pointer hover:bg-muted/30"
-                    onClick={() => navigate(`/admin/opportunity/${opp.id}`)}
-                  >
-                    <TableCell className="font-medium">{opp.client_name}</TableCell>
-                    <TableCell className="hidden md:table-cell">{opp.event_type || "—"}</TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">{opp.location || "—"}</TableCell>
-                    <TableCell>
-                      <span
-                        className={`inline-block px-2 py-0.5 text-xs rounded-full border ${statusColors[opp.status || "new"] || statusColors.new}`}
+          <TabsContent value="leads">
+            {/* Search */}
+            <div className="relative max-w-md mb-6">
+              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Buscar por nome do cliente..."
+                className="pl-9"
+              />
+            </div>
+
+            {/* Table */}
+            {loading ? (
+              <p className="text-muted-foreground">Carregando...</p>
+            ) : filtered.length === 0 ? (
+              <p className="text-muted-foreground">Nenhuma oportunidade encontrada.</p>
+            ) : (
+              <div className="glass-card rounded-lg overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Cliente</TableHead>
+                      <TableHead className="hidden md:table-cell">Evento</TableHead>
+                      <TableHead className="hidden md:table-cell">Data</TableHead>
+                      <TableHead className="hidden md:table-cell">Local</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="w-12" />
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filtered.map((opp) => (
+                      <TableRow
+                        key={opp.id}
+                        className="cursor-pointer hover:bg-muted/30"
+                        onClick={() => navigate(`/admin/opportunity/${opp.id}`)}
                       >
-                        {statusLabel[opp.status || "new"] || opp.status}
-                      </span>
-                    </TableCell>
-                    <TableCell>
-                      <Eye size={16} className="text-muted-foreground" />
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        )}
+                        <TableCell className="font-medium">{opp.client_name}</TableCell>
+                        <TableCell className="hidden md:table-cell">{opp.event_type || "—"}</TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">{opp.location || "—"}</TableCell>
+                        <TableCell>
+                          <span
+                            className={`inline-block px-2 py-0.5 text-xs rounded-full border ${statusColors[opp.status || "new"] || statusColors.new}`}
+                          >
+                            {statusLabel[opp.status || "new"] || opp.status}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <Eye size={16} className="text-muted-foreground" />
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="templates">
+            <AdminTemplatesTab />
+          </TabsContent>
+        </Tabs>
       </div>
     </>
   );
