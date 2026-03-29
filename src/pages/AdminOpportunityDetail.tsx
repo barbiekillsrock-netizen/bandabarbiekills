@@ -309,6 +309,22 @@ const AdminOpportunityDetail = () => {
               </div>
             </div>
 
+            {/* Custom Prompt */}
+            <div className="glass-card rounded-lg p-6 border border-neon-pink/30">
+              <Label className="text-neon-pink text-xs uppercase tracking-wider mb-2 block font-bold">
+                🎯 Estratégia de Abordagem Personalizada
+              </Label>
+              <textarea
+                className="w-full min-h-[140px] bg-background border border-neon-pink/40 rounded-md p-3 text-sm text-foreground resize-y focus:ring-2 focus:ring-neon-pink focus:outline-none placeholder:text-muted-foreground/50"
+                value={opp.custom_prompt || ""}
+                onChange={(e) => handleDebouncedSave("custom_prompt", e.target.value, customPromptRef)}
+                placeholder={masterPrompt || "Defina a estratégia de abordagem para este lead..."}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                {opp.custom_prompt?.trim() ? "Prompt personalizado ativo" : "Usando prompt global como base"} • Salva automaticamente após 2s
+              </p>
+            </div>
+
             {/* Client Profile */}
             <div className="glass-card rounded-lg p-6">
               <Label className="text-muted-foreground text-xs uppercase tracking-wider mb-2 block">
