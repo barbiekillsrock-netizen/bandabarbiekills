@@ -8,7 +8,18 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X } from "lucide-react";
+import {
+  ArrowLeft,
+  Plus,
+  Trash2,
+  Sparkles,
+  Save,
+  RotateCcw,
+  AlertTriangle,
+  X,
+  FileText,
+  DollarSign,
+} from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
@@ -59,26 +70,27 @@ const AdminOpportunityDetail = () => {
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
 
-  useEffect(() => {
+  const fetchData = useCallback(async () => {
     if (!id) return;
-    const fetchData = async () => {
-      const [oppRes, revRes, settingsRes] = await Promise.all([
-        supabase.from("opportunities").select("*").eq("id", id).single(),
-        supabase.from("revenue_items").select("*, cost_items(*)").eq("opportunity_id", id).order("created_at"),
-        supabase.from("site_settings").select("value").eq("key", "master_sales_prompt").single(),
-      ]);
+    const [oppRes, revRes, settingsRes] = await Promise.all([
+      supabase.from("opportunities").select("*").eq("id", id).single(),
+      supabase.from("revenue_items").select("*, cost_items(*)").eq("opportunity_id", id).order("created_at"),
+      supabase.from("site_settings").select("value").eq("key", "master_sales_prompt").single(),
+    ]);
 
-      if (oppRes.data) {
-        setOpp(oppRes.data);
-        const mPrompt = settingsRes.data?.value || "";
-        setMasterPrompt(mPrompt);
-        setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
-      }
-      if (revRes.data) setRevenues(revRes.data as RevenueItem[]);
-      setLoading(false);
-    };
-    fetchData();
+    if (oppRes.data) {
+      setOpp(oppRes.data);
+      const mPrompt = settingsRes.data?.value || "";
+      setMasterPrompt(mPrompt);
+      setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
+    }
+    if (revRes.data) setRevenues(revRes.data as RevenueItem[]);
+    setLoading(false);
   }, [id]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const updateField = useCallback(
     async (field: string, value: any) => {
@@ -116,10 +128,10 @@ const AdminOpportunityDetail = () => {
     toast.success("Prompt resetado para o padrão global.");
   };
 
-  // --- LOGICA CALCULADORA ---
+  // --- LÓGICA CALCULADORA (MELHORADA PARA HIERARQUIA) ---
   const addRevenue = async () => {
     if (!newRevTitle.trim() || !id) return;
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("revenue_items")
       .insert([
         {
@@ -155,12 +167,12 @@ const AdminOpportunityDetail = () => {
       setRevenues((prev) =>
         prev.map((r) => (r.id === revId ? { ...r, cost_items: [...(r.cost_items || []), data] } : r)),
       );
-      toast.success("Custo adicionado");
+      toast.success("Custo vinculado");
     }
   };
 
   const deleteRevenue = async (revId: string) => {
-    if (!confirm("Excluir este serviço?")) return;
+    if (!confirm("Excluir este serviço e todos os custos dele?")) return;
     await supabase.from("revenue_items").delete().eq("id", revId);
     setRevenues((prev) => prev.filter((r) => r.id !== revId));
   };
@@ -195,7 +207,7 @@ const AdminOpportunityDetail = () => {
 
   if (loading)
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center font-bebas text-xl">
+      <div className="min-h-screen bg-background flex items-center justify-center font-bebas text-xl text-neon-pink animate-pulse">
         CARREGANDO...
       </div>
     );
@@ -214,13 +226,13 @@ const AdminOpportunityDetail = () => {
         <Button
           variant="ghost"
           onClick={() => navigate("/admin")}
-          className="mb-6 text-muted-foreground hover:text-white"
+          className="mb-6 text-muted-foreground hover:text-white transition-colors"
         >
           <ArrowLeft size={18} />
           <span className="ml-2">Voltar</span>
         </Button>
 
-        {/* --- HEADER ORIGINAL (IDENTICO AO ANTIGO) --- */}
+        {/* --- HEADER ORIGINAL RESTAURADO (EXATAMENTE COMO VOCÊ QUERIA) --- */}
         <div className="glass-card rounded-lg p-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
@@ -239,7 +251,7 @@ const AdminOpportunityDetail = () => {
                     href={`https://wa.me/55${opp.phone.replace(/\D/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors text-xs"
+                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors text-xs font-bold"
                   >
                     <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4" /> WhatsApp
                   </a>
@@ -250,13 +262,13 @@ const AdminOpportunityDetail = () => {
               <Button
                 onClick={handleGenerateAI}
                 disabled={aiLoading}
-                className="bg-neon-pink hover:bg-neon-pink/80 text-white"
+                className="bg-neon-pink hover:bg-neon-pink/80 text-white font-bold"
               >
                 <Sparkles size={16} className="mr-2" />
                 {aiLoading ? "Gerando..." : "Gerar Mensagem"}
               </Button>
               <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
-                <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
+                <SelectTrigger className={`w-40 border-2 font-bold ${statusColors[opp.status || "new"]}`}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -280,7 +292,7 @@ const AdminOpportunityDetail = () => {
         />
 
         <Tabs defaultValue="resumo">
-          <TabsList className="w-full md:w-auto mb-4">
+          <TabsList className="w-full md:w-auto mb-4 bg-white/5 border border-white/10 rounded-lg p-1">
             <TabsTrigger value="resumo">Resumo</TabsTrigger>
             <TabsTrigger value="financeiro">Calculadora Financeira</TabsTrigger>
             <TabsTrigger value="repertorio">Repertório / Setlist</TabsTrigger>
@@ -319,8 +331,8 @@ const AdminOpportunityDetail = () => {
               </div>
             </div>
 
-            {/* ESTRATÉGIA COM SALVAMENTO MANUAL */}
-            <div className="glass-card rounded-lg p-6 border border-neon-pink/30 relative shadow-[0_0_20px_rgba(255,0,128,0.05)]">
+            {/* ESTRATÉGIA COM SALVAMENTO MANUAL (COMO VOCÊ PEDIU) */}
+            <div className="glass-card rounded-lg p-6 border border-neon-pink/30 relative">
               <div className="flex justify-between items-center mb-4">
                 <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">
                   🎯 Estratégia de Abordagem Personalizada
@@ -330,7 +342,7 @@ const AdminOpportunityDetail = () => {
                     variant="ghost"
                     size="sm"
                     onClick={() => setResetDialogOpen(true)}
-                    className="h-7 text-[10px] text-muted-foreground hover:text-white"
+                    className="h-7 text-[10px] text-muted-foreground hover:text-white transition-all"
                   >
                     <RotateCcw size={10} className="mr-1" /> Resetar Padrão
                   </Button>
@@ -340,7 +352,7 @@ const AdminOpportunityDetail = () => {
                       updateField("custom_prompt", localCustomPrompt);
                       toast.success("Estratégia salva!");
                     }}
-                    className="h-7 bg-green-600 hover:bg-green-500 text-white text-xs font-bold"
+                    className="h-7 bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-4"
                   >
                     <Save size={12} className="mr-1" /> Salvar Estratégia
                   </Button>
@@ -351,7 +363,9 @@ const AdminOpportunityDetail = () => {
                 value={localCustomPrompt}
                 onChange={(e) => setLocalCustomPrompt(e.target.value)}
               />
-              <p className="text-[10px] text-muted-foreground mt-2 italic opacity-60">Salva apenas no botão verde.</p>
+              <p className="text-[10px] text-muted-foreground mt-2 italic opacity-60">
+                Alterações salvam apenas ao clicar no botão verde.
+              </p>
             </div>
 
             <div className="glass-card rounded-lg p-6">
@@ -377,138 +391,190 @@ const AdminOpportunityDetail = () => {
             </div>
           </TabsContent>
 
-          {/* --- TAB FINANCEIRA (ESTRUTURA HIERARQUICA) --- */}
+          {/* --- ABA FINANCEIRA (ESTRUTURA HIERÁRQUICA TOTALMENTE REFEITA) --- */}
           <TabsContent value="financeiro" className="space-y-6">
-            <div className="glass-card rounded-lg p-6 border border-white/10">
-              <h2 className="font-bebas text-xl mb-4 text-foreground">Novo Item de Receita</h2>
-              <div className="flex gap-2">
-                <Input
-                  value={newRevTitle}
-                  onChange={(e) => setNewRevTitle(e.target.value)}
-                  placeholder="Ex: Show Quarteto"
-                  className="flex-1"
-                />
-                <Input
-                  value={newRevValue}
-                  onChange={(e) => setNewRevValue(e.target.value)}
-                  type="number"
-                  placeholder="Valor Venda"
-                  className="w-32"
-                />
-                <Button variant="neonPink" onClick={addRevenue}>
-                  <Plus size={16} />
+            <div className="glass-card rounded-lg p-6 border border-white/10 bg-black/20">
+              <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
+                <DollarSign size={18} className="text-green-400" /> Adicionar Novo Serviço
+              </h2>
+              <div className="flex flex-wrap gap-4 items-end">
+                <div className="flex-1 min-w-[200px]">
+                  <Input
+                    value={newRevTitle}
+                    onChange={(e) => setNewRevTitle(e.target.value)}
+                    placeholder="Ex: Show Quarteto + Som"
+                    className="bg-black/40 border-white/10"
+                  />
+                </div>
+                <div className="w-36">
+                  <Input
+                    value={newRevValue}
+                    onChange={(e) => setNewRevValue(e.target.value)}
+                    type="number"
+                    placeholder="Valor Venda"
+                    className="bg-black/40 border-white/10"
+                  />
+                </div>
+                <Button
+                  variant="neonPink"
+                  onClick={addRevenue}
+                  className="font-bold px-8 h-10 shadow-lg shadow-neon-pink/20"
+                >
+                  <Plus size={18} className="mr-2" /> ADICIONAR
                 </Button>
               </div>
             </div>
 
-            {revenues.map((rev) => (
-              <div key={rev.id} className="glass-card rounded-lg p-6 border border-white/5 space-y-4 bg-black/20">
-                <div className="flex justify-between items-center border-b border-white/10 pb-3">
-                  <div>
-                    <h3 className="font-bold text-lg text-foreground">{rev.title}</h3>
-                    <p className="text-xs text-green-400 font-bold uppercase">
-                      Venda: R$ {rev.sale_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                    </p>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => deleteRevenue(rev.id)}
-                    className="text-red-500 hover:bg-red-500/10"
-                  >
-                    <Trash2 size={16} />
-                  </Button>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">
-                      Descrição Comercial / Pitch IA
-                    </Label>
-                    <textarea
-                      className="w-full h-[120px] bg-black/40 border border-input rounded-md p-3 text-xs text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed"
-                      value={rev.description || ""}
-                      onChange={(e) => {
-                        const val = e.target.value;
-                        setRevenues((prev) => prev.map((r) => (r.id === rev.id ? { ...r, description: val } : r)));
-                        supabase.from("revenue_items").update({ description: val }).eq("id", rev.id).then();
-                      }}
-                      placeholder="Fale sobre a experiência, formação musical, diferenciais..."
-                    />
-                  </div>
-                  <div className="bg-black/30 rounded-xl p-5 space-y-4">
-                    <Label className="text-[10px] uppercase font-bold text-muted-foreground block border-b border-white/5 pb-2">
-                      Custos Vinculados
-                    </Label>
-                    <div className="space-y-2 max-h-[150px] overflow-y-auto">
-                      {rev.cost_items?.map((cost) => (
-                        <div key={cost.id} className="flex justify-between items-center text-xs p-1">
-                          <span className="text-gray-400">{cost.description}</span>
-                          <div className="flex items-center gap-3">
-                            <span className="text-red-400 font-mono">
-                              R$ {cost.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
-                            </span>
-                            <button
-                              onClick={() => deleteCost(cost.id, rev.id)}
-                              className="text-gray-600 hover:text-red-500 transition-colors"
-                            >
-                              <Trash2 size={12} />
-                            </button>
-                          </div>
-                        </div>
-                      ))}
+            <div className="space-y-6">
+              {revenues.map((rev) => (
+                <div
+                  key={rev.id}
+                  className="glass-card rounded-xl border border-white/10 overflow-hidden bg-black/40 shadow-xl"
+                >
+                  <div className="p-5 bg-white/5 flex justify-between items-center border-b border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-green-600/20 p-2 rounded-lg text-green-400 font-bold text-xs uppercase">
+                        Serviço de Venda
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-foreground">{rev.title}</h3>
+                        <p className="text-[10px] text-green-400 font-black uppercase tracking-tighter">
+                          VENDA: R$ {rev.sale_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex gap-2 pt-2">
-                      <Input
-                        id={`cn-${rev.id}`}
-                        placeholder="Novo custo"
-                        className="h-8 text-xs bg-transparent border-white/10"
-                      />
-                      <Input
-                        id={`cv-${rev.id}`}
-                        placeholder="R$"
-                        type="number"
-                        className="h-8 w-20 text-xs bg-transparent border-white/10"
-                      />
-                      <Button
-                        size="sm"
-                        className="h-8 bg-white/5 hover:bg-neon-pink transition-all"
-                        onClick={() => {
-                          const n = (document.getElementById(`cn-${rev.id}`) as HTMLInputElement).value;
-                          const v = (document.getElementById(`cv-${rev.id}`) as HTMLInputElement).value;
-                          if (n && v) {
-                            addCostToRevenue(rev.id, n, parseFloat(v));
-                            (document.getElementById(`cn-${rev.id}`) as HTMLInputElement).value = "";
-                            (document.getElementById(`cv-${rev.id}`) as HTMLInputElement).value = "";
-                          }
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => deleteRevenue(rev.id)}
+                      className="text-red-500/50 hover:text-red-500 transition-all"
+                    >
+                      <Trash2 size={16} />
+                    </Button>
+                  </div>
+
+                  <div className="p-6 grid md:grid-cols-2 gap-8 bg-gradient-to-br from-transparent to-white/[0.02]">
+                    {/* EXPLICAÇÃO E BENEFÍCIOS DO ITEM */}
+                    <div className="space-y-3">
+                      <Label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest flex items-center gap-2">
+                        <FileText size={12} className="text-neon-pink" /> Justificativa Comercial (Pitch IA)
+                      </Label>
+                      <textarea
+                        className="w-full h-[150px] bg-black/40 border border-white/10 rounded-xl p-4 text-xs text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed shadow-inner"
+                        value={rev.description || ""}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setRevenues((prev) => prev.map((r) => (r.id === rev.id ? { ...r, description: val } : r)));
+                          supabase.from("revenue_items").update({ description: val }).eq("id", rev.id).then();
                         }}
-                      >
-                        <Plus size={14} />
-                      </Button>
+                        placeholder="Ex: Formação ideal para festas animadas, inclui saxofonista e setlist personalizado..."
+                      />
+                    </div>
+
+                    {/* CUSTOS VINCULADOS A ESTE ITEM ESPECÍFICO */}
+                    <div className="bg-black/30 rounded-xl p-6 space-y-4 border border-white/5 shadow-lg">
+                      <Label className="text-[10px] uppercase font-black text-muted-foreground block border-b border-white/10 pb-2 tracking-widest text-red-300">
+                        Custos Detalhados deste Item
+                      </Label>
+                      <div className="space-y-2 max-h-[160px] overflow-y-auto pr-2 custom-scrollbar">
+                        {rev.cost_items?.map((cost) => (
+                          <div
+                            key={cost.id}
+                            className="flex justify-between items-center text-xs p-2 rounded-md bg-white/[0.02] border border-white/5 group hover:bg-white/[0.05] transition-all"
+                          >
+                            <span className="text-gray-400 font-medium">{cost.description}</span>
+                            <div className="flex items-center gap-3">
+                              <span className="text-red-400 font-mono font-bold text-sm">
+                                R$ {cost.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                              </span>
+                              <button
+                                onClick={() => deleteCost(cost.id, rev.id)}
+                                className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-500 transition-all"
+                              >
+                                <X size={14} />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                        {(!rev.cost_items || rev.cost_items.length === 0) && (
+                          <p className="text-[10px] text-gray-600 italic py-4 text-center">Nenhum custo vinculado</p>
+                        )}
+                      </div>
+
+                      <div className="flex gap-2 pt-4 mt-2 border-t border-white/5">
+                        <Input
+                          id={`cn-${rev.id}`}
+                          placeholder="Novo custo"
+                          className="h-9 text-[10px] bg-transparent border-white/10 focus:border-white/30"
+                        />
+                        <Input
+                          id={`cv-${rev.id}`}
+                          placeholder="R$"
+                          type="number"
+                          className="h-9 w-24 text-[10px] bg-transparent border-white/10 focus:border-white/30"
+                        />
+                        <Button
+                          size="sm"
+                          className="h-9 bg-white/5 hover:bg-red-600 transition-all"
+                          onClick={() => {
+                            const n = (document.getElementById(`cn-${rev.id}`) as HTMLInputElement).value;
+                            const v = (document.getElementById(`cv-${rev.id}`) as HTMLInputElement).value;
+                            if (n && v) {
+                              addCostToRevenue(rev.id, n, parseFloat(v));
+                              (document.getElementById(`cn-${rev.id}`) as HTMLInputElement).value = "";
+                              (document.getElementById(`cv-${rev.id}`) as HTMLInputElement).value = "";
+                            }
+                          }}
+                        >
+                          <Plus size={16} />
+                        </Button>
+                      </div>
+
+                      <div className="flex justify-between items-center pt-4 mt-2 border-t-2 border-white/5">
+                        <span className="text-[10px] font-black uppercase text-muted-foreground tracking-tighter">
+                          Margem do Serviço
+                        </span>
+                        <span className="text-2xl font-bebas text-green-400">
+                          R${" "}
+                          {(
+                            Number(rev.sale_value) -
+                            (rev.cost_items?.reduce((s, c) => s + Number(c.cost_value), 0) || 0)
+                          ).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
+            {/* RESUMO CONSOLIDADO FINAL */}
             <div className="glass-card rounded-lg p-6 bg-neon-pink/5 border border-neon-pink/20 shadow-[0_0_30px_rgba(255,0,128,0.05)]">
-              <h2 className="font-bebas text-xl tracking-wider mb-4">Resumo Consolidado</h2>
+              <h2 className="font-bebas text-xl tracking-wider mb-4 uppercase opacity-80">Resumo Consolidado BK</h2>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase mb-1">Receita Total</p>
-                  <p className="text-xl font-semibold text-green-400">
+                  <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1 tracking-widest">
+                    Receita Total
+                  </p>
+                  <p className="text-2xl font-bebas text-green-400 tracking-wider">
                     R$ {totalRevenue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase mb-1">Custos Totais</p>
-                  <p className="text-xl font-semibold text-red-400">
+                  <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1 tracking-widest">
+                    Custos Totais
+                  </p>
+                  <p className="text-2xl font-bebas text-red-400 tracking-wider">
                     R$ {totalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase mb-1">Lucro BK</p>
-                  <p className={`text-xl font-semibold ${profit >= 0 ? "text-green-400" : "text-red-400"}`}>
+                  <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1 tracking-widest">
+                    Lucro Final
+                  </p>
+                  <p
+                    className={`text-3xl font-bebas tracking-widest ${profit >= 0 ? "text-green-400" : "text-red-400"}`}
+                  >
                     R$ {profit.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
@@ -518,7 +584,7 @@ const AdminOpportunityDetail = () => {
 
           {/* --- TAB REPERTORIO --- */}
           <TabsContent value="repertorio">
-            <div className="glass-card rounded-lg p-6">
+            <div className="glass-card rounded-lg p-6 bg-black/10">
               <Label className="text-muted-foreground text-xs uppercase mb-4 block tracking-widest">
                 Repertório Solicitado / Setlist (Auto-save)
               </Label>
@@ -532,15 +598,14 @@ const AdminOpportunityDetail = () => {
           </TabsContent>
         </Tabs>
 
-        {/* MODAL RESET BK (SUBSTITUI CONFIRM DO BROWSER) */}
+        {/* MODAL RESET BK NEON (SUBSTITUI CONFIRM DO BROWSER) */}
         {resetDialogOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in">
-            <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-2xl border-2 border-neon-pink shadow-[0_0_50px_rgba(255,0,128,0.2)]">
-              <h2 className="font-bebas text-4xl mb-4 text-white flex items-center gap-3">
-                <AlertTriangle className="text-neon-pink" /> RESETAR?
-              </h2>
+            <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-2xl border-2 border-neon-pink shadow-2xl text-center">
+              <AlertTriangle className="text-neon-pink mx-auto mb-6" size={48} />
+              <h2 className="font-bebas text-4xl mb-4 text-white tracking-[0.1em] uppercase">Resetar?</h2>
               <p className="text-gray-400 text-sm mb-10 leading-relaxed">
-                Deseja apagar sua edição personalizada e voltar para o prompt padrão da banda?
+                Apagar estratégia personalizada e restaurar o Dossiê Mestre (QI 147)?
               </p>
               <div className="flex flex-col gap-3 font-bold">
                 <Button
