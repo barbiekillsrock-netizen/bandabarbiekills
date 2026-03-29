@@ -5,10 +5,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { LogOut, Search, Eye, Plus, Settings } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 import AdminNewOpportunityDialog from "@/components/AdminNewOpportunityDialog";
+import AdminTemplatesTab from "@/components/AdminTemplatesTab";
 
 type Opportunity = Tables<"opportunities">;
 
