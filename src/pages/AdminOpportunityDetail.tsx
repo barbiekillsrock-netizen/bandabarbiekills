@@ -388,6 +388,13 @@ const AdminOpportunityDetail = () => {
                 <Button variant="neonPink" onClick={addRevenue} className="font-bold px-10 h-11 uppercase text-xs">
                   Adicionar
                 </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setCatalogOpen(true)}
+                  className="h-11 border-neon-pink text-neon-pink hover:bg-neon-pink/10 font-bold uppercase text-xs px-6"
+                >
+                  <Package size={16} className="mr-2" /> Importar do Catálogo
+                </Button>
               </div>
             </div>
 
