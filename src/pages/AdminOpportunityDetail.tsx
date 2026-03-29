@@ -53,7 +53,7 @@ const AdminOpportunityDetail = () => {
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
   const [newRevTitle, setNewRevTitle] = useState("");
-
+  const [catalogOpen, setCatalogOpen] = useState(false);
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
