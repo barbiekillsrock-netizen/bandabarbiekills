@@ -43,21 +43,16 @@ const AdminOpportunityDetail = () => {
   const [costs, setCosts] = useState<CostItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // AI state
   const [aiLoading, setAiLoading] = useState(false);
   const [aiMessage, setAiMessage] = useState("");
   const [aiModalOpen, setAiModalOpen] = useState(false);
 
-  // Debounce refs
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
   const customPromptRef = useRef<ReturnType<typeof setTimeout>>();
 
-  // Master prompt fallback
   const [masterPrompt, setMasterPrompt] = useState("");
-
-  // New item forms
   const [newRevTitle, setNewRevTitle] = useState("");
   const [newRevValue, setNewRevValue] = useState("");
   const [newCostDesc, setNewCostDesc] = useState("");
@@ -107,35 +102,30 @@ const AdminOpportunityDetail = () => {
 
   const handleStatusChange = async (status: string) => {
     await updateField("status", status);
-    toast.success(`Status atualizado para "${statusOptions.find((s) => s.value === status)?.label}"`);
+    toast.success(`Status atualizado`);
   };
 
   const handleResetPrompt = async () => {
-    if (!confirm("Deseja resetar a estratégia para o padrão global?")) return;
+    if (!confirm("Resetar para o padrão global?")) return;
     await updateField("custom_prompt", null);
-    toast.success("Estratégia resetada para o padrão");
+    toast.success("Prompt resetado");
   };
 
   const handleGenerateAI = async () => {
     if (!opp) return;
     const promptToUse = opp.custom_prompt?.trim() || masterPrompt;
-    if (!promptToUse) {
-      toast.error("Configure o Prompt Mestre em Configurações.");
-      return;
-    }
     setAiLoading(true);
     try {
       const message = await generateAISalesMessage(opp, promptToUse);
       setAiMessage(message);
       setAiModalOpen(true);
     } catch (err: any) {
-      toast.error(err.message || "Erro ao gerar mensagem de IA");
+      toast.error(err.message || "Erro na IA");
     } finally {
       setAiLoading(false);
     }
   };
 
-  // Finance and items logic remains same...
   const addRevenue = async () => {
     if (!newRevTitle.trim() || !id) return;
     const { data } = await supabase
@@ -147,14 +137,12 @@ const AdminOpportunityDetail = () => {
       setRevenues((prev) => [...prev, data]);
       setNewRevTitle("");
       setNewRevValue("");
-      toast.success("Receita adicionada");
     }
   };
 
   const deleteRevenue = async (revId: string) => {
     await supabase.from("revenue_items").delete().eq("id", revId);
     setRevenues((prev) => prev.filter((r) => r.id !== revId));
-    toast.success("Receita removida");
   };
 
   const addCost = async () => {
@@ -168,68 +156,147 @@ const AdminOpportunityDetail = () => {
       setCosts((prev) => [...prev, data]);
       setNewCostDesc("");
       setNewCostValue("");
-      toast.success("Custo adicionado");
     }
   };
 
   const deleteCost = async (costId: string) => {
     await supabase.from("cost_items").delete().eq("id", costId);
     setCosts((prev) => prev.filter((c) => c.id !== costId));
-    toast.success("Custo removido");
   };
 
   const totalRevenue = revenues.reduce((sum, r) => sum + (r.sale_value || 0), 0);
   const totalCost = costs.reduce((sum, c) => sum + (c.cost_value || 0), 0);
   const profit = totalRevenue - totalCost;
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-muted-foreground">Carregando...</p>
-      </div>
-    );
-  }
-
+  if (loading) return <div className="p-8 text-center text-muted-foreground">Carregando...</div>;
   if (!opp) return null;
 
   return (
     <>
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
-        <title>{opp.client_name} | CRM Barbie Kills</title>
+        <title>{opp.client_name} | CRM</title>
       </Helmet>
       <div className="min-h-screen bg-background p-4 md:p-8 max-w-5xl mx-auto">
-        <Button variant="ghost" onClick={() => navigate("/admin")} className="mb-6 text-muted-foreground">
-          <ArrowLeft size={18} />
-          <span className="ml-2">Voltar</span>
+        <Button variant="ghost" onClick={() => navigate("/admin")} className="mb-6">
+          <ArrowLeft size={18} className="mr-2" /> Voltar
         </Button>
 
-        <div className="glass-card rounded-lg p-6 mb-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h1 className="font-bebas text-3xl tracking-wider text-foreground">{opp.client_name}</h1>
-              <p className="text-muted-foreground text-sm mt-1">
-                {opp.event_type || "Tipo não informado"} • {opp.location || "Local não informado"}
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button onClick={handleGenerateAI} disabled={aiLoading} className="bg-neon-pink hover:bg-neon-pink/80 text-white font-bold">
-                <Sparkles size={16} className="mr-2" />
-                {aiLoading ? "Gerando..." : "Gerar Mensagem"}
-              </Button>
-              <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
-                <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {statusOptions.map((s) => (
-                    <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+        <div className="glass-card rounded-lg p-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <h1 className="font-bebas text-3xl tracking-wider">{opp.client_name}</h1>
+            <p className="text-muted-foreground text-sm">
+              {opp.event_type} • {opp.location}
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Button onClick={handleGenerateAI} disabled={aiLoading} className="bg-neon-pink hover:bg-neon-pink/80">
+              <Sparkles size={16} className="mr-2" /> {aiLoading ? "Gerando..." : "Gerar Mensagem"}
+            </Button>
+            <Select value={opp.status || "new"} onValueChange={handleStatusChange}>
+              <SelectTrigger className={`w-40 border ${statusColors[opp.status || "new"]}`}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {statusOptions.map((s) => (
+                  <SelectItem key={s.value} value={s.value}>
+                    {s.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
+
+        <Tabs defaultValue="resumo">
+          <TabsList className="mb-4">
+            <TabsTrigger value="resumo">Resumo</TabsTrigger>
+            <TabsTrigger value="financeiro">Calculadora</TabsTrigger>
+            <TabsTrigger value="repertorio">Repertório</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="resumo" className="space-y-6">
+            <div className="glass-card rounded-lg p-6 border border-neon-pink/30 relative">
+              <div className="flex justify-between items-center mb-2">
+                <Label className="text-neon-pink text-xs font-bold uppercase tracking-wider">
+                  🎯 Estratégia Personalizada
+                </Label>
+                {opp.custom_prompt && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleResetPrompt}
+                    className="h-6 text-[10px] text-muted-foreground hover:text-white"
+                  >
+                    <RotateCcw size={10} className="mr-1" /> Resetar Padrão
+                  </Button>
+                )}
+              </div>
+              <textarea
+                className="w-full min-h-[160px] bg-background/50 border border-neon-pink/40 rounded-md p-3 text-sm resize-y focus:ring-1 focus:ring-neon-pink outline-none"
+                value={opp.custom_prompt ?? masterPrompt}
+                onChange={(e) => handleDebouncedSave("custom_prompt", e.target.value, customPromptRef)}
+              />
+              <div className="flex justify-between mt-2 text-[10px] text-muted-foreground uppercase font-semibold">
+                <span>{opp.custom_prompt ? "🚀 Personalizado" : "🏠 Global"}</span>
+                <span>Auto-save: 2s</span>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-xs uppercase tracking-wider mb-2 block text-muted-foreground">
+                Perfil do Cliente
+              </Label>
+              <textarea
+                className="w-full min-h-[100px] bg-background border rounded-md p-3 text-sm outline-none focus:ring-1 focus:ring-ring"
+                value={opp.client_profile || ""}
+                onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)}
+              />
+            </div>
+
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-xs uppercase tracking-wider mb-2 block text-muted-foreground">Histórico</Label>
+              <textarea
+                className="w-full min-h-[100px] bg-background border rounded-md p-3 text-sm outline-none focus:ring-1 focus:ring-ring"
+                value={opp.negotiation_history || ""}
+                onChange={(e) => handleDebouncedSave("negotiation_history", e.target.value, negotiationRef)}
+              />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="financeiro" className="space-y-6">
+            <div className="glass-card rounded-lg p-6">
+              <h2 className="font-bebas text-xl mb-4">Financeiro</h2>
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <p className="text-[10px] text-muted-foreground">RECEITA</p>
+                  <p className="text-green-400 font-bold">R$ {totalRevenue.toLocaleString("pt-BR")}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-muted-foreground">CUSTO</p>
+                  <p className="text-red-400 font-bold">R$ {totalCost.toLocaleString("pt-BR")}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-muted-foreground">LUCRO</p>
+                  <p className={`font-bold ${profit >= 0 ? "text-green-400" : "text-red-400"}`}>
+                    R$ {profit.toLocaleString("pt-BR")}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="repertorio">
+            <div className="glass-card rounded-lg p-6">
+              <Label className="text-xs uppercase tracking-wider mb-2 block text-muted-foreground">Setlist</Label>
+              <textarea
+                className="w-full min-h-[200px] bg-background border rounded-md p-3 text-sm outline-none"
+                value={opp.requested_repertoire || ""}
+                onChange={(e) => handleDebouncedSave("requested_repertoire", e.target.value, repertoireRef)}
+              />
+            </div>
+          </TabsContent>
+        </Tabs>
 
         <AiMessageModal
           open={aiModalOpen}
@@ -238,25 +305,9 @@ const AdminOpportunityDetail = () => {
           opportunityId={opp.id}
           phone={opp.phone}
         />
+      </div>
+    </>
+  );
+};
 
-        <Tabs defaultValue="resumo">
-          <TabsList className="w-full md:w-auto mb-4">
-            <TabsTrigger value="resumo">Resumo</TabsTrigger>
-            <TabsTrigger value="financeiro">Calculadora Financeira</TabsTrigger>
-            <TabsTrigger value="repertorio">Repertório / Setlist</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="resumo" className="space-y-6">
-            {/* Custom Prompt Card - REVISADO */}
-            <div className="glass-card rounded-lg p-6 border border-neon-pink/30 relative">
-              <div className="flex items-center justify-between mb-2">
-                <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">
-                  🎯 Estratégia de Abordagem Personalizada
-                </Label>
-                {opp.custom_prompt && (
-                  <button 
-                    onClick={handleResetPrompt}
-                    className="text-muted-foreground hover:text-white flex items-center gap-1 text-[10px] transition-colors"
-                    title="Voltar ao prompt global"
-                  >
-                    <RotateCcw size
+export default AdminOpportunityDetail;
