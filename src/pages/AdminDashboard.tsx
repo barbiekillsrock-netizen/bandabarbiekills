@@ -69,7 +69,7 @@ const AdminDashboard = () => {
           {/* Header com Logo + CRM */}
           <div className="flex items-center gap-4 mb-8">
             <img
-              src="/logo.png"
+              src="/barbie-kills-banda-eventos-casamentos-nav.webp"
               alt="Logo"
               className="h-12 md:h-14 w-auto object-contain"
               onError={(e) => (e.currentTarget.style.display = "none")}
