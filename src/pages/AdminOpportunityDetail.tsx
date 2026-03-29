@@ -52,6 +52,10 @@ const AdminOpportunityDetail = () => {
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
+  const customPromptRef = useRef<ReturnType<typeof setTimeout>>();
+
+  // Master prompt fallback
+  const [masterPrompt, setMasterPrompt] = useState("");
 
   // New item forms
   const [newRevTitle, setNewRevTitle] = useState("");
