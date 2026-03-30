@@ -70,7 +70,7 @@ const AdminTemplatesTab = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Excluir este template?")) return;
+    if (!confirm("Excluir este item do catálogo?")) return;
     await supabase.from("standard_revenue_items").delete().eq("id", id);
     setItems((prev) => prev.filter((i) => i.id !== id));
     toast.success("Template excluído");
