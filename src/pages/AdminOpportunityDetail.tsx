@@ -460,7 +460,7 @@ const AdminOpportunityDetail = () => {
                           <Input
                             id={`cn-${rev.id}`}
                             placeholder="Item..."
-                            className="h-11 text-base bg-transparent border-white/10 font-sans"
+                            className="h-11 text-base bg-black/40 border-white/10 font-sans rounded-md p-4"
                           />
                           <Input
                             id={`cv-${rev.id}`}
