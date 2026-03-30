@@ -572,7 +572,7 @@ const AdminOpportunityDetail = () => {
                             <FileText size={12} /> Justificativa / Pitch IA
                           </Label>
                           <textarea
-                            className="w-full h-[120px] bg-black/40 border border-white/5 rounded-xl p-4 text-sm text-gray-300 outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
+                            className="w-full h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
                             value={rev.description || ""}
                             onChange={(e) => {
                               const val = e.target.value;
