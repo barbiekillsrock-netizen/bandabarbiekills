@@ -47,7 +47,7 @@ const AdminTemplatesTab = () => {
       setItems((prev) => [data, ...prev]);
       setNewTitle("");
       setNewDesc("");
-      toast.success("Template criado!");
+      toast.success("Item adicionado ao catálogo!");
     }
   };
 
