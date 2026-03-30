@@ -66,7 +66,7 @@ const ImportCatalogModal = ({ open, onOpenChange, opportunityId, onImported }: I
           <p className="text-muted-foreground py-4">Carregando...</p>
         ) : templates.length === 0 ? (
           <p className="text-muted-foreground py-4 text-center">
-            Nenhum template cadastrado. Crie templates em /admin → Templates de Proposta.
+            Nenhum item cadastrado. Adicione itens em /admin → Catálogo BK.
           </p>
         ) : (
           <div className="space-y-3 mt-2">
