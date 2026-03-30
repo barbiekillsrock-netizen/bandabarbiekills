@@ -58,7 +58,7 @@ const ImportCatalogModal = ({ open, onOpenChange, opportunityId, onImported }: I
       <DialogContent className="bg-[#111] border-neon-pink/30 max-w-lg max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="font-bebas text-2xl tracking-wider text-foreground flex items-center gap-2">
-            <Package size={20} className="text-neon-pink" /> Catálogo de Templates
+            <Package size={20} className="text-neon-pink" /> Catálogo BK
           </DialogTitle>
         </DialogHeader>
 
