@@ -130,7 +130,7 @@ const AdminTemplatesTab = () => {
                   <Input
                     value={editTitle}
                     onChange={(e) => setEditTitle(e.target.value)}
-                    className="bg-black/40 border-neon-pink/40 h-11 text-base font-bold"
+                    className="bg-black/40 border-neon-pink/40 rounded-md p-4 h-auto text-base font-sans text-foreground"
                   />
                   <textarea
                     value={editDesc}
