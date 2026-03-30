@@ -8,11 +8,12 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, FileText } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, FileText, BookOpen } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
 import AiMessageModal from "@/components/AiMessageModal";
+import ImportCatalogModal from "@/components/ImportCatalogModal";
 
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items"> & { cost_items?: Tables<"cost_items">[] };
@@ -52,6 +53,7 @@ const AdminOpportunityDetail = () => {
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
   const [newRevTitle, setNewRevTitle] = useState("");
+  const [catalogOpen, setCatalogOpen] = useState(false);
 
   const negotiationRef = useRef<ReturnType<typeof setTimeout>>();
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
@@ -262,6 +264,13 @@ const AdminOpportunityDetail = () => {
           phone={opp.phone}
         />
 
+        <ImportCatalogModal
+          open={catalogOpen}
+          onOpenChange={setCatalogOpen}
+          opportunityId={opp.id}
+          onImported={fetchData}
+        />
+
         <Tabs defaultValue="resumo">
           <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg">
             <TabsTrigger value="resumo" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
@@ -338,7 +347,7 @@ const AdminOpportunityDetail = () => {
                 </div>
               </div>
               <textarea
-                className="w-full min-h-[160px] bg-background border border-neon-pink/40 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-sans"
+                className="w-full min-h-[160px] bg-black/40 border border-neon-pink/40 rounded-md p-4 text-base text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-sans leading-relaxed"
                 value={localCustomPrompt}
                 onChange={(e) => setLocalCustomPrompt(e.target.value)}
               />
@@ -349,7 +358,7 @@ const AdminOpportunityDetail = () => {
                 Perfil do Cliente (Auto-save)
               </Label>
               <textarea
-                className="w-full min-h-[120px] bg-transparent border border-white/10 rounded-md p-3 text-sm focus:border-white/30 outline-none font-sans"
+                className="w-full min-h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:border-white/30 outline-none font-sans leading-relaxed"
                 value={opp.client_profile || ""}
                 onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)}
                 placeholder="Descreva preferências, estilo..."
@@ -361,7 +370,7 @@ const AdminOpportunityDetail = () => {
                 Histórico de Negociação (Auto-save)
               </Label>
               <textarea
-                className="w-full min-h-[120px] bg-transparent border border-white/10 rounded-md p-3 text-sm focus:border-white/30 outline-none font-sans"
+                className="w-full min-h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:border-white/30 outline-none font-sans leading-relaxed"
                 value={opp.negotiation_history || ""}
                 onChange={(e) => handleDebouncedSave("negotiation_history", e.target.value, negotiationRef)}
                 placeholder="Registre contatos anteriores..."
@@ -381,11 +390,18 @@ const AdminOpportunityDetail = () => {
                     value={newRevTitle}
                     onChange={(e) => setNewRevTitle(e.target.value)}
                     placeholder="Ex: Show Trio Golden Pulse"
-                    className="bg-black/40 border-white/10 h-11"
+                    className="bg-black/40 border-white/10 rounded-md p-4 h-auto text-base font-sans text-foreground"
                   />
                 </div>
                 <Button variant="neonPink" onClick={addRevenue} className="font-bold px-10 h-11 uppercase text-xs">
                   Adicionar
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setCatalogOpen(true)}
+                  className="border-neon-pink text-neon-pink hover:bg-neon-pink/10 font-bold px-6 h-11 uppercase text-xs"
+                >
+                  <BookOpen size={16} className="mr-2" /> Importar do Catálogo
                 </Button>
               </div>
             </div>
@@ -451,13 +467,13 @@ const AdminOpportunityDetail = () => {
                           <Input
                             id={`cn-${rev.id}`}
                             placeholder="Item..."
-                            className="h-11 text-base bg-transparent border-white/10 font-sans"
+                            className="h-11 text-base bg-black/40 border-white/10 font-sans rounded-md p-4"
                           />
                           <Input
                             id={`cv-${rev.id}`}
                             placeholder="R$"
                             type="number"
-                            className={`h-11 w-32 bg-transparent border-white/10 ${financialNumberClass}`}
+                            className={`h-11 w-32 bg-black/40 border-white/10 rounded-md p-4 ${financialNumberClass}`}
                           />
                           <Button
                             size="sm"
@@ -563,7 +579,7 @@ const AdminOpportunityDetail = () => {
                             <FileText size={12} /> Justificativa / Pitch IA
                           </Label>
                           <textarea
-                            className="w-full h-[120px] bg-black/40 border border-white/5 rounded-xl p-4 text-sm text-gray-300 outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
+                            className="w-full h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
                             value={rev.description || ""}
                             onChange={(e) => {
                               const val = e.target.value;
@@ -616,7 +632,7 @@ const AdminOpportunityDetail = () => {
                 Setlist / Obs Técnicas
               </Label>
               <textarea
-                className="w-full min-h-[400px] bg-background border border-white/10 rounded-xl p-6 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed font-mono"
+                className="w-full min-h-[400px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed font-sans"
                 value={opp.requested_repertoire || ""}
                 onChange={(e) => updateField("requested_repertoire", e.target.value)}
               />

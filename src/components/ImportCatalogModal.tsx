@@ -45,7 +45,7 @@ const ImportCatalogModal = ({ open, onOpenChange, opportunityId, onImported }: I
         opportunity_id: opportunityId,
       }]);
     if (error) {
-      toast.error("Erro ao importar template");
+      toast.error("Erro ao importar item");
     } else {
       toast.success(`"${template.title}" importado!`);
       onImported();
@@ -58,7 +58,7 @@ const ImportCatalogModal = ({ open, onOpenChange, opportunityId, onImported }: I
       <DialogContent className="bg-[#111] border-neon-pink/30 max-w-lg max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="font-bebas text-2xl tracking-wider text-foreground flex items-center gap-2">
-            <Package size={20} className="text-neon-pink" /> Catálogo de Templates
+            <Package size={20} className="text-neon-pink" /> Catálogo BK
           </DialogTitle>
         </DialogHeader>
 
@@ -66,7 +66,7 @@ const ImportCatalogModal = ({ open, onOpenChange, opportunityId, onImported }: I
           <p className="text-muted-foreground py-4">Carregando...</p>
         ) : templates.length === 0 ? (
           <p className="text-muted-foreground py-4 text-center">
-            Nenhum template cadastrado. Crie templates em /admin → Templates de Proposta.
+            Nenhum item cadastrado. Adicione itens em /admin → Catálogo BK.
           </p>
         ) : (
           <div className="space-y-3 mt-2">

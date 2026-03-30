@@ -106,7 +106,7 @@ const AdminDashboard = () => {
               Leads
             </TabsTrigger>
             <TabsTrigger value="templates" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
-              Templates de Proposta
+              Catálogo BK
             </TabsTrigger>
           </TabsList>
 

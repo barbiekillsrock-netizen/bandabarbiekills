@@ -40,14 +40,14 @@ const AdminTemplatesTab = () => {
       .select()
       .single();
     if (error) {
-      toast.error("Erro ao criar template");
+      toast.error("Erro ao criar item");
       return;
     }
     if (data) {
       setItems((prev) => [data, ...prev]);
       setNewTitle("");
       setNewDesc("");
-      toast.success("Template criado!");
+      toast.success("Item adicionado ao catálogo!");
     }
   };
 
@@ -66,14 +66,14 @@ const AdminTemplatesTab = () => {
       ),
     );
     setEditingId(null);
-    toast.success("Template atualizado!");
+    toast.success("Item atualizado!");
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Excluir este template?")) return;
+    if (!confirm("Excluir este item do catálogo?")) return;
     await supabase.from("standard_revenue_items").delete().eq("id", id);
     setItems((prev) => prev.filter((i) => i.id !== id));
-    toast.success("Template excluído");
+    toast.success("Item excluído do catálogo");
   };
 
   const startEdit = (item: StandardItem) => {
@@ -87,14 +87,14 @@ const AdminTemplatesTab = () => {
       {/* Create new */}
       <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 bg-black/40 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
         <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
-          <Plus size={18} className="text-neon-pink" /> Novo Template
+          <Plus size={18} className="text-neon-pink" /> Novo Item do Catálogo
         </h2>
         <div className="space-y-3">
           <Input
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
-            placeholder="Título do template (ex: Show Trio Acústico)"
-            className="bg-black/40 border-white/10 h-11 text-base"
+            placeholder="Título do item (ex: Show Trio Acústico)"
+            className="bg-black/40 border-white/10 rounded-md p-4 h-auto text-base font-sans text-foreground"
           />
           <textarea
             value={newDesc}
@@ -108,16 +108,16 @@ const AdminTemplatesTab = () => {
             disabled={!newTitle.trim()}
             className="font-bold px-10 h-11 uppercase text-xs"
           >
-            <Plus size={16} className="mr-2" /> Criar Template
+            <Plus size={16} className="mr-2" /> Adicionar ao Catálogo
           </Button>
         </div>
       </div>
 
       {/* List */}
       {loading ? (
-        <p className="text-muted-foreground">Carregando templates...</p>
+        <p className="text-muted-foreground">Carregando catálogo...</p>
       ) : items.length === 0 ? (
-        <p className="text-muted-foreground text-center py-8">Nenhum template cadastrado.</p>
+        <p className="text-muted-foreground text-center py-8">Nenhum item no catálogo.</p>
       ) : (
         <div className="space-y-4">
           {items.map((item) => (
@@ -130,7 +130,7 @@ const AdminTemplatesTab = () => {
                   <Input
                     value={editTitle}
                     onChange={(e) => setEditTitle(e.target.value)}
-                    className="bg-black/40 border-neon-pink/40 h-11 text-base font-bold"
+                    className="bg-black/40 border-neon-pink/40 rounded-md p-4 h-auto text-base font-sans text-foreground"
                   />
                   <textarea
                     value={editDesc}
