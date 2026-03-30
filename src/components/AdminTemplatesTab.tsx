@@ -40,7 +40,7 @@ const AdminTemplatesTab = () => {
       .select()
       .single();
     if (error) {
-      toast.error("Erro ao criar template");
+      toast.error("Erro ao criar item");
       return;
     }
     if (data) {
