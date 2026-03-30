@@ -625,7 +625,7 @@ const AdminOpportunityDetail = () => {
                 Setlist / Obs Técnicas
               </Label>
               <textarea
-                className="w-full min-h-[400px] bg-background border border-white/10 rounded-xl p-6 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed font-mono"
+                className="w-full min-h-[400px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed font-sans"
                 value={opp.requested_repertoire || ""}
                 onChange={(e) => updateField("requested_repertoire", e.target.value)}
               />
