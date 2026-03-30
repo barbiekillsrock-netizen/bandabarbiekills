@@ -466,7 +466,7 @@ const AdminOpportunityDetail = () => {
                             id={`cv-${rev.id}`}
                             placeholder="R$"
                             type="number"
-                            className={`h-11 w-32 bg-transparent border-white/10 ${financialNumberClass}`}
+                            className={`h-11 w-32 bg-black/40 border-white/10 rounded-md p-4 ${financialNumberClass}`}
                           />
                           <Button
                             size="sm"
