@@ -383,7 +383,7 @@ const AdminOpportunityDetail = () => {
                     value={newRevTitle}
                     onChange={(e) => setNewRevTitle(e.target.value)}
                     placeholder="Ex: Show Trio Golden Pulse"
-                    className="bg-black/40 border-white/10 h-11"
+                    className="bg-black/40 border-white/10 rounded-md p-4 h-auto text-base font-sans text-foreground"
                   />
                 </div>
                 <Button variant="neonPink" onClick={addRevenue} className="font-bold px-10 h-11 uppercase text-xs">
