@@ -149,6 +149,17 @@ const AdminOpportunityDetail = () => {
     setRevenues((prev) => prev.map((r) => (r.id === revId ? { ...r, sale_value: newValue } : r)));
   };
 
+  const updateRevenueTitle = async (revId: string, newTitle: string) => {
+    await supabase.from("revenue_items").update({ title: newTitle }).eq("id", revId);
+    setRevenues((prev) => prev.map((r) => (r.id === revId ? { ...r, title: newTitle } : r)));
+    toast.success("Título salvo");
+  };
+
+  const updateRevenueDescription = async (revId: string, newDesc: string) => {
+    await supabase.from("revenue_items").update({ description: newDesc }).eq("id", revId);
+    toast.success("Descrição salva");
+  };
+
   const deleteRevenue = async (revId: string) => {
     if (!confirm("Excluir este serviço?")) return;
     await supabase.from("revenue_items").delete().eq("id", revId);
