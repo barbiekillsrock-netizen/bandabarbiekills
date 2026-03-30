@@ -66,7 +66,7 @@ const AdminTemplatesTab = () => {
       ),
     );
     setEditingId(null);
-    toast.success("Template atualizado!");
+    toast.success("Item atualizado!");
   };
 
   const handleDelete = async (id: string) => {
