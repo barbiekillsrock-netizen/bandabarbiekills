@@ -87,14 +87,14 @@ const AdminTemplatesTab = () => {
       {/* Create new */}
       <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 bg-black/40 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
         <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
-          <Plus size={18} className="text-neon-pink" /> Novo Template
+          <Plus size={18} className="text-neon-pink" /> Novo Item do Catálogo
         </h2>
         <div className="space-y-3">
           <Input
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
-            placeholder="Título do template (ex: Show Trio Acústico)"
-            className="bg-black/40 border-white/10 h-11 text-base"
+            placeholder="Título do item (ex: Show Trio Acústico)"
+            className="bg-black/40 border-white/10 rounded-md p-4 h-auto text-base font-sans text-foreground"
           />
           <textarea
             value={newDesc}
@@ -108,7 +108,7 @@ const AdminTemplatesTab = () => {
             disabled={!newTitle.trim()}
             className="font-bold px-10 h-11 uppercase text-xs"
           >
-            <Plus size={16} className="mr-2" /> Criar Template
+            <Plus size={16} className="mr-2" /> Adicionar ao Catálogo
           </Button>
         </div>
       </div>
