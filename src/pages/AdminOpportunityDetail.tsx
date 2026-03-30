@@ -340,7 +340,7 @@ const AdminOpportunityDetail = () => {
                 </div>
               </div>
               <textarea
-                className="w-full min-h-[160px] bg-background border border-neon-pink/40 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-sans"
+                className="w-full min-h-[160px] bg-black/40 border border-neon-pink/40 rounded-md p-4 text-base text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-sans leading-relaxed"
                 value={localCustomPrompt}
                 onChange={(e) => setLocalCustomPrompt(e.target.value)}
               />
