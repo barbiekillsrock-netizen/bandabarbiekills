@@ -429,20 +429,53 @@ const AdminOpportunityDetail = () => {
                     className="glass-card rounded-2xl border-2 border-white/5 overflow-hidden bg-black/40 shadow-xl"
                   >
                     <div className="p-6 bg-white/5 flex justify-between items-center border-b border-white/10">
-                      <div className="flex items-center gap-4">
-                        <div className="bg-neon-pink/20 p-2 rounded text-neon-pink font-bold text-xs uppercase tracking-tighter">
+                      <div className="flex items-center gap-4 flex-1 min-w-0">
+                        <div className="bg-neon-pink/20 p-2 rounded text-neon-pink font-bold text-xs uppercase tracking-tighter shrink-0">
                           ITEM BK
                         </div>
-                        <h3 className="font-bebas text-2xl text-foreground tracking-wide">{rev.title}</h3>
+                        <Input
+                          defaultValue={rev.title}
+                          onBlur={(e) => {
+                            if (e.target.value !== rev.title) updateRevenueTitle(rev.id, e.target.value);
+                          }}
+                          className="font-bebas text-2xl tracking-wide text-foreground bg-transparent border-transparent hover:border-white/10 focus:border-neon-pink/40 h-auto p-2"
+                        />
                       </div>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => deleteRevenue(rev.id)}
-                        className="text-red-500/50 hover:text-red-500"
+                        className="text-red-500/50 hover:text-red-500 shrink-0"
                       >
                         <Trash2 size={18} />
                       </Button>
+                    </div>
+
+                    {/* Descrição (abaixo do header, sem IA) */}
+                    <div className="px-6 pt-4 pb-2 border-b border-white/5">
+                      <Label className="text-[10px] uppercase font-bold text-muted-foreground mb-2 block">
+                        Descrição
+                      </Label>
+                      <textarea
+                        className="w-full h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
+                        value={rev.description || ""}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setRevenues((prev) =>
+                            prev.map((r) => (r.id === rev.id ? { ...r, description: val } : r)),
+                          );
+                        }}
+                        placeholder="Descreva o serviço..."
+                      />
+                      <div className="flex justify-end mt-2">
+                        <Button
+                          size="sm"
+                          onClick={() => updateRevenueDescription(rev.id, rev.description || "")}
+                          className="h-7 bg-white/10 hover:bg-neon-pink text-white text-xs font-bold px-4"
+                        >
+                          <Save size={12} className="mr-1" /> Salvar Descrição
+                        </Button>
+                      </div>
                     </div>
 
                     <div className="p-8 grid md:grid-cols-2 gap-12 bg-gradient-to-br from-transparent to-white/[0.01]">
@@ -479,23 +512,55 @@ const AdminOpportunityDetail = () => {
                             id={`cn-${rev.id}`}
                             placeholder="Item..."
                             className="h-11 text-base bg-black/40 border-white/10 font-sans rounded-md p-4"
+                            onKeyDown={(e) => {
+                              if (e.key === "Tab" && !e.shiftKey) {
+                                const valInput = document.getElementById(`cv-${rev.id}`);
+                                if (valInput && !(valInput as HTMLInputElement).value) {
+                                  // let default tab go to value field
+                                } else {
+                                  e.preventDefault();
+                                  document.getElementById(`add-cost-${rev.id}`)?.focus();
+                                }
+                              }
+                            }}
                           />
                           <Input
                             id={`cv-${rev.id}`}
                             placeholder="R$"
                             type="number"
                             className={`h-11 w-32 bg-black/40 border-white/10 rounded-md p-4 ${financialNumberClass}`}
+                            onKeyDown={(e) => {
+                              if (e.key === "Tab" && !e.shiftKey) {
+                                e.preventDefault();
+                                document.getElementById(`add-cost-${rev.id}`)?.focus();
+                              }
+                            }}
                           />
                           <Button
+                            id={`add-cost-${rev.id}`}
                             size="sm"
                             className="h-11 bg-white/5 hover:bg-neon-pink transition-all px-6"
                             onClick={() => {
-                              const n = (document.getElementById(`cn-${rev.id}`) as HTMLInputElement).value;
-                              const v = (document.getElementById(`cv-${rev.id}`) as HTMLInputElement).value;
-                              if (n && v) {
-                                addCostToRevenue(rev.id, n, parseFloat(v));
-                                (document.getElementById(`cn-${rev.id}`) as HTMLInputElement).value = "";
-                                (document.getElementById(`cv-${rev.id}`) as HTMLInputElement).value = "";
+                              const nEl = document.getElementById(`cn-${rev.id}`) as HTMLInputElement;
+                              const vEl = document.getElementById(`cv-${rev.id}`) as HTMLInputElement;
+                              if (nEl.value && vEl.value) {
+                                addCostToRevenue(rev.id, nEl.value, parseFloat(vEl.value));
+                                nEl.value = "";
+                                vEl.value = "";
+                                nEl.focus();
+                              }
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                const nEl = document.getElementById(`cn-${rev.id}`) as HTMLInputElement;
+                                const vEl = document.getElementById(`cv-${rev.id}`) as HTMLInputElement;
+                                if (nEl.value && vEl.value) {
+                                  addCostToRevenue(rev.id, nEl.value, parseFloat(vEl.value));
+                                  nEl.value = "";
+                                  vEl.value = "";
+                                  setTimeout(() => nEl.focus(), 50);
+                                }
                               }
                             }}
                           >
@@ -533,7 +598,10 @@ const AdminOpportunityDetail = () => {
                                 className="h-11 bg-neon-pink text-white font-bold text-xs px-4"
                                 onClick={() => {
                                   const val = (document.getElementById(`ma-${rev.id}`) as HTMLInputElement).value;
-                                  if (val) updateRevenueValue(rev.id, itemTotalCost + parseFloat(val));
+                                  if (val) {
+                                    updateRevenueValue(rev.id, itemTotalCost + parseFloat(val));
+                                    (document.getElementById(`ma-${rev.id}`) as HTMLInputElement).value = "";
+                                  }
                                 }}
                               >
                                 RECALCULAR
@@ -566,7 +634,13 @@ const AdminOpportunityDetail = () => {
                             <Input
                               type="number"
                               value={rev.sale_value || ""}
-                              onChange={(e) => updateRevenueValue(rev.id, parseFloat(e.target.value))}
+                              onChange={(e) => {
+                                const newVal = parseFloat(e.target.value);
+                                updateRevenueValue(rev.id, newVal);
+                                // Clear margin absolute field when directly editing sale value
+                                const maEl = document.getElementById(`ma-${rev.id}`) as HTMLInputElement;
+                                if (maEl) maEl.value = "";
+                              }}
                               className={`bg-black/40 border-neon-pink/40 h-14 ${financialNumberClass} text-pink-500`}
                             />
                           </div>
@@ -584,24 +658,6 @@ const AdminOpportunityDetail = () => {
                             </div>
                           </div>
                         </div>
-
-                        <div className="space-y-2">
-                          <Label className="text-[10px] uppercase font-bold text-muted-foreground flex items-center gap-2">
-                            <FileText size={12} /> Justificativa / Pitch IA
-                          </Label>
-                          <textarea
-                            className="w-full h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
-                            value={rev.description || ""}
-                            onChange={(e) => {
-                              const val = e.target.value;
-                              setRevenues((prev) =>
-                                prev.map((r) => (r.id === rev.id ? { ...r, description: val } : r)),
-                              );
-                              supabase.from("revenue_items").update({ description: val }).eq("id", rev.id).then();
-                            }}
-                            placeholder="Descreva benefícios técnicos para o pitch..."
-                          />
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -609,25 +665,25 @@ const AdminOpportunityDetail = () => {
               })}
             </div>
 
-            {/* SUMÁRIO FINAL */}
-            <div className="glass-card rounded-2xl p-10 bg-white/[0.02] border-2 border-white/10 shadow-2xl">
-              <h2 className="font-bebas text-2xl tracking-[0.3em] mb-10 text-center text-white uppercase opacity-40">
-                Dossiê de Resultados
+            {/* RESULTADO */}
+            <div className="glass-card rounded-xl p-6 bg-white/[0.02] border border-white/10">
+              <h2 className="font-bebas text-lg tracking-[0.2em] mb-4 text-center text-white uppercase opacity-40">
+                Resultado
               </h2>
-              <div className="grid grid-cols-3 gap-8 text-center items-center">
-                <div className="space-y-2">
+              <div className="grid grid-cols-3 gap-4 text-center items-center">
+                <div>
                   <p className="text-xs text-muted-foreground uppercase font-black tracking-widest">Receita Bruta</p>
                   <p className={financialNumberClass}>
                     R$ {totalRevenue.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
-                <div className="space-y-2">
+                <div>
                   <p className="text-xs text-muted-foreground uppercase font-black tracking-widest">Custos Totais</p>
                   <p className={financialNumberClass}>
                     R$ {totalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                   </p>
                 </div>
-                <div className="space-y-2 p-6 bg-neon-pink/10 rounded-2xl border-2 border-neon-pink/20">
+                <div className="p-4 bg-neon-pink/10 rounded-xl border border-neon-pink/20">
                   <p className="text-xs text-neon-pink uppercase font-black tracking-widest">Lucro BK</p>
                   <p className={financialNumberClass}>
                     R$ {profit.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
