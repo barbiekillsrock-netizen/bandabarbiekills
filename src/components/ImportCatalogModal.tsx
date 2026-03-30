@@ -45,7 +45,7 @@ const ImportCatalogModal = ({ open, onOpenChange, opportunityId, onImported }: I
         opportunity_id: opportunityId,
       }]);
     if (error) {
-      toast.error("Erro ao importar template");
+      toast.error("Erro ao importar item");
     } else {
       toast.success(`"${template.title}" importado!`);
       onImported();
