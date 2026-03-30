@@ -363,7 +363,7 @@ const AdminOpportunityDetail = () => {
                 Histórico de Negociação (Auto-save)
               </Label>
               <textarea
-                className="w-full min-h-[120px] bg-transparent border border-white/10 rounded-md p-3 text-sm focus:border-white/30 outline-none font-sans"
+                className="w-full min-h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:border-white/30 outline-none font-sans leading-relaxed"
                 value={opp.negotiation_history || ""}
                 onChange={(e) => handleDebouncedSave("negotiation_history", e.target.value, negotiationRef)}
                 placeholder="Registre contatos anteriores..."
