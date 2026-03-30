@@ -351,7 +351,7 @@ const AdminOpportunityDetail = () => {
                 Perfil do Cliente (Auto-save)
               </Label>
               <textarea
-                className="w-full min-h-[120px] bg-transparent border border-white/10 rounded-md p-3 text-sm focus:border-white/30 outline-none font-sans"
+                className="w-full min-h-[120px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:border-white/30 outline-none font-sans leading-relaxed"
                 value={opp.client_profile || ""}
                 onChange={(e) => handleDebouncedSave("client_profile", e.target.value, profileRef)}
                 placeholder="Descreva preferências, estilo..."
