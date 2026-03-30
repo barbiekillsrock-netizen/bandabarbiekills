@@ -73,7 +73,7 @@ const AdminTemplatesTab = () => {
     if (!confirm("Excluir este item do catálogo?")) return;
     await supabase.from("standard_revenue_items").delete().eq("id", id);
     setItems((prev) => prev.filter((i) => i.id !== id));
-    toast.success("Template excluído");
+    toast.success("Item excluído do catálogo");
   };
 
   const startEdit = (item: StandardItem) => {
