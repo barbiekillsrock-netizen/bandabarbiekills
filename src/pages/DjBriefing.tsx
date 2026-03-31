@@ -302,7 +302,7 @@ const DjBriefing = () => {
 
           {/* SEÇÃO 2: DESEJOS */}
           <section>
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mb-6">🎵 Para Animar Ainda Mais</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mb-6">Para Animar Ainda Mais</h2>
             <div className="space-y-3">
               {wishlist.map((item, i) => (
                 <div key={i} className="flex gap-2">
