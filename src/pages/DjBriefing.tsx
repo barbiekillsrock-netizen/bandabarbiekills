@@ -237,7 +237,7 @@ const DjBriefing = () => {
                   )}
                   {sd.observations && (
                     <div>
-                      <h3 className="font-bebas text-lg text-cyan-400 tracking-wider">Observações</h3>
+                      <h3 className="font-bebas text-lg text-white tracking-wider">Observações</h3>
                       <p className="text-sm text-white">{sd.observations}</p>
                     </div>
                   )}
