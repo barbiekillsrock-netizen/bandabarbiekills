@@ -76,7 +76,7 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
     if (!phone) return;
     const cleanPhone = phone.replace(/\D/g, "");
     const message = encodeURIComponent(
-      `Olá! \n\nPara que a trilha sonora do seu evento fique perfeita, preparamos um formulário rápido para você definir suas preferências musicais para o nosso DJ.\n\nÉ só clicar no link abaixo e preencher:\n${briefingUrl}\n\nQualquer dúvida, estamos à disposição! \n— Equipe Barbie Kills`,
+      `Olá! \n\nPara que a trilha sonora do seu evento fique perfeita, preparamos um formulário rápido para você definir suas preferências musicais para o nosso DJ.\n\nÉ só clicar no link abaixo e preencher:\n${briefingUrl}\n\nQualquer dúvida, estamos à disposição! \nEquipe Barbie Kills`,
     );
     window.open(`https://wa.me/55${cleanPhone}?text=${message}`, "_blank");
   };
