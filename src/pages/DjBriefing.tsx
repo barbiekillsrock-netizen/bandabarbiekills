@@ -287,8 +287,8 @@ const DjBriefing = () => {
                         key={level}
                         type="button"
                         onClick={() => setStyles((prev) => ({ ...prev, [style]: level }))}
-                        className={`py-3 px-2 rounded-lg border text-xs font-bold uppercase tracking-wider transition-all ${LEVEL_COLORS[level]} ${
-                          styles[style] === level ? LEVEL_ACTIVE[level] : "opacity-60 hover:opacity-100"
+                        className={`py-3 px-2 rounded-lg border text-xs font-bold uppercase tracking-wider transition-all ${
+                          styles[style] === level ? LEVEL_SELECTED : LEVEL_UNSELECTED + " hover:bg-white/10"
                         }`}
                       >
                         {LEVEL_LABELS[level]}
