@@ -14,6 +14,7 @@ import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
 import AiMessageModal from "@/components/AiMessageModal";
 import ImportCatalogModal from "@/components/ImportCatalogModal";
+import DjBriefingTab from "@/components/DjBriefingTab";
 
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items"> & { cost_items?: Tables<"cost_items">[] };
@@ -298,6 +299,12 @@ const AdminOpportunityDetail = () => {
               className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs"
             >
               Repertório / Setlist
+            </TabsTrigger>
+            <TabsTrigger
+              value="dj-briefing"
+              className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs"
+            >
+              DJ Briefing
             </TabsTrigger>
           </TabsList>
 
@@ -704,6 +711,10 @@ const AdminOpportunityDetail = () => {
                 onChange={(e) => updateField("requested_repertoire", e.target.value)}
               />
             </div>
+          </TabsContent>
+
+          <TabsContent value="dj-briefing">
+            <DjBriefingTab opportunityId={opp.id} phone={opp.phone} />
           </TabsContent>
         </Tabs>
 
