@@ -276,7 +276,7 @@ const DjBriefing = () => {
         <div className="max-w-2xl mx-auto px-4 py-8 space-y-10">
           {/* SEÇÃO 1: TERMÔMETRO DE ESTILOS */}
           <section>
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mb-6">🎚️ Termômetro de Estilos</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mb-6">Termômetro de Estilos</h2>
             <div className="space-y-4">
               {STYLES.map((style) => (
                 <div key={style} className="bg-white/5 border border-white/10 rounded-xl p-4">
