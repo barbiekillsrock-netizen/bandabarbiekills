@@ -268,7 +268,7 @@ const DjBriefing = () => {
             />
             <h1 className="font-bebas text-3xl md:text-4xl text-white tracking-wider mb-2">Briefing para o DJ</h1>
             <p className="text-muted-foreground text-base">
-              Olá! Defina aqui a vibe que você deseja para a pista de dança com nosso DJ. 🎧
+              Olá! Defina aqui a vibe que você deseja para a pista de dança com nosso DJ.
             </p>
           </div>
         </div>
