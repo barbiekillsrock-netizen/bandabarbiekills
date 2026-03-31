@@ -203,7 +203,7 @@ const DjBriefing = () => {
               )}
               {wl.length > 0 && (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h2 className="font-bebas text-xl text-neon-pink mb-4 tracking-wider">Para Animar Ainda Mais</h2>
+                  <h2 className="font-bebas text-xl text-white mb-4 tracking-wider">Para Animar Ainda Mais</h2>
                   {wl.map((w, i) => (
                     <p key={i} className="text-sm text-white">
                       {w.music} — {w.artist}
