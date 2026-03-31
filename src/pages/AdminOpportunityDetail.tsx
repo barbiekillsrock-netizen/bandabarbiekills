@@ -300,6 +300,12 @@ const AdminOpportunityDetail = () => {
             >
               Repertório / Setlist
             </TabsTrigger>
+            <TabsTrigger
+              value="dj-briefing"
+              className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs"
+            >
+              DJ Briefing
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="resumo" className="space-y-6">
