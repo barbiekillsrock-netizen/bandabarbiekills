@@ -188,7 +188,7 @@ const DjBriefing = () => {
             <div className="text-left space-y-6">
               {Object.keys(sj).length > 0 && (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h2 className="font-bebas text-xl text-neon-pink mb-4 tracking-wider">Estilos Selecionados</h2>
+                  <h2 className="font-bebas text-xl text-white mb-4 tracking-wider">Estilos Selecionados</h2>
                   <div className="space-y-2">
                     {STYLES.map((s) =>
                       sj[s] ? (
