@@ -712,6 +712,10 @@ const AdminOpportunityDetail = () => {
               />
             </div>
           </TabsContent>
+
+          <TabsContent value="dj-briefing">
+            <DjBriefingTab opportunityId={opp.id} phone={opp.phone} />
+          </TabsContent>
         </Tabs>
 
         {/* MODAL RESET BK */}
