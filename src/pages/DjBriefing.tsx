@@ -364,7 +364,7 @@ const DjBriefing = () => {
 
           {/* SEÇÃO 3: GOVERNANÇA */}
           <section>
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mb-6">📋 Governança & Restrições</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mb-6">Governança & Restrições</h2>
             <div className="space-y-6">
               <div>
                 <Label className="text-white text-sm font-bold uppercase tracking-wider mb-2 block">
