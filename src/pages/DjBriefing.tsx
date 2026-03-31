@@ -30,18 +30,8 @@ const LEVEL_LABELS: Record<string, string> = {
   normal: "Normal",
   muito: "Muito",
 };
-const LEVEL_COLORS: Record<string, string> = {
-  nao_tocar: "border-red-500 bg-red-500/20 text-red-300",
-  pouco: "border-orange-400 bg-orange-400/20 text-orange-300",
-  normal: "border-cyan-400 bg-cyan-400/20 text-cyan-300",
-  muito: "border-neon-pink bg-neon-pink/20 text-pink-300",
-};
-const LEVEL_ACTIVE: Record<string, string> = {
-  nao_tocar: "!bg-red-500 !text-white !border-red-500",
-  pouco: "!bg-orange-400 !text-black !border-orange-400",
-  normal: "!bg-cyan-400 !text-black !border-cyan-400",
-  muito: "!bg-neon-pink !text-white !border-neon-pink",
-};
+const LEVEL_UNSELECTED = "border-white/10 bg-white/5 text-white/40";
+const LEVEL_SELECTED = "border-neon-pink bg-neon-pink text-white";
 
 type WishlistItem = { music: string; artist: string };
 
