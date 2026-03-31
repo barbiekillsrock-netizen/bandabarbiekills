@@ -56,6 +56,56 @@ export type Database = {
           },
         ]
       }
+      music_briefings: {
+        Row: {
+          authorized_names: string | null
+          blacklist: string | null
+          created_at: string | null
+          id: string
+          observations: string | null
+          opportunity_id: string
+          special_moments: Json | null
+          status: string | null
+          styles_json: Json | null
+          submitted_at: string | null
+          wishlist: Json | null
+        }
+        Insert: {
+          authorized_names?: string | null
+          blacklist?: string | null
+          created_at?: string | null
+          id?: string
+          observations?: string | null
+          opportunity_id: string
+          special_moments?: Json | null
+          status?: string | null
+          styles_json?: Json | null
+          submitted_at?: string | null
+          wishlist?: Json | null
+        }
+        Update: {
+          authorized_names?: string | null
+          blacklist?: string | null
+          created_at?: string | null
+          id?: string
+          observations?: string | null
+          opportunity_id?: string
+          special_moments?: Json | null
+          status?: string | null
+          styles_json?: Json | null
+          submitted_at?: string | null
+          wishlist?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "music_briefings_opportunity_id_fkey"
+            columns: ["opportunity_id"]
+            isOneToOne: true
+            referencedRelation: "opportunities"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       opportunities: {
         Row: {
           client_name: string
