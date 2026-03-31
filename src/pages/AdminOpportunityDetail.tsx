@@ -14,6 +14,7 @@ import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
 import AiMessageModal from "@/components/AiMessageModal";
 import ImportCatalogModal from "@/components/ImportCatalogModal";
+import DjBriefingTab from "@/components/DjBriefingTab";
 
 type Opportunity = Tables<"opportunities">;
 type RevenueItem = Tables<"revenue_items"> & { cost_items?: Tables<"cost_items">[] };
