@@ -378,11 +378,11 @@ const DjBriefing = () => {
                 />
               </div>
               <div>
-                <Label className="text-red-400 text-sm font-bold uppercase tracking-wider mb-2 block">
-                  🚫 Blacklist — O que NÃO Tocar
+                <Label className="text-white text-sm font-bold uppercase tracking-wider mb-2 block">
+                  O QUE NÃO TOCAR
                 </Label>
                 <textarea
-                  className="w-full min-h-[100px] bg-black/40 border border-red-500/20 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-red-500/50"
+                  className="w-full min-h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-neon-pink/50"
                   value={blacklist}
                   onChange={(e) => setBlacklist(e.target.value)}
                   placeholder="Músicas, artistas ou estilos que devem ser evitados..."
