@@ -330,7 +330,7 @@ const DjBriefing = () => {
               </Button>
             </div>
 
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mt-10 mb-6">✨ Momentos Especiais</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mt-10 mb-6">Momentos Especiais</h2>
             <p className="text-muted-foreground text-sm mb-4">
               Entrada, dança dos noivos, buquê, saída... associe a música ao momento.
             </p>
