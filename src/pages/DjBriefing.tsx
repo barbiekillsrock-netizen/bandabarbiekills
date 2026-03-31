@@ -181,7 +181,7 @@ const DjBriefing = () => {
               Briefing Recebido com Sucesso!
             </h1>
             <p className="text-muted-foreground text-lg mb-12">
-              A Barbie Kills já está preparando a trilha do seu sonho. 🎶
+              A Barbie Kills já está preparando a trilha do seu sonho.
             </p>
 
             {/* Read-only summary */}
