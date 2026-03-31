@@ -6,9 +6,18 @@ import { Link2, Copy, ExternalLink, Music, Clock, CheckCircle, MessageCircle } f
 import { toast } from "sonner";
 
 const STYLES_LIST = [
-  "Axé", "Black Music", "Eletrônica (Dance / House / Psy)", "Flash Back anos 60/70/80",
-  "Forró", "Funk Brasileiro", "Lounge e Ambiente (início da festa)", "MPB",
-  "Pop Rock Nacional e Internacional", "Samba", "Pagode", "Sertanejo",
+  "Axé",
+  "Black Music",
+  "Eletrônica (Dance / House / Psy)",
+  "Flash Back anos 60/70/80",
+  "Forró",
+  "Funk Brasileiro",
+  "Lounge e Ambiente (início da festa)",
+  "MPB",
+  "Pop Rock Nacional e Internacional",
+  "Samba",
+  "Pagode",
+  "Sertanejo",
 ];
 
 const LEVEL_LABELS: Record<string, string> = {
@@ -42,7 +51,9 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
     setLoading(false);
   }, [opportunityId]);
 
-  useEffect(() => { fetchBriefing(); }, [fetchBriefing]);
+  useEffect(() => {
+    fetchBriefing();
+  }, [fetchBriefing]);
 
   const handleGenerate = async () => {
     const { error } = await supabase
@@ -65,13 +76,12 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
     if (!phone) return;
     const cleanPhone = phone.replace(/\D/g, "");
     const message = encodeURIComponent(
-      `Olá! 🎶\n\nPara que a trilha sonora do seu evento fique perfeita, preparamos um formulário rápido para você definir suas preferências musicais para o nosso DJ.\n\nÉ só clicar no link abaixo e preencher:\n${briefingUrl}\n\nQualquer dúvida, estamos à disposição! 🎧\n— Equipe Barbie Kills`
+      `Olá! \n\nPara que a trilha sonora do seu evento fique perfeita, preparamos um formulário rápido para você definir suas preferências musicais para o nosso DJ.\n\nÉ só clicar no link abaixo e preencher:\n${briefingUrl}\n\nQualquer dúvida, estamos à disposição! \n— Equipe Barbie Kills`,
     );
     window.open(`https://wa.me/55${cleanPhone}?text=${message}`, "_blank");
   };
 
-  if (loading)
-    return <div className="text-center py-12 text-muted-foreground">Carregando...</div>;
+  if (loading) return <div className="text-center py-12 text-muted-foreground">Carregando...</div>;
 
   // ─── STATUS: NÃO ENVIADO ────────────────────────
   if (!briefing) {
@@ -98,7 +108,13 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
   // ─── STATUS: PENDENTE ────────────────────────────
   if (briefing.status === "pending") {
     const createdDate = briefing.created_at
-      ? new Date(briefing.created_at).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
+      ? new Date(briefing.created_at).toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        })
       : "";
     return (
       <div className="glass-card rounded-xl p-8 border border-white/10 bg-black/20 space-y-6">
@@ -118,7 +134,11 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
             value={briefingUrl}
             className="flex-1 bg-transparent text-sm text-foreground outline-none font-mono truncate"
           />
-          <Button size="sm" onClick={() => copyToClipboard(briefingUrl)} className="bg-white/10 hover:bg-white/20 text-white shrink-0">
+          <Button
+            size="sm"
+            onClick={() => copyToClipboard(briefingUrl)}
+            className="bg-white/10 hover:bg-white/20 text-white shrink-0"
+          >
             <Copy size={14} className="mr-1" /> Copiar
           </Button>
         </div>
@@ -159,7 +179,13 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
   const wl = (briefing.wishlist || []) as WishlistItem[];
   const sm = (briefing.special_moments || []) as WishlistItem[];
   const submittedDate = briefing.submitted_at
-    ? new Date(briefing.submitted_at).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
+    ? new Date(briefing.submitted_at).toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      })
     : "";
 
   return (
@@ -207,7 +233,9 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
         <div className="glass-card rounded-xl p-6 border border-white/10 bg-black/20">
           <h3 className="font-bebas text-xl text-neon-pink tracking-wider mb-4">Para Animar Ainda Mais</h3>
           {wl.map((w, i) => (
-            <p key={i} className="text-white text-sm py-1">{w.music} — <span className="text-muted-foreground">{w.artist}</span></p>
+            <p key={i} className="text-white text-sm py-1">
+              {w.music} — <span className="text-muted-foreground">{w.artist}</span>
+            </p>
           ))}
         </div>
       )}
@@ -217,7 +245,9 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
         <div className="glass-card rounded-xl p-6 border border-white/10 bg-black/20">
           <h3 className="font-bebas text-xl text-neon-pink tracking-wider mb-4">Momentos Especiais</h3>
           {sm.map((w, i) => (
-            <p key={i} className="text-white text-sm py-1">{w.music} — <span className="text-muted-foreground">{w.artist}</span></p>
+            <p key={i} className="text-white text-sm py-1">
+              {w.music} — <span className="text-muted-foreground">{w.artist}</span>
+            </p>
           ))}
         </div>
       )}
@@ -227,7 +257,9 @@ const DjBriefingTab = ({ opportunityId, phone }: DjBriefingTabProps) => {
         <div className="glass-card rounded-xl p-6 border border-white/10 bg-black/20 space-y-4">
           {briefing.authorized_names && (
             <div>
-              <Label className="text-xs uppercase font-bold text-muted-foreground tracking-wider">Autorizados a Pedir</Label>
+              <Label className="text-xs uppercase font-bold text-muted-foreground tracking-wider">
+                Autorizados a Pedir
+              </Label>
               <p className="text-white text-base mt-1">{briefing.authorized_names}</p>
             </div>
           )}
