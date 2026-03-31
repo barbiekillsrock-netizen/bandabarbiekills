@@ -389,11 +389,11 @@ const DjBriefing = () => {
                 />
               </div>
               <div>
-                <Label className="text-cyan-400 text-sm font-bold uppercase tracking-wider mb-2 block">
+                <Label className="text-white text-sm font-bold uppercase tracking-wider mb-2 block">
                   Observações Gerais
                 </Label>
                 <textarea
-                  className="w-full min-h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-cyan-400/50"
+                  className="w-full min-h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-neon-pink/50"
                   value={observations}
                   onChange={(e) => setObservations(e.target.value)}
                   placeholder="Detalhes adicionais, horários, momentos específicos, clima desejado..."
