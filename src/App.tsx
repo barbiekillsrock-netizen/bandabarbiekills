@@ -17,6 +17,7 @@ const PressKit = lazy(() => import("./pages/PressKit"));
 const Rider = lazy(() => import("./pages/Rider"));
 const Corporativo = lazy(() => import("./pages/Corporativo"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
+const DjBriefing = lazy(() => import("./pages/DjBriefing"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminOpportunityDetail = lazy(() => import("./pages/AdminOpportunityDetail"));
