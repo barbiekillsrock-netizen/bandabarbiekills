@@ -30,18 +30,8 @@ const LEVEL_LABELS: Record<string, string> = {
   normal: "Normal",
   muito: "Muito",
 };
-const LEVEL_COLORS: Record<string, string> = {
-  nao_tocar: "border-red-500 bg-red-500/20 text-red-300",
-  pouco: "border-orange-400 bg-orange-400/20 text-orange-300",
-  normal: "border-cyan-400 bg-cyan-400/20 text-cyan-300",
-  muito: "border-neon-pink bg-neon-pink/20 text-pink-300",
-};
-const LEVEL_ACTIVE: Record<string, string> = {
-  nao_tocar: "!bg-red-500 !text-white !border-red-500",
-  pouco: "!bg-orange-400 !text-black !border-orange-400",
-  normal: "!bg-cyan-400 !text-black !border-cyan-400",
-  muito: "!bg-neon-pink !text-white !border-neon-pink",
-};
+const LEVEL_UNSELECTED = "border-white/10 bg-white/5 text-white/40";
+const LEVEL_SELECTED = "border-neon-pink bg-neon-pink text-white";
 
 type WishlistItem = { music: string; artist: string };
 
@@ -191,14 +181,14 @@ const DjBriefing = () => {
               Briefing Recebido com Sucesso!
             </h1>
             <p className="text-muted-foreground text-lg mb-12">
-              A Barbie Kills já está preparando a trilha do seu sonho. 🎶
+              A Barbie Kills já está preparando a trilha do seu sonho.
             </p>
 
             {/* Read-only summary */}
             <div className="text-left space-y-6">
               {Object.keys(sj).length > 0 && (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h2 className="font-bebas text-xl text-neon-pink mb-4 tracking-wider">Estilos Selecionados</h2>
+                  <h2 className="font-bebas text-xl text-white mb-4 tracking-wider">Estilos Selecionados</h2>
                   <div className="space-y-2">
                     {STYLES.map((s) =>
                       sj[s] ? (
@@ -213,7 +203,7 @@ const DjBriefing = () => {
               )}
               {wl.length > 0 && (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h2 className="font-bebas text-xl text-neon-pink mb-4 tracking-wider">Para Animar Ainda Mais</h2>
+                  <h2 className="font-bebas text-xl text-white mb-4 tracking-wider">Para Animar Ainda Mais</h2>
                   {wl.map((w, i) => (
                     <p key={i} className="text-sm text-white">
                       {w.music} — {w.artist}
@@ -223,7 +213,7 @@ const DjBriefing = () => {
               )}
               {sm.length > 0 && (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <h2 className="font-bebas text-xl text-neon-pink mb-4 tracking-wider">Momentos Especiais</h2>
+                  <h2 className="font-bebas text-xl text-white mb-4 tracking-wider">Momentos Especiais</h2>
                   {sm.map((w, i) => (
                     <p key={i} className="text-sm text-white">
                       {w.music} — {w.artist}
@@ -235,19 +225,19 @@ const DjBriefing = () => {
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-4">
                   {sd.authorized_names && (
                     <div>
-                      <h3 className="font-bebas text-lg text-neon-pink tracking-wider">Autorizados a Pedir</h3>
+                      <h3 className="font-bebas text-lg text-white tracking-wider">Autorizados a Pedir</h3>
                       <p className="text-sm text-white">{sd.authorized_names}</p>
                     </div>
                   )}
                   {sd.blacklist && (
                     <div>
-                      <h3 className="font-bebas text-lg text-red-400 tracking-wider">Blacklist</h3>
+                      <h3 className="font-bebas text-lg text-white tracking-wider">O Que Não Tocar</h3>
                       <p className="text-sm text-white">{sd.blacklist}</p>
                     </div>
                   )}
                   {sd.observations && (
                     <div>
-                      <h3 className="font-bebas text-lg text-cyan-400 tracking-wider">Observações</h3>
+                      <h3 className="font-bebas text-lg text-white tracking-wider">Observações</h3>
                       <p className="text-sm text-white">{sd.observations}</p>
                     </div>
                   )}
@@ -278,7 +268,7 @@ const DjBriefing = () => {
             />
             <h1 className="font-bebas text-3xl md:text-4xl text-white tracking-wider mb-2">Briefing para o DJ</h1>
             <p className="text-muted-foreground text-base">
-              Olá! Defina aqui a vibe que você deseja para a pista de dança com nosso DJ. 🎧
+              Olá! Defina aqui a vibe que você deseja para a pista de dança com nosso DJ.
             </p>
           </div>
         </div>
@@ -286,7 +276,7 @@ const DjBriefing = () => {
         <div className="max-w-2xl mx-auto px-4 py-8 space-y-10">
           {/* SEÇÃO 1: TERMÔMETRO DE ESTILOS */}
           <section>
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mb-6">🎚️ Termômetro de Estilos</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mb-6">Termômetro de Estilos</h2>
             <div className="space-y-4">
               {STYLES.map((style) => (
                 <div key={style} className="bg-white/5 border border-white/10 rounded-xl p-4">
@@ -297,8 +287,8 @@ const DjBriefing = () => {
                         key={level}
                         type="button"
                         onClick={() => setStyles((prev) => ({ ...prev, [style]: level }))}
-                        className={`py-3 px-2 rounded-lg border text-xs font-bold uppercase tracking-wider transition-all ${LEVEL_COLORS[level]} ${
-                          styles[style] === level ? LEVEL_ACTIVE[level] : "opacity-60 hover:opacity-100"
+                        className={`py-3 px-2 rounded-lg border text-xs font-bold uppercase tracking-wider transition-all ${
+                          styles[style] === level ? LEVEL_SELECTED : LEVEL_UNSELECTED + " hover:bg-white/10"
                         }`}
                       >
                         {LEVEL_LABELS[level]}
@@ -312,7 +302,7 @@ const DjBriefing = () => {
 
           {/* SEÇÃO 2: DESEJOS */}
           <section>
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mb-6">🎵 Para Animar Ainda Mais</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mb-6">Para Animar Ainda Mais</h2>
             <div className="space-y-3">
               {wishlist.map((item, i) => (
                 <div key={i} className="flex gap-2">
@@ -340,7 +330,7 @@ const DjBriefing = () => {
               </Button>
             </div>
 
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mt-10 mb-6">✨ Momentos Especiais</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mt-10 mb-6">Momentos Especiais</h2>
             <p className="text-muted-foreground text-sm mb-4">
               Entrada, dança dos noivos, buquê, saída... associe a música ao momento.
             </p>
@@ -374,7 +364,7 @@ const DjBriefing = () => {
 
           {/* SEÇÃO 3: GOVERNANÇA */}
           <section>
-            <h2 className="font-bebas text-2xl text-neon-pink tracking-wider mb-6">📋 Governança & Restrições</h2>
+            <h2 className="font-bebas text-2xl text-white tracking-wider mb-6">Governança & Restrições</h2>
             <div className="space-y-6">
               <div>
                 <Label className="text-white text-sm font-bold uppercase tracking-wider mb-2 block">
@@ -388,22 +378,22 @@ const DjBriefing = () => {
                 />
               </div>
               <div>
-                <Label className="text-red-400 text-sm font-bold uppercase tracking-wider mb-2 block">
-                  🚫 Blacklist — O que NÃO Tocar
+                <Label className="text-white text-sm font-bold uppercase tracking-wider mb-2 block">
+                  O QUE NÃO TOCAR
                 </Label>
                 <textarea
-                  className="w-full min-h-[100px] bg-black/40 border border-red-500/20 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-red-500/50"
+                  className="w-full min-h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-neon-pink/50"
                   value={blacklist}
                   onChange={(e) => setBlacklist(e.target.value)}
                   placeholder="Músicas, artistas ou estilos que devem ser evitados..."
                 />
               </div>
               <div>
-                <Label className="text-cyan-400 text-sm font-bold uppercase tracking-wider mb-2 block">
+                <Label className="text-white text-sm font-bold uppercase tracking-wider mb-2 block">
                   Observações Gerais
                 </Label>
                 <textarea
-                  className="w-full min-h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-cyan-400/50"
+                  className="w-full min-h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base font-sans text-foreground outline-none focus:border-neon-pink/50"
                   value={observations}
                   onChange={(e) => setObservations(e.target.value)}
                   placeholder="Detalhes adicionais, horários, momentos específicos, clima desejado..."
