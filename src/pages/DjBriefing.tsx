@@ -231,7 +231,7 @@ const DjBriefing = () => {
                   )}
                   {sd.blacklist && (
                     <div>
-                      <h3 className="font-bebas text-lg text-red-400 tracking-wider">Blacklist</h3>
+                      <h3 className="font-bebas text-lg text-white tracking-wider">O Que Não Tocar</h3>
                       <p className="text-sm text-white">{sd.blacklist}</p>
                     </div>
                   )}
