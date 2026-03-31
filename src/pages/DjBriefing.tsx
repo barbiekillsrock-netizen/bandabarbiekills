@@ -225,7 +225,7 @@ const DjBriefing = () => {
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-4">
                   {sd.authorized_names && (
                     <div>
-                      <h3 className="font-bebas text-lg text-neon-pink tracking-wider">Autorizados a Pedir</h3>
+                      <h3 className="font-bebas text-lg text-white tracking-wider">Autorizados a Pedir</h3>
                       <p className="text-sm text-white">{sd.authorized_names}</p>
                     </div>
                   )}
