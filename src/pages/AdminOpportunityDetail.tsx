@@ -317,7 +317,7 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Telefone</Label>
-                  <p>{opp.phone || "—"}</p>
+                  <p className="text-base font-sans text-foreground">{opp.phone || "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Evento</Label>
