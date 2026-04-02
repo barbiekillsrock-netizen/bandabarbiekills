@@ -341,7 +341,7 @@ const AdminOpportunityDetail = () => {
             <div className="glass-card rounded-lg p-6 border-2 border-neon-pink/30 relative bg-black/40 shadow-[0_0_20px_rgba(255,0,128,0.1)]">
               <div className="flex justify-between items-center mb-4">
                 <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold">
-                  🎯 Estratégia de Abordagem Personalizada
+                  Estratégia de Abordagem Personalizada
                 </Label>
                 <div className="flex gap-2">
                   <Button
@@ -468,9 +468,7 @@ const AdminOpportunityDetail = () => {
                         value={rev.description || ""}
                         onChange={(e) => {
                           const val = e.target.value;
-                          setRevenues((prev) =>
-                            prev.map((r) => (r.id === rev.id ? { ...r, description: val } : r)),
-                          );
+                          setRevenues((prev) => prev.map((r) => (r.id === rev.id ? { ...r, description: val } : r)));
                         }}
                         placeholder="Descreva o serviço..."
                       />
