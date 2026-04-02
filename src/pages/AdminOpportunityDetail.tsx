@@ -329,7 +329,7 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
-                  <p>{opp.location || "—"}</p>
+                  <p className="text-base font-sans text-foreground">{opp.location || "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Público</Label>
