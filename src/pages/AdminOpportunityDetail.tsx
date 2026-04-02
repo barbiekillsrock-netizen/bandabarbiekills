@@ -700,9 +700,9 @@ const AdminOpportunityDetail = () => {
 
           <TabsContent value="repertorio">
             <div className="glass-card rounded-lg p-6 bg-black/10 border border-white/5 shadow-2xl">
-              <Label className="text-muted-foreground text-xs uppercase mb-4 block tracking-widest text-center opacity-60">
-                Setlist / Obs Técnicas
-              </Label>
+              <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
+                <Music size={18} className="text-neon-pink" /> Setlist / Obs Técnicas
+              </h2>
               <textarea
                 className="w-full min-h-[400px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed font-sans"
                 value={opp.requested_repertoire || ""}
