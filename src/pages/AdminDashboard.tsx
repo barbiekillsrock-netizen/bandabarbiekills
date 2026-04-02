@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { LogOut, Search, Eye, Plus, Settings } from "lucide-react";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { LogOut, Search, Eye, Plus, Settings, ArrowUpDown } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 import AdminNewOpportunityDialog from "@/components/AdminNewOpportunityDialog";
 import AdminTemplatesTab from "@/components/AdminTemplatesTab";
@@ -30,9 +31,16 @@ const statusLabel: Record<string, string> = {
   lost: "Perdido",
 };
 
+type SortField = "created_at" | "client_name" | "event_date";
+type SortDir = "asc" | "desc";
+
 const AdminDashboard = () => {
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [showArchived, setShowArchived] = useState(false);
+  const [sortField, setSortField] = useState<SortField>("created_at");
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [loading, setLoading] = useState(true);
   const [newDialogOpen, setNewDialogOpen] = useState(false);
   const { logout } = useAdminAuth();
@@ -49,14 +57,62 @@ const AdminDashboard = () => {
     fetchData();
   }, []);
 
-  const filtered = useMemo(
-    () => opportunities.filter((o) => o.client_name.toLowerCase().includes(search.toLowerCase())),
-    [opportunities, search],
-  );
+  const filtered = useMemo(() => {
+    let result = opportunities;
+
+    // Archive filter
+    if (!showArchived) {
+      result = result.filter((o) => !(o as any).archived);
+    } else {
+      result = result.filter((o) => (o as any).archived);
+    }
+
+    // Search
+    if (search) {
+      result = result.filter((o) => o.client_name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    // Status filter
+    if (statusFilter !== "all") {
+      result = result.filter((o) => (o.status || "new") === statusFilter);
+    }
+
+    // Sort
+    result = [...result].sort((a, b) => {
+      let valA: string | number = "";
+      let valB: string | number = "";
+
+      if (sortField === "created_at") {
+        valA = a.created_at || "";
+        valB = b.created_at || "";
+      } else if (sortField === "client_name") {
+        valA = a.client_name.toLowerCase();
+        valB = b.client_name.toLowerCase();
+      } else if (sortField === "event_date") {
+        valA = a.event_date || "";
+        valB = b.event_date || "";
+      }
+
+      if (valA < valB) return sortDir === "asc" ? -1 : 1;
+      if (valA > valB) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    return result;
+  }, [opportunities, search, statusFilter, showArchived, sortField, sortDir]);
 
   const handleLogout = async () => {
     await logout();
     navigate("/", { replace: true });
+  };
+
+  const toggleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortField(field);
+      setSortDir("asc");
+    }
   };
 
   return (
@@ -111,15 +167,43 @@ const AdminDashboard = () => {
           </TabsList>
 
           <TabsContent value="leads">
-            {/* Search */}
-            <div className="relative max-w-md mb-6">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Buscar por nome do cliente..."
-                className="pl-9"
-              />
+            {/* Filters row */}
+            <div className="flex flex-col md:flex-row gap-3 mb-6">
+              <div className="relative flex-1 max-w-md">
+                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Buscar por nome do cliente..."
+                  className="pl-9"
+                />
+              </div>
+
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full md:w-44 border-white/10">
+                  <SelectValue placeholder="Filtrar status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Todos os Status</SelectItem>
+                  <SelectItem value="new">Novo</SelectItem>
+                  <SelectItem value="contacted">Contatado</SelectItem>
+                  <SelectItem value="negotiating">Negociando</SelectItem>
+                  <SelectItem value="won">Fechado</SelectItem>
+                  <SelectItem value="lost">Perdido</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Button
+                variant={showArchived ? "default" : "outline"}
+                size="sm"
+                onClick={() => setShowArchived(!showArchived)}
+                className={showArchived
+                  ? "bg-red-600/20 text-red-300 border border-red-500/30 hover:bg-red-600/30"
+                  : "border-white/10 text-muted-foreground hover:bg-white/5"
+                }
+              >
+                {showArchived ? "Arquivados" : "Ativos"}
+              </Button>
             </div>
 
             {/* Table */}
@@ -132,12 +216,35 @@ const AdminDashboard = () => {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Cliente</TableHead>
+                      <TableHead
+                        className="cursor-pointer select-none hover:text-white transition-colors"
+                        onClick={() => toggleSort("client_name")}
+                      >
+                        <span className="flex items-center gap-1">
+                          Cliente
+                          <ArrowUpDown size={12} className={sortField === "client_name" ? "text-neon-pink" : "opacity-30"} />
+                        </span>
+                      </TableHead>
                       <TableHead className="hidden md:table-cell">Evento</TableHead>
-                      <TableHead className="hidden md:table-cell">Data</TableHead>
+                      <TableHead
+                        className="hidden md:table-cell cursor-pointer select-none hover:text-white transition-colors"
+                        onClick={() => toggleSort("event_date")}
+                      >
+                        <span className="flex items-center gap-1">
+                          Data
+                          <ArrowUpDown size={12} className={sortField === "event_date" ? "text-neon-pink" : "opacity-30"} />
+                        </span>
+                      </TableHead>
                       <TableHead className="hidden md:table-cell">Local</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead className="w-12" />
+                      <TableHead
+                        className="w-16 cursor-pointer select-none hover:text-white transition-colors"
+                        onClick={() => toggleSort("created_at")}
+                      >
+                        <span className="flex items-center gap-1">
+                          <ArrowUpDown size={12} className={sortField === "created_at" ? "text-neon-pink" : "opacity-30"} />
+                        </span>
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
