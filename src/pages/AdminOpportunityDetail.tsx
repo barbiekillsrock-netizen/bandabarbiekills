@@ -325,7 +325,7 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
-                  <p>{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
+                  <p className="text-base font-sans text-foreground">{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
