@@ -716,6 +716,18 @@ const AdminOpportunityDetail = () => {
           </TabsContent>
         </Tabs>
 
+        {/* ARQUIVAR OPORTUNIDADE */}
+        <div className="mt-12 border-t border-white/5 pt-8 pb-4 flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => setArchiveDialogOpen(true)}
+            className="text-red-400/60 hover:text-red-400 hover:bg-red-500/10 text-xs uppercase tracking-widest font-bold"
+          >
+            <Archive size={14} className="mr-2" />
+            Arquivar Oportunidade
+          </Button>
+        </div>
+
         {/* MODAL RESET BK */}
         {resetDialogOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md">
@@ -735,6 +747,39 @@ const AdminOpportunityDetail = () => {
                 <Button
                   variant="ghost"
                   onClick={() => setResetDialogOpen(false)}
+                  className="text-white opacity-40 hover:opacity-100 uppercase text-xs font-black"
+                >
+                  CANCELAR
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* MODAL ARQUIVAR */}
+        {archiveDialogOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md">
+            <div className="bg-[#111] w-[90%] max-w-sm p-10 rounded-3xl border-2 border-red-500/50 shadow-2xl text-center">
+              <Archive className="text-red-400 mx-auto mb-6" size={48} />
+              <h2 className="font-bebas text-4xl mb-4 text-white tracking-[0.1em] uppercase">Arquivar?</h2>
+              <p className="text-gray-400 text-sm mb-10 leading-relaxed uppercase font-bold tracking-widest opacity-60">
+                A oportunidade será removida da listagem mas permanecerá no banco de dados.
+              </p>
+              <div className="flex flex-col gap-3 font-bold">
+                <Button
+                  onClick={async () => {
+                    if (!id) return;
+                    await supabase.from("opportunities").update({ archived: true } as any).eq("id", id);
+                    toast.success("Oportunidade arquivada");
+                    navigate("/admin", { replace: true });
+                  }}
+                  className="bg-red-600 hover:bg-red-500 text-white py-8 text-xl font-bebas tracking-[0.2em]"
+                >
+                  SIM, ARQUIVAR
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => setArchiveDialogOpen(false)}
                   className="text-white opacity-40 hover:opacity-100 uppercase text-xs font-black"
                 >
                   CANCELAR

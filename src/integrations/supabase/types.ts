@@ -108,6 +108,7 @@ export type Database = {
       }
       opportunities: {
         Row: {
+          archived: boolean
           client_name: string
           client_profile: string | null
           created_at: string | null
@@ -124,6 +125,7 @@ export type Database = {
           status: string | null
         }
         Insert: {
+          archived?: boolean
           client_name: string
           client_profile?: string | null
           created_at?: string | null
@@ -140,6 +142,7 @@ export type Database = {
           status?: string | null
         }
         Update: {
+          archived?: boolean
           client_name?: string
           client_profile?: string | null
           created_at?: string | null
