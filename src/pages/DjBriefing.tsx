@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Plus, Trash2, Send, Music, CheckCircle } from "lucide-react";
+import { Plus, Trash2, Send, Music } from "lucide-react";
 import { toast } from "sonner";
 
 const STYLES = [
@@ -172,13 +172,12 @@ const DjBriefing = () => {
         <div className="min-h-screen bg-black p-4 md:p-8">
           <div className="max-w-2xl mx-auto text-center py-12">
             <img
-              src="/barbie-kills-banda-eventos-casamentos-nav.webp"
+              src="/barbie-kills-banda-eventos-casamentos.webp"
               alt="Barbie Kills"
-              className="h-12 mx-auto mb-6"
+              className="w-48 md:w-64 mx-auto mb-8"
             />
-            <CheckCircle className="text-green-400 mx-auto mb-6" size={64} />
             <h1 className="font-bebas text-4xl md:text-5xl text-white mb-4 tracking-wider">
-              Briefing Recebido com Sucesso!
+              Briefing Recebido com <span className="text-neon-pink">Sucesso</span>!
             </h1>
             <p className="text-muted-foreground text-lg mb-12">
               A Barbie Kills já está preparando a trilha do seu sonho.

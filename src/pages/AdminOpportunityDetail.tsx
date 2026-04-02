@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, BookOpen } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, BookOpen, Music } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
@@ -317,7 +317,7 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Telefone</Label>
-                  <p>{opp.phone || "—"}</p>
+                  <p className="text-base font-sans text-foreground">{opp.phone || "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Evento</Label>
@@ -325,11 +325,11 @@ const AdminOpportunityDetail = () => {
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
-                  <p>{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
+                  <p className="text-base font-sans text-foreground">{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
-                  <p>{opp.location || "—"}</p>
+                  <p className="text-base font-sans text-foreground">{opp.location || "—"}</p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Público</Label>
@@ -700,9 +700,9 @@ const AdminOpportunityDetail = () => {
 
           <TabsContent value="repertorio">
             <div className="glass-card rounded-lg p-6 bg-black/10 border border-white/5 shadow-2xl">
-              <Label className="text-muted-foreground text-xs uppercase mb-4 block tracking-widest text-center opacity-60">
-                Setlist / Obs Técnicas
-              </Label>
+              <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
+                <Music size={18} className="text-neon-pink" /> Setlist / Obs Técnicas
+              </h2>
               <textarea
                 className="w-full min-h-[400px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground focus:ring-1 focus:ring-neon-pink outline-none leading-relaxed font-sans"
                 value={opp.requested_repertoire || ""}
