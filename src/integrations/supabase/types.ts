@@ -242,7 +242,28 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_briefing_by_opportunity: {
+        Args: { p_opportunity_id: string }
+        Returns: {
+          authorized_names: string | null
+          blacklist: string | null
+          created_at: string | null
+          id: string
+          observations: string | null
+          opportunity_id: string
+          special_moments: Json | null
+          status: string | null
+          styles_json: Json | null
+          submitted_at: string | null
+          wishlist: Json | null
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "music_briefings"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
     }
     Enums: {
       [_ in never]: never
