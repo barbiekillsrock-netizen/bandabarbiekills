@@ -55,11 +55,9 @@ const DjBriefing = () => {
   useEffect(() => {
     if (!id) return;
     const load = async () => {
-      const { data, error } = await supabase
-        .from("music_briefings")
-        .select("*")
-        .eq("opportunity_id", id)
-        .maybeSingle();
+      const { data: rpcData, error } = await supabase
+        .rpc("get_briefing_by_opportunity", { p_opportunity_id: id });
+      const data = rpcData?.[0] ?? null;
 
       if (error || !data) {
         setNotFound(true);
