@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -20,9 +19,23 @@ export default defineConfig(({ mode }) => ({
       input: {
         main: path.resolve(__dirname, "index.html"),
       },
+      output: {
+        manualChunks: {
+          // Isola dependências pesadas em chunks separados
+          "vendor-react": ["react", "react-dom"],
+          "vendor-router": ["react-router"],
+          "vendor-supabase": ["@supabase/supabase-js"],
+          "vendor-ui": [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-select",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-tabs",
+          ],
+          "vendor-date": ["date-fns"],
+        },
+      },
     },
   },
-  // SSR configuration for prerendering
   ssr: {
     noExternal: ["react-helmet-async"],
   },
