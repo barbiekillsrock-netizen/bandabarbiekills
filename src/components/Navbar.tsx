@@ -68,8 +68,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-black backdrop-blur-lg border-b border-white/10" : "bg-black"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
+        isScrolled ? "bg-black/95 border-b border-white/10" : "bg-black"
       }`}
       aria-label="Navegação principal"
     >
