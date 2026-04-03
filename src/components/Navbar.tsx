@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom"; // Corrigido para react-router-dom
+
+import { Link, useLocation } from "react-router";
+
 import { Menu, X, Instagram, Youtube } from "lucide-react";
 
 const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
@@ -16,49 +18,74 @@ const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?:
 
 const socialLinks = [
   { href: "https://www.instagram.com/barbiekillsrock/", icon: Instagram, label: "Siga a Barbie Kills no Instagram" },
+
   {
     href: "https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1",
+
     icon: Youtube,
+
     label: "Assista aos vídeos da Barbie Kills no YouTube",
   },
+
   {
-    href: "https://open.spotify.com/artist/your-id", // Sugiro corrigir este link depois
+    href: "https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ",
+
     icon: null,
+
     label: "Ouça a Barbie Kills no Spotify",
   },
 ];
 
 const navLinks = [
   { href: "#historia", label: "História da Banda" },
+
   { href: "#diferencial", label: "Diferenciais" },
+
   { href: "#depoimentos", label: "Depoimentos" },
+
   { href: "#midia", label: "Vídeos e Mídia" },
+
   { href: "/blog", label: "Blog", isRoute: true },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const location = useLocation();
+
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     let ticking = false;
+
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           setIsScrolled(window.scrollY > 50);
+
           ticking = false;
         });
+
         ticking = true;
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
+
   const toggleMobileMenu = useCallback(() => setIsMobileMenuOpen((prev) => !prev), []);
+
+  const handleAnchorClick = (href: string) => {
+    if (!isHomePage && href.startsWith("#")) {
+      window.location.href = "/" + href;
+    }
+  };
 
   return (
     <nav
@@ -86,6 +113,8 @@ const Navbar = () => {
             />
           </Link>
 
+          {/* Desktop Navigation */}
+
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) =>
               link.isRoute ? (
@@ -100,49 +129,56 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={isHomePage ? link.href : "/" + link.href}
+                  onClick={() => handleAnchorClick(link.href)}
                   className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
                 >
                   {link.label}
                 </a>
               ),
             )}
+
             <div className="w-px h-5 bg-white/20" />
+
             <div className="flex items-center gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
-                    aria-label={social.label}
-                  >
-                    {Icon ? <Icon size={18} /> : <SpotifyIcon size={18} />}
-                  </a>
-                );
-              })}
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
+                  aria-label={social.label}
+                >
+                  {social.icon ? <social.icon size={18} /> : <SpotifyIcon size={18} />}
+                </a>
+              ))}
             </div>
+
             <div className="w-px h-5 bg-white/20" />
+
             <a
               href="https://wa.me/5519982846842"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
             >
               Contrate
             </a>
           </div>
 
+          {/* Mobile Menu Button */}
+
           <button
             className="lg:hidden text-foreground p-2"
             onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Menu - Conditional rendering instead of CSS hidden */}
 
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
@@ -152,8 +188,8 @@ const Navbar = () => {
                   <Link
                     key={link.href}
                     to={link.href}
+                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
                     onClick={closeMobileMenu}
-                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80"
                   >
                     {link.label}
                   </Link>
@@ -161,13 +197,37 @@ const Navbar = () => {
                   <a
                     key={link.href}
                     href={isHomePage ? link.href : "/" + link.href}
+                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
                     onClick={closeMobileMenu}
-                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80"
                   >
                     {link.label}
                   </a>
                 ),
               )}
+
+              <div className="flex items-center gap-5 py-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
+                    aria-label={social.label}
+                  >
+                    {social.icon ? <social.icon size={20} /> : <SpotifyIcon size={20} />}
+                  </a>
+                ))}
+              </div>
+
+              <a
+                href="https://wa.me/5519982846842"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-fit h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
+              >
+                Contrate
+              </a>
             </div>
           </div>
         )}
