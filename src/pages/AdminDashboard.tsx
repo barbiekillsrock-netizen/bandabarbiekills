@@ -214,8 +214,8 @@ const AdminDashboard = () => {
             ) : (
               <div className="glass-card rounded-lg overflow-hidden">
                 <Table>
-                  <TableHeader>
-                    <TableRow>
+                  <TableHeader className="bg-white/5">
+                    <TableRow className="border-b border-white/10 hover:bg-transparent">
                       <TableHead
                         className="cursor-pointer select-none hover:text-white transition-colors"
                         onClick={() => toggleSort("client_name")}
