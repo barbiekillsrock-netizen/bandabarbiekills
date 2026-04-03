@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom"; // Corrigido para react-router-dom
 import { Menu, X, Instagram, Youtube } from "lucide-react";
 
 const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
@@ -22,7 +22,7 @@ const socialLinks = [
     label: "Assista aos vídeos da Barbie Kills no YouTube",
   },
   {
-    href: "https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ",
+    href: "https://open.spotify.com/artist/your-id", // Sugiro corrigir este link depois
     icon: null,
     label: "Ouça a Barbie Kills no Spotify",
   },
@@ -60,12 +60,6 @@ const Navbar = () => {
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
   const toggleMobileMenu = useCallback(() => setIsMobileMenuOpen((prev) => !prev), []);
 
-  const handleAnchorClick = (href: string) => {
-    if (!isHomePage && href.startsWith("#")) {
-      window.location.href = "/" + href;
-    }
-  };
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
@@ -92,7 +86,6 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) =>
               link.isRoute ? (
@@ -107,7 +100,6 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={isHomePage ? link.href : "/" + link.href}
-                  onClick={() => handleAnchorClick(link.href)}
                   className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
                 >
                   {link.label}
@@ -116,68 +108,9 @@ const Navbar = () => {
             )}
             <div className="w-px h-5 bg-white/20" />
             <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
-                  aria-label={social.label}
-                >
-                  {social.icon ? <social.icon size={18} /> : <SpotifyIcon size={18} />}
-                </a>
-              ))}
-            </div>
-            <div className="w-px h-5 bg-white/20" />
-            <a
-              href="https://wa.me/5519982846842"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
-            >
-              Contrate
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-foreground p-2"
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu - Conditional rendering instead of CSS hidden */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) =>
-                link.isRoute ? (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
-                    onClick={closeMobileMenu}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={isHomePage ? link.href : "/" + link.href}
-                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80 hover:text-neon-pink transition-colors duration-300"
-                    onClick={closeMobileMenu}
-                  >
-                    {link.label}
-                  </a>
-                ),
-              )}
-              <div className="flex items-center gap-5 py-2">
-                {socialLinks.map((social) => (
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
                   <a
                     key={social.label}
                     href={social.href}
@@ -186,18 +119,55 @@ const Navbar = () => {
                     className="text-foreground/60 hover:text-neon-pink transition-colors duration-300"
                     aria-label={social.label}
                   >
-                    {social.icon ? <social.icon size={20} /> : <SpotifyIcon size={20} />}
+                    {Icon ? <Icon size={18} /> : <SpotifyIcon size={18} />}
                   </a>
-                ))}
-              </div>
-              <a
-                href="https://wa.me/5519982846842"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-fit h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200 !shadow-none !ring-0 !animate-none"
-              >
-                Contrate
-              </a>
+                );
+              })}
+            </div>
+            <div className="w-px h-5 bg-white/20" />
+            <a
+              href="https://wa.me/5519982846842"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-md border border-neon-pink text-neon-pink bg-transparent font-oswald text-sm font-medium uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-colors duration-200"
+            >
+              Contrate
+            </a>
+          </div>
+
+          <button
+            className="lg:hidden text-foreground p-2"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {isMobileMenuOpen && (
+          <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) =>
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={closeMobileMenu}
+                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={isHomePage ? link.href : "/" + link.href}
+                    onClick={closeMobileMenu}
+                    className="font-oswald text-sm uppercase tracking-widest text-foreground/80"
+                  >
+                    {link.label}
+                  </a>
+                ),
+              )}
             </div>
           </div>
         )}
