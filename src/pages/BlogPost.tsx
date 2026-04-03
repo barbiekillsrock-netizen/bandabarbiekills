@@ -15,6 +15,27 @@ const BlogPost = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  useEffect(() => {
+    const notifyIndexNow = async () => {
+      const data = {
+        host: "barbiekills.com.br",
+        key: "0d4f0a7723064ef38a617f3332619d1e",
+        keyLocation: "https://barbiekills.com.br/0d4f0a7723064ef38a617f3332619d1e.txt",
+        urlList: [window.location.href],
+      };
+      try {
+        await fetch("https://api.indexnow.org/indexnow", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      } catch (e) {
+        // Falha silenciosa
+      }
+    };
+    notifyIndexNow();
+  }, []);
+
   if (!post) {
     return <div className="text-white pt-32 text-center">Post não encontrado. Slug atual: {slug}</div>;
   }
