@@ -6,7 +6,6 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- FIX: LCP hero image preload with responsive hints -->
     <link
       rel="preload"
       as="image"
@@ -15,7 +14,6 @@
       fetchpriority="high"
     />
 
-    <!-- FIX: Single font preconnect + single stylesheet (removed duplicates) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -77,15 +75,6 @@
               "worstRating": "1",
               "reviewCount": "29"
             }
-          },
-          {
-            "@type": "VideoObject",
-            "name": "Barbie Kills ao Vivo — Show Completo",
-            "description": "Show completo da Barbie Kills ao vivo para casamentos e eventos corporativos em Campinas e SP.",
-            "thumbnailUrl": "https://img.youtube.com/vi/rAVb_-U7OAU/maxresdefault.jpg",
-            "uploadDate": "2024-06-15T09:00:00-03:00",
-            "contentUrl": "https://www.youtube.com/watch?v=rAVb_-U7OAU",
-            "embedUrl": "https://www.youtube.com/embed/rAVb_-U7OAU"
           }
         ]
       }
@@ -93,10 +82,9 @@
   </head>
 
   <body>
-    <div id="root"><!--ssr-outlet--></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- GA: deferred to after paint via idle callback -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -114,8 +102,9 @@
           };
           document.head.appendChild(s);
         }
-        if('requestIdleCallback' in window){
-          requestIdleCallback(function(){
+        // Carrega apenas quando o browser estiver ocioso para não travar o LCP
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
             setTimeout(loadGA, 3000);
           });
         } else {
