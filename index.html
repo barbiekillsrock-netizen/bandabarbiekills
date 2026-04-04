@@ -62,35 +62,47 @@
 
     <!-- Critical CSS inline: navbar + hero above-the-fold styles -->
     <style>
-      /* Cores e Reset básico */
-      :root{--background:270 100% 2%;--foreground:0 0% 100%;--neon-pink:330 100% 50%}
-      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-      html{overflow-x:hidden}
-      body{background:hsl(270 100% 2%);color:#fff;font-family:"Inter",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;margin:0}
-      #root{min-height:100vh}
+            /* Cores e Reset básico */
+            :root{--background:270 100% 2%;--foreground:0 0% 100%;--neon-pink:330 100% 50%}
+            *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+            html{overflow-x:hidden}
+            body{background:hsl(270 100% 2%);color:#fff;font-family:"Inter",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;margin:0}
+            #root{min-height:100vh}
 
-      /* Barra de Navegação */
-      nav{position:fixed;top:0;left:0;right:0;z-index:50;background:#000;min-height:72px}
+            /* Configuração da Barra de Navegação */
+            nav{position:fixed;top:0;left:0;right:0;z-index:50;background:#000;min-height:72px}
 
-      /* RESERVA DE ESPAÇO PARA O LOGO */
+            /* RESERVA DE ESPAÇO PARA O LOGO (Evita o pulo e acelera a renderização) */
+            .flex-shrink-0.flex.items-center {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 150px;
+              min-height: 40px;
+            }
+
+            /* Ajuste específico para Mobile (conforme o relatório do Google) */
+            @media (max-width: 768px) {
+              .flex-shrink-0.flex.items-center {
+                min-width: 336px; /* Largura que o Google detectou */
+                min-height: 46px;  /* Altura que o Google detectou */
+              }
+            }
+
+            /* Classes de utilidade para o logo */
+            .h-10{height:2.5rem}.md\:h-14{height:3.5rem}.w-auto{width:auto}
+            /* Reserva o espaço do logo imediatamente */
       .flex-shrink-0.flex.items-center {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
         min-width: 150px;
         min-height: 40px;
       }
 
-      /* Ajuste Mobile Unificado (768px) */
       @media (max-width: 768px) {
         .flex-shrink-0.flex.items-center {
-          min-width: 330px !important;
+          min-width: 330px !important; /* Tamanho exato do relatório */
           min-height: 45px !important;
         }
       }
-
-      /* Classes de utilidade */
-      .h-10{height:2.5rem}.md\:h-14{height:3.5rem}.w-auto{width:auto}
     </style>
 
     <meta property="og:locale" content="pt_BR" />
