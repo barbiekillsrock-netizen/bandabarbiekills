@@ -8,11 +8,12 @@ const HeroSection = () => {
         Isso permite que o navegador descubra a imagem instantaneamente sem esperar o CSS[cite: 34, 35, 77].
       */}
       <div className="absolute inset-0 lg:hidden">
+        {/* eslint-disable-next-line */}
         <img
           src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
           className="w-full h-full object-cover object-center"
-          fetchpriority="high"
+          {...{ fetchpriority: "high" } as any}
           loading="eager"
           decoding="sync"
         />
