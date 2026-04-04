@@ -6,12 +6,15 @@ const ManifestoSection = () => {
           {/* Coluna da Esquerda - Imagem */}
           <div className="relative">
             <img
-              src="/vocalista-banda-casamento.webp"
+              src="/vocalista-banda-casamento-1200w.webp"
+              srcSet="/vocalista-banda-casamento-400w.webp 400w, /vocalista-banda-casamento-800w.webp 800w, /vocalista-banda-casamento-1200w.webp 1200w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               alt="Vocalista da Barbie Kills cantando em festa de casamento"
               width={600}
               height={600}
               className="w-full h-auto aspect-[4/5] lg:aspect-square object-cover rounded-3xl"
               loading="lazy"
+              decoding="async"
             />
             {/* Glow Effect */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-neon-pink/20 to-transparent opacity-50 pointer-events-none" />
