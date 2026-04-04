@@ -106,12 +106,10 @@ const Navbar = () => {
               <img
                 src="/barbie-kills-banda-eventos-casamentos-nav.webp"
                 alt="Banda Barbie Kills em show para casamentos e eventos"
-                title="Banda Barbie Kills - Home"
-                /* Usamos as dimensões reais de exibição para evitar o aviso de 'Improperly Sized Images' */
-                width={150}
-                height={40}
+                /* Ajustamos para o tamanho que o navegador realmente usa */
+                width={336}
+                height={46}
                 className="h-10 md:h-14 w-auto aspect-auto"
-                /* Fetchpriority é vital para o LCP */
                 {...({ fetchpriority: "high" } as any)}
                 loading="eager"
                 decoding="sync"
