@@ -107,9 +107,9 @@ const Navbar = () => {
                 src="/barbie-kills-banda-eventos-casamentos-nav.webp"
                 alt="Banda Barbie Kills em show para casamentos e eventos"
                 title="Banda Barbie Kills - Home"
-                /* Usamos as dimensões que evitam o alerta de 'Improperly Sized Images' */
-                width={336}
-                height={46}
+                /* Ajuste exato para o que o Google pede no mobile */
+                width={330}
+                height={45}
                 className="h-10 md:h-14 w-auto aspect-auto"
                 {...({ fetchpriority: "high" } as any)}
                 loading="eager"
