@@ -12,7 +12,7 @@ const HeroSection = () => {
           src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
           alt="Show da banda de casamento Barbie Kills em Campinas e região"
           className="w-full h-full object-cover object-center"
-          fetchPriority="high"
+          fetchpriority="high"
           loading="eager"
           decoding="sync"
         />
