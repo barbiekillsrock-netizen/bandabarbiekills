@@ -101,16 +101,25 @@ const Navbar = () => {
             className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105"
             aria-label="Barbie Kills - Página Inicial"
           >
-            <img
-              src="/barbie-kills-banda-eventos-casamentos-nav.webp"
-              alt="Banda Barbie Kills em show para casamentos e eventos"
-              title="Banda Barbie Kills - Home"
-              width={160}
-              height={56}
-              className="h-10 md:h-14 w-auto aspect-auto"
-              fetchPriority="high"
-              loading="eager"
-            />
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
+                width={330}
+                height={45}
+              />
+              <img
+                src="/barbie-kills-banda-eventos-casamentos-nav.webp"
+                alt="Banda Barbie Kills em show para casamentos e eventos"
+                title="Banda Barbie Kills - Home"
+                width={160}
+                height={56}
+                className="h-10 md:h-14 w-auto aspect-auto"
+                {...{ fetchpriority: "high" } as any}
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </Link>
 
           {/* Desktop Navigation */}
