@@ -101,12 +101,13 @@ const Navbar = () => {
             aria-label="Barbie Kills - Página Inicial"
           >
             <picture>
-              {/* Mobile: Forçamos o uso do arquivo otimizado com as dimensões que o Lighthouse detectou */}
-              <source media="(max-width: 767px)" srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp" />
+              {/* Sincronizamos para 768px para bater com o index.html */}
+              <source media="(max-width: 768px)" srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp" />
               <img
                 src="/barbie-kills-banda-eventos-casamentos-nav.webp"
                 alt="Banda Barbie Kills em show para casamentos e eventos"
-                /* Ajustamos para o tamanho que o navegador realmente usa */
+                title="Banda Barbie Kills - Home"
+                /* Usamos as dimensões que evitam o alerta de 'Improperly Sized Images' */
                 width={336}
                 height={46}
                 className="h-10 md:h-14 w-auto aspect-auto"
