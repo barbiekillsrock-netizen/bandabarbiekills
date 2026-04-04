@@ -20,18 +20,13 @@ export default defineConfig(({ mode }) => ({
         main: path.resolve(__dirname, "index.html"),
       },
       output: {
-        manualChunks: {
-          // Isola dependências pesadas em chunks separados
-          "vendor-react": ["react", "react-dom"],
-          "vendor-router": ["react-router"],
-          "vendor-supabase": ["@supabase/supabase-js"],
-          "vendor-ui": [
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-select",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-tabs",
-          ],
-          "vendor-date": ["date-fns"],
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom')) return 'vendor-react';
+          if (id.includes('node_modules/react/')) return 'vendor-react';
+          if (id.includes('node_modules/react-router')) return 'vendor-router';
+          if (id.includes('node_modules/@supabase')) return 'vendor-supabase';
+          if (id.includes('node_modules/@radix-ui')) return 'vendor-ui';
+          if (id.includes('node_modules/date-fns')) return 'vendor-date';
         },
       },
     },
