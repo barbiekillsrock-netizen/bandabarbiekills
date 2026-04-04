@@ -230,12 +230,15 @@ const CidadeLanding = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="/interacao-banda-casamento-pista-cheia.webp"
+                src="/interacao-banda-casamento-pista-cheia-1200w.webp"
+                srcSet="/interacao-banda-casamento-pista-cheia-400w.webp 400w, /interacao-banda-casamento-pista-cheia-800w.webp 800w, /interacao-banda-casamento-pista-cheia-1200w.webp 1200w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 alt={`Banda Barbie Kills com pista cheia em evento em ${nome}`}
                 width={600}
                 height={400}
                 className="rounded-2xl w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div>
