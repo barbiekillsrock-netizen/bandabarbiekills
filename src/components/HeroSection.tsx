@@ -37,8 +37,8 @@ const HeroSection = () => {
           width={1200}
           height={1350}
           className="w-full h-full object-cover object-center"
-          fetchPriority="high"
-          loading="eager"
+           fetchpriority="high"
+           loading="eager"
           decoding="sync"
         />
       </div>
