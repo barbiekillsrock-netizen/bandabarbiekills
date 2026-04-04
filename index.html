@@ -12,6 +12,17 @@
 
     <!-- FIX: LCP hero image preload with responsive hints -->
 
+    <!-- Preload: navbar logo mobile (LCP element on mobile) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/barbie-kills-banda-eventos-casamentos-mobile.webp"
+      type="image/webp"
+      media="(max-width: 768px)"
+      fetchpriority="high"
+    />
+
+    <!-- Preload: hero image -->
     <link
       rel="preload"
       as="image"
@@ -48,6 +59,17 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap"
       />
     </noscript>
+
+    <!-- Critical CSS inline: navbar + hero above-the-fold styles -->
+    <style>
+      :root{--background:270 100% 2%;--foreground:0 0% 100%;--neon-pink:330 100% 50%}
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      html{overflow-x:hidden}
+      body{background:hsl(270 100% 2%);color:#fff;font-family:"Inter",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;margin:0}
+      #root{min-height:100vh}
+      nav{position:fixed;top:0;left:0;right:0;z-index:50;background:#000}
+      .h-10{height:2.5rem}.md\:h-14{height:3.5rem}.w-auto{width:auto}
+    </style>
 
     <meta property="og:locale" content="pt_BR" />
 

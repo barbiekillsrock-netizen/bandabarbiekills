@@ -59,21 +59,20 @@ const Navbar = () => {
 
   useEffect(() => {
     let ticking = false;
+    let lastScrollY = 0;
 
     const handleScroll = () => {
+      lastScrollY = window.scrollY;
       if (!ticking) {
         requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50);
-
+          setIsScrolled(lastScrollY > 50);
           ticking = false;
         });
-
         ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -105,8 +104,8 @@ const Navbar = () => {
               <source
                 media="(max-width: 768px)"
                 srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
-                width={330}
-                height={45}
+                width={336}
+                height={46}
               />
               <img
                 src="/barbie-kills-banda-eventos-casamentos-nav.webp"
@@ -117,7 +116,7 @@ const Navbar = () => {
                 className="h-10 md:h-14 w-auto aspect-auto"
                 {...{ fetchpriority: "high" } as any}
                 loading="eager"
-                decoding="async"
+                decoding="sync"
               />
             </picture>
           </Link>
