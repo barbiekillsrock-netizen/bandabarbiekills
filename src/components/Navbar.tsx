@@ -101,13 +101,12 @@ const Navbar = () => {
             aria-label="Barbie Kills - Página Inicial"
           >
             <picture>
-              {/* Sincronizamos para 768px para bater com o index.html */}
+              {/* Aqui dizemos: 'Se a tela for até 768px, use obrigatoriamente este arquivo' */}
               <source media="(max-width: 768px)" srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp" />
               <img
                 src="/barbie-kills-banda-eventos-casamentos-nav.webp"
                 alt="Banda Barbie Kills em show para casamentos e eventos"
-                title="Banda Barbie Kills - Home"
-                /* Ajuste exato para o que o Google pede no mobile */
+                /* Importante: O Google quer ver 330x45 no mobile para não dar erro */
                 width={330}
                 height={45}
                 className="h-10 md:h-14 w-auto aspect-auto"
