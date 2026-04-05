@@ -102,6 +102,11 @@ const Navbar = () => {
           >
             <picture>
               <source
+                srcSet="/barbie-kills-banda-eventos-casamentos.avif"
+                type="image/avif"
+                media="(max-width: 768px)"
+              />
+              <source
                 srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
                 type="image/webp"
                 media="(max-width: 768px)"

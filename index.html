@@ -3,21 +3,21 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <!-- Preconnect: fontes (MUST be first after meta) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- FIX: LCP hero image preload with responsive hints -->
-
-    <!-- Preload: navbar logo mobile (LCP element on mobile) -->
+    <!-- Preload: navbar logo mobile AVIF (LCP element on mobile) -->
     <link
       rel="preload"
       as="image"
-      href="/barbie-kills-banda-eventos-casamentos-mobile.webp"
-      type="image/webp"
+      href="/barbie-kills-banda-eventos-casamentos.avif"
+      type="image/avif"
       media="(max-width: 768px)"
       fetchpriority="high"
     />
@@ -39,12 +39,6 @@
       media="(min-width: 769px)"
       fetchpriority="high"
     />
-
-    <!-- FIX: Single font preconnect + single stylesheet (removed duplicates) -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       rel="stylesheet"
