@@ -6,9 +6,7 @@ const ManifestoSection = () => {
           {/* Coluna da Esquerda - Imagem */}
           <div className="relative">
             <img
-              src="/vocalista-banda-casamento-1200w.webp"
-              srcSet="/vocalista-banda-casamento-400w.webp 400w, /vocalista-banda-casamento-800w.webp 800w, /vocalista-banda-casamento-1200w.webp 1200w"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              src="/vocalista-banda-casamento.webp"
               alt="Vocalista da Barbie Kills cantando em festa de casamento"
               width={600}
               height={600}

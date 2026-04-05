@@ -32,7 +32,7 @@ const ElevateSection = () => {
 
           {/* Image */}
           <div className="relative lg:w-2/3 h-[400px] lg:h-[650px] -mt-8 lg:mt-0">
-            <img src="/interacao-banda-casamento-pista-cheia-1200w.webp" srcSet="/interacao-banda-casamento-pista-cheia-400w.webp 400w, /interacao-banda-casamento-pista-cheia-800w.webp 800w, /interacao-banda-casamento-pista-cheia-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Interação da Banda Barbie Kills com pista cheia em casamento premium no interior de SP" width={800} height={650} className="w-full h-full object-cover rounded-2xl lg:rounded-l-none lg:rounded-r-3xl shadow-2xl" loading="lazy" decoding="async" />
+            <img src="/interacao-banda-casamento-pista-cheia.webp" alt="Interação da Banda Barbie Kills com pista cheia em casamento premium no interior de SP" width={800} height={650} className="w-full h-full object-cover rounded-2xl lg:rounded-l-none lg:rounded-r-3xl shadow-2xl" loading="lazy" decoding="async" />
             {/* Pink Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-neon-pink/10 rounded-2xl lg:rounded-l-none lg:rounded-r-3xl" />
           </div>
