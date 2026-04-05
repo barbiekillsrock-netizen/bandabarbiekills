@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-
 import { Link, useLocation } from "react-router";
-
 import { Menu, X, Instagram, Youtube } from "lucide-react";
+
+// IMPORTAÇÃO DA IMAGEM PARA FORÇAR O BUILD DO VITE
+import logoAvifMobile from "../assets/barbie-kills-banda-eventos-casamentos.avif";
 
 const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -18,43 +19,30 @@ const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?:
 
 const socialLinks = [
   { href: "https://www.instagram.com/barbiekillsrock/", icon: Instagram, label: "Siga a Barbie Kills no Instagram" },
-
   {
     href: "https://www.youtube.com/c/barbiekillsrock/?sub_confirmation=1",
-
     icon: Youtube,
-
     label: "Assista aos vídeos da Barbie Kills no YouTube",
   },
-
   {
     href: "https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM?si=DLoRIhT-SymreqjRdOsBRQ",
-
     icon: null,
-
     label: "Ouça a Barbie Kills no Spotify",
   },
 ];
 
 const navLinks = [
   { href: "#historia", label: "História da Banda" },
-
   { href: "#diferencial", label: "Diferenciais" },
-
   { href: "#depoimentos", label: "Depoimentos" },
-
   { href: "#midia", label: "Vídeos e Mídia" },
-
   { href: "/blog", label: "Blog", isRoute: true },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const location = useLocation();
-
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -77,7 +65,6 @@ const Navbar = () => {
   }, []);
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), []);
-
   const toggleMobileMenu = useCallback(() => setIsMobileMenuOpen((prev) => !prev), []);
 
   const handleAnchorClick = (href: string) => {
@@ -101,11 +88,7 @@ const Navbar = () => {
             aria-label="Barbie Kills - Página Inicial"
           >
             <picture>
-              <source
-                srcSet="/barbie-kills-mobile.avif"
-                type="image/avif"
-                media="(max-width: 768px)"
-              />
+              <source srcSet={logoAvifMobile} type="image/avif" media="(max-width: 768px)" />
               <source
                 srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
                 type="image/webp"
@@ -117,7 +100,7 @@ const Navbar = () => {
                 width={336}
                 height={46}
                 className="h-10 md:h-14 w-auto aspect-auto"
-                {...{ fetchpriority: "high" } as any}
+                {...({ fetchpriority: "high" } as any)}
                 loading="eager"
                 decoding="async"
               />
@@ -125,7 +108,6 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) =>
               link.isRoute ? (
@@ -178,7 +160,6 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-
           <button
             className="lg:hidden text-foreground p-2"
             onClick={toggleMobileMenu}
@@ -190,7 +171,6 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu - Conditional rendering instead of CSS hidden */}
-
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">

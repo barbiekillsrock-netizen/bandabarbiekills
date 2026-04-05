@@ -1,27 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Preconnect: fontes (MUST be first after meta) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-
-    <!-- Preload: hero image -->
-    <link
-      rel="preload"
-      as="image"
-      href="/banda-casamentos-eventos-campinas-barbie-kills-mobile.webp"
-      type="image/webp"
-      media="(max-width: 768px)"
-      fetchpriority="high"
-    />
     <link
       rel="preload"
       as="image"
@@ -45,7 +33,6 @@
       />
     </noscript>
 
-    <!-- Critical CSS inline: navbar + hero above-the-fold styles -->
     <style>
       :root{--background:270 100% 2%;--foreground:0 0% 100%;--neon-pink:330 100% 50%}
       *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -57,176 +44,94 @@
     </style>
 
     <meta property="og:locale" content="pt_BR" />
-
     <link rel="icon" type="image/png" href="/banda-barbie-kills-casamento-rock.png" />
 
     <script type="application/ld+json">
-
       {
-
         "@context": "https://schema.org",
-
         "@graph": [
-
           {
-
             "@type": "MusicGroup",
-
             "@id": "https://www.bandabarbiekills.com.br/#band",
-
             "name": "Barbie Kills",
-
             "url": "https://www.bandabarbiekills.com.br",
-
             "logo": "https://www.bandabarbiekills.com.br/barbie-kills-banda-eventos-casamentos.webp",
-
             "image": "https://www.bandabarbiekills.com.br/banda-casamentos-eventos-campinas-barbie-kills.webp",
-
             "description": "Banda premium para casamentos e eventos corporativos. Repertório sofisticado de Rock, Pop, Soul, MPB e Música Brasileira.",
-
             "genre": ["Rock", "Pop", "Soul", "Groove", "Música Brasileira", "MPB"],
-
             "foundingDate": "2012",
-
             "sameAs": [
-
               "https://www.instagram.com/barbiekillsrock/",
-
               "https://www.youtube.com/@barbiekills"
-
             ]
-
           },
-
           {
-
             "@type": "LocalBusiness",
-
             "@id": "https://www.bandabarbiekills.com.br/#business",
-
             "name": "Barbie Kills - Banda para Eventos",
-
             "url": "https://www.bandabarbiekills.com.br",
-
             "logo": "https://www.bandabarbiekills.com.br/barbie-kills-banda-eventos-casamentos.webp",
-
             "image": "https://www.bandabarbiekills.com.br/banda-casamentos-eventos-campinas-barbie-kills.webp",
-
             "telephone": "+5519982846842",
-
             "priceRange": "$$$",
-
             "address": {
-
               "@type": "PostalAddress",
-
               "streetAddress": "R. Ferreira Penteado, 1221",
-
               "postalCode": "13010-041",
-
               "addressLocality": "Campinas",
-
               "addressRegion": "SP",
-
               "addressCountry": "BR"
-
             },
-
             "aggregateRating": {
-
               "@type": "AggregateRating",
-
               "ratingValue": "5",
-
               "bestRating": "5",
-
               "worstRating": "1",
-
               "reviewCount": "29"
-
             }
-
           },
-
           {
-
             "@type": "VideoObject",
-
             "name": "Barbie Kills ao Vivo — Show Completo",
-
             "description": "Show completo da Barbie Kills ao vivo para casamentos e eventos corporativos em Campinas e SP.",
-
             "thumbnailUrl": "https://img.youtube.com/vi/rAVb_-U7OAU/maxresdefault.jpg",
-
             "uploadDate": "2024-06-15T09:00:00-03:00",
-
             "contentUrl": "https://www.youtube.com/watch?v=rAVb_-U7OAU",
-
             "embedUrl": "https://www.youtube.com/embed/rAVb_-U7OAU"
-
           }
-
         ]
-
       }
     </script>
   </head>
 
   <body>
-    <div id="root"><!--ssr-outlet--></div>
-
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- GA: deferred to after paint via idle callback -->
-
     <script>
-
       window.dataLayer = window.dataLayer || [];
-
       function gtag(){dataLayer.push(arguments);}
-
       (function(){
-
         var loaded = false;
-
         function loadGA(){
-
           if(loaded) return;
-
           loaded = true;
-
           var s = document.createElement('script');
-
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FQYT8C0DFG';
-
           s.async = true;
-
           s.onload = function(){
-
             gtag('js', new Date());
-
             gtag('config', 'G-FQYT8C0DFG');
-
           };
-
           document.head.appendChild(s);
-
         }
-
         if('requestIdleCallback' in window){
-
           requestIdleCallback(function(){
-
             setTimeout(loadGA, 3000);
-
           });
-
         } else {
-
           setTimeout(loadGA, 5000);
-
         }
-
       })();
     </script>
   </body>
