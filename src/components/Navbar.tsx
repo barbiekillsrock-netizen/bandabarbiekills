@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router";
 
 import { Menu, X, Instagram, Youtube } from "lucide-react";
-import logoAvifMobile from "@/assets/barbie-kills-banda-eventos-casamentos.avif";
 
 const SpotifyIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -103,7 +102,7 @@ const Navbar = () => {
           >
             <picture>
               <source
-                srcSet={logoAvifMobile}
+                srcSet="/barbie-kills-mobile.avif"
                 type="image/avif"
                 media="(max-width: 768px)"
               />
