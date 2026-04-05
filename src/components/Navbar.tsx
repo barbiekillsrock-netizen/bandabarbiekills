@@ -102,21 +102,19 @@ const Navbar = () => {
           >
             <picture>
               <source
-                media="(max-width: 768px)"
                 srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
-                width={336}
-                height={46}
+                type="image/webp"
+                media="(max-width: 768px)"
               />
               <img
-                src="/barbie-kills-banda-eventos-casamentos-nav.webp"
-                alt="Banda Barbie Kills em show para casamentos e eventos"
-                title="Banda Barbie Kills - Home"
-                width={160}
-                height={56}
+                src="/barbie-kills-banda-eventos-casamentos-mobile.webp"
+                alt="Banda Barbie Kills em show para casamentos"
+                width={336}
+                height={46}
                 className="h-10 md:h-14 w-auto aspect-auto"
                 {...{ fetchpriority: "high" } as any}
                 loading="eager"
-                decoding="sync"
+                decoding="async"
               />
             </picture>
           </Link>
