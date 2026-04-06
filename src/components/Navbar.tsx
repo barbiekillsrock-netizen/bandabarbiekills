@@ -95,29 +95,17 @@ const Navbar = () => {
     >
       <div className="w-full px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link
-            to="/"
-            className="flex-shrink-0 flex items-center transition-transform duration-300 hover:scale-105"
-            aria-label="Barbie Kills - Página Inicial"
-          >
-            <picture>
-              {/* O AVIF FOI REMOVIDO PARA EVITAR O CONFLITO DE REDE */}
-              <source
-                srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
-                type="image/webp"
-                media="(max-width: 768px)"
-              />
-              <img
-                src="/barbie-kills-banda-eventos-casamentos-mobile.webp"
-                alt="Banda Barbie Kills em show para casamentos"
-                width={336}
-                height={46}
-                className="h-10 md:h-14 w-auto aspect-auto"
-                {...({ fetchpriority: "high" } as any)}
-                loading="eager"
-                decoding="async"
-              />
-            </picture>
+          <Link to="/" className="flex-shrink-0 flex items-center" aria-label="Barbie Kills - Página Inicial">
+            <img
+              src="/barbie-kills-banda-eventos-casamentos-mobile.webp"
+              alt="Logo Barbie Kills Banda para Eventos Premium"
+              width={336}
+              height={46}
+              className="h-10 md:h-14 w-auto object-contain block"
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
+            />
           </Link>
 
           {/* Desktop Navigation */}
