@@ -101,11 +101,7 @@ const Navbar = () => {
             aria-label="Barbie Kills - Página Inicial"
           >
             <picture>
-              <source
-                srcSet="/barbie-kills-mobile.avif"
-                type="image/avif"
-                media="(max-width: 768px)"
-              />
+              {/* O AVIF FOI REMOVIDO PARA EVITAR O CONFLITO DE REDE */}
               <source
                 srcSet="/barbie-kills-banda-eventos-casamentos-mobile.webp"
                 type="image/webp"
@@ -117,7 +113,7 @@ const Navbar = () => {
                 width={336}
                 height={46}
                 className="h-10 md:h-14 w-auto aspect-auto"
-                {...{ fetchpriority: "high" } as any}
+                {...({ fetchpriority: "high" } as any)}
                 loading="eager"
                 decoding="async"
               />
