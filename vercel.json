@@ -27,12 +27,6 @@
   ],
   "redirects": [
     {
-      "source": "/blog/musicas-mais-pedidas-casamento-2025",
-      "destination": "/blog/musicas-mais-pedidas-casamento-2026",
-      "permanent": true,
-      "statusCode": 301
-    },
-    {
       "source": "/cidade/banda-corporativa-barueri",
       "destination": "/cidade/evento-corporativo-barueri",
       "permanent": true,
