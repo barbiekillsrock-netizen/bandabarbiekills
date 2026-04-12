@@ -6,7 +6,7 @@ import HeroSection from "@/components/HeroSection";
 // IMPORTANTE: Importação direta do botão para carregamento instantâneo
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-//  Tudo   abaicvho da dobra é lazy-loaded para reduzir o bundle crítico
+//  Tudo  abaicvho da dobra é lazy-loaded para reduzir o bundle crítico
 const HistorySection = lazy(() => import("@/components/HistorySection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const ManifestoSection = lazy(() => import("@/components/ManifestoSection"));
