@@ -258,11 +258,13 @@ const DjBriefing = () => {
         {/* Header */}
         <div className="bg-gradient-to-b from-black via-[#0a0010] to-black border-b border-white/10">
           <div className="max-w-2xl mx-auto px-4 py-8 text-center">
-            <img
-              src="/barbie-kills-banda-eventos-casamentos-nav.webp"
-              alt="Barbie Kills"
-              className="h-10 mx-auto mb-4"
-            />
+            <a href="https://www.bandabarbiekills.com.br" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/barbie-kills-banda-eventos-casamentos.webp"
+                alt="Barbie Kills - Banda para Eventos e Casamentos"
+                className="w-48 md:w-64 mx-auto mb-6"
+              />
+            </a>
             <h1 className="font-bebas text-3xl md:text-4xl text-white tracking-wider mb-2">Briefing para o DJ</h1>
             <p className="text-muted-foreground text-base">
               Olá! Defina aqui a vibe que você deseja para a pista de dança com nosso DJ.
