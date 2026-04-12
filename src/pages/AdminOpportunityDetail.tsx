@@ -88,7 +88,7 @@ const AdminOpportunityDetail = () => {
       if (!id) return;
       await supabase
         .from("opportunities")
-        .update({ [field]: value })
+        .update({ [field]: value } as any)
         .eq("id", id);
       setOpp((prev) => (prev ? { ...prev, [field]: value } : prev));
     },
