@@ -29,8 +29,7 @@
     {
       "source": "/cidade/banda-corporativa-barueri",
       "destination": "/cidade/evento-corporativo-barueri",
-      "permanent": true,
-      "statusCode": 301
+      "permanent": true
     },
     {
       "source": "/:path*",
