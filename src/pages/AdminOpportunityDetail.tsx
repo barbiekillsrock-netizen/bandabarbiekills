@@ -285,25 +285,25 @@ const AdminOpportunityDetail = () => {
         />
 
         <Tabs defaultValue="resumo">
-          <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg">
-            <TabsTrigger value="resumo" className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs">
-              Resumo / Estratégia
+          <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg flex flex-wrap gap-1 h-auto">
+            <TabsTrigger value="resumo" className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap">
+              Resumo
             </TabsTrigger>
             <TabsTrigger
               value="financeiro"
-              className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs"
+              className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap"
             >
-              Calculadora Financeira
+              Financeiro
             </TabsTrigger>
             <TabsTrigger
               value="repertorio"
-              className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs"
+              className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap"
             >
-              Repertório / Setlist
+              Repertório
             </TabsTrigger>
             <TabsTrigger
               value="dj-briefing"
-              className="px-8 font-bold data-[state=active]:bg-neon-pink uppercase text-xs"
+              className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap"
             >
               DJ Briefing
             </TabsTrigger>
