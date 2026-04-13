@@ -304,9 +304,15 @@ const GuiaContratarBanda = () => {
                 Solicite vídeos e áudios ao vivo, não apenas gravações em estúdio.
               </p>
 
-              {/* Image floated left with text wrapping */}
-              <div className="my-10 overflow-hidden">
-                <figure className="float-none md:float-left md:mr-8 mb-6 md:mb-4 md:w-[45%]">
+              {/* Image + text side by side */}
+              <div className="my-10 grid lg:grid-cols-2 gap-8 items-center">
+                <div className="lg:order-2">
+                  <h3 className="font-oswald text-xl text-foreground mt-0 mb-3 uppercase tracking-wider">Presença de palco e Feedback</h3>
+                  <p className="text-body text-lg text-muted-foreground leading-relaxed">
+                    O jeito como a banda interage faz toda diferença. Leia depoimentos e peça referências. A própria <Link to="/" className="text-neon-pink hover:underline">Barbie Kills</Link> disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo deles combina com a festa desejada.
+                  </p>
+                </div>
+                <figure className="lg:order-1 flex flex-col items-center">
                   <img
                     src="/blog/melhor-banda-casamento-campinas-barbie-kills.webp"
                     alt="Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas"
@@ -319,10 +325,6 @@ const GuiaContratarBanda = () => {
                     Barbie Kills em casamento premium — energia e elegância no palco
                   </figcaption>
                 </figure>
-                <h3 className="font-oswald text-xl text-foreground mt-0 mb-3 uppercase tracking-wider">Presença de palco e Feedback</h3>
-                <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                  O jeito como a banda interage faz toda diferença. Leia depoimentos e peça referências. A própria <Link to="/" className="text-neon-pink hover:underline">Barbie Kills</Link> disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo deles combina com a festa desejada.
-                </p>
               </div>
 
               {/* H2: Agendar */}
