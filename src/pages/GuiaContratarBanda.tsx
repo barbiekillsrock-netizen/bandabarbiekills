@@ -152,7 +152,7 @@ const GuiaContratarBanda = () => {
       {/* Content */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {/* Back */}
             <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-neon-pink transition-colors mb-8">
               <ArrowLeft className="w-4 h-4" />
@@ -240,8 +240,8 @@ const GuiaContratarBanda = () => {
               </blockquote>
 
               {/* YouTube Shorts embed + text side by side */}
-              <div className="my-10 grid lg:grid-cols-2 gap-8 items-center">
-                <div className="aspect-[9/16] max-h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-xl">
+              <div className="my-10 grid md:grid-cols-[280px_1fr] gap-8 items-start">
+                <div className="aspect-[9/16] max-h-[420px] rounded-lg overflow-hidden border border-white/10 shadow-xl">
                   <iframe
                     src="https://www.youtube.com/embed/Doxi-lkKz4M"
                     title="Barbie Kills — Show ao vivo para casamento"
@@ -251,7 +251,7 @@ const GuiaContratarBanda = () => {
                     loading="lazy"
                   />
                 </div>
-                <div>
+                <div className="flex flex-col justify-center">
                   <p className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
                     Além disso, há outros elementos que, na nossa opinião, pesam bastante:
                   </p>
@@ -304,9 +304,9 @@ const GuiaContratarBanda = () => {
                 Solicite vídeos e áudios ao vivo, não apenas gravações em estúdio.
               </p>
 
-              {/* Image floated left with text wrapping */}
-              <div className="my-10 overflow-hidden">
-                <figure className="float-none md:float-left md:mr-8 mb-6 md:mb-4 md:w-[45%]">
+              {/* Image floated left with text */}
+              <div className="my-10 grid md:grid-cols-[280px_1fr] gap-8 items-start">
+                <figure>
                   <img
                     src="/blog/melhor-banda-casamento-campinas-barbie-kills.webp"
                     alt="Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas"
@@ -316,13 +316,15 @@ const GuiaContratarBanda = () => {
                     loading="lazy"
                   />
                   <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">
-                    Barbie Kills em casamento premium — energia e elegância no palco
+                    Barbie Kills em casamento premium
                   </figcaption>
                 </figure>
-                <h3 className="font-oswald text-xl text-foreground mt-0 mb-3 uppercase tracking-wider">Presença de palco e Feedback</h3>
-                <p className="text-body text-lg text-muted-foreground leading-relaxed">
-                  O jeito como a banda interage faz toda diferença. Leia depoimentos e peça referências. A própria <Link to="/" className="text-neon-pink hover:underline">Barbie Kills</Link> disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo deles combina com a festa desejada.
-                </p>
+                <div>
+                  <h3 className="font-oswald text-xl text-foreground mt-0 mb-3 uppercase tracking-wider">Presença de palco e Feedback</h3>
+                  <p className="text-body text-lg text-muted-foreground leading-relaxed">
+                    O jeito como a banda interage faz toda diferença. Leia depoimentos e peça referências. A própria <Link to="/" className="text-neon-pink hover:underline">Barbie Kills</Link> disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo deles combina com a festa desejada.
+                  </p>
+                </div>
               </div>
 
               {/* H2: Agendar */}
