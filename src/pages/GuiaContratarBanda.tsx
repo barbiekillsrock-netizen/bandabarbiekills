@@ -118,7 +118,7 @@ const GuiaContratarBanda = () => {
       <Helmet>
         <title>Guia Completo: Como Contratar a Melhor Banda para Casamento em 2026</title>
         <meta name="description" content="Guia completo para contratar banda de casamento. Dicas de repertório, técnica e como escolher a melhor banda ao vivo em Campinas e SP. Confira!" />
-        <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br/guia-contratar-banda-casamento-ao-vivo" />
+        <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br/blog/guia-contratar-banda-casamento-ao-vivo" />
         <link rel="alternate" key="alternate-pt-BR" hrefLang="pt-BR" href="https://www.bandabarbiekills.com.br/guia-contratar-banda-casamento-ao-vivo" />
         <link rel="alternate" key="alternate-pt" hrefLang="pt" href="https://www.bandabarbiekills.com.br/guia-contratar-banda-casamento-ao-vivo" />
         <link rel="alternate" key="alternate-x-default" hrefLang="x-default" href="https://www.bandabarbiekills.com.br/guia-contratar-banda-casamento-ao-vivo" />
