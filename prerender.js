@@ -29,7 +29,7 @@ async function prerender() {
   console.log("🚀 Starting prerender process...\n");
 
   // Static routes
-  const staticRoutes = ["/", "/blog", "/corporativo"];
+  const staticRoutes = ["/", "/blog", "/corporativo", "/guia-contratar-banda-casamento-ao-vivo"];
 
   // Dynamic routes
   const blogSlugs = await getBlogSlugs();
