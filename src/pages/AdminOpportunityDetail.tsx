@@ -25,6 +25,7 @@ const statusOptions = [
   { value: "negotiating", label: "Negociando" },
   { value: "won", label: "Fechado" },
   { value: "lost", label: "Perdido" },
+  { value: "finished", label: "Finalizado" },
 ];
 
 const statusColors: Record<string, string> = {
@@ -33,6 +34,7 @@ const statusColors: Record<string, string> = {
   negotiating: "bg-purple-500/20 text-purple-300 border-purple-500/30",
   won: "bg-pink-500/20 text-pink-300 border-pink-500/30",
   lost: "bg-red-500/20 text-red-300 border-red-500/30",
+  finished: "bg-green-500/20 text-green-300 border-green-500/30",
 };
 
 // Classe utilitária para manter TODOS os números financeiros idênticos
@@ -108,8 +110,17 @@ const AdminOpportunityDetail = () => {
   );
 
   const handleStatusChange = async (status: string) => {
-    await updateField("status", status);
-    toast.success(`Status atualizado`);
+    if (status === "finished") {
+      await supabase
+        .from("opportunities")
+        .update({ status: "finished", archived: true } as any)
+        .eq("id", id!);
+      setOpp((prev) => (prev ? { ...prev, status: "finished", archived: true } : prev));
+      toast.success("Oportunidade finalizada e arquivada!");
+    } else {
+      await updateField("status", status);
+      toast.success(`Status atualizado`);
+    }
   };
 
   const handleResetPromptConfirm = async () => {
