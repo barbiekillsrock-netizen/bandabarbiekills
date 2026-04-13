@@ -11,6 +11,7 @@ import PressKit from "./pages/PressKit";
 import Rider from "./pages/Rider";
 import Corporativo from "./pages/Corporativo";
 import CidadeLanding from "./pages/CidadeLanding";
+import GuiaContratarBanda from "./pages/GuiaContratarBanda";
 
 interface HelmetContext {
   helmet?: HelmetServerState;
@@ -31,6 +32,7 @@ export function render(url: string) {
             <Route path="/rider" element={<Rider />} />
             <Route path="/corporativo" element={<Corporativo />} />
             <Route path="/cidade/:slug" element={<CidadeLanding />} />
+            <Route path="/guia-contratar-banda-casamento-ao-vivo" element={<GuiaContratarBanda />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </StaticRouter>
