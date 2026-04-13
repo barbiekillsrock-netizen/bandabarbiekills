@@ -239,9 +239,9 @@ const GuiaContratarBanda = () => {
                 <p>Emoção verdadeiramente compartilhada é o que fica na memória.</p>
               </blockquote>
 
-              {/* YouTube Shorts embed */}
-              <div className="my-10 flex justify-center">
-                <div className="w-full max-w-md aspect-[9/16] rounded-lg overflow-hidden border border-white/10 shadow-xl">
+              {/* YouTube Shorts embed + text side by side */}
+              <div className="my-10 grid lg:grid-cols-2 gap-8 items-center">
+                <div className="aspect-[9/16] max-h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-xl">
                   <iframe
                     src="https://www.youtube.com/embed/Doxi-lkKz4M"
                     title="Barbie Kills — Show ao vivo para casamento"
@@ -251,18 +251,18 @@ const GuiaContratarBanda = () => {
                     loading="lazy"
                   />
                 </div>
+                <div>
+                  <p className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
+                    Além disso, há outros elementos que, na nossa opinião, pesam bastante:
+                  </p>
+                  <ul className="list-disc list-inside space-y-3 text-body text-lg text-muted-foreground">
+                    <li>A autenticidade que só músicos de talento conseguem transmitir</li>
+                    <li>A possibilidade de adaptar repertório ao momento</li>
+                    <li>O envolvimento dos convidados enquanto tudo acontece</li>
+                    <li>A experiência sensorial: não só se ouve, mas se sente a música</li>
+                  </ul>
+                </div>
               </div>
-
-              <p className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
-                Além disso, há outros elementos que, na nossa opinião, pesam bastante:
-              </p>
-
-              <ul className="list-disc list-inside space-y-3 my-6 text-body text-lg text-muted-foreground">
-                <li>A autenticidade que só músicos de talento conseguem transmitir</li>
-                <li>A possibilidade de adaptar repertório ao momento</li>
-                <li>O envolvimento dos convidados enquanto tudo acontece</li>
-                <li>A experiência sensorial: não só se ouve, mas se sente a música</li>
-              </ul>
 
               <p className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
                 E foi por buscar esses mesmos detalhes que a <Link to="/" className="text-neon-pink hover:underline">Banda Barbie Kills</Link>, por exemplo, tornou-se referência em <Link to="/blog/musicas-mais-pedidas-casamento-2026" className="text-neon-pink hover:underline">casamentos premium</Link>, dando um espetáculo com repertório variado, energia e elegância.
@@ -304,25 +304,28 @@ const GuiaContratarBanda = () => {
                 Solicite vídeos e áudios ao vivo, não apenas gravações em estúdio.
               </p>
 
-              {/* Image */}
-              <figure className="my-10 flex flex-col items-center">
-                <img
-                  src="/blog/melhor-banda-casamento-campinas-barbie-kills.webp"
-                  alt="Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas"
-                  width={800}
-                  height={533}
-                  className="w-full max-w-2xl rounded-lg object-cover"
-                  loading="lazy"
-                />
-                <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">
-                  Barbie Kills em casamento premium — energia e elegância no palco
-                </figcaption>
-              </figure>
-
-              <h3 className="font-oswald text-xl text-foreground mt-8 mb-3 uppercase tracking-wider">Presença de palco e Feedback</h3>
-              <p className="text-body text-lg text-muted-foreground mb-6 leading-relaxed">
-                O jeito como a banda interage faz toda diferença. Leia depoimentos e peça referências. A própria <Link to="/" className="text-neon-pink hover:underline">Barbie Kills</Link> disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo deles combina com a festa desejada.
-              </p>
+              {/* Image + text side by side */}
+              <div className="my-10 grid lg:grid-cols-2 gap-8 items-center">
+                <div className="lg:order-2">
+                  <h3 className="font-oswald text-xl text-foreground mt-0 mb-3 uppercase tracking-wider">Presença de palco e Feedback</h3>
+                  <p className="text-body text-lg text-muted-foreground leading-relaxed">
+                    O jeito como a banda interage faz toda diferença. Leia depoimentos e peça referências. A própria <Link to="/" className="text-neon-pink hover:underline">Barbie Kills</Link> disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo deles combina com a festa desejada.
+                  </p>
+                </div>
+                <figure className="lg:order-1 flex flex-col items-center">
+                  <img
+                    src="/blog/melhor-banda-casamento-campinas-barbie-kills.webp"
+                    alt="Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas"
+                    width={800}
+                    height={533}
+                    className="w-full rounded-lg object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">
+                    Barbie Kills em casamento premium — energia e elegância no palco
+                  </figcaption>
+                </figure>
+              </div>
 
               {/* H2: Agendar */}
               <h2 id="agendar-banda" className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4 scroll-mt-24">
@@ -368,7 +371,7 @@ const GuiaContratarBanda = () => {
               <div className="mt-12 p-8 bg-gradient-to-r from-neon-pink/10 to-purple-900/10 border border-neon-pink/20 rounded-lg text-center">
                 <Button variant="neonPink" size="lg" asChild className="whitespace-normal h-auto py-4 text-center leading-snug">
                   <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
-                    QUERO SOLICITAR UM ORÇAMENTO PARA MEU CASAMENTO
+                    SOLICITAR ORÇAMENTO
                   </a>
                 </Button>
               </div>
