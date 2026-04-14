@@ -321,6 +321,7 @@ const BlogPost = () => {
         <meta property="og:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
         <meta property="article:published_time" content={post.date} />
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
+        {faqStructuredData && <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>}
       </Helmet>
 
       <Navbar />
