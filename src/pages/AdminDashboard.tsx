@@ -29,6 +29,7 @@ const statusLabel: Record<string, string> = {
   negotiating: "Negociando",
   won: "Fechado",
   lost: "Perdido",
+  finished: "Finalizado",
 };
 
 type SortField = "created_at" | "client_name" | "event_date";

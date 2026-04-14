@@ -550,7 +550,7 @@ A **Barbie Kills** nasceu em Campinas com a missão de [atender os casamentos ma
     imageAlt: "Banda Barbie Kills em performance ao vivo para casamento premium em São Paulo e Campinas",
     date: "2026-04-13",
     readTime: "10 min",
-    ctaText: "QUERO SOLICITAR UM ORÇAMENTO PARA MEU CASAMENTO",
+    ctaText: "SOLICITAR ORÇAMENTO",
     content: `**Encontre neste artigo**
 
 - [Por que optar por banda ao vivo?](#por-que-optar-por-banda-ao-vivo)
