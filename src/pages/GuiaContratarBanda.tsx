@@ -305,16 +305,16 @@ const GuiaContratarBanda = () => {
               </p>
 
               {/* Image */}
-              <figure className="my-10 flex flex-col items-center">
+              <figure className="my-10 float-left mr-6 mb-4 w-full sm:w-1/2 md:w-2/5">
                 <img
                   src="/blog/melhor-banda-casamento-campinas-barbie-kills.webp"
                   alt="Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas"
-                  width={800}
-                  height={533}
-                  className="w-full max-w-2xl rounded-lg object-cover"
+                  width={400}
+                  height={267}
+                  className="w-full rounded-lg object-cover"
                   loading="lazy"
                 />
-                <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">
+                <figcaption className="mt-3 text-sm text-muted-foreground italic">
                   Barbie Kills em casamento premium — energia e elegância no palco
                 </figcaption>
               </figure>
