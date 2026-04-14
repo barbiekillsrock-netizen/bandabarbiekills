@@ -586,7 +586,7 @@ Há critérios indispensáveis quando o assunto é fazer uma escolha de qualidad
 
 **Materiais de apresentação:** Solicite vídeos e áudios ao vivo, não apenas gravações em estúdio.
 
-{{image:/blog/melhor-banda-casamento-campinas-barbie-kills.webp|Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas|Barbie Kills em casamento premium}}
+{{image-float:/blog/melhor-banda-casamento-campinas-barbie-kills.webp|Vocalista Mariana e banda Barbie Kills se apresentando ao vivo em festa de casamento premium em Campinas|Barbie Kills em casamento premium}}
 
 **Presença de palco e Feedback:** O jeito como a banda interage faz toda diferença. A própria [Barbie Kills](/) disponibiliza vídeos e depoimentos que ajudam a perceber se o estilo combina com a festa desejada.
 
@@ -609,6 +609,13 @@ Cito como exemplo a atuação da [Barbie Kills](/): formação com músicos expe
 ## Conclusão
 
 Escolher uma banda ao vivo é um dos grandes diferenciais para criar uma festa marcante. Sua trilha merece o melhor.`,
+    faq: [
+      { question: "Quanto custa contratar uma banda para casamento?", answer: "O valor varia conforme a formação, repertório, infraestrutura e localização do evento. Bandas premium como a Barbie Kills oferecem pacotes completos. O ideal é solicitar um orçamento personalizado." },
+      { question: "Com quanto tempo de antecedência devo contratar a banda?", answer: "Recomendamos fechar contrato com pelo menos 6 a 12 meses de antecedência, especialmente para datas em alta temporada (outubro a março)." },
+      { question: "A banda traz o próprio equipamento de som e iluminação?", answer: "Bandas profissionais como a Barbie Kills levam toda a infraestrutura necessária: som digital de alta fidelidade, iluminação cênica, microfones e monitoramento." },
+      { question: "É possível personalizar o repertório do casamento?", answer: "Sim! Uma boa banda permite que os noivos escolham músicas especiais para momentos como a entrada, primeira dança e brinde." },
+      { question: "A banda atende casamentos fora de Campinas?", answer: "Sim. A Barbie Kills atende casamentos e eventos em todo o interior de São Paulo, incluindo Jundiaí, Sorocaba, Piracicaba, Valinhos, Indaiatuba e capital." },
+    ],
   },
 ];
 
