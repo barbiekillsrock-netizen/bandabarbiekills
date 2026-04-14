@@ -95,6 +95,16 @@ const BlogPost = () => {
     ],
   };
 
+  const faqStructuredData = post.faq && post.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  } : null;
+
   // Parse inline markdown (bold and links)
   const parseInlineMarkdown = (text: string) => {
     const elements: React.ReactNode[] = [];
