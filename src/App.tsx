@@ -18,7 +18,7 @@ const Rider = lazy(() => import("./pages/Rider"));
 const Corporativo = lazy(() => import("./pages/Corporativo"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const DjBriefing = lazy(() => import("./pages/DjBriefing"));
-const GuiaContratarBanda = lazy(() => import("./pages/GuiaContratarBanda"));
+
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminOpportunityDetail = lazy(() => import("./pages/AdminOpportunityDetail"));
@@ -39,7 +39,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/guia-contratar-banda-casamento-ao-vivo" element={<GuiaContratarBanda />} />
+          
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/XR18" element={<XR18Manual />} />
           <Route path="/press-kit" element={<PressKit />} />

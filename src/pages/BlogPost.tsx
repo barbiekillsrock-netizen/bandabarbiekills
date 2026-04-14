@@ -95,6 +95,16 @@ const BlogPost = () => {
     ],
   };
 
+  const faqStructuredData = post.faq && post.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  } : null;
+
   // Parse inline markdown (bold and links)
   const parseInlineMarkdown = (text: string) => {
     const elements: React.ReactNode[] = [];
@@ -190,6 +200,20 @@ const BlogPost = () => {
         }
       }
 
+      // Inline image - float left with text wrapping
+      if (paragraph.startsWith("{{image-float:") && paragraph.endsWith("}}")) {
+        const parts = paragraph.slice(14, -2).split("|");
+        const src = parts[0];
+        const altText = parts[1] || post.title;
+        const caption = parts[2] || "";
+        return (
+          <figure key={index} className="my-6 float-left mr-6 mb-4 w-full sm:w-1/2 md:w-2/5">
+            <img src={src} alt={altText} width="400" height="267" className="w-full rounded-lg object-cover" loading="lazy" />
+            {caption && <figcaption className="mt-3 text-sm text-muted-foreground italic">{caption}</figcaption>}
+          </figure>
+        );
+      }
+
       // Inline image with caption
       if (paragraph.startsWith("{{image:") && paragraph.endsWith("}}")) {
         const parts = paragraph.slice(8, -2).split("|");
@@ -198,18 +222,8 @@ const BlogPost = () => {
         const caption = parts[2] || "";
         return (
           <figure key={index} className="my-10 flex flex-col items-center">
-            {/* CORREÇÃO: Adicionadas as tags estáticas width e height para evitar CLS */}
-            <img
-              src={src}
-              alt={altText}
-              width="800"
-              height="533"
-              className="w-full max-w-2xl rounded-lg object-cover"
-              loading="lazy"
-            />
-            {caption && (
-              <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{caption}</figcaption>
-            )}
+            <img src={src} alt={altText} width="800" height="533" className="w-full max-w-2xl rounded-lg object-cover" loading="lazy" />
+            {caption && <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{caption}</figcaption>}
           </figure>
         );
       }
@@ -307,6 +321,7 @@ const BlogPost = () => {
         <meta property="og:image" content={`https://www.bandabarbiekills.com.br${post.image}`} />
         <meta property="article:published_time" content={post.date} />
         <script type="application/ld+json">{JSON.stringify(articleStructuredData)}</script>
+        {faqStructuredData && <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>}
       </Helmet>
 
       <Navbar />
