@@ -176,50 +176,19 @@ const GuiaContratarBanda = () => {
               Saiba como escolher banda ao vivo para casamento, garantindo repertório ideal, técnica apurada e ambientação perfeita para seu evento.
             </p>
 
-            {/* Table of Contents - Desktop (sticky sidebar would be complex, using top block) */}
-            <nav className="mb-12 p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-xl">
-              <h2 className="font-oswald text-lg uppercase tracking-widest text-foreground mb-4 flex items-center gap-2">
-                <List className="w-5 h-5 text-neon-pink" />
-                Índice de Conteúdo
-              </h2>
-              <ol className="space-y-2">
+            {/* Table of Contents - inline within article flow */}
+            <nav className="mb-10 p-6 bg-gradient-to-r from-neon-pink/5 to-purple-900/5 border border-neon-pink/20 rounded-lg">
+              <p className="font-oswald text-sm uppercase tracking-widest text-muted-foreground mb-3">Índice de Conteúdo</p>
+              <ol className="space-y-1.5">
                 {tocItems.map((item, i) => (
                   <li key={item.id}>
-                    <a href={`#${item.id}`} className="text-muted-foreground hover:text-neon-pink transition-colors text-sm md:text-base">
+                    <a href={`#${item.id}`} className="text-muted-foreground hover:text-neon-pink transition-colors text-sm">
                       {i + 1}. {item.label}
                     </a>
                   </li>
                 ))}
               </ol>
             </nav>
-
-            {/* Mobile TOC FAB */}
-            <div className="fixed bottom-24 right-4 z-40 lg:hidden">
-              <button
-                onClick={() => setTocOpen(!tocOpen)}
-                className="w-12 h-12 rounded-full bg-neon-pink text-white flex items-center justify-center shadow-lg"
-                aria-label="Abrir índice de conteúdo"
-              >
-                {tocOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
-              </button>
-              {tocOpen && (
-                <nav className="absolute bottom-14 right-0 w-72 p-4 bg-[#0a0a0a] border border-white/10 rounded-lg shadow-2xl">
-                  <ol className="space-y-2">
-                    {tocItems.map((item, i) => (
-                      <li key={item.id}>
-                        <a
-                          href={`#${item.id}`}
-                          onClick={() => setTocOpen(false)}
-                          className="text-muted-foreground hover:text-neon-pink transition-colors text-sm"
-                        >
-                          {i + 1}. {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </nav>
-              )}
-            </div>
 
             {/* Article Content */}
             <article className="prose prose-invert prose-lg max-w-none">
