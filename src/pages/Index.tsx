@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 
-// IMPORTANTE: Importação direta do botão para carregamento instantâneo
+// IMPORTANTE:  Importação direta do botão para carregamento instantâneo
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 //  Tudo  abaicvho da dobra é lazy-loaded para reduzir o bundle crítico
