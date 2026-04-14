@@ -85,7 +85,7 @@ const articleStructuredData = {
 };
 
 const GuiaContratarBanda = () => {
-  const [tocOpen, setTocOpen] = useState(false);
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
