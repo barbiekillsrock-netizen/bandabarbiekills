@@ -1,3 +1,8 @@
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -12,6 +17,7 @@ export interface BlogPost {
   readTime: string;
   content: string;
   ctaText?: string;
+  faq?: FaqItem[];
 }
 
 export const blogPosts: BlogPost[] = [
