@@ -200,8 +200,8 @@ const KillerQueen = () => {
             <div className="md:col-span-4 flex justify-center">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)] max-w-[280px] w-full aspect-[3/4]">
                 <img
-                  src={VOCALIST_IMG}
-                  alt="Vocalista da Barbie Kills em performance Killer Queen"
+                  src={BODY_IMG}
+                  alt="Banda Barbie Kills em show ao vivo Killer Queen"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

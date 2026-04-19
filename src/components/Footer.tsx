@@ -11,7 +11,13 @@ const Footer = ({ variant = "default" }: FooterProps) => {
   const isMinimal = variant === "minimal";
   return (
     <footer className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-neon-pink/20 via-black to-black" />
+      <div
+        className={
+          isMinimal
+            ? "absolute inset-0 bg-black"
+            : "absolute inset-0 bg-gradient-to-t from-neon-pink/20 via-black to-black"
+        }
+      />
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
