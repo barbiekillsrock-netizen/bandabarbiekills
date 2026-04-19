@@ -270,7 +270,7 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="minimal" />
 
     </main>
   );
