@@ -190,7 +190,45 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      {/* POR QUE AGORA + VIDEOS */}
+      {/* REPERTÓRIO */}
+      <section className="py-24 px-4 bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)] order-2 md:order-1">
+            <img
+              src={VOCALIST_IMG}
+              alt="Vocalista da Barbie Kills em performance Killer Queen"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="order-1 md:order-2">
+            <h2 className="font-bebas text-5xl md:text-6xl text-foreground mb-2 tracking-wide">
+              REPERTÓRIO:
+            </h2>
+            <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-6 tracking-wide">
+              OS HINOS DA PISTA
+            </h2>
+            <p className="font-inter font-light text-gray-200 leading-relaxed mb-8 text-lg">
+              Uma jornada dinâmica e sem pausas pelos ícones que definem gerações.
+            </p>
+            <ul className="space-y-5">
+              {repertorio.map((r) => (
+                <li
+                  key={r.title}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:border-neon-pink/40 transition-colors"
+                >
+                  <p className="font-oswald uppercase tracking-wider text-neon-pink text-sm mb-1">
+                    {r.title}
+                  </p>
+                  <p className="font-inter font-light text-gray-100">{r.artists}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
       <section id="videos" className="py-24 px-4 bg-gradient-to-b from-[#020005] via-[#0B0015] to-[#050505]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
