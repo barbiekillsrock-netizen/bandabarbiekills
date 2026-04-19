@@ -265,7 +265,7 @@ const KillerQueen = () => {
               rel="noopener noreferrer"
             >
               <Button variant="hero" size="lg">
-                Falar com a Barbie Kills
+                Booking e Contratação
               </Button>
             </a>
           </div>
