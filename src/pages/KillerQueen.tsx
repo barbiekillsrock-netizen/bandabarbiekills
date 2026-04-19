@@ -60,7 +60,7 @@ const KillerQueen = () => {
       <section
         className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url(${HERO_IMG})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url(${BODY_IMG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
