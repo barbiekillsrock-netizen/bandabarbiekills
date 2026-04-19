@@ -258,8 +258,6 @@ const KillerQueen = () => {
           </div>
         </div>
       </section>
-
-      <Footer variant="minimal" />
     </main>
   );
 };
