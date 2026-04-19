@@ -40,10 +40,6 @@ const formatos = [
 ];
 
 const KillerQueen = () => {
-  const scrollToVideos = () => {
-    document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
@@ -214,6 +210,7 @@ const KillerQueen = () => {
         </div>
       </section>
 
+      {/* VÍDEOS E CTA FINAL */}
       <section id="videos" className="py-24 px-4 bg-gradient-to-b from-[#020005] via-[#0B0015] to-[#050505]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -259,7 +256,10 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      <Footer variant="minimal" />
+      {/* FOOTER COMENTADO PARA REMOVER O TEXTO INDESEJADO. 
+          Se precisar de um footer sem aquele texto, o Lovable precisará editar o componente Footer.tsx 
+      */}
+      {/* <Footer variant="minimal" /> */}
     </main>
   );
 };
