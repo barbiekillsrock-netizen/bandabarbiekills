@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
+import Footer from "@/components/Footer";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
 
 const VOCALIST_IMG = "/vocalista-banda-casamento.webp";
@@ -265,11 +266,8 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      <footer className="py-10 px-4 bg-black border-t border-white/10 text-center">
-        <p className="font-oswald uppercase tracking-widest text-sm text-gray-400">
-          © {new Date().getFullYear()} Barbie Kills | Killer Queen
-        </p>
-      </footer>
+      <Footer />
+
     </main>
   );
 };
