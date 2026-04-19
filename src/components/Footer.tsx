@@ -3,7 +3,12 @@ import { Instagram, Youtube, Facebook, Mail, Phone, MapPin } from "lucide-react"
 import { Link } from "react-router";
 import { cidadesData } from "@/data/cidadesData";
 
-const Footer = () => {
+interface FooterProps {
+  variant?: "default" | "minimal";
+}
+
+const Footer = ({ variant = "default" }: FooterProps) => {
+  const isMinimal = variant === "minimal";
   return (
     <footer className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-neon-pink/20 via-black to-black" />
@@ -142,43 +147,47 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-8">
-          <a
-            href="https://maps.app.goo.gl/R8dSjpVorD3Su4xP7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 text-muted-foreground hover:text-neon-pink transition-colors group"
-          >
-            <MapPin className="w-5 h-5 flex-shrink-0" />
-            <div className="font-inter text-sm flex flex-col items-center text-center">
-              <p>R. Ferreira Penteado, 1221, Centro, Campinas</p>
-              <p className="text-xs opacity-80 mt-1">Atendimento mediante agendamento</p>
+        {!isMinimal && (
+          <>
+            <div className="flex justify-center mt-8">
+              <a
+                href="https://maps.app.goo.gl/R8dSjpVorD3Su4xP7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-muted-foreground hover:text-neon-pink transition-colors group"
+              >
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <div className="font-inter text-sm flex flex-col items-center text-center">
+                  <p>R. Ferreira Penteado, 1221, Centro, Campinas</p>
+                  <p className="text-xs opacity-80 mt-1">Atendimento mediante agendamento</p>
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 text-center">
-          <p className="text-xs text-muted-foreground/90 uppercase tracking-widest mb-4">Áreas Atendidas</p>
-          <div className="text-[11px] text-muted-foreground/80 max-w-4xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
-            {cidadesData.map((c, i, arr) => (
-              <span key={c.slug}>
-                <Link to={`/cidade/${c.slug}`} className="hover:text-neon-pink transition-colors duration-300">
-                  {c.cidade}
-                </Link>
-                {i < arr.length - 1 ? " •" : ""}
-              </span>
-            ))}
-          </div>
-        </div>
+            <div className="mt-12 pt-8 border-t border-white/5 text-center">
+              <p className="text-xs text-muted-foreground/90 uppercase tracking-widest mb-4">Áreas Atendidas</p>
+              <div className="text-[11px] text-muted-foreground/80 max-w-4xl mx-auto flex flex-wrap justify-center gap-x-4 gap-y-2">
+                {cidadesData.map((c, i, arr) => (
+                  <span key={c.slug}>
+                    <Link to={`/cidade/${c.slug}`} className="hover:text-neon-pink transition-colors duration-300">
+                      {c.cidade}
+                    </Link>
+                    {i < arr.length - 1 ? " •" : ""}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-        <div className="mt-12 max-w-4xl mx-auto text-center">
-          <p className="font-inter text-sm text-muted-foreground leading-relaxed">
-            A <strong>Barbie Kills</strong> é a banda premium referência para casamentos de luxo e eventos corporativos
-            em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um repertório sofisticado
-            e infraestrutura completa, entregamos entretenimento musical de alta energia para quem não abre mão de
-            qualidade e elegância em seu grande dia.
-          </p>
-        </div>
+            <div className="mt-12 max-w-4xl mx-auto text-center">
+              <p className="font-inter text-sm text-muted-foreground leading-relaxed">
+                A <strong>Barbie Kills</strong> é a banda premium referência para casamentos de luxo e eventos corporativos
+                em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um repertório sofisticado
+                e infraestrutura completa, entregamos entretenimento musical de alta energia para quem não abre mão de
+                qualidade e elegância em seu grande dia.
+              </p>
+            </div>
+          </>
+        )}
 
         <div className="text-center mt-12 pt-8 border-t border-white/5">
           <p className="font-inter text-sm text-muted-foreground">© 2026 Barbie Kills. Todos os direitos reservados.</p>
