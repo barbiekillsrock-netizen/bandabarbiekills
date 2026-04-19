@@ -118,7 +118,7 @@ const KillerQueen = () => {
             {[
               {
                 title: "Autoridade Artística e Poder Feminino",
-                body: "Diferente de bandas convencionais, a Barbie Kills é liderada por mulheres que são referências em suas áreas. O palco é dominado pela voz marcante e presença magnética de Mariana Chaib. Na bateria, o show ganha um nível de prestígio e técnica raramente visto na noite: Mey Fogari, baterista também da Orquestra Sinfônica de Campinas, imprime uma execução impecável e uma dinâmica que eleva o nível sonoro da casa. É a entrega de músicos de elite performando uma celebração live, para quem exige a performance de diva.",
+                body: "A Barbie Kills é liderada por mulheres que são referências em suas áreas. O palco é dominado pela voz marcante e presença magnética de Mariana Chaib. Na bateria, o show ganha um nível de prestígio e técnica: Mey Fogari, baterista também da Orquestra Sinfônica de Campinas, imprime uma dinâmica que eleva o nível sonoro da experiência. É a entrega de músicos de elite performando uma celebração live, para quem exige a performance de diva.",
               },
               {
                 title: "Repertório que fala a língua do público",
