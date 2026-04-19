@@ -106,10 +106,10 @@ const KillerQueen = () => {
               </p>
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)]">
             <img
-              src={BODY_IMG}
-              alt="Barbie Kills em performance ao vivo"
+              src={VOCALIST_IMG}
+              alt="Vocalista da Barbie Kills em performance Killer Queen"
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -195,8 +195,8 @@ const KillerQueen = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)] order-2 md:order-1">
             <img
-              src={VOCALIST_IMG}
-              alt="Vocalista da Barbie Kills em performance Killer Queen"
+              src={BODY_IMG}
+              alt="Barbie Kills em show ao vivo"
               className="w-full h-full object-cover"
               loading="lazy"
             />
