@@ -57,14 +57,7 @@ const KillerQueen = () => {
       <KillerQueenNavbar />
 
       {/* HERO */}
-      <section
-        className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url(${BODY_IMG})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 bg-black">
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <p className="font-oswald uppercase tracking-[0.3em] text-neon-pink text-sm md:text-base mb-8">
             Barbie Kills apresenta
