@@ -186,41 +186,45 @@ const KillerQueen = () => {
 
       {/* REPERTÓRIO */}
       <section className="py-24 px-4 bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)] order-2 md:order-1">
-            <img
-              src={BODY_IMG}
-              alt="Barbie Kills em show ao vivo"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="order-1 md:order-2">
-            <h2 className="font-bebas text-5xl md:text-6xl text-foreground mb-2 tracking-wide">
-              REPERTÓRIO:
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="font-bebas text-5xl md:text-6xl text-foreground tracking-wide">
+              REPERTÓRIO: <span className="text-neon-pink">OS HINOS DA PISTA</span>
             </h2>
-            <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-6 tracking-wide">
-              OS HINOS DA PISTA
-            </h2>
-            <p className="font-inter font-light text-gray-200 leading-relaxed mb-8 text-lg">
+            <p className="font-inter font-light text-gray-200 leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
               Uma jornada dinâmica e sem pausas pelos ícones que definem gerações.
             </p>
-            <ul className="space-y-5">
+          </div>
+
+          <div className="grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-4 flex justify-center">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)] max-w-[280px] w-full aspect-[3/4]">
+                <img
+                  src={VOCALIST_IMG}
+                  alt="Vocalista da Barbie Kills em performance Killer Queen"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <ul className="md:col-span-8 grid sm:grid-cols-2 gap-4">
               {repertorio.map((r) => (
                 <li
                   key={r.title}
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:border-neon-pink/40 transition-colors"
                 >
-                  <p className="font-oswald uppercase tracking-wider text-neon-pink text-sm mb-1">
+                  <p className="font-oswald uppercase tracking-wider text-neon-pink text-sm mb-2">
                     {r.title}
                   </p>
-                  <p className="font-inter font-light text-gray-100">{r.artists}</p>
+                  <p className="font-inter font-light text-gray-100 text-sm leading-relaxed">{r.artists}</p>
                 </li>
               ))}
             </ul>
           </div>
         </div>
       </section>
+
 
 
       <section id="videos" className="py-24 px-4 bg-gradient-to-b from-[#020005] via-[#0B0015] to-[#050505]">
@@ -266,7 +270,7 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="minimal" />
 
     </main>
   );
