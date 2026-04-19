@@ -3,13 +3,21 @@ import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
 
-const HERO_IMG = "/vocalista-banda-casamento.webp";
+const VOCALIST_IMG = "/vocalista-banda-casamento.webp";
 const BODY_IMG = "/banda-casamentos-eventos-campinas-barbie-kills.webp";
 
 const videos = [
-  { id: "rAVb_-U7OAU", title: "Killer Queen — Performance ao vivo 1" },
-  { id: "lF0BWL3VamQ", title: "Killer Queen — Performance ao vivo 2" },
-  { id: "RLIIDCt0MlA", title: "Killer Queen — Performance ao vivo 3" },
+  { id: "rAVb_-U7OAU", title: "Killer Queen Performance ao vivo 1" },
+  { id: "lF0BWL3VamQ", title: "Killer Queen Performance ao vivo 2" },
+  { id: "RLIIDCt0MlA", title: "Killer Queen Performance ao vivo 3" },
+];
+
+const repertorio = [
+  { title: "A Trindade Pop", artists: "Madonna, Lady Gaga e Britney Spears." },
+  { title: "Divas Internacionais", artists: "Beyoncé, Rihanna, Katy Perry e Cher." },
+  { title: "Nostalgia & Energia", artists: "Spice Girls, Cyndi Lauper e Blondie." },
+  { title: "Hits Atuais", artists: "Dua Lipa, Miley Cyrus e Kim Petras." },
+  { title: "Poder Nacional", artists: "Pabllo Vittar e Gloria Groove." },
 ];
 
 const formatos = [
