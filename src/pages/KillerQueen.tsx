@@ -40,6 +40,10 @@ const formatos = [
 ];
 
 const KillerQueen = () => {
+  const scrollToVideos = () => {
+    document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
@@ -69,6 +73,11 @@ const KillerQueen = () => {
           <p className="font-inter font-light text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             A fusão definitiva entre o prestígio da música ao vivo e a energia imparável das pistas.
           </p>
+          <div className="mt-12">
+            <Button variant="hero" size="lg" onClick={scrollToVideos}>
+              Acessar Vídeos de Performance
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -76,18 +85,18 @@ const KillerQueen = () => {
       <section className="py-24 px-4 bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-bebas text-5xl md:text-6xl text-foreground mb-2 tracking-wide">O CONCEITO:</h2>
-            <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-8 tracking-wide">KILLER QUEEN</h2>
+            <h2 className="font-bebas text-5xl md:text-6xl text-foreground mb-2 tracking-wide">
+              O CONCEITO:
+            </h2>
+            <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-8 tracking-wide">
+              KILLER QUEEN
+            </h2>
             <div className="space-y-5 font-inter font-light text-gray-200 leading-relaxed">
               <p>
-                O projeto Killer Queen não é apenas um tributo; é uma intervenção artística desenhada para o cenário das
-                grandes casas noturnas. Em um mercado saturado por DJs e covers genéricos, a Barbie Kills entrega o que
-                faltava na noite: a experiência live de luxo.
+                O projeto Killer Queen não é apenas um tributo; é uma intervenção artística desenhada para o cenário das grandes casas noturnas. Em um mercado saturado por DJs e covers genéricos, a Barbie Kills entrega o que faltava na noite: a experiência live de luxo.
               </p>
               <p>
-                Reinterpretamos os hinos que moldaram a cultura pop, de Madonna, Lady Gaga e Dua Lipa a Gloria Groove e
-                Pablo Vittar, sob uma ótica de alta performance. O resultado é um show que une o groove e a batida das
-                pistas com a alma e a pegada orgânica do rock, mantendo a pista em um estado de euforia e movimento.
+                Reinterpretamos os hinos que moldaram a cultura pop, de Madonna, Lady Gaga e Dua Lipa a Gloria Groove e Pablo Vittar, sob uma ótica de alta performance. O resultado é um show que une o groove e a batida das pistas com a alma e a pegada orgânica do rock, mantendo a pista em um estado de euforia e movimento.
               </p>
             </div>
           </div>
@@ -131,7 +140,9 @@ const KillerQueen = () => {
                 key={item.title}
                 className="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-2xl p-8 hover:border-neon-pink/40 transition-colors"
               >
-                <h3 className="font-oswald uppercase tracking-wider text-xl text-neon-pink mb-4">{item.title}</h3>
+                <h3 className="font-oswald uppercase tracking-wider text-xl text-neon-pink mb-4">
+                  {item.title}
+                </h3>
                 <p className="font-inter font-light text-gray-200 leading-relaxed">{item.body}</p>
               </article>
             ))}
@@ -163,7 +174,9 @@ const KillerQueen = () => {
                 className="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-2xl p-8 flex flex-col"
               >
                 <h3 className="font-bebas text-3xl text-neon-pink tracking-wide">{f.name}</h3>
-                <p className="font-oswald uppercase tracking-widest text-sm text-cyan-300 mb-5">{f.sub}</p>
+                <p className="font-oswald uppercase tracking-widest text-sm text-cyan-300 mb-5">
+                  {f.sub}
+                </p>
                 <p className="font-inter font-light text-gray-200 leading-relaxed">{f.desc}</p>
               </div>
             ))}
@@ -201,7 +214,9 @@ const KillerQueen = () => {
                   key={r.title}
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:border-neon-pink/40 transition-colors"
                 >
-                  <p className="font-oswald uppercase tracking-wider text-neon-pink text-sm mb-2">{r.title}</p>
+                  <p className="font-oswald uppercase tracking-wider text-neon-pink text-sm mb-2">
+                    {r.title}
+                  </p>
                   <p className="font-inter font-light text-gray-100 text-sm leading-relaxed">{r.artists}</p>
                 </li>
               ))}
@@ -210,7 +225,8 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      {/* VÍDEOS E CTA FINAL */}
+
+
       <section id="videos" className="py-24 px-4 bg-gradient-to-b from-[#020005] via-[#0B0015] to-[#050505]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -218,9 +234,7 @@ const KillerQueen = () => {
               POR QUE <span className="text-neon-pink">AGORA?</span>
             </h2>
             <p className="font-inter font-light text-gray-200 max-w-3xl mx-auto leading-relaxed text-lg">
-              A Barbie Kills está selecionando parceiros e clubes referência para as próximas datas do projeto Killer
-              Queen. Se o seu objetivo é oferecer uma atração que una músicos renomados, estética impecável e uma
-              entrega profissional que garanta o sucesso da sua pista, estamos prontos para conversar.
+              A Barbie Kills está selecionando parceiros e clubes referência para as próximas datas do projeto Killer Queen. Se o seu objetivo é oferecer uma atração que una músicos renomados, estética impecável e uma entrega profissional que garanta o sucesso da sua pista, estamos prontos para conversar.
             </p>
           </div>
 
@@ -256,10 +270,8 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      {/* FOOTER COMENTADO PARA REMOVER O TEXTO INDESEJADO. 
-          Se precisar de um footer sem aquele texto, o Lovable precisará editar o componente Footer.tsx 
-      */}
-      {/* <Footer variant="minimal" /> */}
+      <Footer variant="minimal" />
+
     </main>
   );
 };
