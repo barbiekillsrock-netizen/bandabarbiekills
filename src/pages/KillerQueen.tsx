@@ -274,7 +274,7 @@ const KillerQueen = () => {
 
       <footer className="py-10 px-4 bg-black border-t border-white/10 text-center">
         <p className="font-oswald uppercase tracking-widest text-sm text-gray-400">
-          © {new Date().getFullYear()} Barbie Kills — Killer Queen
+          © {new Date().getFullYear()} Barbie Kills | Killer Queen
         </p>
       </footer>
     </main>
