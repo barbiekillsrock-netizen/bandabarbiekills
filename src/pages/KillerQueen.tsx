@@ -3,13 +3,21 @@ import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
 
-const HERO_IMG = "/vocalista-banda-casamento.webp";
+const VOCALIST_IMG = "/vocalista-banda-casamento.webp";
 const BODY_IMG = "/banda-casamentos-eventos-campinas-barbie-kills.webp";
 
 const videos = [
-  { id: "rAVb_-U7OAU", title: "Killer Queen — Performance ao vivo 1" },
-  { id: "lF0BWL3VamQ", title: "Killer Queen — Performance ao vivo 2" },
-  { id: "RLIIDCt0MlA", title: "Killer Queen — Performance ao vivo 3" },
+  { id: "rAVb_-U7OAU", title: "Killer Queen Performance ao vivo 1" },
+  { id: "lF0BWL3VamQ", title: "Killer Queen Performance ao vivo 2" },
+  { id: "RLIIDCt0MlA", title: "Killer Queen Performance ao vivo 3" },
+];
+
+const repertorio = [
+  { title: "A Trindade Pop", artists: "Madonna, Lady Gaga e Britney Spears." },
+  { title: "Divas Internacionais", artists: "Beyoncé, Rihanna, Katy Perry e Cher." },
+  { title: "Nostalgia & Energia", artists: "Spice Girls, Cyndi Lauper e Blondie." },
+  { title: "Hits Atuais", artists: "Dua Lipa, Miley Cyrus e Kim Petras." },
+  { title: "Poder Nacional", artists: "Pabllo Vittar e Gloria Groove." },
 ];
 
 const formatos = [
@@ -52,7 +60,7 @@ const KillerQueen = () => {
       <section
         className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url(${HERO_IMG})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url(${BODY_IMG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -182,7 +190,45 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      {/* POR QUE AGORA + VIDEOS */}
+      {/* REPERTÓRIO */}
+      <section className="py-24 px-4 bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,0,127,0.2)] order-2 md:order-1">
+            <img
+              src={VOCALIST_IMG}
+              alt="Vocalista da Barbie Kills em performance Killer Queen"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="order-1 md:order-2">
+            <h2 className="font-bebas text-5xl md:text-6xl text-foreground mb-2 tracking-wide">
+              REPERTÓRIO:
+            </h2>
+            <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-6 tracking-wide">
+              OS HINOS DA PISTA
+            </h2>
+            <p className="font-inter font-light text-gray-200 leading-relaxed mb-8 text-lg">
+              Uma jornada dinâmica e sem pausas pelos ícones que definem gerações.
+            </p>
+            <ul className="space-y-5">
+              {repertorio.map((r) => (
+                <li
+                  key={r.title}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:border-neon-pink/40 transition-colors"
+                >
+                  <p className="font-oswald uppercase tracking-wider text-neon-pink text-sm mb-1">
+                    {r.title}
+                  </p>
+                  <p className="font-inter font-light text-gray-100">{r.artists}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
       <section id="videos" className="py-24 px-4 bg-gradient-to-b from-[#020005] via-[#0B0015] to-[#050505]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -219,7 +265,7 @@ const KillerQueen = () => {
               rel="noopener noreferrer"
             >
               <Button variant="hero" size="lg">
-                Falar com a Barbie Kills
+                Booking e Contratação
               </Button>
             </a>
           </div>
@@ -228,7 +274,7 @@ const KillerQueen = () => {
 
       <footer className="py-10 px-4 bg-black border-t border-white/10 text-center">
         <p className="font-oswald uppercase tracking-widest text-sm text-gray-400">
-          © {new Date().getFullYear()} Barbie Kills — Killer Queen
+          © {new Date().getFullYear()} Barbie Kills | Killer Queen
         </p>
       </footer>
     </main>
