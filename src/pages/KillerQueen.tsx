@@ -84,9 +84,11 @@ const KillerQueen = () => {
             <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-8 tracking-wide">KILLER QUEEN</h2>
             <div className="space-y-5 font-inter font-light text-gray-200 leading-relaxed">
               <p>
-                O projeto Killer Queen não é apenas um tributo; é uma intervenção artística desenhada para o cenário das
-                grandes casas noturnas. Em um mercado saturado por DJs e covers genéricos, a Barbie Kills entrega o que
-                faltava na noite: a experiência live de luxo.
+                Após movimentar as principais casas e eventos do país, com mais de 600 shows realizados em 14 anos de
+                estrada, a Banda Barbie Kills condensa sua bagagem em uma experiência live inédita: Killer Queen O show
+                Killer Queen não é apenas um tributo; é uma intervenção artística desenhada para o cenário das grandes
+                casas noturnas. Em um mercado saturado por DJs e covers genéricos, a Barbie Kills entrega o que faltava
+                na noite: a experiência live de luxo.
               </p>
               <p>
                 Reinterpretamos os hinos que moldaram a cultura pop, de Madonna, Lady Gaga e Dua Lipa a Gloria Groove e
@@ -116,7 +118,7 @@ const KillerQueen = () => {
             {[
               {
                 title: "Autoridade Artística e Poder Feminino",
-                body: "Diferente de bandas convencionais, a Barbie Kills é liderada por mulheres que são referências em suas áreas. O palco é dominado pela voz marcante e presença magnética de Mariana Chaib. Na bateria, o show ganha um nível de prestígio e técnica raramente visto na noite: Mey Fogari, baterista também da Orquestra Sinfônica de Campinas, imprime uma execução impecável e uma dinâmica que eleva o nível sonoro da casa. É a segurança de músicos de elite entregando um entretenimento de massa.",
+                body: "Diferente de bandas convencionais, a Barbie Kills é liderada por mulheres que são referências em suas áreas. O palco é dominado pela voz marcante e presença magnética de Mariana Chaib. Na bateria, o show ganha um nível de prestígio e técnica raramente visto na noite: Mey Fogari, baterista também da Orquestra Sinfônica de Campinas, imprime uma execução impecável e uma dinâmica que eleva o nível sonoro da casa. É a entrega de músicos de elite performando uma celebração live, para quem exige a performance de diva.",
               },
               {
                 title: "Repertório que fala a língua do público",
