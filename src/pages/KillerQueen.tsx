@@ -217,7 +217,7 @@ const KillerQueen = () => {
       <section
         className="py-24 px-4 relative"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(5,0,5,0.9), rgba(11,0,21,0.92), rgba(2,0,5,0.95)), url(${killerQueenBg})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(5,0,5,0.6), rgba(11,0,21,0.65), rgba(2,0,5,0.7)), url(${killerQueenBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
