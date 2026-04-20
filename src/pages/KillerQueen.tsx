@@ -307,6 +307,9 @@ const KillerQueen = () => {
       </section>
 
       <KillerQueenFooter />
+
+      {/* CTA flutuante de conversão (componente global reaproveitado) */}
+      <WhatsAppButton />
     </main>
   );
 };
