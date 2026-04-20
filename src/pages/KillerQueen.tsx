@@ -1,23 +1,28 @@
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
-import Footer from "@/components/Footer";
+import KillerQueenFooter from "@/components/KillerQueenFooter";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
+import meyFogariImg from "@/assets/mey-fogari-baterista-barbie-kills.png";
+import killerQueenBg from "@/assets/killer-queen-fundo-neon.png";
 
 const VOCALIST_IMG = "/vocalista-banda-casamento.webp";
 const BODY_IMG = "/banda-casamentos-eventos-campinas-barbie-kills.webp";
 
 const videos = [
-  { id: "rAVb_-U7OAU", title: "Killer Queen Performance ao vivo 1" },
-  { id: "lF0BWL3VamQ", title: "Killer Queen Performance ao vivo 2" },
-  { id: "RLIIDCt0MlA", title: "Killer Queen Performance ao vivo 3" },
+  { id: "rAVb_-U7OAU", title: "Killer Queen Performance ao vivo 1", vertical: false },
+  { id: "lF0BWL3VamQ", title: "Killer Queen Performance ao vivo 2", vertical: false },
+  { id: "RLIIDCt0MlA", title: "Killer Queen Performance ao vivo 3", vertical: false },
+  { id: "PAFQPMCD18c", title: "Killer Queen Performance ao vivo 4", vertical: false },
+  { id: "yLaizKRRLAk", title: "Killer Queen Performance ao vivo 5", vertical: false },
+  { id: "pyxdXGkTKLo", title: "Killer Queen Shorts performance", vertical: true },
 ];
 
 const repertorio = [
   { title: "A Trindade Pop", artists: "Madonna, Lady Gaga e Britney Spears." },
   { title: "Divas Internacionais", artists: "Beyoncé, Rihanna, Katy Perry e Cher." },
   { title: "Nostalgia & Energia", artists: "Spice Girls, Cyndi Lauper e Blondie." },
-  { title: "Hits Atuais", artists: "Dua Lipa, Miley Cyrus e Kim Petras." },
+  { title: "Hits Atuais", artists: "Dua Lipa, Miley Cyrus, Kim Petras e Taylor Swift." },
   { title: "Poder Nacional", artists: "Pabllo Vittar e Gloria Groove." },
 ];
 
@@ -40,10 +45,6 @@ const formatos = [
 ];
 
 const KillerQueen = () => {
-  const scrollToVideos = () => {
-    document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
@@ -77,8 +78,15 @@ const KillerQueen = () => {
       </section>
 
       {/* CONCEITO */}
-      <section className="py-24 px-4 bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section
+        className="py-24 px-4 relative"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.92)), url(${killerQueenBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <h2 className="font-bebas text-5xl md:text-6xl text-foreground mb-2 tracking-wide">O CONCEITO:</h2>
             <h2 className="font-bebas text-5xl md:text-6xl text-neon-pink mb-8 tracking-wide">KILLER QUEEN</h2>
@@ -142,6 +150,31 @@ const KillerQueen = () => {
               </article>
             ))}
           </div>
+
+          {/* MEY FOGARI - Destaque visual da baterista */}
+          <div className="mt-20 grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-5">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(0,255,255,0.18)] aspect-[3/4]">
+                <img
+                  src={meyFogariImg}
+                  alt="Mey Fogari, baterista da Barbie Kills e da Orquestra Sinfônica de Campinas"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-7">
+              <p className="font-oswald uppercase tracking-[0.3em] text-cyan-300 text-sm mb-3">Em destaque</p>
+              <h3 className="font-bebas text-4xl md:text-5xl text-foreground mb-4 tracking-wide">
+                MEY FOGARI <span className="text-neon-pink">NA BATERIA</span>
+              </h3>
+              <p className="font-inter font-light text-gray-200 leading-relaxed">
+                Baterista também da Orquestra Sinfônica de Campinas, Mey Fogari é o motor técnico do show Killer Queen.
+                Sua precisão rítmica e leitura de pista elevam a experiência sonora a um patamar de festival, traduzindo
+                em groove orgânico a energia que a noite exige.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -178,8 +211,15 @@ const KillerQueen = () => {
       </section>
 
       {/* REPERTÓRIO */}
-      <section className="py-24 px-4 bg-gradient-to-b from-[#050505] via-[#0B0015] to-[#020005]">
-        <div className="max-w-6xl mx-auto">
+      <section
+        className="py-24 px-4 relative"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(5,0,5,0.9), rgba(11,0,21,0.92), rgba(2,0,5,0.95)), url(${killerQueenBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-14">
             <h2 className="font-bebas text-5xl md:text-6xl text-foreground tracking-wide">
               REPERTÓRIO: <span className="text-neon-pink">OS HINOS DA PISTA</span>
@@ -229,11 +269,13 @@ const KillerQueen = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {videos.map((v) => (
               <div
                 key={v.id}
-                className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,127,0.15)]"
+                className={`${
+                  v.vertical ? "aspect-[9/16] max-w-[320px] mx-auto w-full" : "aspect-video"
+                } rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,127,0.15)]`}
               >
                 <iframe
                   src={`https://www.youtube.com/embed/${v.id}`}
@@ -261,7 +303,7 @@ const KillerQueen = () => {
         </div>
       </section>
 
-      <Footer variant="minimal" />
+      <KillerQueenFooter />
     </main>
   );
 };
