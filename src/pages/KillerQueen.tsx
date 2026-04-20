@@ -273,9 +273,7 @@ const KillerQueen = () => {
             {videos.map((v) => (
               <div
                 key={v.id}
-                className={`${
-                  v.vertical ? "aspect-[9/16] max-w-[320px] mx-auto w-full" : "aspect-video"
-                } rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,127,0.15)]`}
+                className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,127,0.15)] bg-black flex items-center justify-center"
               >
                 <iframe
                   src={`https://www.youtube.com/embed/${v.id}`}
@@ -283,7 +281,7 @@ const KillerQueen = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   loading="lazy"
-                  className="w-full h-full"
+                  className={v.vertical ? "h-full aspect-[9/16]" : "w-full h-full"}
                 />
               </div>
             ))}
