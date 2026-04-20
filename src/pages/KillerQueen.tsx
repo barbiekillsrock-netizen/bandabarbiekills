@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
 import KillerQueenFooter from "@/components/KillerQueenFooter";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
 import meyFogariImg from "@/assets/mey-fogari-baterista-barbie-kills.png";
 import killerQueenBg from "@/assets/killer-queen-fundo-neon.png";
@@ -73,7 +72,7 @@ const KillerQueen = () => {
             height={520}
           />
           <p className="font-inter font-light text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            A fusão definitiva entre o prestígio da música ao vivo e a energia imparável das pistas.
+            Onde o peso do rock encontra a energia dos hinos pop em um show 100% orgânico
           </p>
         </div>
       </section>
@@ -82,7 +81,7 @@ const KillerQueen = () => {
       <section
         className="py-24 px-4 relative"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url(${killerQueenBg})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.92)), url(${killerQueenBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -94,8 +93,8 @@ const KillerQueen = () => {
             <div className="space-y-5 font-inter font-light text-gray-200 leading-relaxed">
               <p>
                 Após movimentar as principais casas e eventos do país, com mais de 600 shows realizados em 14 anos de
-                estrada, a Banda Barbie Kills condensa sua bagagem em uma experiência live inédita: Killer Queen O show
-                Killer Queen não é apenas um tributo; é uma intervenção artística desenhada para o cenário das grandes
+                estrada, a Banda Barbie Kills condensa sua bagagem em uma experiência inédita: o Show Killer Queen.
+                Killer Queen não é apenas um tributo, é uma intervenção artística desenhada para o cenário das grandes
                 casas noturnas. Em um mercado saturado por DJs e covers genéricos, a Barbie Kills entrega o que faltava
                 na noite: a experiência live de luxo.
               </p>
@@ -150,33 +149,31 @@ const KillerQueen = () => {
                 <p className="font-inter font-light text-gray-200 leading-relaxed">{item.body}</p>
               </article>
             ))}
+          </div>
 
-            {/* SPOTLIGHT MEY FOGARI — prova artística do tópico "Músicos de Elite" */}
-            <article className="md:col-span-2 relative bg-gradient-to-br from-neon-pink/10 via-white/5 to-cyan-300/10 backdrop-blur-md border border-neon-pink/40 rounded-2xl p-8 md:p-10 grid md:grid-cols-12 gap-8 items-center shadow-[0_0_60px_rgba(255,0,127,0.25)] hover:shadow-[0_0_80px_rgba(255,0,127,0.45)] transition-shadow">
-              <div className="md:col-span-4">
-                <div className="rounded-2xl overflow-hidden border border-neon-pink/40 shadow-[0_0_40px_rgba(0,255,255,0.2)] aspect-[3/4]">
-                  <img
-                    src={meyFogariImg}
-                    alt="Mey Fogari, baterista da Barbie Kills e da Orquestra Sinfônica de Campinas"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
+          {/* MEY FOGARI - Destaque visual da baterista */}
+          <div className="mt-20 grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-5">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(0,255,255,0.18)] aspect-[3/4]">
+                <img
+                  src={meyFogariImg}
+                  alt="Mey Fogari, baterista da Barbie Kills e da Orquestra Sinfônica de Campinas"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
-              <div className="md:col-span-8">
-                <p className="font-oswald uppercase tracking-[0.3em] text-cyan-300 text-xs md:text-sm mb-3">
-                  Spotlight de Autoridade
-                </p>
-                <h3 className="font-bebas text-4xl md:text-5xl text-foreground mb-4 tracking-wide">
-                  MEY FOGARI <span className="text-neon-pink">NA BATERIA</span>
-                </h3>
-                <p className="font-inter font-light text-gray-200 leading-relaxed">
-                  Prova viva do nosso compromisso com músicos de elite: Mey Fogari atua também como baterista da
-                  Orquestra Sinfônica de Campinas. Sua precisão rítmica e leitura de pista traduzem em groove orgânico
-                  a energia que a noite exige, elevando o Killer Queen ao patamar de experiência sonora de festival.
-                </p>
-              </div>
-            </article>
+            </div>
+            <div className="md:col-span-7">
+              <p className="font-oswald uppercase tracking-[0.3em] text-cyan-300 text-sm mb-3">Em destaque</p>
+              <h3 className="font-bebas text-4xl md:text-5xl text-foreground mb-4 tracking-wide">
+                MEY FOGARI <span className="text-neon-pink">NA BATERIA</span>
+              </h3>
+              <p className="font-inter font-light text-gray-200 leading-relaxed">
+                Baterista também da Orquestra Sinfônica de Campinas, Mey Fogari é o motor técnico do show Killer Queen.
+                Sua precisão rítmica e leitura de pista elevam a experiência sonora a um patamar de festival, traduzindo
+                em groove orgânico a energia que a noite exige.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -217,7 +214,7 @@ const KillerQueen = () => {
       <section
         className="py-24 px-4 relative"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(5,0,5,0.6), rgba(11,0,21,0.65), rgba(2,0,5,0.7)), url(${killerQueenBg})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(5,0,5,0.9), rgba(11,0,21,0.92), rgba(2,0,5,0.95)), url(${killerQueenBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -276,27 +273,18 @@ const KillerQueen = () => {
             {videos.map((v) => (
               <div
                 key={v.id}
-                className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,127,0.15)] bg-black flex items-center justify-center"
+                className={`${
+                  v.vertical ? "aspect-[9/16] max-w-[320px] mx-auto w-full" : "aspect-video"
+                } rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,127,0.15)]`}
               >
-                {v.vertical ? (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${v.id}`}
-                    title={v.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="h-full aspect-[9/16]"
-                  />
-                ) : (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${v.id}`}
-                    title={v.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="w-full h-full"
-                  />
-                )}
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.id}`}
+                  title={v.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  className="w-full h-full"
+                />
               </div>
             ))}
           </div>
@@ -316,9 +304,6 @@ const KillerQueen = () => {
       </section>
 
       <KillerQueenFooter />
-
-      {/* CTA flutuante de conversão (componente global reaproveitado) */}
-      <WhatsAppButton />
     </main>
   );
 };
