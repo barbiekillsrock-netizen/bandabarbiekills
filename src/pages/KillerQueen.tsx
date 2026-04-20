@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
 import KillerQueenFooter from "@/components/KillerQueenFooter";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
 import meyFogariImg from "@/assets/mey-fogari-baterista-barbie-kills.png";
 import killerQueenBg from "@/assets/killer-queen-fundo-neon.png";
@@ -149,31 +150,33 @@ const KillerQueen = () => {
                 <p className="font-inter font-light text-gray-200 leading-relaxed">{item.body}</p>
               </article>
             ))}
-          </div>
 
-          {/* MEY FOGARI - Destaque visual da baterista */}
-          <div className="mt-20 grid md:grid-cols-12 gap-10 items-center">
-            <div className="md:col-span-5">
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(0,255,255,0.18)] aspect-[3/4]">
-                <img
-                  src={meyFogariImg}
-                  alt="Mey Fogari, baterista da Barbie Kills e da Orquestra Sinfônica de Campinas"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            {/* SPOTLIGHT MEY FOGARI — prova artística do tópico "Músicos de Elite" */}
+            <article className="md:col-span-2 relative bg-gradient-to-br from-neon-pink/10 via-white/5 to-cyan-300/10 backdrop-blur-md border border-neon-pink/40 rounded-2xl p-8 md:p-10 grid md:grid-cols-12 gap-8 items-center shadow-[0_0_60px_rgba(255,0,127,0.25)] hover:shadow-[0_0_80px_rgba(255,0,127,0.45)] transition-shadow">
+              <div className="md:col-span-4">
+                <div className="rounded-2xl overflow-hidden border border-neon-pink/40 shadow-[0_0_40px_rgba(0,255,255,0.2)] aspect-[3/4]">
+                  <img
+                    src={meyFogariImg}
+                    alt="Mey Fogari, baterista da Barbie Kills e da Orquestra Sinfônica de Campinas"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="md:col-span-7">
-              <p className="font-oswald uppercase tracking-[0.3em] text-cyan-300 text-sm mb-3">Em destaque</p>
-              <h3 className="font-bebas text-4xl md:text-5xl text-foreground mb-4 tracking-wide">
-                MEY FOGARI <span className="text-neon-pink">NA BATERIA</span>
-              </h3>
-              <p className="font-inter font-light text-gray-200 leading-relaxed">
-                Baterista também da Orquestra Sinfônica de Campinas, Mey Fogari é o motor técnico do show Killer Queen.
-                Sua precisão rítmica e leitura de pista elevam a experiência sonora a um patamar de festival, traduzindo
-                em groove orgânico a energia que a noite exige.
-              </p>
-            </div>
+              <div className="md:col-span-8">
+                <p className="font-oswald uppercase tracking-[0.3em] text-cyan-300 text-xs md:text-sm mb-3">
+                  Spotlight de Autoridade
+                </p>
+                <h3 className="font-bebas text-4xl md:text-5xl text-foreground mb-4 tracking-wide">
+                  MEY FOGARI <span className="text-neon-pink">NA BATERIA</span>
+                </h3>
+                <p className="font-inter font-light text-gray-200 leading-relaxed">
+                  Prova viva do nosso compromisso com músicos de elite: Mey Fogari atua também como baterista da
+                  Orquestra Sinfônica de Campinas. Sua precisão rítmica e leitura de pista traduzem em groove orgânico
+                  a energia que a noite exige, elevando o Killer Queen ao patamar de experiência sonora de festival.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -304,6 +307,9 @@ const KillerQueen = () => {
       </section>
 
       <KillerQueenFooter />
+
+      {/* CTA flutuante de conversão (componente global reaproveitado) */}
+      <WhatsAppButton />
     </main>
   );
 };
