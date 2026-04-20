@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import KillerQueenNavbar from "@/components/KillerQueenNavbar";
 import KillerQueenFooter from "@/components/KillerQueenFooter";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import killerQueenLogo from "@/assets/killer-queen-logo.png";
 import meyFogariImg from "@/assets/mey-fogari-baterista-barbie-kills.png";
 import killerQueenBg from "@/assets/killer-queen-fundo-neon.png";
