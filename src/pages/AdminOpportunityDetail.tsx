@@ -432,7 +432,7 @@ const AdminOpportunityDetail = () => {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-2">
               {revenues.map((rev) => {
                 const itemTotalCost = rev.cost_items?.reduce((s, c) => s + Number(c.cost_value), 0) || 0;
                 const marginAbs = (Number(rev.sale_value) || 0) - itemTotalCost;
@@ -493,7 +493,7 @@ const AdminOpportunityDetail = () => {
                     </div>
 
                     {/* Grid Custos / Precificação compacta */}
-                    <div className="p-3 grid md:grid-cols-2 gap-4">
+                    <div className="p-2 grid md:grid-cols-2 gap-3">
                       {/* 1. CUSTOS */}
                       <div className="space-y-2">
                         <Label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-1">
