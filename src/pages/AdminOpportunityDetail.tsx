@@ -37,8 +37,8 @@ const statusColors: Record<string, string> = {
   finished: "bg-green-500/20 text-green-300 border-green-500/30",
 };
 
-// Classe utilitária para manter TODOS os números financeiros idênticos
-const financialNumberClass = "font-bebas text-2xl tracking-wider text-white";
+// Classe utilitária para manter TODOS os números financeiros idênticos (compacto)
+const financialNumberClass = "font-bebas text-base tracking-wide text-white";
 
 const AdminOpportunityDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -408,35 +408,31 @@ const AdminOpportunityDetail = () => {
             </div>
           </TabsContent>
 
-          {/* --- TAB FINANCEIRA --- */}
-          <TabsContent value="financeiro" className="space-y-8 animate-in fade-in duration-300">
-            <div className="glass-card rounded-lg p-6 border border-white/10 bg-black/20">
-              <h2 className="font-bebas text-xl mb-4 text-foreground tracking-widest uppercase flex items-center gap-2">
-                <Plus size={18} className="text-neon-pink" /> Novo Item
-              </h2>
-              <div className="flex gap-4 items-end">
-                <div className="flex-1">
-                  <Input
-                    value={newRevTitle}
-                    onChange={(e) => setNewRevTitle(e.target.value)}
-                    placeholder="Ex: Show Trio Golden Pulse"
-                    className="bg-black/40 border-white/10 rounded-md p-4 h-auto text-base font-sans text-foreground"
-                  />
-                </div>
-                <Button variant="neonPink" onClick={addRevenue} className="font-bold px-10 h-11 uppercase text-xs">
+          {/* --- TAB FINANCEIRA (compacta) --- */}
+          <TabsContent value="financeiro" className="space-y-4 animate-in fade-in duration-300">
+            <div className="glass-card rounded-lg p-3 border border-white/10 bg-black/20">
+              <div className="flex gap-2 items-center flex-wrap">
+                <Plus size={14} className="text-neon-pink shrink-0" />
+                <Input
+                  value={newRevTitle}
+                  onChange={(e) => setNewRevTitle(e.target.value)}
+                  placeholder="Novo item (ex: Show Trio Golden Pulse)"
+                  className="bg-black/40 border-white/10 rounded-md h-9 text-sm font-sans text-foreground flex-1 min-w-[180px]"
+                />
+                <Button variant="neonPink" onClick={addRevenue} className="font-bold px-4 h-9 uppercase text-[11px]">
                   Adicionar
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => setCatalogOpen(true)}
-                  className="border-neon-pink text-neon-pink hover:bg-neon-pink/10 font-bold px-6 h-11 uppercase text-xs"
+                  className="border-neon-pink text-neon-pink hover:bg-neon-pink/10 font-bold px-3 h-9 uppercase text-[11px]"
                 >
-                  <BookOpen size={16} className="mr-2" /> Importar do Catálogo
+                  <BookOpen size={14} className="mr-1.5" /> Catálogo
                 </Button>
               </div>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-4">
               {revenues.map((rev) => {
                 const itemTotalCost = rev.cost_items?.reduce((s, c) => s + Number(c.cost_value), 0) || 0;
                 const marginAbs = (Number(rev.sale_value) || 0) - itemTotalCost;
@@ -445,38 +441,39 @@ const AdminOpportunityDetail = () => {
                 return (
                   <div
                     key={rev.id}
-                    className="glass-card rounded-2xl border-2 border-white/5 overflow-hidden bg-black/40 shadow-xl"
+                    className="glass-card rounded-lg border border-white/10 overflow-hidden bg-black/40"
                   >
-                    <div className="p-6 bg-white/5 flex justify-between items-center border-b border-white/10">
-                      <div className="flex items-center gap-4 flex-1 min-w-0">
-                        <div className="bg-neon-pink/20 p-2 rounded text-neon-pink font-bold text-xs uppercase tracking-tighter shrink-0">
-                          ITEM BK
-                        </div>
+                    {/* Header compacto */}
+                    <div className="px-3 py-2 bg-white/5 flex justify-between items-center border-b border-white/10 gap-2">
+                      <div className="flex items-center gap-2 flex-1 min-w-0">
+                        <span className="bg-neon-pink/20 px-1.5 py-0.5 rounded text-neon-pink font-bold text-[9px] uppercase tracking-tighter shrink-0">
+                          ITEM
+                        </span>
                         <Input
                           defaultValue={rev.title}
                           onBlur={(e) => {
                             if (e.target.value !== rev.title) updateRevenueTitle(rev.id, e.target.value);
                           }}
-                          className="font-bebas text-2xl tracking-wide text-foreground bg-transparent border-transparent hover:border-white/10 focus:border-neon-pink/40 h-auto p-2"
+                          className="font-bebas text-base tracking-wide text-foreground bg-transparent border-transparent hover:border-white/10 focus:border-neon-pink/40 h-8 px-2"
                         />
                       </div>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => deleteRevenue(rev.id)}
-                        className="text-red-500/50 hover:text-red-500 shrink-0"
+                        className="text-red-500/50 hover:text-red-500 shrink-0 h-7 w-7 p-0"
                       >
-                        <Trash2 size={18} />
+                        <Trash2 size={14} />
                       </Button>
                     </div>
 
-                    {/* Descrição (abaixo do header, sem IA) */}
-                    <div className="px-6 pt-4 pb-2 border-b border-white/5">
-                      <Label className="text-[10px] uppercase font-bold text-muted-foreground mb-2 block">
+                    {/* Descrição compacta */}
+                    <div className="px-3 py-2 border-b border-white/5">
+                      <Label className="text-[9px] uppercase font-bold text-muted-foreground mb-1 block">
                         Descrição
                       </Label>
                       <textarea
-                        className="w-full h-[100px] bg-black/40 border border-white/10 rounded-md p-4 text-base text-foreground outline-none focus:border-neon-pink/50 transition-all leading-relaxed font-sans"
+                        className="w-full h-[60px] bg-black/40 border border-white/10 rounded-md p-2 text-xs text-foreground outline-none focus:border-neon-pink/50 transition-all leading-snug font-sans resize-none"
                         value={rev.description || ""}
                         onChange={(e) => {
                           const val = e.target.value;
@@ -484,33 +481,34 @@ const AdminOpportunityDetail = () => {
                         }}
                         placeholder="Descreva o serviço..."
                       />
-                      <div className="flex justify-end mt-2">
+                      <div className="flex justify-end mt-1">
                         <Button
                           size="sm"
                           onClick={() => updateRevenueDescription(rev.id, rev.description || "")}
-                          className="h-7 bg-white/10 hover:bg-neon-pink text-white text-xs font-bold px-4"
+                          className="h-6 bg-white/10 hover:bg-neon-pink text-white text-[10px] font-bold px-2"
                         >
-                          <Save size={12} className="mr-1" /> Salvar Descrição
+                          <Save size={10} className="mr-1" /> Salvar
                         </Button>
                       </div>
                     </div>
 
-                    <div className="p-8 grid md:grid-cols-2 gap-12 bg-gradient-to-br from-transparent to-white/[0.01]">
+                    {/* Grid Custos / Precificação compacta */}
+                    <div className="p-3 grid md:grid-cols-2 gap-4">
                       {/* 1. CUSTOS */}
-                      <div className="space-y-6">
-                        <Label className="text-xs uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-2">
-                          1. Definição de Custos
+                      <div className="space-y-2">
+                        <Label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-1">
+                          1. Custos
                         </Label>
-                        <div className="space-y-3">
+                        <div className="space-y-1">
                           {rev.cost_items?.map((cost) => (
                             <div
                               key={cost.id}
-                              className="flex justify-between items-center bg-white/[0.03] p-4 rounded-lg border border-white/5 group transition-all"
+                              className="flex justify-between items-center bg-white/[0.03] px-2 py-1.5 rounded border border-white/5 group transition-all"
                             >
-                              <span className="text-base text-gray-200 font-medium uppercase tracking-tight">
+                              <span className="text-xs text-gray-200 font-medium uppercase tracking-tight truncate pr-2">
                                 {cost.description}
                               </span>
-                              <div className="flex items-center gap-4">
+                              <div className="flex items-center gap-2 shrink-0">
                                 <span className={financialNumberClass}>
                                   R$ {cost.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                                 </span>
@@ -518,17 +516,17 @@ const AdminOpportunityDetail = () => {
                                   onClick={() => deleteCost(cost.id, rev.id)}
                                   className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-500"
                                 >
-                                  <X size={18} />
+                                  <X size={14} />
                                 </button>
                               </div>
                             </div>
                           ))}
                         </div>
-                        <div className="flex gap-2 pt-2">
+                        <div className="flex gap-1 pt-1">
                           <Input
                             id={`cn-${rev.id}`}
                             placeholder="Item..."
-                            className="h-11 text-base bg-black/40 border-white/10 font-sans rounded-md p-4"
+                            className="h-8 text-xs bg-black/40 border-white/10 font-sans rounded-md px-2"
                             onKeyDown={(e) => {
                               if (e.key === "Tab" && !e.shiftKey) {
                                 const valInput = document.getElementById(`cv-${rev.id}`);
@@ -545,7 +543,7 @@ const AdminOpportunityDetail = () => {
                             id={`cv-${rev.id}`}
                             placeholder="R$"
                             type="number"
-                            className={`h-11 w-32 bg-black/40 border-white/10 rounded-md p-4 ${financialNumberClass}`}
+                            className={`h-8 w-24 bg-black/40 border-white/10 rounded-md px-2 ${financialNumberClass}`}
                             onKeyDown={(e) => {
                               if (e.key === "Tab" && !e.shiftKey) {
                                 e.preventDefault();
@@ -556,7 +554,7 @@ const AdminOpportunityDetail = () => {
                           <Button
                             id={`add-cost-${rev.id}`}
                             size="sm"
-                            className="h-11 bg-white/5 hover:bg-neon-pink transition-all px-6"
+                            className="h-8 bg-white/5 hover:bg-neon-pink transition-all px-2"
                             onClick={() => {
                               const nEl = document.getElementById(`cn-${rev.id}`) as HTMLInputElement;
                               const vEl = document.getElementById(`cv-${rev.id}`) as HTMLInputElement;
@@ -581,11 +579,11 @@ const AdminOpportunityDetail = () => {
                               }
                             }}
                           >
-                            <Plus size={20} />
+                            <Plus size={14} />
                           </Button>
                         </div>
-                        <div className="bg-white/5 p-5 rounded-xl flex justify-between items-center border border-white/5">
-                          <span className="text-xs uppercase font-bold text-muted-foreground">Total de Custos</span>
+                        <div className="bg-white/5 px-3 py-2 rounded-md flex justify-between items-center border border-white/5">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground">Total Custos</span>
                           <span className={financialNumberClass}>
                             R$ {itemTotalCost.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                           </span>
@@ -593,26 +591,26 @@ const AdminOpportunityDetail = () => {
                       </div>
 
                       {/* 2. PRECIFICAÇÃO */}
-                      <div className="space-y-6">
-                        <Label className="text-xs uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-2">
+                      <div className="space-y-2">
+                        <Label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-1">
                           2. Precificação & Margem
                         </Label>
 
-                        <div className="grid grid-cols-1 gap-6 bg-black/20 p-6 rounded-2xl border border-white/5">
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase text-muted-foreground font-bold">
-                              Definir Margem Absoluta (Lucro R$)
+                        <div className="grid grid-cols-1 gap-2 bg-black/20 p-3 rounded-md border border-white/5">
+                          <div className="space-y-1">
+                            <Label className="text-[9px] uppercase text-muted-foreground font-bold">
+                              Lucro Absoluto (R$)
                             </Label>
-                            <div className="flex gap-2">
+                            <div className="flex gap-1">
                               <Input
                                 id={`ma-${rev.id}`}
                                 type="number"
                                 placeholder="Ex: 2000"
-                                className={`bg-black/40 border-white/10 h-11 ${financialNumberClass}`}
+                                className={`bg-black/40 border-white/10 h-8 px-2 ${financialNumberClass}`}
                               />
                               <Button
                                 size="sm"
-                                className="h-11 bg-neon-pink text-white font-bold text-xs px-4"
+                                className="h-8 bg-neon-pink text-white font-bold text-[10px] px-2"
                                 onClick={() => {
                                   const val = (document.getElementById(`ma-${rev.id}`) as HTMLInputElement).value;
                                   if (val) {
@@ -621,19 +619,19 @@ const AdminOpportunityDetail = () => {
                                   }
                                 }}
                               >
-                                RECALCULAR
+                                CALC
                               </Button>
                             </div>
                           </div>
 
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase text-muted-foreground font-bold">
-                              Definir Margem Desejada (%)
+                          <div className="space-y-1">
+                            <Label className="text-[9px] uppercase text-muted-foreground font-bold">
+                              Margem Desejada (%)
                             </Label>
                             <Input
                               type="number"
                               placeholder="%"
-                              className={`bg-black/40 border-white/10 h-11 ${financialNumberClass}`}
+                              className={`bg-black/40 border-white/10 h-8 px-2 ${financialNumberClass}`}
                               onChange={(e) => {
                                 const m = parseFloat(e.target.value);
                                 if (!isNaN(m) && m < 100) {
@@ -644,8 +642,8 @@ const AdminOpportunityDetail = () => {
                             />
                           </div>
 
-                          <div className="space-y-2 pt-2 border-t border-white/5">
-                            <Label className="text-[10px] uppercase text-neon-pink font-bold">
+                          <div className="space-y-1 pt-1 border-t border-white/5">
+                            <Label className="text-[9px] uppercase text-neon-pink font-bold">
                               Valor Final de Venda (R$)
                             </Label>
                             <Input
@@ -654,23 +652,22 @@ const AdminOpportunityDetail = () => {
                               onChange={(e) => {
                                 const newVal = parseFloat(e.target.value);
                                 updateRevenueValue(rev.id, newVal);
-                                // Clear margin absolute field when directly editing sale value
                                 const maEl = document.getElementById(`ma-${rev.id}`) as HTMLInputElement;
                                 if (maEl) maEl.value = "";
                               }}
-                              className={`bg-black/40 border-neon-pink/40 h-14 ${financialNumberClass} text-pink-500`}
+                              className={`bg-black/40 border-neon-pink/40 h-10 px-2 font-bebas text-lg tracking-wide text-pink-500`}
                             />
                           </div>
 
-                          <div className="flex justify-between items-center bg-white/5 p-4 rounded-lg border border-white/5">
-                            <div className="space-y-1">
-                              <p className="text-[10px] uppercase text-muted-foreground font-bold">Lucro Líquido</p>
+                          <div className="flex justify-between items-center bg-white/5 px-3 py-2 rounded-md border border-white/5">
+                            <div>
+                              <p className="text-[9px] uppercase text-muted-foreground font-bold">Lucro Líquido</p>
                               <p className={financialNumberClass}>
                                 R$ {marginAbs.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                               </p>
                             </div>
-                            <div className="text-right space-y-1">
-                              <p className="text-[10px] uppercase text-pink-400 font-bold">Margem Atual</p>
+                            <div className="text-right">
+                              <p className="text-[9px] uppercase text-pink-400 font-bold">Margem</p>
                               <p className={`${financialNumberClass} text-pink-400`}>{marginPerc.toFixed(1)}%</p>
                             </div>
                           </div>
