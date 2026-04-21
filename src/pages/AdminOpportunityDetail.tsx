@@ -499,24 +499,24 @@ const AdminOpportunityDetail = () => {
                         <Label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-1">
                           1. Custos
                         </Label>
-                        <div className="space-y-1">
+                        <div className="space-y-0.5">
                           {rev.cost_items?.map((cost) => (
                             <div
                               key={cost.id}
-                              className="flex justify-between items-center bg-white/[0.03] px-2 py-1.5 rounded border border-white/5 group transition-all"
+                              className="flex justify-between items-center bg-white/[0.03] px-2 py-1 rounded border border-white/5 group transition-all min-h-0"
                             >
-                              <span className="text-xs text-gray-200 font-medium uppercase tracking-tight truncate pr-2">
+                              <span className="text-xs leading-none text-gray-200 font-medium uppercase tracking-tight truncate pr-1.5">
                                 {cost.description}
                               </span>
-                              <div className="flex items-center gap-2 shrink-0">
+                              <div className="flex items-center gap-1 shrink-0 leading-none">
                                 <span className={financialNumberClass}>
                                   R$ {cost.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                                 </span>
                                 <button
                                   onClick={() => deleteCost(cost.id, rev.id)}
-                                  className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-500"
+                                  className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-500 leading-none"
                                 >
-                                  <X size={14} />
+                                  <X size={12} />
                                 </button>
                               </div>
                             </div>
