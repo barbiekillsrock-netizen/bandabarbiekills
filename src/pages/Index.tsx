@@ -78,7 +78,6 @@ const structuredData = {
     },
   ],
 };
-};
 
 const homepageVideos = [
   {
