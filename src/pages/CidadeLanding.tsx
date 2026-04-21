@@ -116,6 +116,7 @@ const CidadeLanding = () => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "MusicGroup",
+              "@id": "https://www.bandabarbiekills.com.br/#band",
               name: "Barbie Kills",
               description: metaDesc,
               url: canonicalUrl,
@@ -144,7 +145,7 @@ const CidadeLanding = () => {
           <div className="max-w-xl">
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
-              alt={`Logotipo oficial da Banda Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}`}
+              alt={"Banda Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}"}
               width={320}
               height={120}
               className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
