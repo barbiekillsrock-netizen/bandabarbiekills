@@ -499,16 +499,16 @@ const AdminOpportunityDetail = () => {
                         <Label className="text-[10px] uppercase font-black text-muted-foreground tracking-widest block border-b border-white/5 pb-1">
                           1. Custos
                         </Label>
-                        <div className="space-y-0.5">
+                        <div className="space-y-px">
                           {rev.cost_items?.map((cost) => (
                             <div
                               key={cost.id}
-                              className="flex justify-between items-center bg-white/[0.03] px-2 py-1 rounded border border-white/5 group transition-all min-h-0"
+                              className="flex h-6 justify-between items-center bg-white/[0.03] px-2 py-0 rounded-sm border border-white/5 group transition-all"
                             >
-                              <span className="text-xs leading-none text-gray-200 font-medium uppercase tracking-tight truncate pr-1.5">
+                              <span className="truncate pr-1.5 text-xs leading-none text-gray-200 font-medium uppercase tracking-tight">
                                 {cost.description}
                               </span>
-                              <div className="flex items-center gap-1 shrink-0 leading-none">
+                              <div className="flex items-center gap-0.5 shrink-0 leading-none">
                                 <span className={financialNumberClass}>
                                   R$ {cost.cost_value?.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                                 </span>
