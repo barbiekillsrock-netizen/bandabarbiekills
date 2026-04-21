@@ -409,7 +409,7 @@ const AdminOpportunityDetail = () => {
           </TabsContent>
 
           {/* --- TAB FINANCEIRA (compacta) --- */}
-          <TabsContent value="financeiro" className="space-y-4 animate-in fade-in duration-300">
+          <TabsContent value="financeiro" className="space-y-2 animate-in fade-in duration-300">
             <div className="glass-card rounded-lg p-3 border border-white/10 bg-black/20">
               <div className="flex gap-2 items-center flex-wrap">
                 <Plus size={14} className="text-neon-pink shrink-0" />
