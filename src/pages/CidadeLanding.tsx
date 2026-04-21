@@ -102,7 +102,7 @@ const CidadeLanding = () => {
         <meta property="og:description" content={metaDesc} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${SITE_URL}/banda-barbie-kills-casamento-rock.png`} />
+        <meta property="og:image" content={`${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`} />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -119,7 +119,7 @@ const CidadeLanding = () => {
               name: "Barbie Kills",
               description: metaDesc,
               url: canonicalUrl,
-              image: `${SITE_URL}/banda-barbie-kills-casamento-rock.png`,
+              image: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
               areaServed: {
                 "@type": "City",
                 name: nome,
