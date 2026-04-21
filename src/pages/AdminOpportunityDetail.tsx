@@ -37,8 +37,8 @@ const statusColors: Record<string, string> = {
   finished: "bg-green-500/20 text-green-300 border-green-500/30",
 };
 
-// Classe utilitária para manter TODOS os números financeiros idênticos
-const financialNumberClass = "font-bebas text-2xl tracking-wider text-white";
+// Classe utilitária para manter TODOS os números financeiros idênticos (compacto)
+const financialNumberClass = "font-bebas text-base tracking-wide text-white";
 
 const AdminOpportunityDetail = () => {
   const { id } = useParams<{ id: string }>();
