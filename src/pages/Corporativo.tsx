@@ -16,13 +16,15 @@ const SITE_URL = "https://www.bandabarbiekills.com.br";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Banda para Eventos Corporativos - Barbie Kills",
+  name: "Show para Eventos Corporativos Premium - Barbie Kills",
   description:
-    "Show premium com painel de LED e logística completa para eventos corporativos em SP, Campinas e Interior.",
+    "Banda para eventos corporativos com infraestrutura completa, painel de LED e logística própria. Repertório sofisticado de Pop, Soul e MPB em SP e Interior.",
   provider: {
     "@type": "MusicGroup",
-    "@id": `${SITE_URL}/#band`,
+    "@id": "https://www.bandabarbiekills.com.br/#band", // Referência à entidade principal
+    name: "Barbie Kills",
   },
+  serviceType: "Entretenimento Musical Corporativo",
   areaServed: [
     "São Paulo",
     "Campinas",
@@ -46,7 +48,26 @@ const structuredData = {
     "Limeira",
     "Santana de Parnaíba",
   ],
-  serviceType: "Entretenimento Musical Corporativo",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Serviços Corporativos",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Show com Painel de LED e Iluminação DMX",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Repertório Customizado (Pop/Rock/Soul/MPB/Brasilidades)",
+        },
+      },
+    ],
+  },
 };
 
 const whatsappLink =
