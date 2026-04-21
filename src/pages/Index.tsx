@@ -32,11 +32,24 @@ const structuredData = {
       url: SITE_URL,
       logo: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
       image: `${SITE_URL}/banda-casamentos-eventos-campinas-barbie-kills.webp`,
-      description:
-        "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
-      genre: ["Pop", "Rock", "Soul", "Groove", "Brazilian Music", "MPB"],
+      description: "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
+      genre: ["Pop", "Soul", "Groove", "MPB", "Rock", "Brazilian Music"],
       foundingDate: "2012",
-      sameAs: ["https://www.instagram.com/barbiekillsrock/", "https://www.youtube.com/@barbiekills"],
+      sameAs: [
+        "https://www.instagram.com/barbiekillsrock/", 
+        "https://www.youtube.com/@barbiekills"
+      ],
+      member: [
+        {
+          "@type": "OrganizationRole",
+          member: {
+            "@type": "Person",
+            name: "Mariana",
+            // Se tiver o Instagram dela, adicione aqui: sameAs: ["URL"]
+          },
+          roleName: ["Lead Vocalist", "Vocalista Principal"]
+        }
+      ],
     },
     {
       "@type": "LocalBusiness",
@@ -49,8 +62,10 @@ const structuredData = {
       priceRange: "$$$$",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "R. Ferreira Penteado, 1221", // Reincluído conforme validação anterior
         addressLocality: "Campinas",
         addressRegion: "SP",
+        postalCode: "13010-041", // Reincluído conforme validação anterior
         addressCountry: "BR",
       },
       aggregateRating: {
@@ -62,6 +77,7 @@ const structuredData = {
       },
     },
   ],
+};
 };
 
 const homepageVideos = [
