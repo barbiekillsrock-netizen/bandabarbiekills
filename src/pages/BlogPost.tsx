@@ -228,11 +228,43 @@ const BlogPost = () => {
         );
       }
 
-      // Headers
-      if (paragraph.startsWith("## ")) {
+      // Table of Contents (Índice navegável)
+      if (paragraph.startsWith("{{toc:") && paragraph.endsWith("}}")) {
+        const items = paragraph.slice(6, -2).split(";").map((entry) => {
+          const [id, label] = entry.split("|");
+          return { id: id?.trim() || "", label: label?.trim() || "" };
+        }).filter((i) => i.id && i.label);
         return (
-          <h2 key={index} className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4">
-            {parseInlineMarkdown(paragraph.replace("## ", ""))}
+          <nav
+            key={index}
+            aria-label="Índice do artigo"
+            className="my-8 p-6 rounded-lg border border-neon-pink/30 bg-gradient-to-br from-neon-pink/5 to-purple-900/10"
+          >
+            <ul className="flex flex-col gap-2">
+              {items.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className="block px-4 py-2 rounded-md font-oswald uppercase tracking-wider text-sm text-foreground border border-white/10 bg-background/40 hover:bg-neon-pink hover:text-white hover:border-neon-pink transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        );
+      }
+
+      // Headers (com suporte opcional a {#id} para âncoras)
+      if (paragraph.startsWith("## ")) {
+        const raw = paragraph.replace("## ", "");
+        const idMatch = raw.match(/\s*\{#([a-z0-9-]+)\}\s*$/i);
+        const headingId = idMatch ? idMatch[1] : undefined;
+        const cleanText = idMatch ? raw.replace(idMatch[0], "").trim() : raw;
+        return (
+          <h2 key={index} id={headingId} className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4 scroll-mt-28">
+            {parseInlineMarkdown(cleanText)}
           </h2>
         );
       }
