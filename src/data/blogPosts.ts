@@ -41,9 +41,12 @@ Como especialistas em transformar festas em experiências inesquecíveis, nós d
 
 Encontre neste artigo:
 
-{{toc:o-que-define|O Que Define o Preço de uma Banda de Casamento?;por-que-barbie-kills|Por que a Barbie Kills é o Investimento Certo?;custo-banda-casamento|Custo Banda Casamento: Afinal, qual é a média?;proximo-passo|O Próximo Passo para a Sua Festa}}
+- O Que Define o Preço de uma Banda de Casamento?
+- Por que a Barbie Kills é o Investimento Certo?
+- Custo Banda Casamento: Afinal, qual é a média?
+- O Próximo Passo para a Sua Festa
 
-## O Que Define o Preço de uma Banda de Casamento? {#o-que-define}
+## O Que Define o Preço de uma Banda de Casamento?
 
 Quando você busca por banda casamento preço, é fundamental entender que você não está pagando apenas pelas horas de música tocada na festa. O valor reflete uma infraestrutura complexa e o nível de entrega profissional. Os principais fatores incluem:
 
@@ -55,7 +58,7 @@ Quando você busca por banda casamento preço, é fundamental entender que você
 
 {{image:/blog/mey-fogari-baterista-evento-corporativo.webp|Fotografia de Mey Fogari tocando bateria ao vivo em um evento corporativo. Atração musical premium para confraternizações e congressos, disponível em São Paulo e região.|Mey Fogari, baterista da Barbie Kills, com formação pela UNICAMP e atuação na Orquestra Sinfônica de Campinas.}}
 
-## Por que a Barbie Kills é o Investimento Certo? {#por-que-barbie-kills}
+## Por que a Barbie Kills é o Investimento Certo?
 
 Existem bandas que tocam músicas, e existem bandas que criam uma atmosfera. A [Barbie Kills](/) se posiciona como um serviço de entretenimento premium e eclético.
 
@@ -65,13 +68,13 @@ Com a presença de palco marcante da nossa vocalista e uma execução musical im
 
 {{image:/blog/banda-casamento-ecletica-interacao-pista.webp|Vocalista da banda Barbie Kills animando convidados na pista de dança de um casamento, cantando Pop e Brasilidades com energia.|Interação direta da vocalista com os convidados: a marca registrada de uma pista cheia.}}
 
-## Custo Banda Casamento: Afinal, qual é a média? {#custo-banda-casamento}
+## Custo Banda Casamento: Afinal, qual é a média?
 
 No mercado atual, o valor de uma banda de casamento profissional e estruturada geralmente começa na faixa de **R$ 6.000 a R$ 8.000** para formações mais enxutas, podendo ultrapassar os **R$ 15.000 a R$ 25.000** para bandas premium com estrutura de som e iluminação completas de alta tecnologia, equipe técnica própria e um show de longa duração.
 
 O barato pode custar caro quando o assunto é o entretenimento dos seus convidados. Uma falha no som ou uma banda que não sabe animar a pista pode frustrar meses de planejamento.
 
-## O Próximo Passo para a Sua Festa {#proximo-passo}
+## O Próximo Passo para a Sua Festa
 
 Agora que você já entende o que compõe o preço de uma banda de casamento, o próximo passo é avaliar o custo-benefício e a conexão que você tem com os músicos.
 

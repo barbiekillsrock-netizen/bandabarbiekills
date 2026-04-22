@@ -228,43 +228,11 @@ const BlogPost = () => {
         );
       }
 
-      // Table of Contents (Índice navegável) - Estilo discreto inline
-      if (paragraph.startsWith("{{toc:") && paragraph.endsWith("}}")) {
-        const items = paragraph.slice(6, -2).split(";").map((entry) => {
-          const [id, label] = entry.split("|");
-          return { id: id?.trim() || "", label: label?.trim() || "" };
-        }).filter((i) => i.id && i.label);
-        return (
-          <nav
-            key={index}
-            aria-label="Índice do artigo"
-            className="my-6"
-          >
-            <ul className="flex flex-col gap-2">
-              {items.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    className="inline-block text-foreground/80 hover:text-neon-pink transition-colors text-body text-base border-b border-neon-pink/30 hover:border-neon-pink pb-1"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        );
-      }
-
-      // Headers (com suporte opcional a {#id} para âncoras)
+      // Headers
       if (paragraph.startsWith("## ")) {
-        const raw = paragraph.replace("## ", "");
-        const idMatch = raw.match(/\s*\{#([a-z0-9-]+)\}\s*$/i);
-        const headingId = idMatch ? idMatch[1] : undefined;
-        const cleanText = idMatch ? raw.replace(idMatch[0], "").trim() : raw;
         return (
-          <h2 key={index} id={headingId} className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4 scroll-mt-28">
-            {parseInlineMarkdown(cleanText)}
+          <h2 key={index} className="heading-display text-2xl md:text-3xl text-neon-pink mt-10 mb-4">
+            {parseInlineMarkdown(paragraph.replace("## ", ""))}
           </h2>
         );
       }
