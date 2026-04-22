@@ -39,16 +39,14 @@ export const blogPosts: BlogPost[] = [
 
 Como especialistas em transformar festas em experiências inesquecíveis, nós da [Barbie Kills](/) preparamos este guia completo para te ajudar a entender exatamente o custo de uma banda de casamento e como fazer o melhor investimento para o seu grande dia.
 
-Encontre neste artigo:
+**Encontre neste artigo:**
 
-<ul>
-<li><a href="#o-que-define">O Que Define o Preço de uma Banda de Casamento?</a></li>
-<li><a href="#investimento-certo">Por que a Barbie Kills é o Investimento Certo?</a></li>
-<li><a href="#custo-media">Custo Banda Casamento: Afinal, qual é a média?</a></li>
-<li><a href="#proximo-passo">O Próximo Passo para a Sua Festa</a></li>
-</ul>
+- [O Que Define o Preço de uma Banda de Casamento?](#o-que-define-o-preco-de-uma-banda-de-casamento)
+- [Por que a Barbie Kills é o Investimento Certo?](#por-que-a-barbie-kills-e-o-investimento-certo)
+- [Custo Banda Casamento: Afinal, qual é a média?](#custo-banda-casamento-afinal-qual-e-a-media)
+- [O Próximo Passo para a Sua Festa](#o-proximo-passo-para-a-sua-festa)
 
-<h2 id="o-que-define">O Que Define o Preço de uma Banda de Casamento?</h2>
+## O Que Define o Preço de uma Banda de Casamento?
 
 Quando você busca por banda casamento preço, é fundamental entender que você não está pagando apenas pelas horas de música tocada na festa. O valor reflete uma infraestrutura complexa e o nível de entrega profissional. Os principais fatores incluem:
 
@@ -60,7 +58,7 @@ Quando você busca por banda casamento preço, é fundamental entender que você
 
 {{image:/blog/mey-fogari-baterista-evento-corporativo.webp|Fotografia de Mey Fogari tocando bateria ao vivo em um evento corporativo. Atração musical premium para confraternizações e congressos, disponível em São Paulo e região.|Mey Fogari, baterista da Barbie Kills, com formação pela UNICAMP e atuação na Orquestra Sinfônica de Campinas.}}
 
-<h2 id="investimento-certo">Por que a Barbie Kills é o Investimento Certo?</h2>
+## Por que a Barbie Kills é o Investimento Certo?
 
 Existem bandas que tocam músicas, e existem bandas que criam uma atmosfera. A [Barbie Kills](/) se posiciona como um serviço de entretenimento premium e eclético.
 
@@ -70,13 +68,13 @@ Com a presença de palco marcante da nossa vocalista e uma execução musical im
 
 {{image:/blog/banda-casamento-ecletica-interacao-pista.webp|Vocalista da banda Barbie Kills animando convidados na pista de dança de um casamento, cantando Pop e Brasilidades com energia.|Interação direta da vocalista com os convidados: a marca registrada de uma pista cheia.}}
 
-<h2 id="custo-media">Custo Banda Casamento: Afinal, qual é a média?</h2>
+## Custo Banda Casamento: Afinal, qual é a média?
 
 No mercado atual, o valor de uma banda de casamento profissional e estruturada geralmente começa na faixa de **R$ 6.000 a R$ 8.000** para formações mais enxutas, podendo ultrapassar os **R$ 15.000 a R$ 25.000** para bandas premium com estrutura de som e iluminação completas de alta tecnologia, equipe técnica própria e um show de longa duração.
 
 O barato pode custar caro quando o assunto é o entretenimento dos seus convidados. Uma falha no som ou uma banda que não sabe animar a pista pode frustrar meses de planejamento.
 
-<h2 id="proximo-passo">O Próximo Passo para a Sua Festa</h2>
+## O Próximo Passo para a Sua Festa
 
 Agora que você já entende o que compõe o preço de uma banda de casamento, o próximo passo é avaliar o custo-benefício e a conexão que você tem com os músicos.
 
@@ -718,9 +716,20 @@ Escolher e contratar uma banda ao vivo é um dos grandes diferenciais para criar
 
 Permitam-se viver a emoção de uma banda ao vivo, feita sob medida para o seu sonho!`,
     faq: [
-      { question: "Como escolher a melhor banda para casamento?", answer: "Identifiquem o estilo musical do casal, confiram o portfólio, assistam a vídeos e verifiquem a flexibilidade no repertório." },
-      { question: "Quanto custa contratar banda ao vivo?", answer: "O valor varia conforme a experiência, número de músicos e logística. O investimento sobe conforme o nível de personalização." },
-      { question: "Vale a pena ter banda ao vivo?", answer: "Sim, pois a interação e a emoção de uma performance em tempo real são incomparáveis." },
+      {
+        question: "Como escolher a melhor banda para casamento?",
+        answer:
+          "Identifiquem o estilo musical do casal, confiram o portfólio, assistam a vídeos e verifiquem a flexibilidade no repertório.",
+      },
+      {
+        question: "Quanto custa contratar banda ao vivo?",
+        answer:
+          "O valor varia conforme a experiência, número de músicos e logística. O investimento sobe conforme o nível de personalização.",
+      },
+      {
+        question: "Vale a pena ter banda ao vivo?",
+        answer: "Sim, pois a interação e a emoção de uma performance em tempo real são incomparáveis.",
+      },
     ],
   },
 ];
