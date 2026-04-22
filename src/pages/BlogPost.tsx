@@ -228,7 +228,7 @@ const BlogPost = () => {
         );
       }
 
-      // Table of Contents (Índice navegável)
+      // Table of Contents (Índice navegável) - Estilo discreto inline
       if (paragraph.startsWith("{{toc:") && paragraph.endsWith("}}")) {
         const items = paragraph.slice(6, -2).split(";").map((entry) => {
           const [id, label] = entry.split("|");
@@ -238,14 +238,14 @@ const BlogPost = () => {
           <nav
             key={index}
             aria-label="Índice do artigo"
-            className="my-8 p-6 rounded-lg border border-neon-pink/30 bg-gradient-to-br from-neon-pink/5 to-purple-900/10"
+            className="my-6"
           >
             <ul className="flex flex-col gap-2">
               {items.map((item) => (
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="block px-4 py-2 rounded-md font-oswald uppercase tracking-wider text-sm text-foreground border border-white/10 bg-background/40 hover:bg-neon-pink hover:text-white hover:border-neon-pink transition-colors"
+                    className="inline-block text-foreground/80 hover:text-neon-pink transition-colors text-body text-base border-b border-neon-pink/30 hover:border-neon-pink pb-1"
                   >
                     {item.label}
                   </a>
