@@ -21,13 +21,17 @@ const ManifestoSection = () => {
           {/* Coluna da Direita - Manifesto */}
           <div className="flex flex-col justify-center">
             <div className="space-y-4">
-              <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+              {/* O H2 INVISÍVEL PARA O GOOGLE - Focado em atrair o mercado corporativo e casamentos premium */}
+              <h2 className="sr-only">Banda de Pop Rock para Casamentos e Eventos Corporativos em Campinas</h2>
+
+              {/* O TEXTO VISUAL PARA O CLIENTE - Design e classes originais mantidas */}
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
                 Tocamos com <span className="neon-pink-text">ALMA.</span>
                 <br />
                 Unimos as <span className="neon-pink-text">PESSOAS.</span>
                 <br />
                 Transcendemos os <span className="neon-pink-text">SENTIMENTOS.</span>
-              </h2>
+              </p>
             </div>
 
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-xl">
