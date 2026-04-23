@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import { ArrowRight } from 'lucide-react';
-import { blogPosts } from '@/data/blogPosts';
+import { Link } from "react-router";
+import { ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blogPosts";
 
 const BlogPreview = () => {
   const latestPosts = blogPosts.slice(0, 3);
@@ -19,11 +19,7 @@ const BlogPreview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestPosts.map((post) => (
-            <Link
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="group relative block"
-            >
+            <Link key={post.slug} to={`/blog/${post.slug}`} className="group relative block">
               <article className="bg-background/30 border border-white/10 rounded-lg overflow-hidden transition-all duration-500 hover:border-neon-pink/40 hover:transform hover:scale-[1.02]">
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -39,18 +35,16 @@ const BlogPreview = () => {
 
                 <div className="p-6">
                   <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                    <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
+                    <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
                     <span>•</span>
                     <span>{post.readTime} de leitura</span>
                   </div>
-                  
+
                   <h3 className="font-oswald text-lg font-bold text-foreground mb-3 line-clamp-2 group-hover:text-neon-pink transition-colors duration-300">
                     {post.title}
                   </h3>
-                  
-                  <p className="text-body text-sm text-muted-foreground line-clamp-3 mb-4">
-                    {post.excerpt}
-                  </p>
+
+                  <p className="text-body text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
 
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-neon-pink group-hover:gap-3 transition-all duration-300">
                     Ler mais
