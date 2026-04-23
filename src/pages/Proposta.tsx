@@ -38,7 +38,10 @@ type ProposalData = {
   revenues: Revenue[];
 };
 
-const WHATSAPP = "https://wa.me/5519981736659";
+const WHATSAPP_NUMBER = "5519982846842";
+const WHATSAPP = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Olá, Banda Barbie Kills! Recebi a proposta comercial e gostaria de conversar.",
+)}`;
 
 const proposalVideos = [
   { id: "rAVb_-U7OAU", title: "Live at Alma Campinas" },
@@ -165,7 +168,7 @@ const Proposta = () => {
               className="text-xs md:text-sm text-neon-pink mb-6 tracking-[0.4em] uppercase font-oswald"
             >
               <Sparkles className="inline-block w-3.5 h-3.5 mr-2 -mt-1" />
-              Proposta Exclusiva — Confidencial
+              Proposta Exclusiva. Confidencial.
             </motion.p>
 
             <motion.h1
@@ -176,26 +179,37 @@ const Proposta = () => {
               <br />
               MUSICAL EXCLUSIVA PARA
               <br />
-              <span className="bg-gradient-to-r from-neon-pink via-pink-400 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,0,128,0.4)]">
+              <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">
                 {opp.client_name}
               </span>
+              <span className="text-neon-pink">.</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="text-base md:text-xl text-white/80 font-sans max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base md:text-xl text-white/85 font-sans max-w-2xl mx-auto leading-relaxed font-light"
             >
-              Elevando o nível do seu{" "}
-              <span className="text-white font-medium">
-                {opp.event_type || "evento"}
-              </span>{" "}
-              com performance de alta voltagem
-              {fmtDate && (
+              A trilha sonora definitiva para a celebração
+              {fmtDate ? (
                 <>
-                  {" "}— <span className="text-white font-medium">{fmtDate}</span>
+                  {" "}de <span className="text-white font-medium">{fmtDate}</span>.
+                </>
+              ) : (
+                <>
+                  {" "}do seu{" "}
+                  <span className="text-white font-medium">
+                    {opp.event_type || "evento"}
+                  </span>
+                  .
                 </>
               )}
-              .
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 text-sm md:text-base text-white/60 font-sans font-light max-w-xl mx-auto"
+            >
+              Performance de palco impecável. Curadoria de excelência sonora.
             </motion.p>
 
             {(opp.location || opp.guests) && (
@@ -237,9 +251,8 @@ const Proposta = () => {
               </p>
               <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-white leading-tight">
                 A FORÇA POR TRÁS DA{" "}
-                <span className="bg-gradient-to-r from-neon-pink to-fuchsia-400 bg-clip-text text-transparent">
-                  BARBIE KILLS
-                </span>
+                <span className="text-white">BARBIE KILLS</span>
+                <span className="text-neon-pink">.</span>
               </h2>
             </motion.div>
 
@@ -277,13 +290,13 @@ const Proposta = () => {
               >
                 <p className="text-lg md:text-xl text-white/85 font-sans font-light leading-relaxed">
                   À frente da banda, a vocalista{" "}
-                  <span className="text-white font-medium">Mariana Chaib</span> —
-                  com passagem pela <span className="text-white font-medium">Rede Globo</span> —
-                  empresta uma <em className="text-neon-pink not-italic">voz intoxicante</em> e uma
+                  <span className="text-white font-medium">Mariana Chaib</span>,
+                  com passagem pela <span className="text-white font-medium">Rede Globo</span>,
+                  empresta uma <em className="text-white not-italic font-medium">voz intoxicante</em> e uma
                   presença de palco que transforma cada música em um momento inesquecível.
                 </p>
                 <p className="text-base md:text-lg text-white/70 font-sans font-light leading-relaxed">
-                  Ao seu lado, um sexteto fixo de músicos de elite — sem freelancers — entrega
+                  Ao seu lado, um sexteto fixo de músicos de elite, sem freelancers, entrega
                   leitura de pista impecável e conexão genuína com cada convidado.
                 </p>
 
@@ -325,7 +338,7 @@ const Proposta = () => {
                 Quem confia
               </p>
               <h2 className="font-bebas text-4xl md:text-6xl text-white leading-tight">
-                MARCAS QUE JÁ <span className="text-neon-pink">VIVERAM</span> A EXPERIÊNCIA
+                MARCAS QUE JÁ VIVERAM A EXPERIÊNCIA<span className="text-neon-pink">.</span>
               </h2>
             </motion.div>
 
@@ -393,7 +406,7 @@ const Proposta = () => {
                 Sinta a energia
               </p>
               <h2 className="font-bebas text-4xl md:text-6xl text-white leading-tight">
-                VEJA A BANDA <span className="text-neon-pink">AO VIVO</span>
+                VEJA A BANDA AO VIVO<span className="text-neon-pink">.</span>
               </h2>
             </motion.div>
 
@@ -440,10 +453,10 @@ const Proposta = () => {
                 A Solução
               </p>
               <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-white leading-tight">
-                SHOW <span className="bg-gradient-to-r from-neon-pink to-fuchsia-400 bg-clip-text text-transparent">ELETRIC BLOOM</span>
+                SHOW <span className="text-white">ELETRIC BLOOM</span><span className="text-neon-pink">.</span>
               </h2>
               <p className="mt-5 text-base md:text-lg text-white/70 max-w-2xl mx-auto font-light">
-                A nossa fórmula consagrada em mais de 600 eventos premium.
+                A nossa fórmula consagrada em mais de 600 eventos premium. Entrega de alto padrão e conexão genuína com cada convidado.
               </p>
             </motion.div>
 
@@ -452,7 +465,7 @@ const Proposta = () => {
                 {
                   icon: Mic2,
                   title: "Formação",
-                  desc: "Sexteto de elite — duas vozes, guitarra, teclado, baixo e bateria. Equipe fixa, sem freelancers.",
+                  desc: "Sexteto de elite com duas vozes, guitarra, teclado, baixo e bateria. Equipe fixa, sem freelancers.",
                 },
                 {
                   icon: Clock,
@@ -462,7 +475,7 @@ const Proposta = () => {
                 {
                   icon: Cpu,
                   title: "Infraestrutura",
-                  desc: "Som e iluminação de última geração com tecnologia digital — leitura de pista impecável.",
+                  desc: "Som e iluminação de última geração com tecnologia digital. Excelência sonora em qualquer ambiente.",
                 },
               ].map((card, i) => (
                 <motion.div
@@ -505,7 +518,7 @@ const Proposta = () => {
                 Escopo Detalhado
               </p>
               <h2 className="font-bebas text-4xl md:text-6xl text-white leading-tight">
-                O QUE <span className="text-neon-pink">ENTREGAMOS</span>
+                O QUE ENTREGAMOS<span className="text-neon-pink">.</span>
               </h2>
             </motion.div>
 
@@ -569,7 +582,7 @@ const Proposta = () => {
                       <p className="text-xs text-white/50 font-oswald uppercase tracking-[0.3em] mb-1">
                         Total
                       </p>
-                      <p className="font-bebas text-5xl md:text-6xl bg-gradient-to-r from-white via-pink-100 to-neon-pink bg-clip-text text-transparent tracking-wider leading-none">
+                      <p className="font-bebas text-5xl md:text-6xl text-white tracking-wider leading-none">
                         R$ {fmtTotal}
                       </p>
                     </div>
@@ -591,15 +604,15 @@ const Proposta = () => {
             >
               <Music4 className="inline-block text-neon-pink mb-6" size={40} strokeWidth={1.5} />
               <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-                VAMOS FAZER <span className="bg-gradient-to-r from-neon-pink to-fuchsia-400 bg-clip-text text-transparent">ACONTECER?</span>
+                VAMOS ELEVAR O NÍVEL DO SEU EVENTO<span className="text-neon-pink">?</span>
               </h2>
-              <p className="text-base md:text-lg text-white/70 font-sans font-light mb-10 leading-relaxed max-w-2xl mx-auto">
-                Estamos à disposição para tirar dúvidas, ajustar detalhes e garantir que cada
+              <p className="text-base md:text-lg text-white/75 font-sans font-light mb-10 leading-relaxed max-w-2xl mx-auto">
+                Fale com nossa produção comercial. Estamos à disposição para tirar dúvidas, ajustar detalhes e garantir que cada
                 momento da sua celebração seja inesquecível.
               </p>
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-block">
                 <Button variant="hero" size="xl" className="gap-3">
-                  <MessageCircle size={22} />
+                  <img src="/icons/whatsapp-white.svg" alt="" width={22} height={22} className="w-[22px] h-[22px]" />
                   FALAR COM A PRODUÇÃO
                 </Button>
               </a>
@@ -610,16 +623,15 @@ const Proposta = () => {
           </div>
         </section>
 
-        {/* STICKY MOBILE CTA */}
+        {/* FLOATING WHATSAPP — same style as Home */}
         <a
           href={WHATSAPP}
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-neon-pink to-fuchsia-500 text-white font-oswald uppercase tracking-[0.2em] text-xs shadow-[0_0_30px_rgba(255,0,128,0.5)] hover:shadow-[0_0_50px_rgba(255,0,128,0.7)] transition-shadow"
+          aria-label="Falar com a produção pelo WhatsApp"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
         >
-          <MessageCircle size={18} />
-          <span className="hidden sm:inline">Falar com a Produção</span>
-          <span className="sm:hidden">WhatsApp</span>
+          <img src="/icons/whatsapp-white.svg" alt="" width={28} height={28} className="w-7 h-7" />
         </a>
       </main>
 
