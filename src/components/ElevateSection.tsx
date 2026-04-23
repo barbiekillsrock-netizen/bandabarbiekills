@@ -1,22 +1,38 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+
 const ElevateSection = () => {
-  return <section className="py-16 lg:py-20 section-gradient-alt">
+  return (
+    <section className="py-16 lg:py-20 section-gradient-alt">
       <div className="container mx-auto px-6">
         <div className="relative flex flex-col lg:flex-row items-stretch">
           {/* Text Box (Overlay on desktop) */}
           <div className="relative z-10 lg:w-1/2 lg:-mr-24">
             <div className="glass-card bg-black/60 backdrop-blur-xl p-10 lg:p-14 rounded-2xl lg:rounded-3xl h-full flex flex-col justify-center">
-              <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-none"><span className="neon-pink-text">ELEVE O NÍVEL</span><br />DO SEU EVENTO</h2>
+              {/* 1. O H2 PARA O GOOGLE (Invisível) */}
+              <h2 className="sr-only">
+                Show de Banda Premium para Eventos Corporativos e Casamentos de Luxo em São Paulo
+              </h2>
+
+              {/* 2. O TÍTULO VISUAL (Agora como <p> para não confundir o SEO) */}
+              <p className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-none">
+                <span className="neon-pink-text">ELEVE O NÍVEL</span>
+                <br />
+                DO SEU EVENTO
+              </p>
 
               <div className="space-y-6 text-body text-lg leading-relaxed">
                 <p>
-                  Nos palcos, a banda é liderada por <span className="text-foreground font-medium">Mariana Chaib</span>, que chama atenção pela sua atitude e principalmente pela sua voz intoxicante que prende a atenção de quem a ouve em segundos.
+                  Nos palcos, a banda é liderada por <span className="text-foreground font-medium">Mariana Chaib</span>,
+                  que chama atenção pela sua atitude e principalmente pela sua voz intoxicante que prende a atenção de
+                  quem a ouve em segundos.
                 </p>
                 <p>
-                  A performance é uma explosão de energia que transforma qualquer ambiente. Cada música é pensada para criar momentos únicos, desde as baladas que emocionam até os hits que fazem todos dançarem.
+                  A performance é uma explosão de energia que transforma qualquer ambiente. Cada música é pensada para
+                  criar momentos únicos, desde as baladas que emocionam até os hits que fazem todos dançarem.
                 </p>
                 <p>
-                  Com leitura de pista impecável e repertório versátil, garantimos que seu evento seja lembrado para sempre.
+                  Com leitura de pista impecável e repertório versátil, garantimos que seu evento seja lembrado para
+                  sempre.
                 </p>
               </div>
 
@@ -32,12 +48,22 @@ const ElevateSection = () => {
 
           {/* Image */}
           <div className="relative lg:w-2/3 h-[400px] lg:h-[650px] -mt-8 lg:mt-0">
-            <img src="/interacao-banda-casamento-pista-cheia.webp" alt="Interação da Banda Barbie Kills com pista cheia em casamento premium no interior de SP" width={800} height={650} className="w-full h-full object-cover rounded-2xl lg:rounded-l-none lg:rounded-r-3xl shadow-2xl" loading="lazy" decoding="async" />
+            <img
+              src="/interacao-banda-casamento-pista-cheia.webp"
+              alt="Interação da Banda Barbie Kills com pista cheia em casamento premium no interior de SP"
+              width={800}
+              height={650}
+              className="w-full h-full object-cover rounded-2xl lg:rounded-l-none lg:rounded-r-3xl shadow-2xl"
+              loading="lazy"
+              decoding="async"
+            />
             {/* Pink Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-neon-pink/10 rounded-2xl lg:rounded-l-none lg:rounded-r-3xl" />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ElevateSection;
