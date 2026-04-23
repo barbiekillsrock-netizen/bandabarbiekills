@@ -22,9 +22,14 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header with SEO keywords */}
         <header className="text-center mb-12">
-          <h2 className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+          {/* 1. O H2 PARA O GOOGLE (Invisível) - Posicionamento Premium abrangendo as três abas */}
+          <h2 className="sr-only">Atração Musical Premium para Casamentos e Eventos Corporativos em Campinas e SP</h2>
+
+          {/* 2. O TÍTULO VISUAL (Agora como <p> mantendo a tipografia e o glow) */}
+          <p className="heading-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
             NOSSAS <span className="neon-pink-text">SOLUÇÕES MUSICAIS</span>
-          </h2>
+          </p>
+
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
             Entretenimento de <strong>alto padrão em Campinas</strong> e região para cada momento do seu evento
           </p>
