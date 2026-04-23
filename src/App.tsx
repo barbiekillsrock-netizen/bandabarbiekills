@@ -19,6 +19,7 @@ const Corporativo = lazy(() => import("./pages/Corporativo"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const DjBriefing = lazy(() => import("./pages/DjBriefing"));
 const KillerQueen = lazy(() => import("./pages/KillerQueen"));
+const Proposta = lazy(() => import("./pages/Proposta"));
 
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/cidade/:slug" element={<CidadeLanding />} />
           <Route path="/dj-briefing/:id" element={<DjBriefing />} />
           <Route path="/killer-queen" element={<KillerQueen />} />
+          <Route path="/proposta/:id" element={<Proposta />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"
