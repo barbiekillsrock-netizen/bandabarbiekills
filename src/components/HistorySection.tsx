@@ -21,7 +21,7 @@ const HistorySection = () => {
           <div className="lg:pl-8">
             <div className="mb-8">
               {/* 1. O H2 PARA O GOOGLE (Invisível) - Focado no mercado B2B e gênero musical */}
-              <h2 className="sr-only">Banda de Pop Rock para Eventos Corporativos e Premiações</h2>
+              <h2 className="sr-only">Banda Premium com Repertório Versátil para Eventos e Premiações</h2>
 
               {/* 2. O TÍTULO VISUAL (Agora como <p> para manter o design premium) */}
               <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground">
