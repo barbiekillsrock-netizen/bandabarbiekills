@@ -38,7 +38,10 @@ type ProposalData = {
   revenues: Revenue[];
 };
 
-const WHATSAPP = "https://wa.me/5519981736659";
+const WHATSAPP_NUMBER = "5519982846842";
+const WHATSAPP = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Olá, Banda Barbie Kills! Recebi a proposta comercial e gostaria de conversar.",
+)}`;
 
 const proposalVideos = [
   { id: "rAVb_-U7OAU", title: "Live at Alma Campinas" },
@@ -165,7 +168,7 @@ const Proposta = () => {
               className="text-xs md:text-sm text-neon-pink mb-6 tracking-[0.4em] uppercase font-oswald"
             >
               <Sparkles className="inline-block w-3.5 h-3.5 mr-2 -mt-1" />
-              Proposta Exclusiva — Confidencial
+              Proposta Exclusiva. Confidencial.
             </motion.p>
 
             <motion.h1
@@ -176,26 +179,37 @@ const Proposta = () => {
               <br />
               MUSICAL EXCLUSIVA PARA
               <br />
-              <span className="bg-gradient-to-r from-neon-pink via-pink-400 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,0,128,0.4)]">
+              <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">
                 {opp.client_name}
               </span>
+              <span className="text-neon-pink">.</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="text-base md:text-xl text-white/80 font-sans max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base md:text-xl text-white/85 font-sans max-w-2xl mx-auto leading-relaxed font-light"
             >
-              Elevando o nível do seu{" "}
-              <span className="text-white font-medium">
-                {opp.event_type || "evento"}
-              </span>{" "}
-              com performance de alta voltagem
-              {fmtDate && (
+              A trilha sonora definitiva para a celebração
+              {fmtDate ? (
                 <>
-                  {" "}— <span className="text-white font-medium">{fmtDate}</span>
+                  {" "}de <span className="text-white font-medium">{fmtDate}</span>.
+                </>
+              ) : (
+                <>
+                  {" "}do seu{" "}
+                  <span className="text-white font-medium">
+                    {opp.event_type || "evento"}
+                  </span>
+                  .
                 </>
               )}
-              .
+            </motion.p>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 text-sm md:text-base text-white/60 font-sans font-light max-w-xl mx-auto"
+            >
+              Performance de palco impecável. Curadoria de excelência sonora.
             </motion.p>
 
             {(opp.location || opp.guests) && (
