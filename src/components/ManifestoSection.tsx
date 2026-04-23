@@ -22,7 +22,9 @@ const ManifestoSection = () => {
           <div className="flex flex-col justify-center">
             <div className="space-y-4">
               {/* O H2 INVISÍVEL PARA O GOOGLE - Focado em atrair o mercado corporativo e casamentos premium */}
-              <h2 className="sr-only">Banda de Pop Rock para Casamentos e Eventos Corporativos em Campinas</h2>
+              <h2 className="sr-only">
+                Experiência Musical Premium para Casamentos e Eventos Corporativos em Campinas
+              </h2>
 
               {/* O TEXTO VISUAL PARA O CLIENTE - Design e classes originais mantidas */}
               <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
