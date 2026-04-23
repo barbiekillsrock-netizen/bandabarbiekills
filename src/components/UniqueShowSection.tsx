@@ -30,7 +30,7 @@ const UniqueShowSection = () => {
         <div className="text-center mb-16">
           {/* O H2 PARA O GOOGLE (Invisível) - Focado na autoridade corporativa e pop rock */}
           <h2 className="sr-only">
-            Tradição e Estrutura: Banda de Pop Rock para Eventos Corporativos e Internacionais
+            Tradição e Estrutura: Atração Musical Premium para Eventos Corporativos e Casamentos
           </h2>
 
           {/* O TÍTULO VISUAL (Agora como <p> mantendo o design original) */}
