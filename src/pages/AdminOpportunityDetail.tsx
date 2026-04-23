@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, BookOpen, Music, Archive } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, BookOpen, Music, Archive, FileText } from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
@@ -255,7 +255,15 @@ const AdminOpportunityDetail = () => {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
+              <Button
+                onClick={() => window.open(`/proposta/${opp.id}`, "_blank")}
+                variant="outline"
+                className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white font-bold"
+              >
+                <FileText size={16} className="mr-2" />
+                VER PROPOSTA
+              </Button>
               <Button
                 onClick={handleGenerateAI}
                 disabled={aiLoading}

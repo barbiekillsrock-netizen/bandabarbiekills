@@ -264,6 +264,7 @@ export type Database = {
           isSetofReturn: true
         }
       }
+      get_proposal_data: { Args: { p_opportunity_id: string }; Returns: Json }
     }
     Enums: {
       [_ in never]: never
