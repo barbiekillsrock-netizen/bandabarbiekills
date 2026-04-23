@@ -623,16 +623,15 @@ const Proposta = () => {
           </div>
         </section>
 
-        {/* STICKY MOBILE CTA */}
+        {/* FLOATING WHATSAPP — same style as Home */}
         <a
           href={WHATSAPP}
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-neon-pink to-fuchsia-500 text-white font-oswald uppercase tracking-[0.2em] text-xs shadow-[0_0_30px_rgba(255,0,128,0.5)] hover:shadow-[0_0_50px_rgba(255,0,128,0.7)] transition-shadow"
+          aria-label="Falar com a produção pelo WhatsApp"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
         >
-          <MessageCircle size={18} />
-          <span className="hidden sm:inline">Falar com a Produção</span>
-          <span className="sm:hidden">WhatsApp</span>
+          <img src="/icons/whatsapp-white.svg" alt="" width={28} height={28} className="w-7 h-7" />
         </a>
       </main>
 
