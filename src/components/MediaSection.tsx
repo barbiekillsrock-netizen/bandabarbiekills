@@ -69,7 +69,7 @@ const MediaSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           {/* 1. O H2 PARA O GOOGLE (Invisível) - Focado em Repertório e Performance ao vivo */}
-          <h2 className="sr-only">Repertório de Pop Rock e Shows ao Vivo para Eventos e Casamentos</h2>
+          <h2 className="sr-only">Shows ao Vivo e Repertório Versátil para Casamentos e Eventos de Alto Padrão</h2>
 
           {/* 2. O TÍTULO VISUAL (Agora como <p> mantendo o design original) */}
           <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">
