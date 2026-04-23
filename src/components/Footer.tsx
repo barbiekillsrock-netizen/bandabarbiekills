@@ -21,10 +21,15 @@ const Footer = ({ variant = "default" }: FooterProps) => {
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
+          {/* 1. O H2 PARA O GOOGLE (Invisível) - Chamada para ação focada em conversão premium */}
+          <h2 className="sr-only">Solicite um Orçamento para seu Evento de Alto Padrão em Campinas e Região</h2>
+
+          {/* 2. O TÍTULO VISUAL (Agora como <p> para manter o design de impacto) */}
+          <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
             PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span> <br />
             DO SEU EVENTO?
-          </h2>
+          </p>
+
           <p className="subtitle text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
             Entre em contato e faça seu orçamento agora mesmo
           </p>
@@ -186,10 +191,10 @@ const Footer = ({ variant = "default" }: FooterProps) => {
 
             <div className="mt-12 max-w-4xl mx-auto text-center">
               <p className="font-inter text-sm text-muted-foreground leading-relaxed">
-                A <strong>Barbie Kills</strong> é a banda premium referência para casamentos de luxo e eventos corporativos
-                em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um repertório sofisticado
-                e infraestrutura completa, entregamos entretenimento musical de alta energia para quem não abre mão de
-                qualidade e elegância em seu grande dia.
+                A <strong>Barbie Kills</strong> é a banda premium referência para casamentos de luxo e eventos
+                corporativos em <strong>Campinas</strong> e em todo o estado de <strong>São Paulo</strong>. Com um
+                repertório sofisticado e infraestrutura completa, entregamos entretenimento musical de alta energia para
+                quem não abre mão de qualidade e elegância em seu grande dia.
               </p>
             </div>
           </>
