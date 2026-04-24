@@ -6,7 +6,10 @@ import { publicSupabase } from "@/integrations/supabase/publicClient";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HistorySection from "@/components/HistorySection";
+import ManifestoSection from "@/components/ManifestoSection";
 import { Quote, Sparkles, CheckCircle2, ArrowDown, Star } from "lucide-react";
+import neonBgTexture from "@/assets/killer-queen-fundo-neon.png";
 
 type Revenue = {
   id: string;
