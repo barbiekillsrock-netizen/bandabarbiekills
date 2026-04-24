@@ -602,13 +602,13 @@ A **Barbie Kills** nasceu em Campinas com a missão de [atender os casamentos ma
     slug: "guia-contratar-banda-casamento-ao-vivo",
     title: "Guia Prático para Contratar Banda ao Vivo para Casamento",
     h1: "Guia prático para contratar banda ao vivo para casamento",
-    metaTitle: "Guia Completo: Como Contratar a Melhor Banda para Casamento em 2026",
+    metaTitle: "Como Contratar a Melhor Banda para Casamento em 2026",
     metaDescription:
       "Guia completo para contratar banda de casamento. Dicas de repertório, técnica e como escolher a melhor banda ao vivo em Campinas e SP. Confira!",
     excerpt:
       "Saiba como escolher banda ao vivo para casamento, garantindo repertório ideal, técnica apurada e ambientação perfeita para seu evento.",
     image: "/blog/banda-casamento-sp.webp",
-    imageAlt: "Banda Barbie Kills em performance ao vivo para casamento premium em São Paulo e Campinas",
+    imageAlt: "Banda Barbie Kills em show de casamento em São Paulo e Campinas",
     date: "2026-04-13",
     readTime: "10 min",
     ctaText: "SOLICITAR ORÇAMENTO",
