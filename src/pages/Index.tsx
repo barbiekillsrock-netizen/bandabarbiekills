@@ -97,7 +97,7 @@ const Index = () => {
           name="description"
           content="Banda para casamentos e eventos corporativos em Campinas e SP. Infraestrutura completa e repertório personalizado de Pop, Rock e Música Brasileira."
         />
-        <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
+        <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
 
         <script
           type="application/ld+json"
