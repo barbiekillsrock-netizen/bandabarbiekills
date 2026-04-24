@@ -4,18 +4,9 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { publicSupabase } from "@/integrations/supabase/publicClient";
 import { Button } from "@/components/ui/button";
-import {
-  Sparkles,
-  MessageCircle,
-  CheckCircle2,
-  Mic2,
-  Clock,
-  Cpu,
-  Star,
-  Quote,
-  Music4,
-  ArrowDown,
-} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Quote, Sparkles, CheckCircle2, ArrowDown, Star } from "lucide-react";
 
 type Revenue = {
   id: string;
@@ -43,26 +34,54 @@ const WHATSAPP = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Olá, Banda Barbie Kills! Recebi a proposta comercial e gostaria de conversar.",
 )}`;
 
+// Mesmos vídeos da Home (MediaSection)
 const proposalVideos = [
-  { id: "rAVb_-U7OAU", title: "Live at Alma Campinas" },
-  { id: "s0BHAN9Edew", title: "What's Up — Live" },
+  { id: "rAVb_-U7OAU", title: "Show Completo" },
+  { id: "s0BHAN9Edew", title: "Casamento" },
+  { id: "RLIIDCt0MlA", title: "Evento Corporativo" },
 ];
 
+// Empresas que confiam em nós (lista oficial)
 const clients = [
-  "HONDA",
-  "AMBEV",
+  "HYUNDAI",
+  "HARLEY DAVIDSON",
+  "PROCURADORIA SP",
   "BACARDI",
-  "ITAÚ",
-  "UNIMED",
-  "GLOBO",
-  "VOLKSWAGEN",
-  "NESTLÉ",
+  "AMBEV",
+];
+
+// Mesmos depoimentos da Home (TestimonialsSection)
+const testimonials = [
+  {
+    image: "/depoimento-marcos-mion-banda.webp",
+    name: "Marcos Mion",
+    role: "Apresentador de TV",
+    quote:
+      "Fantástica! A vocalista canta demais, sempre surpreende e a banda toda é espetacular",
+  },
+  {
+    image: "/depoimento-tiago-kiss-produtor.webp",
+    name: "Thiago Kiss",
+    role: "Produtor Charlie Brown Jr. e Titãs",
+    quote:
+      "A banda tá f*da, conceito muito bom e a sonoridade está impecável! Impressiona por onde passa",
+  },
+  {
+    image: "/depoimento-tatiane-franco-evento.webp",
+    name: "Tatiane Franco",
+    role: "COO Laboratórios Franco do Amaral",
+    quote:
+      "Completamente apaixonada pelo show da minha festa! Também tive um atendimento excepcional",
+  },
 ];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
+
+const formatBRL = (value: number) =>
+  value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const Proposta = () => {
   const { id } = useParams<{ id: string }>();
@@ -112,7 +131,6 @@ const Proposta = () => {
   }
 
   const { opportunity: opp, revenues } = data;
-  const total = revenues.reduce((s, r) => s + (Number(r.sale_value) || 0), 0);
   const fmtDate = opp.event_date
     ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR", {
         day: "2-digit",
@@ -120,25 +138,43 @@ const Proposta = () => {
         year: "numeric",
       })
     : null;
-  const fmtTotal = total.toLocaleString("pt-BR", { minimumFractionDigits: 2 });
+
+  // Validade automática: 7 dias a partir de hoje (geração da proposta)
+  const today = new Date();
+  const fmtToday = today.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <>
       <Helmet>
-        <title>Proposta Exclusiva | Barbie Kills</title>
+        <title>Proposta Exclusiva para {opp.client_name} | Barbie Kills</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <main className="min-h-screen bg-black text-foreground overflow-x-hidden relative">
-        {/* Ambient stage lighting */}
+      <Navbar />
+
+      <main className="min-h-screen bg-black text-foreground overflow-x-hidden relative pt-20">
+        {/* Ambient stage lighting + background texture */}
         <div className="pointer-events-none fixed inset-0 z-0">
+          <div
+            className="absolute inset-0 opacity-[0.08] mix-blend-screen"
+            style={{
+              backgroundImage: "url(/banda-barbie-kills-casamento-rock.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+            }}
+          />
           <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-neon-pink/20 blur-[140px]" />
           <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-purple-600/20 blur-[140px]" />
           <div className="absolute bottom-0 left-1/3 w-[700px] h-[400px] rounded-full bg-neon-pink/10 blur-[160px]" />
         </div>
 
         {/* HERO */}
-        <section className="relative z-10 min-h-[100svh] flex items-center justify-center overflow-hidden border-b border-white/5">
+        <section className="relative z-10 min-h-[90svh] flex items-center justify-center overflow-hidden border-b border-white/5">
           <div className="absolute inset-0">
             <picture>
               <source
@@ -173,21 +209,15 @@ const Proposta = () => {
 
             <motion.h1
               variants={fadeUp}
-              className="font-bebas text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-wide"
+              className="heading-display text-5xl md:text-7xl lg:text-8xl text-foreground mb-8 leading-[0.95]"
             >
-              UMA EXPERIÊNCIA
-              <br />
-              MUSICAL EXCLUSIVA PARA
-              <br />
-              <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">
-                {opp.client_name}
-              </span>
-              <span className="text-neon-pink">.</span>
+              UMA EXPERIÊNCIA MUSICAL EXCLUSIVA PARA{" "}
+              <span className="neon-pink-text">{opp.client_name}</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="text-base md:text-xl text-white/85 font-sans max-w-2xl mx-auto leading-relaxed font-light"
+              className="subtitle text-base md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed"
             >
               A trilha sonora definitiva para a celebração
               {fmtDate ? (
@@ -207,7 +237,7 @@ const Proposta = () => {
 
             <motion.p
               variants={fadeUp}
-              className="mt-4 text-sm md:text-base text-white/60 font-sans font-light max-w-xl mx-auto"
+              className="mt-4 text-sm md:text-base text-white/60 font-inter font-light max-w-xl mx-auto"
             >
               Performance de palco impecável. Curadoria de excelência sonora.
             </motion.p>
@@ -246,17 +276,15 @@ const Proposta = () => {
               variants={fadeUp}
               className="text-center mb-16"
             >
-              <p className="text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase font-oswald">
+              <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
                 A Autoridade
               </p>
-              <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-white leading-tight">
-                A FORÇA POR TRÁS DA{" "}
-                <span className="text-white">BARBIE KILLS</span>
-                <span className="text-neon-pink">.</span>
-              </h2>
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+                A FORÇA POR TRÁS DA <span className="neon-pink-text">BARBIE KILLS</span>
+              </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-10 items-center mb-20">
+            <div className="grid lg:grid-cols-2 gap-10 items-center mb-8">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -265,8 +293,8 @@ const Proposta = () => {
                 className="relative rounded-2xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0"
               >
                 <img
-                  src="/vocalista-banda-casamento.webp"
-                  alt="Mariana Chaib — vocalista Barbie Kills"
+                  src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
+                  alt="Banda Barbie Kills em show para casamentos e eventos premium"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -288,18 +316,19 @@ const Proposta = () => {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="space-y-6"
               >
-                <p className="text-lg md:text-xl text-white/85 font-sans font-light leading-relaxed">
+                <p className="text-lg md:text-xl text-white/85 font-inter font-light leading-relaxed">
                   À frente da banda, a vocalista{" "}
                   <span className="text-white font-medium">Mariana Chaib</span>,
                   com passagem pela <span className="text-white font-medium">Rede Globo</span>,
                   empresta uma <em className="text-white not-italic font-medium">voz intoxicante</em> e uma
                   presença de palco que transforma cada música em um momento inesquecível.
                 </p>
-                <p className="text-base md:text-lg text-white/70 font-sans font-light leading-relaxed">
+                <p className="text-base md:text-lg text-white/70 font-inter font-light leading-relaxed">
                   Ao seu lado, um sexteto fixo de músicos de elite, sem freelancers, entrega
                   leitura de pista impecável e conexão genuína com cada convidado.
                 </p>
 
+                {/* CARDS DE ESTATÍSTICAS — mesma fonte/peso/cor da Home (.neon-pink-text) */}
                 <div className="grid grid-cols-3 gap-3 pt-4">
                   {[
                     { n: "+14", l: "Anos de estrada" },
@@ -308,12 +337,12 @@ const Proposta = () => {
                   ].map((s) => (
                     <div
                       key={s.l}
-                      className="rounded-xl p-5 text-center border border-white/10 bg-white/[0.03] backdrop-blur-sm"
+                      className="glass-card rounded-xl p-5 text-center"
                     >
-                      <p className="font-bebas text-3xl md:text-4xl bg-gradient-to-br from-neon-pink to-fuchsia-400 bg-clip-text text-transparent tracking-wide">
+                      <p className="heading-display text-4xl md:text-5xl neon-pink-text leading-none">
                         {s.n}
                       </p>
-                      <p className="text-[10px] md:text-xs text-white/60 font-oswald uppercase tracking-wider mt-1">
+                      <p className="subtitle text-[10px] md:text-xs text-white/60 mt-2">
                         {s.l}
                       </p>
                     </div>
@@ -324,7 +353,7 @@ const Proposta = () => {
           </div>
         </section>
 
-        {/* SOCIAL PROOF — clients carousel + Mion */}
+        {/* SOCIAL PROOF — clients carousel */}
         <section className="relative z-10 py-20 md:py-24 border-b border-white/5 overflow-hidden">
           <div className="container mx-auto px-6 max-w-6xl">
             <motion.div
@@ -334,18 +363,17 @@ const Proposta = () => {
               variants={fadeUp}
               className="text-center mb-12"
             >
-              <p className="text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase font-oswald">
+              <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
                 Quem confia
               </p>
-              <h2 className="font-bebas text-4xl md:text-6xl text-white leading-tight">
-                MARCAS QUE JÁ VIVERAM A EXPERIÊNCIA<span className="text-neon-pink">.</span>
-              </h2>
+              <p className="heading-display text-4xl md:text-6xl text-foreground leading-tight">
+                EMPRESAS QUE <span className="neon-pink-text">CONFIAM EM NÓS</span>
+              </p>
             </motion.div>
 
-            {/* Marquee */}
-            <div className="relative overflow-hidden mb-16 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
               <div className="flex gap-12 animate-[marquee_30s_linear_infinite] whitespace-nowrap">
-                {[...clients, ...clients].map((c, i) => (
+                {[...clients, ...clients, ...clients].map((c, i) => (
                   <span
                     key={i}
                     className="font-bebas text-3xl md:text-4xl text-white/40 hover:text-neon-pink transition-colors tracking-[0.2em]"
@@ -355,44 +383,56 @@ const Proposta = () => {
                 ))}
               </div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="max-w-3xl mx-auto"
-            >
-              <div className="relative rounded-2xl border border-neon-pink/30 bg-gradient-to-br from-neon-pink/10 via-black/50 to-purple-900/20 backdrop-blur-md p-8 md:p-12 shadow-[0_0_60px_rgba(255,0,128,0.15)]">
-                <Quote
-                  className="absolute -top-4 -left-2 text-neon-pink/60"
-                  size={56}
-                  strokeWidth={1.5}
-                />
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={18}
-                      className="fill-neon-pink text-neon-pink"
-                    />
-                  ))}
-                </div>
-                <p className="text-lg md:text-2xl text-white font-sans font-light italic leading-relaxed mb-6">
-                  "Fantástica! A vocalista canta demais... a banda toda é espetacular."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-[1px] bg-neon-pink" />
-                  <p className="font-oswald uppercase tracking-[0.25em] text-sm text-white/80">
-                    Marcos Mion <span className="text-white/40">— Apresentador</span>
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </section>
 
-        {/* VIDEOS */}
+        {/* TESTIMONIALS — mesma estrutura da Home */}
+        <section className="relative z-10 py-20 md:py-24 border-b border-white/5 bg-[#050505]/60">
+          <div className="container mx-auto px-6 max-w-6xl">
+            <div className="text-center mb-16">
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-4">
+                O QUE <span className="neon-pink-text">DIZEM</span> SOBRE NÓS
+              </p>
+              <p className="subtitle text-lg text-muted-foreground max-w-2xl mx-auto">
+                Depoimentos de quem viveu a experiência Barbie Kills
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+              {testimonials.map((t, i) => (
+                <motion.article
+                  key={t.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="glass-card p-8 lg:p-10 rounded-2xl text-center hover-lift"
+                >
+                  <div className="mb-6 flex justify-center">
+                    <img
+                      src={t.image}
+                      alt={`Depoimento de ${t.name} sobre a Banda Barbie Kills`}
+                      width={120}
+                      height={120}
+                      className="testimonial-circle"
+                      loading="lazy"
+                    />
+                  </div>
+                  <Quote className="w-8 h-8 text-neon-pink/40 mx-auto mb-4" aria-hidden="true" />
+                  <blockquote className="text-body text-lg leading-relaxed mb-6 italic">
+                    "{t.quote}"
+                  </blockquote>
+                  <footer>
+                    <p className="heading-display text-xl text-foreground">{t.name}</p>
+                    <p className="subtitle text-xs text-muted-foreground mt-1">{t.role}</p>
+                  </footer>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* VIDEOS — mesmos da Home */}
         <section className="relative z-10 py-20 md:py-28 border-b border-white/5">
           <div className="container mx-auto px-6 max-w-6xl">
             <motion.div
@@ -402,109 +442,52 @@ const Proposta = () => {
               variants={fadeUp}
               className="text-center mb-12"
             >
-              <p className="text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase font-oswald">
+              <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
                 Sinta a energia
               </p>
-              <h2 className="font-bebas text-4xl md:text-6xl text-white leading-tight">
-                VEJA A BANDA AO VIVO<span className="text-neon-pink">.</span>
-              </h2>
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground">
+                <span className="neon-pink-text">CONHEÇA</span> NOSSO SOM
+              </p>
             </motion.div>
 
+            <div className="mb-8">
+              <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,128,0.15)]">
+                <iframe
+                  src={`https://www.youtube.com/embed/${proposalVideos[0].id}`}
+                  title={`Barbie Kills — ${proposalVideos[0].title}`}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6">
-              {proposalVideos.map((v, i) => (
+              {proposalVideos.slice(1).map((v, i) => (
                 <motion.div
                   key={v.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group"
+                  className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,128,0.15)]"
                 >
-                  <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,0,128,0.15)] group-hover:shadow-[0_0_60px_rgba(255,0,128,0.3)] transition-shadow">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${v.id}`}
-                      title={`Barbie Kills — ${v.title}`}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                    />
-                  </div>
-                  <p className="mt-3 font-oswald uppercase tracking-[0.25em] text-sm text-white/70 text-center">
-                    {v.title}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SOLUTION CARDS */}
-        <section className="relative z-10 py-20 md:py-28 border-b border-white/5">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="text-center mb-14"
-            >
-              <p className="text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase font-oswald">
-                A Solução
-              </p>
-              <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-white leading-tight">
-                SHOW <span className="text-white">ELETRIC BLOOM</span><span className="text-neon-pink">.</span>
-              </h2>
-              <p className="mt-5 text-base md:text-lg text-white/70 max-w-2xl mx-auto font-light">
-                A nossa fórmula consagrada em mais de 600 eventos premium. Entrega de alto padrão e conexão genuína com cada convidado.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-5">
-              {[
-                {
-                  icon: Mic2,
-                  title: "Formação",
-                  desc: "Sexteto de elite com duas vozes, guitarra, teclado, baixo e bateria. Equipe fixa, sem freelancers.",
-                },
-                {
-                  icon: Clock,
-                  title: "Duração",
-                  desc: "Até 3h30 de jornada musical, com curadoria atravessando Pop, Rock, Indie e clássicos atemporais.",
-                },
-                {
-                  icon: Cpu,
-                  title: "Infraestrutura",
-                  desc: "Som e iluminação de última geração com tecnologia digital. Excelência sonora em qualquer ambiente.",
-                },
-              ].map((card, i) => (
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-sm p-8 hover:border-neon-pink/40 transition-all overflow-hidden"
-                >
-                  <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-neon-pink/0 group-hover:bg-neon-pink/20 blur-3xl transition-all duration-500" />
-                  <card.icon
-                    className="text-neon-pink mb-5 relative z-10"
-                    size={32}
-                    strokeWidth={1.5}
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}`}
+                    title={`Barbie Kills — ${v.title}`}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
                   />
-                  <h3 className="font-bebas text-3xl text-white tracking-wide mb-3 relative z-10">
-                    {card.title.toUpperCase()}
-                  </h3>
-                  <p className="text-sm md:text-base text-white/70 font-sans font-light leading-relaxed relative z-10">
-                    {card.desc}
-                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* SCOPE / REVENUES — dynamic from CRM */}
+        {/* SCOPE / REVENUES — dynamic from CRM, com PREÇO ISOLADO POR ITEM */}
         <section className="relative z-10 py-20 md:py-28 border-b border-white/5">
           <div className="container mx-auto px-6 max-w-4xl">
             <motion.div
@@ -514,22 +497,22 @@ const Proposta = () => {
               variants={fadeUp}
               className="text-center mb-14"
             >
-              <p className="text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase font-oswald">
+              <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
                 Escopo Detalhado
               </p>
-              <h2 className="font-bebas text-4xl md:text-6xl text-white leading-tight">
-                O QUE ENTREGAMOS<span className="text-neon-pink">.</span>
-              </h2>
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+                O QUE <span className="neon-pink-text">ENTREGAMOS</span>
+              </p>
             </motion.div>
 
             {revenues.length === 0 ? (
               <div className="rounded-xl p-8 text-center border border-white/10 bg-white/[0.03]">
-                <p className="text-white/60 font-sans">
+                <p className="text-white/60 font-inter">
                   Os itens da proposta serão detalhados em breve.
                 </p>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {revenues.map((rev, i) => (
                   <motion.div
                     key={rev.id}
@@ -540,60 +523,41 @@ const Proposta = () => {
                     className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-sm overflow-hidden hover:border-neon-pink/30 transition-colors"
                   >
                     <div className="p-6 md:p-8">
-                      <div className="flex items-start gap-4 mb-3">
-                        <CheckCircle2
-                          className="text-neon-pink shrink-0 mt-1"
-                          size={22}
-                        />
-                        <h3 className="font-bebas text-2xl md:text-3xl tracking-wider text-white leading-tight uppercase">
-                          {rev.title}
-                        </h3>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
+                        <div className="flex items-start gap-4 flex-1">
+                          <CheckCircle2
+                            className="text-neon-pink shrink-0 mt-1"
+                            size={22}
+                          />
+                          <h3 className="font-bebas text-2xl md:text-3xl tracking-wider text-white leading-tight uppercase">
+                            {rev.title}
+                          </h3>
+                        </div>
+                        {rev.sale_value != null && Number(rev.sale_value) > 0 && (
+                          <div className="text-left md:text-right pl-9 md:pl-0 shrink-0">
+                            <p className="text-[10px] text-white/50 font-oswald uppercase tracking-[0.3em] mb-1">
+                              Investimento
+                            </p>
+                            <p className="font-bebas text-3xl md:text-4xl neon-pink-text leading-none tracking-wider">
+                              R$ {formatBRL(Number(rev.sale_value))}
+                            </p>
+                          </div>
+                        )}
                       </div>
                       {rev.description && (
-                        <p className="text-base text-white/70 font-sans font-light leading-relaxed pl-9 whitespace-pre-line">
+                        <p className="text-base text-white/70 font-inter font-light leading-relaxed pl-9 whitespace-pre-line">
                           {rev.description}
                         </p>
                       )}
                     </div>
                   </motion.div>
                 ))}
-
-                {/* INVESTMENT TOTAL */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                  className="relative rounded-2xl border-2 border-neon-pink/40 bg-gradient-to-br from-neon-pink/15 via-black/60 to-purple-900/30 backdrop-blur-md p-8 md:p-10 mt-10 shadow-[0_0_60px_rgba(255,0,128,0.25)] overflow-hidden"
-                >
-                  <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-neon-pink/20 blur-3xl" />
-
-                  <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                    <div>
-                      <p className="text-xs md:text-sm text-neon-pink uppercase font-oswald tracking-[0.4em] font-bold mb-2">
-                        <Sparkles className="inline-block w-3.5 h-3.5 mr-2 -mt-1" />
-                        Investimento na Experiência
-                      </p>
-                      <p className="text-sm text-white/70 font-sans font-light max-w-md">
-                        Tudo incluso: backline completo, equipe técnica e DJ por 6 horas.
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-xs text-white/50 font-oswald uppercase tracking-[0.3em] mb-1">
-                        Total
-                      </p>
-                      <p className="font-bebas text-5xl md:text-6xl text-white tracking-wider leading-none">
-                        R$ {fmtTotal}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             )}
           </div>
         </section>
 
-        {/* CTA */}
+        {/* CTA — padrão idêntico ao Footer da Home */}
         <section className="relative z-10 py-20 md:py-28">
           <div className="container mx-auto px-6 max-w-3xl text-center">
             <motion.div
@@ -602,22 +566,24 @@ const Proposta = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <Music4 className="inline-block text-neon-pink mb-6" size={40} strokeWidth={1.5} />
-              <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-                VAMOS ELEVAR O NÍVEL DO SEU EVENTO<span className="text-neon-pink">?</span>
-              </h2>
-              <p className="text-base md:text-lg text-white/75 font-sans font-light mb-10 leading-relaxed max-w-2xl mx-auto">
-                Fale com nossa produção comercial. Estamos à disposição para tirar dúvidas, ajustar detalhes e garantir que cada
-                momento da sua celebração seja inesquecível.
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
+                PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span> <br />
+                DO SEU EVENTO?
               </p>
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-block">
-                <Button variant="hero" size="xl" className="gap-3">
-                  <img src="/icons/whatsapp-white.svg" alt="" width={22} height={22} className="w-[22px] h-[22px]" />
-                  FALAR COM A PRODUÇÃO
-                </Button>
-              </a>
-              <p className="mt-10 text-xs text-white/40 font-oswald uppercase tracking-[0.3em]">
-                Barbie Kills • Música que faz história
+              <p className="subtitle text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+                Entre em contato e faça seu orçamento agora mesmo
+              </p>
+              <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
+                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+                  Contrate Já
+                </a>
+              </Button>
+
+              {/* Validade da Proposta */}
+              <p className="mt-12 text-xs md:text-sm text-white/45 font-inter font-light leading-relaxed max-w-2xl mx-auto text-center">
+                Esta proposta é exclusiva e válida por 7 dias a partir de{" "}
+                <span className="text-white/60">{fmtToday}</span>. Após este período, os valores e a
+                disponibilidade da data estarão sujeitos a nova confirmação.
               </p>
             </motion.div>
           </div>
@@ -633,14 +599,16 @@ const Proposta = () => {
         >
           <img src="/icons/whatsapp-white.svg" alt="" width={28} height={28} className="w-7 h-7" />
         </a>
+
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+          }
+        `}</style>
       </main>
 
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
+      <Footer variant="minimal" />
     </>
   );
 };
