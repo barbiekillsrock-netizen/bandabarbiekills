@@ -32,13 +32,11 @@ const structuredData = {
       url: SITE_URL,
       logo: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
       image: `${SITE_URL}/banda-casamentos-eventos-campinas-barbie-kills.webp`,
-      description: "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
+      description:
+        "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
       genre: ["Pop", "Soul", "Groove", "MPB", "Rock", "Brazilian Music"],
       foundingDate: "2012",
-      sameAs: [
-        "https://www.instagram.com/barbiekillsrock/", 
-        "https://www.youtube.com/@barbiekills"
-      ],
+      sameAs: ["https://www.instagram.com/barbiekillsrock/", "https://www.youtube.com/@barbiekills"],
       member: [
         {
           "@type": "OrganizationRole",
@@ -47,8 +45,8 @@ const structuredData = {
             name: "Mariana",
             // Se tiver o Instagram dela, adicione aqui: sameAs: ["URL"]
           },
-          roleName: ["Lead Vocalist", "Vocalista Principal"]
-        }
+          roleName: ["Lead Vocalist", "Vocalista Principal"],
+        },
       ],
     },
     {
@@ -97,7 +95,7 @@ const Index = () => {
         <title>Banda Barbie Kills | Casamentos e Eventos Premium</title>
         <meta
           name="description"
-          content="Banda premium para casamentos e eventos corporativos em Campinas e SP. Infraestrutura completa e repertório personalizado de Pop, Rock e Música Brasileira."
+          content="Banda para casamentos e eventos corporativos em Campinas e SP. Infraestrutura completa e repertório personalizado de Pop, Rock e Música Brasileira."
         />
         <link rel="canonical" href="https://www.bandabarbiekills.com.br" />
 
