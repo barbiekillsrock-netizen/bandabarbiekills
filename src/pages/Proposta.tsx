@@ -270,92 +270,15 @@ const Proposta = () => {
           </motion.div>
         </section>
 
-        {/* AUTHORITY */}
-        <section className="relative z-10 py-20 md:py-28 border-b border-white/5">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              className="text-center mb-16"
-            >
-              <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
-                A Autoridade
-              </p>
-              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight">
-                A FORÇA POR TRÁS DA <span className="neon-pink-text">BARBIE KILLS</span>
-              </p>
-            </motion.div>
+        {/* HISTÓRIA — mesma seção da Home */}
+        <div className="relative z-10">
+          <HistorySection />
+        </div>
 
-            <div className="grid lg:grid-cols-2 gap-10 items-center mb-8">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="relative rounded-2xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0"
-              >
-                <img
-                  src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
-                  alt="Banda Barbie Kills em show para casamentos e eventos premium"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-xs text-neon-pink font-oswald uppercase tracking-[0.3em] mb-1">
-                    Vocalista
-                  </p>
-                  <p className="font-bebas text-3xl text-white tracking-wide">
-                    MARIANA CHAIB
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-                className="space-y-6"
-              >
-                <p className="text-lg md:text-xl text-white/85 font-inter font-light leading-relaxed">
-                  À frente da banda, a vocalista{" "}
-                  <span className="text-white font-medium">Mariana Chaib</span>,
-                  com passagem pela <span className="text-white font-medium">Rede Globo</span>,
-                  empresta uma <em className="text-white not-italic font-medium">voz intoxicante</em> e uma
-                  presença de palco que transforma cada música em um momento inesquecível.
-                </p>
-                <p className="text-base md:text-lg text-white/70 font-inter font-light leading-relaxed">
-                  Ao seu lado, um sexteto fixo de músicos de elite, sem freelancers, entrega
-                  leitura de pista impecável e conexão genuína com cada convidado.
-                </p>
-
-                {/* CARDS DE ESTATÍSTICAS — mesma fonte/peso/cor da Home (.neon-pink-text) */}
-                <div className="grid grid-cols-3 gap-3 pt-4">
-                  {[
-                    { n: "+14", l: "Anos de estrada" },
-                    { n: "+600", l: "Shows realizados" },
-                    { n: "100%", l: "Satisfação" },
-                  ].map((s) => (
-                    <div
-                      key={s.l}
-                      className="glass-card rounded-xl p-5 text-center"
-                    >
-                      <p className="heading-display text-4xl md:text-5xl neon-pink-text leading-none">
-                        {s.n}
-                      </p>
-                      <p className="subtitle text-[10px] md:text-xs text-white/60 mt-2">
-                        {s.l}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* MANIFESTO — mesma seção da Home */}
+        <div className="relative z-10">
+          <ManifestoSection />
+        </div>
 
         {/* SOCIAL PROOF — clients carousel */}
         <section className="relative z-10 py-20 md:py-24 border-b border-white/5 overflow-hidden">
