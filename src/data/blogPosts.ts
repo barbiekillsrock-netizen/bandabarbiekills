@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "quanto-custa-banda-casamento",
     title: "Quanto Custa uma Banda de Casamento? [Guia Atualizado]",
-    h1: "Quanto Custa uma Banda de Casamento? O Guia Definitivo de Valores e Preços",
+    h1: "Quanto Custa Banda para Casamento?",
     metaTitle: "Quanto Custa uma Banda de Casamento? [Guia Atualizado]",
     metaDescription:
       "Descubra o preço médio de uma banda de casamento. Entenda a infraestrutura e como escolher a atração ideal para a sua festa.",
