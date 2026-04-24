@@ -32,22 +32,21 @@
       "permanent": true
     },
     {
+      "source": "/cidade/campinas",
+      "destination": "/cidade/banda-casamento-campinas",
+      "permanent": true
+    },
+    {
+      "source": "/cidade/sao-paulo",
+      "destination": "/cidade/evento-corporativo-sao-paulo",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "bandabarbiekills.com.br" }],
       "destination": "https://www.bandabarbiekills.com.br/:path*",
       "permanent": true
     }
-  {
-    "source": "/cidade/campinas",
-    "destination": "/cidade/banda-casamento-campinas",
-    "permanent": true
-  },
-  {
-    "source": "/cidade/sao-paulo",
-    "destination": "/cidade/evento-corporativo-sao-paulo",
-    "permanent": true
-  }
-]
   ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
