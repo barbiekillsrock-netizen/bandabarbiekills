@@ -95,7 +95,7 @@ const CidadeLanding = () => {
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDesc} />
-        <link rel="canonical" href={canonicalUrl} />
+        <link rel="canonical" key={canonicalUrl} href={canonicalUrl} />
 
         {/* Open Graph - Redes Sociais */}
         <meta property="og:title" content={metaTitle} />
