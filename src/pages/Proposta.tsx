@@ -163,7 +163,7 @@ const Proposta = () => {
         {/* Ambient stage lighting + neon background texture (subtle) */}
         <div className="pointer-events-none fixed inset-0 z-0">
           <div
-            className="absolute inset-0 opacity-[0.28] mix-blend-screen"
+            className="absolute inset-0 opacity-[0.55] mix-blend-screen"
             style={{
               backgroundImage: `url(${neonBgTexture})`,
               backgroundSize: "cover",
@@ -171,7 +171,7 @@ const Proposta = () => {
               backgroundAttachment: "fixed",
             }}
           />
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/15" />
           <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-neon-pink/20 blur-[140px]" />
           <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-purple-600/20 blur-[140px]" />
           <div className="absolute bottom-0 left-1/3 w-[700px] h-[400px] rounded-full bg-neon-pink/10 blur-[160px]" />
