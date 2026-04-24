@@ -262,8 +262,24 @@ const AdminOpportunityDetail = () => {
                 className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white font-bold"
               >
                 <FileText size={16} className="mr-2" />
-                VER PROPOSTA
+                VISUALIZAR PROPOSTA
               </Button>
+              {opp.phone && (
+                <Button
+                  onClick={() => {
+                    const cleanPhone = opp.phone!.replace(/\D/g, "");
+                    const proposalUrl = `${window.location.origin}/proposta/${opp.id}`;
+                    const message = encodeURIComponent(
+                      `Olá, ${opp.client_name}! Tudo bem?\n\nSegue a proposta comercial exclusiva da Banda Barbie Kills para o seu evento:\n\n${proposalUrl}\n\nFico à disposição para qualquer dúvida.`,
+                    );
+                    window.open(`https://wa.me/55${cleanPhone}?text=${message}`, "_blank");
+                  }}
+                  className="bg-green-600 hover:bg-green-500 text-white font-bold"
+                >
+                  <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4 mr-2" />
+                  ENVIAR PROPOSTA
+                </Button>
+              )}
               <Button
                 onClick={handleGenerateAI}
                 disabled={aiLoading}
