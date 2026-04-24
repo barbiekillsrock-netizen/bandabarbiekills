@@ -145,7 +145,7 @@ const CidadeLanding = () => {
           <div className="max-w-xl">
             <img
               src="/barbie-kills-banda-eventos-casamentos.webp"
-              alt={"Banda Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}"}
+              alt={`Banda Barbie Kills - Banda para ${focoLabel(foco)} em ${nome}`}
               width={320}
               height={120}
               className="w-48 md:w-64 lg:w-72 xl:w-80 mb-8 animate-fade-in"
