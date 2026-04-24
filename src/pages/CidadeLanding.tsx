@@ -201,7 +201,10 @@ const CidadeLanding = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="heading-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8">
-              REFERÊNCIA EM <span className="neon-pink-text">{focoLabel(foco).toUpperCase()}</span>
+              REFERÊNCIA EM{" "}
+              <span className="neon-pink-text">
+                {focoLabel(foco).toUpperCase()} EM {nome.toUpperCase()}
+              </span>
             </h2>
             <p className="text-body text-lg md:text-xl leading-relaxed text-muted-foreground mb-12">
               Com mais de 14 anos de estrada e 600 shows realizados, a Barbie Kills é liderada pela vocalista Mariana
