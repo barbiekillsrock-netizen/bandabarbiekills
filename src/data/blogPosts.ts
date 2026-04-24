@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     h1: "Quanto Custa uma Banda de Casamento? O Guia Definitivo de Valores e Preços",
     metaTitle: "Quanto Custa uma Banda de Casamento? [Guia Atualizado]",
     metaDescription:
-      "Descubra qual é o preço médio de uma banda de casamento. Entenda a infraestrutura necessária e como escolher a atração premium ideal para a sua festa.",
+      "Descubra o preço médio de uma banda de casamento. Entenda a infraestrutura e como escolher a atração ideal para a sua festa.",
     excerpt:
       "Quanto custa uma banda de casamento? Entenda o que define o preço, a infraestrutura por trás de um show premium e como fazer o melhor investimento para o seu grande dia.",
     image: "/blog/quanto-custa-banda-para-casamento-premium.webp",
