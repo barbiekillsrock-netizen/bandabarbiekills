@@ -29,7 +29,7 @@ async function prerender() {
   console.log("🚀 Starting prerender process...\n");
 
   // Static routes
-  const staticRoutes = ["/", "/blog", "/corporativo", "/guia-contratar-banda-casamento-ao-vivo"];
+  const staticRoutes = ["/", "/blog", "/corporativo"];
 
   // Dynamic routes
   const blogSlugs = await getBlogSlugs();
@@ -62,9 +62,7 @@ async function prerender() {
     try {
       const { html, head } = render(route);
 
-      let finalHtml = template
-        .replace("<!--ssr-outlet-->", html)
-        .replace("</head>", `${head}</head>`);
+      let finalHtml = template.replace("<!--ssr-outlet-->", html).replace("</head>", `${head}</head>`);
 
       let outputPath;
       if (route === "/") {
