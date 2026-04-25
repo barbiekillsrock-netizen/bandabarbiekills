@@ -45,7 +45,7 @@
       "destination": "/$1/$2/index.html"
     },
     {
-      "source": "/((?!api|blog|cidade|_next).* )",
+      "source": "/((?!api|blog|cidade|assets|_next).*)",
       "destination": "/index.html"
     }
   ]
