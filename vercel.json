@@ -45,7 +45,15 @@
       "destination": "/$1/$2/index.html"
     },
     {
-      "source": "/((?!api|blog|cidade|assets|_next).*)",
+      "source": "/admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
