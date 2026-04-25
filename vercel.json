@@ -12,17 +12,30 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/cidade/banda-corporativa-barueri",
+      "destination": "/cidade/evento-corporativo-barueri",
+      "permanent": true
+    },
+    {
+      "source": "/cidade/campinas",
+      "destination": "/cidade/banda-casamento-campinas",
+      "permanent": true
+    },
+    {
+      "source": "/cidade/sao-paulo",
+      "destination": "/cidade/evento-corporativo-sao-paulo",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(blog|cidade)/(.*)",
       "destination": "/$1/$2/index.html"
     },
     {
-      "source": "/admin(.*)",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/((?!api|blog|cidade|assets|_next).*)",
       "destination": "/index.html"
     }
   ]
