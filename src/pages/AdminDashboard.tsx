@@ -142,6 +142,15 @@ const AdminDashboard = () => {
             <Button
               variant="outline"
               size="sm"
+              onClick={() => navigate("/admin/shows")}
+              className="border-neon-pink/40 text-neon-pink hover:bg-neon-pink/10"
+            >
+              <Settings size={16} />
+              <span className="hidden md:inline">Live Requests</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => navigate("/admin/settings")}
               className="border-muted-foreground text-muted-foreground hover:bg-muted/20"
             >

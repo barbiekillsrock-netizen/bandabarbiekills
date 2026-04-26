@@ -56,6 +56,36 @@ export type Database = {
           },
         ]
       }
+      mp_webhook_logs: {
+        Row: {
+          error_message: string | null
+          event_type: string | null
+          id: string
+          mp_payment_id: string | null
+          processed: boolean
+          raw_payload: Json | null
+          received_at: string
+        }
+        Insert: {
+          error_message?: string | null
+          event_type?: string | null
+          id?: string
+          mp_payment_id?: string | null
+          processed?: boolean
+          raw_payload?: Json | null
+          received_at?: string
+        }
+        Update: {
+          error_message?: string | null
+          event_type?: string | null
+          id?: string
+          mp_payment_id?: string | null
+          processed?: boolean
+          raw_payload?: Json | null
+          received_at?: string
+        }
+        Relationships: []
+      }
       music_briefings: {
         Row: {
           authorized_names: string | null
@@ -160,6 +190,78 @@ export type Database = {
         }
         Relationships: []
       }
+      payments: {
+        Row: {
+          amount: number
+          approved_at: string | null
+          created_at: string
+          expires_at: string | null
+          id: string
+          is_manual: boolean
+          mp_payment_id: string | null
+          played_at: string | null
+          qr_code: string | null
+          qr_code_base64: string | null
+          requester_name: string
+          show_id: string
+          show_setlist_id: string
+          status: Database["public"]["Enums"]["payment_status"]
+          ticket_url: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          approved_at?: string | null
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          is_manual?: boolean
+          mp_payment_id?: string | null
+          played_at?: string | null
+          qr_code?: string | null
+          qr_code_base64?: string | null
+          requester_name: string
+          show_id: string
+          show_setlist_id: string
+          status?: Database["public"]["Enums"]["payment_status"]
+          ticket_url?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          approved_at?: string | null
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          is_manual?: boolean
+          mp_payment_id?: string | null
+          played_at?: string | null
+          qr_code?: string | null
+          qr_code_base64?: string | null
+          requester_name?: string
+          show_id?: string
+          show_setlist_id?: string
+          status?: Database["public"]["Enums"]["payment_status"]
+          ticket_url?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_show_id_fkey"
+            columns: ["show_id"]
+            isOneToOne: false
+            referencedRelation: "shows"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "payments_show_setlist_id_fkey"
+            columns: ["show_setlist_id"]
+            isOneToOne: false
+            referencedRelation: "show_setlist"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       revenue_items: {
         Row: {
           created_at: string | null
@@ -195,6 +297,96 @@ export type Database = {
           },
         ]
       }
+      show_setlist: {
+        Row: {
+          created_at: string
+          custom_min_price: number | null
+          custom_sug_price: number | null
+          id: string
+          locked_at: string | null
+          pending_until: string | null
+          played_at: string | null
+          position: number
+          show_id: string
+          song_id: string
+          status: Database["public"]["Enums"]["setlist_status"]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          custom_min_price?: number | null
+          custom_sug_price?: number | null
+          id?: string
+          locked_at?: string | null
+          pending_until?: string | null
+          played_at?: string | null
+          position?: number
+          show_id: string
+          song_id: string
+          status?: Database["public"]["Enums"]["setlist_status"]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          custom_min_price?: number | null
+          custom_sug_price?: number | null
+          id?: string
+          locked_at?: string | null
+          pending_until?: string | null
+          played_at?: string | null
+          position?: number
+          show_id?: string
+          song_id?: string
+          status?: Database["public"]["Enums"]["setlist_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "show_setlist_show_id_fkey"
+            columns: ["show_id"]
+            isOneToOne: false
+            referencedRelation: "shows"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "show_setlist_song_id_fkey"
+            columns: ["song_id"]
+            isOneToOne: false
+            referencedRelation: "songs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      shows: {
+        Row: {
+          created_at: string
+          event_date: string
+          id: string
+          is_active: boolean
+          location: string
+          notes: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          event_date: string
+          id?: string
+          is_active?: boolean
+          location: string
+          notes?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          event_date?: string
+          id?: string
+          is_active?: boolean
+          location?: string
+          notes?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
           description: string | null
@@ -213,6 +405,39 @@ export type Database = {
           id?: string
           key?: string
           value?: string
+        }
+        Relationships: []
+      }
+      songs: {
+        Row: {
+          active: boolean
+          artist: string | null
+          created_at: string
+          default_min_price: number
+          default_sug_price: number
+          id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          artist?: string | null
+          created_at?: string
+          default_min_price?: number
+          default_sug_price?: number
+          id?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          artist?: string | null
+          created_at?: string
+          default_min_price?: number
+          default_sug_price?: number
+          id?: string
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -264,10 +489,25 @@ export type Database = {
           isSetofReturn: true
         }
       }
+      get_payment_status: {
+        Args: { p_payment_id: string }
+        Returns: {
+          approved_at: string
+          id: string
+          status: Database["public"]["Enums"]["payment_status"]
+        }[]
+      }
       get_proposal_data: { Args: { p_opportunity_id: string }; Returns: Json }
+      release_expired_pending: { Args: never; Returns: undefined }
     }
     Enums: {
-      [_ in never]: never
+      payment_status:
+        | "pending"
+        | "approved"
+        | "rejected"
+        | "cancelled"
+        | "refunded"
+      setlist_status: "available" | "pending" | "locked" | "played"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -394,6 +634,15 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      payment_status: [
+        "pending",
+        "approved",
+        "rejected",
+        "cancelled",
+        "refunded",
+      ],
+      setlist_status: ["available", "pending", "locked", "played"],
+    },
   },
 } as const
