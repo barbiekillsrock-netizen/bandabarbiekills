@@ -20,11 +20,15 @@ const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const DjBriefing = lazy(() => import("./pages/DjBriefing"));
 const KillerQueen = lazy(() => import("./pages/KillerQueen"));
 const Proposta = lazy(() => import("./pages/Proposta"));
+const ShowPage = lazy(() => import("./pages/ShowPage"));
 
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminOpportunityDetail = lazy(() => import("./pages/AdminOpportunityDetail"));
 const AdminSettings = lazy(() => import("./pages/AdminSettings"));
+const AdminShows = lazy(() => import("./pages/AdminShows"));
+const AdminShowDetail = lazy(() => import("./pages/AdminShowDetail"));
+const AdminPalco = lazy(() => import("./pages/AdminPalco"));
 
 const App = () => (
   <TooltipProvider>
@@ -51,6 +55,10 @@ const App = () => (
           <Route path="/dj-briefing/:id" element={<DjBriefing />} />
           <Route path="/killer-queen" element={<KillerQueen />} />
           <Route path="/proposta/:id" element={<Proposta />} />
+          <Route path="/show" element={<ShowPage />} />
+          <Route path="/admin/shows" element={<AdminRoute><AdminShows /></AdminRoute>} />
+          <Route path="/admin/shows/:showId" element={<AdminRoute><AdminShowDetail /></AdminRoute>} />
+          <Route path="/admin/palco/:showId" element={<AdminRoute><AdminPalco /></AdminRoute>} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"
