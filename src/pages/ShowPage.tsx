@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter,
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
 } from "@/components/ui/dialog";
-import { supabase } from "@/integrations/supabase/publicClient";
+import { publicSupabase as supabase } from "@/integrations/supabase/publicClient";
 import type { RealtimeChannel } from "@supabase/supabase-js";
 
 type SetlistStatus = "available" | "pending" | "locked" | "played";
