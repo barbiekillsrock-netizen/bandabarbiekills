@@ -49,8 +49,9 @@ serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
-    console.error("LOG_DE_ERRO_FINAL:", e.message);
-    return new Response(JSON.stringify({ error: e.message }), {
+    const msg = e instanceof Error ? e.message : String(e);
+    console.error("LOG_DE_ERRO_FINAL:", msg);
+    return new Response(JSON.stringify({ error: msg }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
