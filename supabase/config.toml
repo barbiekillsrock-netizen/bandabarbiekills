@@ -2,3 +2,12 @@ project_id = "etecpuvmzqubfatqiipx"
 
 [functions.generate-sales-message]
 verify_jwt = false
+
+[functions.create-pix]
+verify_jwt = false
+
+[functions.mp-webhook]
+verify_jwt = false
+
+[functions.stage-action]
+verify_jwt = true
