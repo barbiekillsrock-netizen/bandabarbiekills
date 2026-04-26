@@ -48,7 +48,8 @@ const AdminShowDetail = () => {
 
   const updatePrice = async (id: string, field: "custom_min_price" | "custom_sug_price", val: string) => {
     const v = val === "" ? null : Number(val);
-    await supabase.from("show_setlist").update({ [field]: v }).eq("id", id);
+    const patch = field === "custom_min_price" ? { custom_min_price: v } : { custom_sug_price: v };
+    await supabase.from("show_setlist").update(patch).eq("id", id);
   };
 
   const removeFromSetlist = async (id: string) => {
