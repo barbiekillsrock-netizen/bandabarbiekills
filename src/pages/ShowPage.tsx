@@ -245,11 +245,11 @@ const ShowPage = () => {
                   </p>
                 </div>
               </div>
-              <DialogFooter>
+              <div className="pt-2">
                 <Button onClick={handleGeneratePix} disabled={submitting} variant="neonPink" size="lg" className="w-full">
                   {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Gerar PIX <Sparkles className="w-4 h-4" /></>}
                 </Button>
-              </DialogFooter>
+              </div>
             </>
           ) : (
             <AnimatePresence mode="wait">
