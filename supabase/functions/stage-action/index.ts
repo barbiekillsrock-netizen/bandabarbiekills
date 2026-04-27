@@ -29,13 +29,57 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const { action } = body;
 
-    // Marcar música como tocada
+    // Marcar pagamento como TOCANDO AGORA (destaque neon)
+    if (action === "set_playing") {
+      const { payment_id } = body;
+      if (!payment_id) return json({ error: "payment_id obrigatório" }, 400);
+      // Garante que apenas 1 pagamento por show fique "tocando"
+      const { data: p } = await supabase.from("payments").select("show_id").eq("id", payment_id).maybeSingle();
+      if (p?.show_id) {
+        await supabase.from("payments")
+          .update({ play_state: "queued" })
+          .eq("show_id", p.show_id)
+          .eq("play_state", "tocando");
+      }
+      await supabase.from("payments").update({ play_state: "tocando" }).eq("id", payment_id);
+      return json({ ok: true });
+    }
+
+    // Marcar como CONCLUÍDA (move para histórico, mas não deleta)
+    if (action === "set_concluida") {
+      const { payment_id } = body;
+      if (!payment_id) return json({ error: "payment_id obrigatório" }, 400);
+      const now = new Date().toISOString();
+      const { data: p } = await supabase.from("payments")
+        .select("show_setlist_id").eq("id", payment_id).maybeSingle();
+      await supabase.from("payments").update({
+        play_state: "concluida",
+        played_at: now,
+      }).eq("id", payment_id);
+      // Marca o slot como tocado também
+      if (p?.show_setlist_id) {
+        await supabase.from("show_setlist").update({
+          status: "played", played_at: now,
+        }).eq("id", p.show_setlist_id);
+      }
+      return json({ ok: true });
+    }
+
+    // Marcar como DESCARTADA (arquivada)
+    if (action === "set_descartada") {
+      const { payment_id } = body;
+      if (!payment_id) return json({ error: "payment_id obrigatório" }, 400);
+      await supabase.from("payments").update({ play_state: "descartada" }).eq("id", payment_id);
+      return json({ ok: true });
+    }
+
+    // (legado) Marcar música como tocada via setlist_id
     if (action === "mark_played") {
       const { setlist_id } = body;
       if (!setlist_id) return json({ error: "setlist_id obrigatório" }, 400);
       const now = new Date().toISOString();
       await supabase.from("show_setlist").update({ status: "played", played_at: now }).eq("id", setlist_id);
-      await supabase.from("payments").update({ played_at: now })
+      await supabase.from("payments").update({ played_at: now, play_state: "concluida" })
         .eq("show_setlist_id", setlist_id).eq("status", "approved").is("played_at", null);
       return json({ ok: true });
     }

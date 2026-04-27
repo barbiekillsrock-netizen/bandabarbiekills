@@ -199,6 +199,7 @@ export type Database = {
           id: string
           is_manual: boolean
           mp_payment_id: string | null
+          play_state: string
           played_at: string | null
           qr_code: string | null
           qr_code_base64: string | null
@@ -217,6 +218,7 @@ export type Database = {
           id?: string
           is_manual?: boolean
           mp_payment_id?: string | null
+          play_state?: string
           played_at?: string | null
           qr_code?: string | null
           qr_code_base64?: string | null
@@ -235,6 +237,7 @@ export type Database = {
           id?: string
           is_manual?: boolean
           mp_payment_id?: string | null
+          play_state?: string
           played_at?: string | null
           qr_code?: string | null
           qr_code_base64?: string | null
@@ -301,7 +304,6 @@ export type Database = {
         Row: {
           created_at: string
           custom_min_price: number | null
-          custom_sug_price: number | null
           id: string
           locked_at: string | null
           pending_until: string | null
@@ -315,7 +317,6 @@ export type Database = {
         Insert: {
           created_at?: string
           custom_min_price?: number | null
-          custom_sug_price?: number | null
           id?: string
           locked_at?: string | null
           pending_until?: string | null
@@ -329,7 +330,6 @@ export type Database = {
         Update: {
           created_at?: string
           custom_min_price?: number | null
-          custom_sug_price?: number | null
           id?: string
           locked_at?: string | null
           pending_until?: string | null
@@ -414,8 +414,8 @@ export type Database = {
           artist: string | null
           created_at: string
           default_min_price: number
-          default_sug_price: number
           id: string
+          style: string | null
           title: string
           updated_at: string
         }
@@ -424,8 +424,8 @@ export type Database = {
           artist?: string | null
           created_at?: string
           default_min_price?: number
-          default_sug_price?: number
           id?: string
+          style?: string | null
           title: string
           updated_at?: string
         }
@@ -434,8 +434,8 @@ export type Database = {
           artist?: string | null
           created_at?: string
           default_min_price?: number
-          default_sug_price?: number
           id?: string
+          style?: string | null
           title?: string
           updated_at?: string
         }

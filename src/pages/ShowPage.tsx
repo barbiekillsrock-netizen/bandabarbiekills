@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { Music, Loader2, CheckCircle2, Copy, Sparkles, Lock, Clock } from "lucide-react";
+import { Music, Loader2, CheckCircle2, Copy, Sparkles, Lock, Clock, Search } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -21,9 +21,8 @@ interface SetlistRow {
   show_id: string;
   status: SetlistStatus;
   custom_min_price: number | null;
-  custom_sug_price: number | null;
   position: number;
-  song: { title: string; artist: string | null; default_min_price: number; default_sug_price: number } | null;
+  song: { title: string; artist: string | null; default_min_price: number; style: string | null } | null;
 }
 
 interface ActiveShow {
@@ -36,6 +35,10 @@ const ShowPage = () => {
   const [activeShow, setActiveShow] = useState<ActiveShow | null>(null);
   const [setlist, setSetlist] = useState<SetlistRow[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Busca + filtros
+  const [search, setSearch] = useState("");
+  const [styleFilter, setStyleFilter] = useState<string | null>(null);
 
   // Modal
   const [selected, setSelected] = useState<SetlistRow | null>(null);
@@ -67,7 +70,7 @@ const ShowPage = () => {
 
       const { data: list } = await supabase
         .from("show_setlist")
-        .select("id, show_id, status, custom_min_price, custom_sug_price, position, song:songs(title, artist, default_min_price, default_sug_price)")
+        .select("id, show_id, status, custom_min_price, position, song:songs(title, artist, default_min_price, style)")
         .eq("show_id", show.id)
         .order("position", { ascending: true });
       if (!mounted) return;
@@ -101,7 +104,7 @@ const ShowPage = () => {
         })
       .subscribe();
 
-    // Polling fallback (2s) caso Realtime não chegue
+    // Polling fallback (3s) caso Realtime não chegue
     const poll = setInterval(async () => {
       const { data } = await supabase.rpc("get_payment_status", { p_payment_id: pix.payment_id });
       if (data && data[0]?.status === "approved") setPaid(true);
@@ -110,17 +113,43 @@ const ShowPage = () => {
     return () => { supabase.removeChannel(ch); clearInterval(poll); };
   }, [pix?.payment_id]);
 
-  const sortedList = useMemo(() => {
-    return [...setlist].sort((a, b) => {
+  // Estilos disponíveis (extraídos do setlist atual)
+  const availableStyles = useMemo(() => {
+    const set = new Set<string>();
+    setlist.forEach((r) => {
+      const s = r.song?.style?.trim();
+      if (s) set.add(s);
+    });
+    return Array.from(set).sort();
+  }, [setlist]);
+
+  const filteredList = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    let result = [...setlist];
+
+    if (styleFilter) {
+      result = result.filter((r) => (r.song?.style ?? "").toLowerCase() === styleFilter.toLowerCase());
+    }
+
+    if (q) {
+      result = result.filter((r) => {
+        const t = r.song?.title?.toLowerCase() ?? "";
+        const a = r.song?.artist?.toLowerCase() ?? "";
+        return t.includes(q) || a.includes(q);
+      });
+    }
+
+    return result.sort((a, b) => {
       const order: Record<SetlistStatus, number> = { available: 0, pending: 1, locked: 2, played: 3 };
       return order[a.status] - order[b.status] || a.position - b.position;
     });
-  }, [setlist]);
+  }, [setlist, search, styleFilter]);
 
   const openModal = (row: SetlistRow) => {
     if (row.status !== "available") return;
-    const sug = row.custom_sug_price ?? row.song?.default_sug_price ?? 50;
-    setSelected(row); setAmount(String(sug)); setName(""); setPix(null); setPaid(false);
+    setSelected(row);
+    setAmount(""); // não pré-preenche
+    setName(""); setPix(null); setPaid(false);
   };
 
   const handleGeneratePix = async () => {
@@ -181,7 +210,7 @@ const ShowPage = () => {
               <WaitingState />
             ) : (
               <>
-                <header className="text-center mb-10">
+                <header className="text-center mb-8">
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-pink/40 bg-neon-pink/10 text-neon-pink text-xs font-oswald uppercase tracking-widest mb-5">
                     <span className="w-2 h-2 rounded-full bg-neon-pink animate-pulse" />
                     Ao Vivo Agora
@@ -194,10 +223,55 @@ const ShowPage = () => {
                   </p>
                 </header>
 
+                {/* Busca */}
+                <div className="relative mb-4">
+                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+                  <Input
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Buscar música ou artista..."
+                    className="pl-9 bg-white/5 border-white/10 text-white placeholder:text-white/30"
+                  />
+                </div>
+
+                {/* Filtros de estilo */}
+                {availableStyles.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <button
+                      onClick={() => setStyleFilter(null)}
+                      className={`px-3 py-1 rounded-full text-[11px] font-oswald uppercase tracking-wider border transition-colors ${
+                        styleFilter === null
+                          ? "bg-neon-pink text-white border-neon-pink"
+                          : "bg-white/5 text-white/60 border-white/10 hover:border-neon-pink/50 hover:text-white"
+                      }`}
+                    >
+                      Todos
+                    </button>
+                    {availableStyles.map((style) => (
+                      <button
+                        key={style}
+                        onClick={() => setStyleFilter(style === styleFilter ? null : style)}
+                        className={`px-3 py-1 rounded-full text-[11px] font-oswald uppercase tracking-wider border transition-colors ${
+                          styleFilter === style
+                            ? "bg-neon-pink text-white border-neon-pink"
+                            : "bg-white/5 text-white/60 border-white/10 hover:border-neon-pink/50 hover:text-white"
+                        }`}
+                      >
+                        {style}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 <ul className="space-y-3">
-                  {sortedList.map((row) => (
+                  {filteredList.map((row) => (
                     <SetlistCard key={row.id} row={row} onPick={openModal} />
                   ))}
+                  {filteredList.length === 0 && (
+                    <li className="text-center text-white/40 py-12 font-light">
+                      Nenhuma música encontrada com esses filtros.
+                    </li>
+                  )}
                 </ul>
 
                 <p className="text-center text-xs text-white/40 mt-10 font-light">
@@ -238,7 +312,8 @@ const ShowPage = () => {
                   <Input
                     type="number" inputMode="decimal" min={selected?.custom_min_price ?? selected?.song?.default_min_price ?? 1}
                     value={amount} onChange={(e) => setAmount(e.target.value)}
-                    className="mt-1 bg-white/5 border-white/10 text-white text-lg font-bebas tracking-wide"
+                    placeholder="Quanto vale ouvir essa música?"
+                    className="mt-1 bg-white/5 border-white/10 text-white text-lg font-bebas tracking-wide placeholder:text-white/30 placeholder:font-light placeholder:text-sm"
                   />
                   <p className="text-xs text-white/40 mt-1.5">
                     Mínimo: R$ {Number(selected?.custom_min_price ?? selected?.song?.default_min_price ?? 0).toFixed(2)}
@@ -272,6 +347,9 @@ const ShowPage = () => {
                     <Button onClick={copyPix} variant="neonPinkOutline" className="w-full">
                       <Copy className="w-4 h-4" /> Copiar código PIX
                     </Button>
+                    <p className="text-[11px] leading-relaxed text-white/50 font-light text-center px-2">
+                      Ao pagar, você concorda: esta é uma gorjeta espontânea não reembolsável com objetivo de incentivo à Banda Barbie Kills. A banda envidará os melhores esforços para atender seu pedido!
+                    </p>
                     <p className="text-xs text-white/40 flex items-center gap-1.5">
                       <Clock className="w-3 h-3" /> Expira em 5 minutos
                     </p>
@@ -297,17 +375,17 @@ const ShowPage = () => {
 };
 
 const SetlistCard = ({ row, onPick }: { row: SetlistRow; onPick: (r: SetlistRow) => void }) => {
-  const sug = row.custom_sug_price ?? row.song?.default_sug_price ?? 50;
-  const min = row.custom_min_price ?? row.song?.default_min_price ?? 1;
-
   if (row.status === "locked" || row.status === "played") {
     return (
       <li className="rounded-xl border border-white/5 bg-white/[0.02] px-5 py-4 flex items-center justify-between opacity-50">
-        <div>
-          <p className="font-bebas text-2xl text-white/60 leading-tight tracking-wide">{row.song?.title}</p>
-          {row.song?.artist && <p className="text-xs text-white/30 font-oswald uppercase">{row.song.artist}</p>}
+        <div className="min-w-0">
+          <p className="font-bebas text-2xl text-white/60 leading-tight tracking-wide truncate">{row.song?.title}</p>
+          <div className="flex items-center gap-2 flex-wrap">
+            {row.song?.artist && <p className="text-xs text-white/30 font-oswald uppercase truncate">{row.song.artist}</p>}
+            {row.song?.style && <StyleChip style={row.song.style} muted />}
+          </div>
         </div>
-        <span className="text-xs font-oswald uppercase tracking-widest text-neon-cyan flex items-center gap-1.5">
+        <span className="text-xs font-oswald uppercase tracking-widest text-neon-cyan flex items-center gap-1.5 shrink-0">
           <Lock className="w-3 h-3" /> Esgotada
         </span>
       </li>
@@ -317,11 +395,14 @@ const SetlistCard = ({ row, onPick }: { row: SetlistRow; onPick: (r: SetlistRow)
   if (row.status === "pending") {
     return (
       <li className="rounded-xl border border-yellow-500/30 bg-yellow-500/[0.04] px-5 py-4 flex items-center justify-between">
-        <div>
-          <p className="font-bebas text-2xl text-white/80 leading-tight tracking-wide">{row.song?.title}</p>
-          {row.song?.artist && <p className="text-xs text-white/40 font-oswald uppercase">{row.song.artist}</p>}
+        <div className="min-w-0">
+          <p className="font-bebas text-2xl text-white/80 leading-tight tracking-wide truncate">{row.song?.title}</p>
+          <div className="flex items-center gap-2 flex-wrap">
+            {row.song?.artist && <p className="text-xs text-white/40 font-oswald uppercase truncate">{row.song.artist}</p>}
+            {row.song?.style && <StyleChip style={row.song.style} muted />}
+          </div>
         </div>
-        <span className="text-xs font-oswald uppercase tracking-widest text-yellow-400 flex items-center gap-1.5">
+        <span className="text-xs font-oswald uppercase tracking-widest text-yellow-400 flex items-center gap-1.5 shrink-0">
           <Clock className="w-3 h-3 animate-pulse" /> Em negociação
         </span>
       </li>
@@ -336,21 +417,26 @@ const SetlistCard = ({ row, onPick }: { row: SetlistRow; onPick: (r: SetlistRow)
       >
         <div className="min-w-0">
           <p className="font-bebas text-2xl text-white leading-tight tracking-wide truncate">{row.song?.title}</p>
-          {row.song?.artist && <p className="text-xs text-white/50 font-oswald uppercase truncate">{row.song.artist}</p>}
+          <div className="flex items-center gap-2 flex-wrap mt-0.5">
+            {row.song?.artist && <p className="text-xs text-white/50 font-oswald uppercase truncate">{row.song.artist}</p>}
+            {row.song?.style && <StyleChip style={row.song.style} />}
+          </div>
         </div>
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="text-right">
-            <p className="text-[10px] text-white/40 font-oswald uppercase tracking-wider leading-none">a partir de</p>
-            <p className="font-bebas text-xl text-neon-pink leading-tight">R$ {Number(min).toFixed(0)}</p>
-          </div>
-          <div className="px-3 py-2 rounded-md bg-neon-pink text-white font-oswald uppercase tracking-wider text-xs">
-            Pedir
-          </div>
+        <div className="px-3 py-2 rounded-md bg-neon-pink text-white font-oswald uppercase tracking-wider text-xs shrink-0">
+          Pedir
         </div>
       </button>
     </li>
   );
 };
+
+const StyleChip = ({ style, muted = false }: { style: string; muted?: boolean }) => (
+  <span className={`text-[10px] px-1.5 py-0.5 rounded font-oswald uppercase tracking-wider border ${
+    muted ? "border-white/10 text-white/30" : "border-neon-cyan/30 text-neon-cyan bg-neon-cyan/5"
+  }`}>
+    {style}
+  </span>
+);
 
 const WaitingState = () => (
   <div className="text-center py-32">
