@@ -312,11 +312,11 @@ const ShowPage = () => {
                   <Input
                     type="number" inputMode="decimal" min={selected?.custom_min_price ?? selected?.song?.default_min_price ?? 1}
                     value={amount} onChange={(e) => setAmount(e.target.value)}
-                    placeholder="Quanto vale ouvir essa música?"
-                    className="mt-1 bg-white/5 border-white/10 text-white text-lg font-bebas tracking-wide placeholder:text-white/30 placeholder:font-light placeholder:text-sm"
+                    placeholder=""
+                    className="mt-1 bg-white/5 border-white/10 text-white text-lg font-bebas tracking-wide"
                   />
-                  <p className="text-xs text-white/40 mt-1.5">
-                    Mínimo: R$ {Number(selected?.custom_min_price ?? selected?.song?.default_min_price ?? 0).toFixed(2)}
+                  <p className="text-sm text-white font-oswald tracking-wide mt-2">
+                    Mínimo: <span className="font-bebas text-base">R$ {Number(selected?.custom_min_price ?? selected?.song?.default_min_price ?? 0).toFixed(2)}</span>
                   </p>
                 </div>
               </div>
