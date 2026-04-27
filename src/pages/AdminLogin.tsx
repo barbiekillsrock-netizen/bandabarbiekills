@@ -62,7 +62,7 @@ const AdminLogin = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@barbiekills.com.br"
+              placeholder=""
               required
               autoFocus
             />
@@ -74,7 +74,7 @@ const AdminLogin = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              placeholder=""
               required
             />
           </div>
