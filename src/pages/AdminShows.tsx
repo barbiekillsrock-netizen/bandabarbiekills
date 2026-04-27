@@ -7,14 +7,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,
-} from "@/components/ui/dialog";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 
 interface Show { id: string; location: string; event_date: string; is_active: boolean; }
-interface Song { id: string; title: string; artist: string | null; default_min_price: number; default_sug_price: number; active: boolean; }
+interface Song {
+  id: string;
+  title: string;
+  artist: string | null;
+  default_min_price: number;
+  style: string | null;
+  active: boolean;
+}
 
 const AdminShows = () => {
   const [shows, setShows] = useState<Show[]>([]);
@@ -23,7 +27,7 @@ const AdminShows = () => {
 
   // Forms
   const [newShow, setNewShow] = useState({ location: "", event_date: "" });
-  const [newSong, setNewSong] = useState({ title: "", artist: "", default_min_price: "20", default_sug_price: "50" });
+  const [newSong, setNewSong] = useState({ title: "", artist: "", style: "", default_min_price: "20" });
 
   const load = async () => {
     setLoading(true);
@@ -32,7 +36,7 @@ const AdminShows = () => {
       supabase.from("songs").select("*").order("title", { ascending: true }),
     ]);
     setShows((s1.data ?? []) as Show[]);
-    setSongs((s2.data ?? []) as Song[]);
+    setSongs((s2.data ?? []) as unknown as Song[]);
     setLoading(false);
   };
   useEffect(() => { load(); }, []);
@@ -46,12 +50,13 @@ const AdminShows = () => {
   const createSong = async () => {
     if (!newSong.title) { toast.error("Título obrigatório"); return; }
     const { error } = await supabase.from("songs").insert({
-      title: newSong.title, artist: newSong.artist || null,
+      title: newSong.title,
+      artist: newSong.artist || null,
+      style: newSong.style.trim() || null,
       default_min_price: Number(newSong.default_min_price),
-      default_sug_price: Number(newSong.default_sug_price),
     });
     if (error) toast.error(error.message);
-    else { toast.success("Música cadastrada"); setNewSong({ title: "", artist: "", default_min_price: "20", default_sug_price: "50" }); load(); }
+    else { toast.success("Música cadastrada"); setNewSong({ title: "", artist: "", style: "", default_min_price: "20" }); load(); }
   };
 
   const deleteSong = async (id: string) => {
@@ -155,11 +160,11 @@ const AdminShows = () => {
                   <Input placeholder="Artista (opcional)" value={newSong.artist}
                     onChange={(e) => setNewSong({ ...newSong, artist: e.target.value })}
                     className="bg-white/5 border-white/10" />
+                  <Input placeholder="Estilo (ex: Rock)" value={newSong.style}
+                    onChange={(e) => setNewSong({ ...newSong, style: e.target.value })}
+                    className="bg-white/5 border-white/10" />
                   <Input type="number" placeholder="Mín R$" value={newSong.default_min_price}
                     onChange={(e) => setNewSong({ ...newSong, default_min_price: e.target.value })}
-                    className="bg-white/5 border-white/10" />
-                  <Input type="number" placeholder="Sugerido R$" value={newSong.default_sug_price}
-                    onChange={(e) => setNewSong({ ...newSong, default_sug_price: e.target.value })}
                     className="bg-white/5 border-white/10" />
                 </div>
                 <Button onClick={createSong} variant="neonPink"><Plus className="w-4 h-4" /> Adicionar ao Repertório</Button>
@@ -168,15 +173,21 @@ const AdminShows = () => {
               <div className="rounded-xl border border-white/10 overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="bg-white/5 text-white/60 font-oswald uppercase text-xs tracking-wider">
-                    <tr><th className="text-left p-3">Música</th><th className="text-left p-3">Artista</th><th className="text-right p-3">Mín</th><th className="text-right p-3">Sug</th><th className="p-3"></th></tr>
+                    <tr>
+                      <th className="text-left p-3">Música</th>
+                      <th className="text-left p-3">Artista</th>
+                      <th className="text-left p-3">Estilo</th>
+                      <th className="text-right p-3">Mín</th>
+                      <th className="p-3"></th>
+                    </tr>
                   </thead>
                   <tbody>
                     {songs.map((s) => (
                       <tr key={s.id} className="border-t border-white/5">
                         <td className="p-3 font-bebas text-lg tracking-wide">{s.title}</td>
                         <td className="p-3 text-white/60">{s.artist ?? "—"}</td>
+                        <td className="p-3 text-neon-cyan/80 font-oswald uppercase text-xs tracking-wider">{s.style ?? "—"}</td>
                         <td className="p-3 text-right text-neon-pink">R$ {Number(s.default_min_price).toFixed(0)}</td>
-                        <td className="p-3 text-right text-white/80">R$ {Number(s.default_sug_price).toFixed(0)}</td>
                         <td className="p-3 text-right">
                           <Button onClick={() => deleteSong(s.id)} variant="ghost" size="sm" className="text-white/40 hover:text-red-400 hover:bg-red-500/10">
                             <Trash2 className="w-4 h-4" />

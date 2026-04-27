@@ -2,20 +2,19 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
-import { ArrowLeft, Plus, Trash2, GripVertical } from "lucide-react";
+import { ArrowLeft, Plus, Trash2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Select, SelectTrigger, SelectValue, SelectContent, SelectItem,
 } from "@/components/ui/select";
 
 interface Show { id: string; location: string; event_date: string; is_active: boolean; }
-interface Song { id: string; title: string; artist: string | null; default_min_price: number; default_sug_price: number; }
+interface Song { id: string; title: string; artist: string | null; default_min_price: number; style: string | null; }
 interface SetlistRow {
   id: string; song_id: string; status: string; position: number;
-  custom_min_price: number | null; custom_sug_price: number | null;
+  custom_min_price: number | null;
   song: Song | null;
 }
 
@@ -34,7 +33,7 @@ const AdminShowDetail = () => {
       supabase.from("show_setlist").select("*, song:songs(*)").eq("show_id", showId).order("position"),
     ]);
     setShow(s1.data as Show);
-    setSongs((s2.data ?? []) as Song[]);
+    setSongs((s2.data ?? []) as unknown as Song[]);
     setSetlist((s3.data ?? []) as unknown as SetlistRow[]);
   };
   useEffect(() => { load(); }, [showId]);
@@ -46,10 +45,9 @@ const AdminShowDetail = () => {
     if (error) toast.error(error.message); else { toast.success("Adicionada"); setPickSongId(""); load(); }
   };
 
-  const updatePrice = async (id: string, field: "custom_min_price" | "custom_sug_price", val: string) => {
+  const updateMinPrice = async (id: string, val: string) => {
     const v = val === "" ? null : Number(val);
-    const patch = field === "custom_min_price" ? { custom_min_price: v } : { custom_sug_price: v };
-    await supabase.from("show_setlist").update(patch).eq("id", id);
+    await supabase.from("show_setlist").update({ custom_min_price: v }).eq("id", id);
   };
 
   const removeFromSetlist = async (id: string) => {
@@ -85,7 +83,9 @@ const AdminShowDetail = () => {
                 <SelectTrigger className="bg-white/5 border-white/10"><SelectValue placeholder="Escolha uma música..." /></SelectTrigger>
                 <SelectContent className="bg-black border-white/10 text-white">
                   {availableSongs.map((s) => (
-                    <SelectItem key={s.id} value={s.id}>{s.title}{s.artist ? ` — ${s.artist}` : ""}</SelectItem>
+                    <SelectItem key={s.id} value={s.id}>
+                      {s.title}{s.artist ? ` — ${s.artist}` : ""}{s.style ? ` · ${s.style}` : ""}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -98,22 +98,23 @@ const AdminShowDetail = () => {
               <thead className="bg-white/5 text-white/60 font-oswald uppercase text-xs tracking-wider">
                 <tr>
                   <th className="text-left p-3">Música</th>
+                  <th className="text-left p-3">Estilo</th>
                   <th className="text-left p-3">Status</th>
                   <th className="text-right p-3 w-28">Mín R$</th>
-                  <th className="text-right p-3 w-28">Sug R$</th>
                   <th className="p-3 w-32"></th>
                 </tr>
               </thead>
               <tbody>
                 {setlist.map((r) => (
                   <tr key={r.id} className="border-t border-white/5">
-                    <td className="p-3 font-bebas text-lg tracking-wide">{r.song?.title}</td>
+                    <td className="p-3">
+                      <div className="font-bebas text-lg tracking-wide">{r.song?.title}</div>
+                      {r.song?.artist && <div className="text-xs text-white/40 font-oswald uppercase">{r.song.artist}</div>}
+                    </td>
+                    <td className="p-3 text-neon-cyan/80 text-xs font-oswald uppercase tracking-wider">{r.song?.style ?? "—"}</td>
                     <td className="p-3"><StatusBadge status={r.status} /></td>
                     <td className="p-3">
-                      <Input type="number" defaultValue={r.custom_min_price ?? r.song?.default_min_price ?? ""} onBlur={(e) => updatePrice(r.id, "custom_min_price", e.target.value)} className="bg-white/5 border-white/10 h-8 text-right" />
-                    </td>
-                    <td className="p-3">
-                      <Input type="number" defaultValue={r.custom_sug_price ?? r.song?.default_sug_price ?? ""} onBlur={(e) => updatePrice(r.id, "custom_sug_price", e.target.value)} className="bg-white/5 border-white/10 h-8 text-right" />
+                      <Input type="number" defaultValue={r.custom_min_price ?? r.song?.default_min_price ?? ""} onBlur={(e) => updateMinPrice(r.id, e.target.value)} className="bg-white/5 border-white/10 h-8 text-right" />
                     </td>
                     <td className="p-3 text-right space-x-1">
                       {(r.status === "pending" || r.status === "locked") && (
