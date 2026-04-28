@@ -8,7 +8,20 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
-import { ArrowLeft, Plus, Trash2, Sparkles, Save, RotateCcw, AlertTriangle, X, BookOpen, Music, Archive, FileText } from "lucide-react";
+import {
+  ArrowLeft,
+  Plus,
+  Trash2,
+  Sparkles,
+  Save,
+  RotateCcw,
+  AlertTriangle,
+  X,
+  BookOpen,
+  Music,
+  Archive,
+  FileText,
+} from "lucide-react";
 import { toast } from "sonner";
 import type { Tables } from "@/integrations/supabase/types";
 import { generateAISalesMessage } from "@/services/aiService";
@@ -65,11 +78,11 @@ const AdminOpportunityDetail = () => {
 
   const [localProposalTerms, setLocalProposalTerms] = useState("");
   const termsRef = useRef<HTMLTextAreaElement>(null);
-  const DEFAULT_PROPOSAL_TERMS = `É possível realizar a contratação do som com outra empresa, importante ressaltar que é necessário a empresa incluir o rider de palco backline em sua proposta. Nosso rider pode ser acessado pelo endereço www.bandabarbiekills.com.br/rider
+  const DEFAULT_PROPOSAL_TERMS = `- É possível realizar a contratação do som com outra empresa, importante ressaltar que é necessário a empresa incluir o rider de palco backline em sua proposta. Nosso rider pode ser acessado pelo endereço www.bandabarbiekills.com.br/rider
 
-Alimentação da equipe durante o evento por conta do contratante
+- Alimentação da equipe durante o evento por conta do contratante
 
-O pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 15 dias antes do evento.`;
+- O pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 15 dias antes do evento.`;
 
   const fetchData = useCallback(async () => {
     if (!id) return;
@@ -306,7 +319,10 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
 
         <Tabs defaultValue="resumo">
           <TabsList className="w-full md:w-auto mb-6 bg-white/5 p-1 border border-white/10 rounded-lg flex flex-wrap gap-1 h-auto">
-            <TabsTrigger value="resumo" className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap">
+            <TabsTrigger
+              value="resumo"
+              className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap"
+            >
               Resumo
             </TabsTrigger>
             <TabsTrigger
@@ -346,7 +362,9 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Data</Label>
-                  <p className="text-base font-sans text-foreground">{opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}</p>
+                  <p className="text-base font-sans text-foreground">
+                    {opp.event_date ? new Date(opp.event_date + "T00:00:00").toLocaleDateString("pt-BR") : "—"}
+                  </p>
                 </div>
                 <div>
                   <Label className="text-muted-foreground text-xs uppercase tracking-wider">Local</Label>
@@ -751,7 +769,9 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
                     Condições Comerciais
                   </Label>
                   <p className="text-[11px] text-muted-foreground mt-1 font-sans">
-                    Aparece no final da proposta enviada ao cliente. Use <code className="text-neon-pink">**negrito**</code> e <code className="text-neon-pink">- bullet</code> no início da linha.
+                    Aparece no final da proposta enviada ao cliente. Use{" "}
+                    <code className="text-neon-pink">**negrito**</code> e{" "}
+                    <code className="text-neon-pink">- bullet</code> no início da linha.
                   </p>
                 </div>
                 <div className="flex gap-2">
@@ -764,9 +784,13 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
                       const start = ta.selectionStart;
                       const end = ta.selectionEnd;
                       const sel = localProposalTerms.substring(start, end) || "texto";
-                      const next = localProposalTerms.substring(0, start) + `**${sel}**` + localProposalTerms.substring(end);
+                      const next =
+                        localProposalTerms.substring(0, start) + `**${sel}**` + localProposalTerms.substring(end);
                       setLocalProposalTerms(next);
-                      setTimeout(() => { ta.focus(); ta.setSelectionRange(start + 2, start + 2 + sel.length); }, 10);
+                      setTimeout(() => {
+                        ta.focus();
+                        ta.setSelectionRange(start + 2, start + 2 + sel.length);
+                      }, 10);
                     }}
                     className="h-7 text-[11px] font-bold text-white hover:text-neon-pink"
                   >
@@ -781,9 +805,13 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
                       const start = ta.selectionStart;
                       const before = localProposalTerms.substring(0, start);
                       const lineStart = before.lastIndexOf("\n") + 1;
-                      const next = localProposalTerms.substring(0, lineStart) + "- " + localProposalTerms.substring(lineStart);
+                      const next =
+                        localProposalTerms.substring(0, lineStart) + "- " + localProposalTerms.substring(lineStart);
                       setLocalProposalTerms(next);
-                      setTimeout(() => { ta.focus(); ta.setSelectionRange(start + 2, start + 2); }, 10);
+                      setTimeout(() => {
+                        ta.focus();
+                        ta.setSelectionRange(start + 2, start + 2);
+                      }, 10);
                     }}
                     className="h-7 text-[11px] font-bold text-white hover:text-neon-pink"
                   >
@@ -881,7 +909,10 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
                 <Button
                   onClick={async () => {
                     if (!id) return;
-                    await supabase.from("opportunities").update({ archived: true } as any).eq("id", id);
+                    await supabase
+                      .from("opportunities")
+                      .update({ archived: true } as any)
+                      .eq("id", id);
                     toast.success("Oportunidade arquivada");
                     navigate("/admin", { replace: true });
                   }}
