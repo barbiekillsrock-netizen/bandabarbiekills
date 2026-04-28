@@ -742,6 +742,72 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
                 </div>
               </div>
             </div>
+
+            {/* TERMOS / CONDIÇÕES DA PROPOSTA */}
+            <div className="glass-card rounded-xl p-6 bg-black/30 border border-neon-pink/20 mt-4">
+              <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
+                <div>
+                  <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold block">
+                    Condições Comerciais
+                  </Label>
+                  <p className="text-[11px] text-muted-foreground mt-1 font-sans">
+                    Aparece no final da proposta enviada ao cliente. Use <code className="text-neon-pink">**negrito**</code> e <code className="text-neon-pink">- bullet</code> no início da linha.
+                  </p>
+                </div>
+                <div className="flex gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      const ta = termsRef.current;
+                      if (!ta) return;
+                      const start = ta.selectionStart;
+                      const end = ta.selectionEnd;
+                      const sel = localProposalTerms.substring(start, end) || "texto";
+                      const next = localProposalTerms.substring(0, start) + `**${sel}**` + localProposalTerms.substring(end);
+                      setLocalProposalTerms(next);
+                      setTimeout(() => { ta.focus(); ta.setSelectionRange(start + 2, start + 2 + sel.length); }, 10);
+                    }}
+                    className="h-7 text-[11px] font-bold text-white hover:text-neon-pink"
+                  >
+                    <strong>B</strong>
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      const ta = termsRef.current;
+                      if (!ta) return;
+                      const start = ta.selectionStart;
+                      const before = localProposalTerms.substring(0, start);
+                      const lineStart = before.lastIndexOf("\n") + 1;
+                      const next = localProposalTerms.substring(0, lineStart) + "- " + localProposalTerms.substring(lineStart);
+                      setLocalProposalTerms(next);
+                      setTimeout(() => { ta.focus(); ta.setSelectionRange(start + 2, start + 2); }, 10);
+                    }}
+                    className="h-7 text-[11px] font-bold text-white hover:text-neon-pink"
+                  >
+                    • Bullet
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={async () => {
+                      await updateField("proposal_terms" as any, localProposalTerms);
+                      toast.success("Condições salvas!");
+                    }}
+                    className="h-7 bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold px-4"
+                  >
+                    <Save size={12} className="mr-1" /> Salvar
+                  </Button>
+                </div>
+              </div>
+              <textarea
+                ref={termsRef}
+                className="w-full min-h-[200px] bg-black/40 border border-neon-pink/30 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-sans leading-relaxed"
+                value={localProposalTerms}
+                onChange={(e) => setLocalProposalTerms(e.target.value)}
+              />
+            </div>
           </TabsContent>
 
           <TabsContent value="repertorio">
