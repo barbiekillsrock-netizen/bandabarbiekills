@@ -46,6 +46,27 @@ const AdminShowDetail = () => {
     if (error) toast.error(error.message); else { toast.success("Adicionada"); setPickSongId(""); load(); }
   };
 
+  const addExclusiveSong = async () => {
+    if (!exclusiveSong.title.trim() || !showId) { toast.error("Título obrigatório"); return; }
+    // Cria música como inativa (active=false) para NÃO entrar no repertório geral,
+    // mas continua acessível via JOIN com show_setlist.
+    const { data: created, error: sErr } = await supabase.from("songs").insert({
+      title: exclusiveSong.title.trim(),
+      artist: exclusiveSong.artist.trim() || null,
+      style: exclusiveSong.style.trim() || null,
+      default_min_price: Number(exclusiveSong.default_min_price) || 20,
+      active: false,
+    }).select("id").single();
+    if (sErr || !created) { toast.error(sErr?.message ?? "Erro"); return; }
+
+    const pos = setlist.length;
+    const { error } = await supabase.from("show_setlist").insert({ show_id: showId, song_id: created.id, position: pos });
+    if (error) { toast.error(error.message); return; }
+    toast.success("Música exclusiva adicionada a este show");
+    setExclusiveSong({ title: "", artist: "", style: "", default_min_price: "20" });
+    load();
+  };
+
   const updateMinPrice = async (id: string, val: string) => {
     const v = val === "" ? null : Number(val);
     await supabase.from("show_setlist").update({ custom_min_price: v }).eq("id", id);
