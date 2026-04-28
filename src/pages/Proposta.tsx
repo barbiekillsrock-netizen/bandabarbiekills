@@ -497,15 +497,15 @@ const Proposta = () => {
                 className="text-center mb-10"
               >
                 <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
-                  Condições
+                  Informações
                 </p>
                 <p className="heading-display text-4xl md:text-5xl text-foreground">
                   CONDIÇÕES <span className="neon-pink-text">COMERCIAIS</span>
                 </p>
               </motion.div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 md:p-10">
-                <ul className="space-y-4 text-base md:text-lg text-white/85 font-inter font-light leading-relaxed">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 md:p-8">
+                <ul className="space-y-2.5 text-xs md:text-sm text-white/65 font-inter font-light leading-relaxed">
                   {opp.proposal_terms
                     .split(/\n+/)
                     .map((l) => l.trim())
