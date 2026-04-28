@@ -25,6 +25,7 @@ type Opportunity = {
   event_date: string | null;
   location: string | null;
   guests: number | null;
+  proposal_terms?: string | null;
 };
 
 type ProposalData = {
