@@ -63,6 +63,14 @@ const AdminOpportunityDetail = () => {
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
 
+  const [localProposalTerms, setLocalProposalTerms] = useState("");
+  const termsRef = useRef<HTMLTextAreaElement>(null);
+  const DEFAULT_PROPOSAL_TERMS = `É possível realizar a contratação do som com outra empresa, importante ressaltar que é necessário a empresa incluir o rider de palco backline em sua proposta. Nosso rider pode ser acessado pelo endereço www.bandabarbiekills.com.br/rider
+
+Alimentação da equipe durante o evento por conta do contratante
+
+O pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 15 dias antes do evento.`;
+
   const fetchData = useCallback(async () => {
     if (!id) return;
     const [oppRes, revRes, settingsRes] = await Promise.all([
