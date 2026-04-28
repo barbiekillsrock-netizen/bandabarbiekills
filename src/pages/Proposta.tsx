@@ -497,15 +497,15 @@ const Proposta = () => {
                 className="text-center mb-10"
               >
                 <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
-                  Condições
+                  Informações
                 </p>
                 <p className="heading-display text-4xl md:text-5xl text-foreground">
                   CONDIÇÕES <span className="neon-pink-text">COMERCIAIS</span>
                 </p>
               </motion.div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 md:p-10">
-                <ul className="space-y-4 text-base md:text-lg text-white/85 font-inter font-light leading-relaxed">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 md:p-8">
+                <ul className="space-y-2.5 text-xs md:text-sm text-white/65 font-inter font-light leading-relaxed">
                   {opp.proposal_terms
                     .split(/\n+/)
                     .map((l) => l.trim())
@@ -514,7 +514,7 @@ const Proposta = () => {
                       const clean = line.replace(/^[-•]\s*/, "");
                       const parts = clean.split(/(\*\*[^*]+\*\*)/g).map((p, j) =>
                         p.startsWith("**") && p.endsWith("**") ? (
-                          <strong key={j} className="text-white font-medium">
+                          <strong key={j} className="text-white/85 font-medium">
                             {p.slice(2, -2)}
                           </strong>
                         ) : (
@@ -522,8 +522,8 @@ const Proposta = () => {
                         ),
                       );
                       return (
-                        <li key={i} className="flex gap-3 items-start">
-                          <CheckCircle2 className="text-neon-pink shrink-0 mt-1.5" size={16} />
+                        <li key={i} className="flex gap-2.5 items-start">
+                          <CheckCircle2 className="text-neon-pink/70 shrink-0 mt-1" size={12} />
                           <span>{parts}</span>
                         </li>
                       );
