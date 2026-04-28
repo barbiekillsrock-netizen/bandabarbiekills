@@ -43,8 +43,24 @@ const AdminShows = () => {
 
   const createShow = async () => {
     if (!newShow.location || !newShow.event_date) { toast.error("Preencha local e data"); return; }
-    const { error } = await supabase.from("shows").insert(newShow);
-    if (error) toast.error(error.message); else { toast.success("Show criado"); setNewShow({ location: "", event_date: "" }); load(); }
+    const { data: created, error } = await supabase.from("shows").insert(newShow).select("id").single();
+    if (error || !created) { toast.error(error?.message ?? "Erro ao criar show"); return; }
+
+    // Puxa TODO o repertório padrão (ativo) para dentro do setlist do novo show
+    const { data: allSongs, error: sErr } = await supabase
+      .from("songs").select("id").eq("active", true).order("title");
+    if (sErr) { toast.error(sErr.message); return; }
+
+    if (allSongs && allSongs.length > 0) {
+      const rows = allSongs.map((s, idx) => ({ show_id: created.id, song_id: s.id, position: idx }));
+      const { error: insErr } = await supabase.from("show_setlist").insert(rows);
+      if (insErr) { toast.error("Show criado, mas falhou ao importar repertório: " + insErr.message); }
+      else { toast.success(`Show criado com ${rows.length} músicas do repertório`); }
+    } else {
+      toast.success("Show criado (repertório vazio)");
+    }
+    setNewShow({ location: "", event_date: "" });
+    load();
   };
 
   const createSong = async () => {
