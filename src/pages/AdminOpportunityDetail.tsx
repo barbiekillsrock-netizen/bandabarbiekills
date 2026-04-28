@@ -419,6 +419,34 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
 
           {/* --- TAB FINANCEIRA (compacta) --- */}
           <TabsContent value="financeiro" className="space-y-2 animate-in fade-in duration-300">
+            {/* AÇÕES DE PROPOSTA */}
+            <div className="glass-card rounded-lg p-3 border border-neon-pink/20 bg-black/30 flex flex-wrap gap-2">
+              <Button
+                onClick={() => window.open(`/proposta/${opp.id}`, "_blank")}
+                variant="outline"
+                className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white font-bold uppercase text-[11px] h-9"
+              >
+                <FileText size={14} className="mr-1.5" />
+                Visualizar Proposta
+              </Button>
+              {opp.phone && (
+                <Button
+                  onClick={() => {
+                    const cleanPhone = opp.phone!.replace(/\D/g, "");
+                    const proposalUrl = `${window.location.origin}/proposta/${opp.id}`;
+                    const message = encodeURIComponent(
+                      `Olá, ${opp.client_name}! Tudo bem?\n\nSegue a proposta comercial exclusiva da Banda Barbie Kills para o seu evento:\n\n${proposalUrl}\n\nFico à disposição para qualquer dúvida.`,
+                    );
+                    window.open(`https://wa.me/55${cleanPhone}?text=${message}`, "_blank");
+                  }}
+                  className="bg-green-600 hover:bg-green-500 text-white font-bold uppercase text-[11px] h-9"
+                >
+                  <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4 mr-1.5" />
+                  Enviar Proposta
+                </Button>
+              )}
+            </div>
+
             <div className="glass-card rounded-lg p-3 border border-white/10 bg-black/20">
               <div className="flex gap-2 items-center flex-wrap">
                 <Plus size={14} className="text-neon-pink shrink-0" />
