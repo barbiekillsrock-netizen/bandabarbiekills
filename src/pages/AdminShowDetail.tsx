@@ -115,6 +115,28 @@ const AdminShowDetail = () => {
             </div>
           </div>
 
+          <div className="rounded-xl border border-neon-pink/20 bg-neon-pink/[0.03] p-5">
+            <h2 className="font-bebas text-xl tracking-wide mb-1">Música Exclusiva deste Show</h2>
+            <p className="text-xs text-white/50 mb-3">Cadastrada apenas para este show — não entra no repertório geral.</p>
+            <div className="grid md:grid-cols-5 gap-3">
+              <Input placeholder="Título" value={exclusiveSong.title}
+                onChange={(e) => setExclusiveSong({ ...exclusiveSong, title: e.target.value })}
+                className="md:col-span-2 bg-white/5 border-white/10" />
+              <Input placeholder="Artista (opcional)" value={exclusiveSong.artist}
+                onChange={(e) => setExclusiveSong({ ...exclusiveSong, artist: e.target.value })}
+                className="bg-white/5 border-white/10" />
+              <Input placeholder="Estilo" value={exclusiveSong.style}
+                onChange={(e) => setExclusiveSong({ ...exclusiveSong, style: e.target.value })}
+                className="bg-white/5 border-white/10" />
+              <Input type="number" placeholder="Mín R$" value={exclusiveSong.default_min_price}
+                onChange={(e) => setExclusiveSong({ ...exclusiveSong, default_min_price: e.target.value })}
+                className="bg-white/5 border-white/10" />
+            </div>
+            <Button onClick={addExclusiveSong} variant="neonPink" className="mt-3">
+              <Plus className="w-4 h-4" /> Adicionar só a este show
+            </Button>
+          </div>
+
           <div className="rounded-xl border border-white/10 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-white/5 text-white/60 font-oswald uppercase text-xs tracking-wider">
