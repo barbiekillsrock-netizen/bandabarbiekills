@@ -534,7 +534,7 @@ const Proposta = () => {
           </section>
         )}
 
-        {/* CTA — padrão idêntico ao Footer da Home */}
+        {/* Validade da Proposta */}
         <section className="relative z-10 py-20 md:py-28">
           <div className="container mx-auto px-6 max-w-3xl text-center">
             <motion.div
@@ -543,21 +543,7 @@ const Proposta = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
-                PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span> <br />
-                DO SEU EVENTO?
-              </p>
-              <p className="subtitle text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
-                Entre em contato e faça seu orçamento agora mesmo
-              </p>
-              <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
-                  Contrate Já
-                </a>
-              </Button>
-
-              {/* Validade da Proposta */}
-              <p className="mt-12 text-xs md:text-sm text-white/45 font-inter font-light leading-relaxed max-w-2xl mx-auto text-center">
+              <p className="text-xs md:text-sm text-white/45 font-inter font-light leading-relaxed max-w-2xl mx-auto text-center">
                 Esta proposta é exclusiva e válida por 7 dias a partir de{" "}
                 <span className="text-white/60">{fmtToday}</span>. Após este período, os valores e a
                 disponibilidade da data estarão sujeitos a nova confirmação.
