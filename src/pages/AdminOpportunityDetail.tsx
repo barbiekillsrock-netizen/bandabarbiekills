@@ -84,6 +84,7 @@ O pagamento pode ser parcelado de acordo com a preferência do contratante, em n
       const mPrompt = settingsRes.data?.value || "";
       setMasterPrompt(mPrompt);
       setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
+      setLocalProposalTerms(((oppRes.data as any).proposal_terms as string) || DEFAULT_PROPOSAL_TERMS);
     }
     if (revRes.data) setRevenues(revRes.data as RevenueItem[]);
     setLoading(false);
