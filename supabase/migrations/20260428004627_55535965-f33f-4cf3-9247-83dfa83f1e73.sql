@@ -5,7 +5,7 @@ ADD COLUMN IF NOT EXISTS proposal_terms TEXT;
 
 -- Default text for existing opportunities that have none set
 UPDATE public.opportunities
-SET proposal_terms = E'É possível realizar a contratação do som com outra empresa, importante ressaltar que é necessário a empresa incluir o rider de palco backline em sua proposta. Nosso rider pode ser acessado pelo endereço www.bandabarbiekills.com.br/rider\n\nAlimentação da equipe durante o evento por conta do contratante\n\nO pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 15 dias antes do evento.'
+SET proposal_terms = E'É possível realizar a contratação do som com outra empresa, importante ressaltar que é necessário a empresa incluir o rider de palco backline em sua proposta. Nosso rider pode ser acessado pelo endereço www.bandabarbiekills.com.br/rider\n\nAlimentação da equipe durante o evento por conta do contratante\n\nO pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 30 dias antes do evento.'
 WHERE proposal_terms IS NULL;
 
 -- Update RPC to expose proposal_terms in the public proposal payload

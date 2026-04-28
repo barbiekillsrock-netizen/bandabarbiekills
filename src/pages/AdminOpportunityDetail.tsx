@@ -82,7 +82,7 @@ const AdminOpportunityDetail = () => {
 
 - Alimentação da equipe durante o evento por conta do contratante
 
-- O pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 15 dias antes do evento.`;
+- O pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 30 dias antes do evento.`;
 
   const fetchData = useCallback(async () => {
     if (!id) return;
