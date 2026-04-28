@@ -25,6 +25,7 @@ type Opportunity = {
   event_date: string | null;
   location: string | null;
   guests: number | null;
+  proposal_terms?: string | null;
 };
 
 type ProposalData = {
@@ -483,6 +484,55 @@ const Proposta = () => {
             )}
           </div>
         </section>
+
+        {/* CONDIÇÕES COMERCIAIS */}
+        {opp.proposal_terms && opp.proposal_terms.trim() && (
+          <section className="relative z-10 py-16 md:py-20 border-b border-white/5">
+            <div className="container mx-auto px-6 max-w-4xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-10"
+              >
+                <p className="subtitle text-xs text-neon-pink mb-4 tracking-[0.4em] uppercase">
+                  Condições
+                </p>
+                <p className="heading-display text-4xl md:text-5xl text-foreground">
+                  CONDIÇÕES <span className="neon-pink-text">COMERCIAIS</span>
+                </p>
+              </motion.div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 md:p-10">
+                <ul className="space-y-4 text-base md:text-lg text-white/85 font-inter font-light leading-relaxed">
+                  {opp.proposal_terms
+                    .split(/\n+/)
+                    .map((l) => l.trim())
+                    .filter(Boolean)
+                    .map((line, i) => {
+                      const clean = line.replace(/^[-•]\s*/, "");
+                      const parts = clean.split(/(\*\*[^*]+\*\*)/g).map((p, j) =>
+                        p.startsWith("**") && p.endsWith("**") ? (
+                          <strong key={j} className="text-white font-medium">
+                            {p.slice(2, -2)}
+                          </strong>
+                        ) : (
+                          <span key={j}>{p}</span>
+                        ),
+                      );
+                      return (
+                        <li key={i} className="flex gap-3 items-start">
+                          <CheckCircle2 className="text-neon-pink shrink-0 mt-1.5" size={16} />
+                          <span>{parts}</span>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* CTA — padrão idêntico ao Footer da Home */}
         <section className="relative z-10 py-20 md:py-28">

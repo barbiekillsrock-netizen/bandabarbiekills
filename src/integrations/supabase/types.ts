@@ -151,6 +151,7 @@ export type Database = {
           location: string | null
           negotiation_history: string | null
           phone: string | null
+          proposal_terms: string | null
           requested_repertoire: string | null
           status: string | null
         }
@@ -168,6 +169,7 @@ export type Database = {
           location?: string | null
           negotiation_history?: string | null
           phone?: string | null
+          proposal_terms?: string | null
           requested_repertoire?: string | null
           status?: string | null
         }
@@ -185,6 +187,7 @@ export type Database = {
           location?: string | null
           negotiation_history?: string | null
           phone?: string | null
+          proposal_terms?: string | null
           requested_repertoire?: string | null
           status?: string | null
         }

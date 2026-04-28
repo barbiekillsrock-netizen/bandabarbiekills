@@ -20,27 +20,31 @@ const Footer = ({ variant = "default" }: FooterProps) => {
       />
 
       <div className="relative z-10 container mx-auto px-6">
-        <div className="text-center mb-16">
-          {/* 1. O H2 PARA O GOOGLE (Invisível) - Chamada para ação focada em conversão premium */}
-          <h2 className="sr-only">Solicite um Orçamento para seu Evento de Alto Padrão em Campinas e Região</h2>
+        {!isMinimal && (
+          <>
+            <div className="text-center mb-16">
+              {/* 1. O H2 PARA O GOOGLE (Invisível) - Chamada para ação focada em conversão premium */}
+              <h2 className="sr-only">Solicite um Orçamento para seu Evento de Alto Padrão em Campinas e Região</h2>
 
-          {/* 2. O TÍTULO VISUAL (Agora como <p> para manter o design de impacto) */}
-          <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
-            PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span> <br />
-            DO SEU EVENTO?
-          </p>
+              {/* 2. O TÍTULO VISUAL (Agora como <p> para manter o design de impacto) */}
+              <p className="heading-display text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
+                PRONTO PARA <span className="neon-pink-text">ELEVAR O NÍVEL</span> <br />
+                DO SEU EVENTO?
+              </p>
 
-          <p className="subtitle text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
-            Entre em contato e faça seu orçamento agora mesmo
-          </p>
-          <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
-            <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
-              Contrate Já
-            </a>
-          </Button>
-        </div>
+              <p className="subtitle text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+                Entre em contato e faça seu orçamento agora mesmo
+              </p>
+              <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
+                <a href="https://wa.me/5519982846842" target="_blank" rel="noopener noreferrer">
+                  Contrate Já
+                </a>
+              </Button>
+            </div>
 
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-neon-pink/50 to-transparent mb-12" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-neon-pink/50 to-transparent mb-12" />
+          </>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
           <div className="flex justify-center lg:justify-start">

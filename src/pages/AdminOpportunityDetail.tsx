@@ -63,6 +63,14 @@ const AdminOpportunityDetail = () => {
   const repertoireRef = useRef<ReturnType<typeof setTimeout>>();
   const profileRef = useRef<ReturnType<typeof setTimeout>>();
 
+  const [localProposalTerms, setLocalProposalTerms] = useState("");
+  const termsRef = useRef<HTMLTextAreaElement>(null);
+  const DEFAULT_PROPOSAL_TERMS = `É possível realizar a contratação do som com outra empresa, importante ressaltar que é necessário a empresa incluir o rider de palco backline em sua proposta. Nosso rider pode ser acessado pelo endereço www.bandabarbiekills.com.br/rider
+
+Alimentação da equipe durante o evento por conta do contratante
+
+O pagamento pode ser parcelado de acordo com a preferência do contratante, em número de parcelas a ser definido, conforme estabelecido em contrato, com quitação prevista para até 15 dias antes do evento.`;
+
   const fetchData = useCallback(async () => {
     if (!id) return;
     const [oppRes, revRes, settingsRes] = await Promise.all([
@@ -76,6 +84,7 @@ const AdminOpportunityDetail = () => {
       const mPrompt = settingsRes.data?.value || "";
       setMasterPrompt(mPrompt);
       setLocalCustomPrompt(oppRes.data.custom_prompt || mPrompt);
+      setLocalProposalTerms(((oppRes.data as any).proposal_terms as string) || DEFAULT_PROPOSAL_TERMS);
     }
     if (revRes.data) setRevenues(revRes.data as RevenueItem[]);
     setLoading(false);
@@ -257,30 +266,6 @@ const AdminOpportunityDetail = () => {
             </div>
             <div className="flex items-center gap-2 flex-wrap">
               <Button
-                onClick={() => window.open(`/proposta/${opp.id}`, "_blank")}
-                variant="outline"
-                className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white font-bold"
-              >
-                <FileText size={16} className="mr-2" />
-                VISUALIZAR PROPOSTA
-              </Button>
-              {opp.phone && (
-                <Button
-                  onClick={() => {
-                    const cleanPhone = opp.phone!.replace(/\D/g, "");
-                    const proposalUrl = `${window.location.origin}/proposta/${opp.id}`;
-                    const message = encodeURIComponent(
-                      `Olá, ${opp.client_name}! Tudo bem?\n\nSegue a proposta comercial exclusiva da Banda Barbie Kills para o seu evento:\n\n${proposalUrl}\n\nFico à disposição para qualquer dúvida.`,
-                    );
-                    window.open(`https://wa.me/55${cleanPhone}?text=${message}`, "_blank");
-                  }}
-                  className="bg-green-600 hover:bg-green-500 text-white font-bold"
-                >
-                  <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4 mr-2" />
-                  ENVIAR PROPOSTA
-                </Button>
-              )}
-              <Button
                 onClick={handleGenerateAI}
                 disabled={aiLoading}
                 className="bg-neon-pink hover:bg-neon-pink/80 text-white font-bold"
@@ -328,7 +313,7 @@ const AdminOpportunityDetail = () => {
               value="financeiro"
               className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap"
             >
-              Financeiro
+              Proposta
             </TabsTrigger>
             <TabsTrigger
               value="repertorio"
@@ -434,6 +419,34 @@ const AdminOpportunityDetail = () => {
 
           {/* --- TAB FINANCEIRA (compacta) --- */}
           <TabsContent value="financeiro" className="space-y-2 animate-in fade-in duration-300">
+            {/* AÇÕES DE PROPOSTA */}
+            <div className="glass-card rounded-lg p-3 border border-neon-pink/20 bg-black/30 flex flex-wrap gap-2">
+              <Button
+                onClick={() => window.open(`/proposta/${opp.id}`, "_blank")}
+                variant="outline"
+                className="border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white font-bold uppercase text-[11px] h-9"
+              >
+                <FileText size={14} className="mr-1.5" />
+                Visualizar Proposta
+              </Button>
+              {opp.phone && (
+                <Button
+                  onClick={() => {
+                    const cleanPhone = opp.phone!.replace(/\D/g, "");
+                    const proposalUrl = `${window.location.origin}/proposta/${opp.id}`;
+                    const message = encodeURIComponent(
+                      `Olá, ${opp.client_name}! Tudo bem?\n\nSegue a proposta comercial exclusiva da Banda Barbie Kills para o seu evento:\n\n${proposalUrl}\n\nFico à disposição para qualquer dúvida.`,
+                    );
+                    window.open(`https://wa.me/55${cleanPhone}?text=${message}`, "_blank");
+                  }}
+                  className="bg-green-600 hover:bg-green-500 text-white font-bold uppercase text-[11px] h-9"
+                >
+                  <img src="/icons/whatsapp-white.svg" alt="WhatsApp" className="w-4 h-4 mr-1.5" />
+                  Enviar Proposta
+                </Button>
+              )}
+            </div>
+
             <div className="glass-card rounded-lg p-3 border border-white/10 bg-black/20">
               <div className="flex gap-2 items-center flex-wrap">
                 <Plus size={14} className="text-neon-pink shrink-0" />
@@ -728,6 +741,72 @@ const AdminOpportunityDetail = () => {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* TERMOS / CONDIÇÕES DA PROPOSTA */}
+            <div className="glass-card rounded-xl p-6 bg-black/30 border border-neon-pink/20 mt-4">
+              <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
+                <div>
+                  <Label className="text-neon-pink text-xs uppercase tracking-wider font-bold block">
+                    Condições Comerciais
+                  </Label>
+                  <p className="text-[11px] text-muted-foreground mt-1 font-sans">
+                    Aparece no final da proposta enviada ao cliente. Use <code className="text-neon-pink">**negrito**</code> e <code className="text-neon-pink">- bullet</code> no início da linha.
+                  </p>
+                </div>
+                <div className="flex gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      const ta = termsRef.current;
+                      if (!ta) return;
+                      const start = ta.selectionStart;
+                      const end = ta.selectionEnd;
+                      const sel = localProposalTerms.substring(start, end) || "texto";
+                      const next = localProposalTerms.substring(0, start) + `**${sel}**` + localProposalTerms.substring(end);
+                      setLocalProposalTerms(next);
+                      setTimeout(() => { ta.focus(); ta.setSelectionRange(start + 2, start + 2 + sel.length); }, 10);
+                    }}
+                    className="h-7 text-[11px] font-bold text-white hover:text-neon-pink"
+                  >
+                    <strong>B</strong>
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      const ta = termsRef.current;
+                      if (!ta) return;
+                      const start = ta.selectionStart;
+                      const before = localProposalTerms.substring(0, start);
+                      const lineStart = before.lastIndexOf("\n") + 1;
+                      const next = localProposalTerms.substring(0, lineStart) + "- " + localProposalTerms.substring(lineStart);
+                      setLocalProposalTerms(next);
+                      setTimeout(() => { ta.focus(); ta.setSelectionRange(start + 2, start + 2); }, 10);
+                    }}
+                    className="h-7 text-[11px] font-bold text-white hover:text-neon-pink"
+                  >
+                    • Bullet
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={async () => {
+                      await updateField("proposal_terms" as any, localProposalTerms);
+                      toast.success("Condições salvas!");
+                    }}
+                    className="h-7 bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold px-4"
+                  >
+                    <Save size={12} className="mr-1" /> Salvar
+                  </Button>
+                </div>
+              </div>
+              <textarea
+                ref={termsRef}
+                className="w-full min-h-[200px] bg-black/40 border border-neon-pink/30 rounded-md p-4 text-sm text-foreground focus:ring-1 focus:ring-neon-pink outline-none font-sans leading-relaxed"
+                value={localProposalTerms}
+                onChange={(e) => setLocalProposalTerms(e.target.value)}
+              />
             </div>
           </TabsContent>
 
