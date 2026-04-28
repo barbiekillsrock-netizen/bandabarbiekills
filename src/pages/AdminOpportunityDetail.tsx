@@ -304,7 +304,7 @@ const AdminOpportunityDetail = () => {
               value="financeiro"
               className="px-4 md:px-8 py-2 font-bold data-[state=active]:bg-neon-pink uppercase text-xs whitespace-nowrap"
             >
-              Financeiro
+              Proposta
             </TabsTrigger>
             <TabsTrigger
               value="repertorio"
