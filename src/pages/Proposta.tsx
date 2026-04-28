@@ -514,7 +514,7 @@ const Proposta = () => {
                       const clean = line.replace(/^[-•]\s*/, "");
                       const parts = clean.split(/(\*\*[^*]+\*\*)/g).map((p, j) =>
                         p.startsWith("**") && p.endsWith("**") ? (
-                          <strong key={j} className="text-white font-medium">
+                          <strong key={j} className="text-white/85 font-medium">
                             {p.slice(2, -2)}
                           </strong>
                         ) : (
@@ -522,8 +522,8 @@ const Proposta = () => {
                         ),
                       );
                       return (
-                        <li key={i} className="flex gap-3 items-start">
-                          <CheckCircle2 className="text-neon-pink shrink-0 mt-1.5" size={16} />
+                        <li key={i} className="flex gap-2.5 items-start">
+                          <CheckCircle2 className="text-neon-pink/70 shrink-0 mt-1" size={12} />
                           <span>{parts}</span>
                         </li>
                       );
