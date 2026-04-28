@@ -24,6 +24,7 @@ const AdminShowDetail = () => {
   const [songs, setSongs] = useState<Song[]>([]);
   const [setlist, setSetlist] = useState<SetlistRow[]>([]);
   const [pickSongId, setPickSongId] = useState("");
+  const [exclusiveSong, setExclusiveSong] = useState({ title: "", artist: "", style: "", default_min_price: "20" });
 
   const load = async () => {
     if (!showId) return;
