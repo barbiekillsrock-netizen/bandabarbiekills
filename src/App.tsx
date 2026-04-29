@@ -31,70 +31,72 @@ const App = () => (
     <BrowserRouter>
       <Toaster position="top-right" richColors theme="dark" />
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/XR18" element={<XR18Manual />} />
-        <Route path="/press-kit" element={<PressKit />} />
-        <Route path="/rider" element={<Rider />} />
-        <Route path="/corporativo" element={<Corporativo />} />
-        <Route path="/cidade/:slug" element={<CidadeLanding />} />
-        <Route path="/dj-briefing/:id" element={<DjBriefing />} />
-        <Route path="/killer-queen" element={<KillerQueen />} />
-        <Route path="/proposta/:id" element={<Proposta />} />
-        <Route path="/show" element={<ShowPage />} />
-        <Route
-          path="/admin/shows"
-          element={
-            <AdminRoute>
-              <AdminShows />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/shows/:showId"
-          element={
-            <AdminRoute>
-              <AdminShowDetail />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/palco/:showId"
-          element={
-            <AdminRoute>
-              <AdminPalco />
-            </AdminRoute>
-          }
-        />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route
-          path="/admin"
-          element={
-            <AdminRoute>
-              <AdminDashboard />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/opportunity/:id"
-          element={
-            <AdminRoute>
-              <AdminOpportunityDetail />
-            </AdminRoute>
-          }
-        />
-        <Route
-          path="/admin/settings"
-          element={
-            <AdminRoute>
-              <AdminSettings />
-            </AdminRoute>
-          }
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen bg-black" />}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/XR18" element={<XR18Manual />} />
+          <Route path="/press-kit" element={<PressKit />} />
+          <Route path="/rider" element={<Rider />} />
+          <Route path="/corporativo" element={<Corporativo />} />
+          <Route path="/cidade/:slug" element={<CidadeLanding />} />
+          <Route path="/dj-briefing/:id" element={<DjBriefing />} />
+          <Route path="/killer-queen" element={<KillerQueen />} />
+          <Route path="/proposta/:id" element={<Proposta />} />
+          <Route path="/show" element={<ShowPage />} />
+          <Route
+            path="/admin/shows"
+            element={
+              <AdminRoute>
+                <AdminShows />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/shows/:showId"
+            element={
+              <AdminRoute>
+                <AdminShowDetail />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/palco/:showId"
+            element={
+              <AdminRoute>
+                <AdminPalco />
+              </AdminRoute>
+            }
+          />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/opportunity/:id"
+            element={
+              <AdminRoute>
+                <AdminOpportunityDetail />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/settings"
+            element={
+              <AdminRoute>
+                <AdminSettings />
+              </AdminRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   </TooltipProvider>
 );
