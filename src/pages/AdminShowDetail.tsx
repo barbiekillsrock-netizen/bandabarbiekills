@@ -6,9 +6,6 @@ import { ArrowLeft, Plus, Trash2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select, SelectTrigger, SelectValue, SelectContent, SelectItem,
-} from "@/components/ui/select";
 
 interface Show { id: string; location: string; event_date: string; is_active: boolean; }
 interface Song { id: string; title: string; artist: string | null; default_min_price: number; style: string | null; }
@@ -21,30 +18,19 @@ interface SetlistRow {
 const AdminShowDetail = () => {
   const { showId } = useParams<{ showId: string }>();
   const [show, setShow] = useState<Show | null>(null);
-  const [songs, setSongs] = useState<Song[]>([]);
   const [setlist, setSetlist] = useState<SetlistRow[]>([]);
-  const [pickSongId, setPickSongId] = useState("");
   const [exclusiveSong, setExclusiveSong] = useState({ title: "", artist: "", style: "", default_min_price: "20" });
 
   const load = async () => {
     if (!showId) return;
-    const [s1, s2, s3] = await Promise.all([
+    const [s1, s3] = await Promise.all([
       supabase.from("shows").select("*").eq("id", showId).maybeSingle(),
-      supabase.from("songs").select("*").eq("active", true).order("title"),
       supabase.from("show_setlist").select("*, song:songs(*)").eq("show_id", showId).order("position"),
     ]);
     setShow(s1.data as Show);
-    setSongs((s2.data ?? []) as unknown as Song[]);
     setSetlist((s3.data ?? []) as unknown as SetlistRow[]);
   };
   useEffect(() => { load(); }, [showId]);
-
-  const addToSetlist = async () => {
-    if (!pickSongId || !showId) return;
-    const pos = setlist.length;
-    const { error } = await supabase.from("show_setlist").insert({ show_id: showId, song_id: pickSongId, position: pos });
-    if (error) toast.error(error.message); else { toast.success("Adicionada"); setPickSongId(""); load(); }
-  };
 
   const addExclusiveSong = async () => {
     if (!exclusiveSong.title.trim() || !showId) { toast.error("Título obrigatório"); return; }
@@ -83,8 +69,6 @@ const AdminShowDetail = () => {
     toast.success("Slot liberado"); load();
   };
 
-  const availableSongs = songs.filter((s) => !setlist.some((r) => r.song_id === s.id));
-
   return (
     <>
       <Helmet><title>Setlist · {show?.location ?? ""} | Admin</title><meta name="robots" content="noindex" /></Helmet>
@@ -98,23 +82,6 @@ const AdminShowDetail = () => {
         </header>
 
         <main className="max-w-4xl mx-auto p-6 space-y-6">
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">
-            <h2 className="font-bebas text-xl tracking-wide mb-3">Adicionar do Repertório</h2>
-            <div className="flex gap-3">
-              <Select value={pickSongId} onValueChange={setPickSongId}>
-                <SelectTrigger className="bg-white/5 border-white/10"><SelectValue placeholder="Escolha uma música..." /></SelectTrigger>
-                <SelectContent className="bg-black border-white/10 text-white">
-                  {availableSongs.map((s) => (
-                    <SelectItem key={s.id} value={s.id}>
-                      {s.title}{s.artist ? ` — ${s.artist}` : ""}{s.style ? ` · ${s.style}` : ""}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Button onClick={addToSetlist} variant="neonPink" disabled={!pickSongId}><Plus className="w-4 h-4" /> Adicionar</Button>
-            </div>
-          </div>
-
           <div className="rounded-xl border border-neon-pink/20 bg-neon-pink/[0.03] p-5">
             <h2 className="font-bebas text-xl tracking-wide mb-1">Música Exclusiva deste Show</h2>
             <p className="text-xs text-white/50 mb-3">Cadastrada apenas para este show — não entra no repertório geral.</p>
