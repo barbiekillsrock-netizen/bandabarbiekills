@@ -1,15 +1,11 @@
-import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Check, Music, Zap, Mic } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import losLibresLogo from "@/assets/logo-banda-cerimonia-coquetel.webp";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
-const Footer = lazy(() => import("@/components/Footer"));
-
-const LazySkeleton = () => <div className="min-h-[200px] bg-background" />;
+import TestimonialsSection from "@/components/TestimonialsSection";
+import Footer from "@/components/Footer";
 
 const SITE_URL = "https://www.bandabarbiekills.com.br";
 
@@ -21,7 +17,7 @@ const structuredData = {
     "Banda para eventos corporativos com infraestrutura completa, painel de LED e logística própria. Repertório sofisticado de Pop, Soul e MPB em SP e Interior.",
   provider: {
     "@type": "MusicGroup",
-    "@id": "https://www.bandabarbiekills.com.br/#band", // Referência à entidade principal
+    "@id": "https://www.bandabarbiekills.com.br/#band",
     name: "Barbie Kills",
   },
   serviceType: "Entretenimento Musical Corporativo",
@@ -54,17 +50,11 @@ const structuredData = {
     itemListElement: [
       {
         "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Show com Painel de LED e Iluminação DMX",
-        },
+        itemOffered: { "@type": "Service", name: "Show com Painel de LED e Iluminação DMX" },
       },
       {
         "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Repertório Customizado (Pop/Rock/Soul/MPB/Brasilidades)",
-        },
+        itemOffered: { "@type": "Service", name: "Repertório Customizado (Pop/Rock/Soul/MPB/Brasilidades)" },
       },
     ],
   },
@@ -91,13 +81,13 @@ const Corporativo = () => {
           property="og:description"
           content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
         />
-        <meta property="og:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
+        <meta property="og:image" content={`${SITE_URL}/corporativo/banda-evento-sp.webp`} />
         <meta property="og:site_name" content="Barbie Kills" />
         <meta property="og:locale" content="pt_BR" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta name="twitter:description" content="Show premium e logística completa para eventos corporativos." />
-        <meta name="twitter:image" content="https://www.bandabarbiekills.com.br/corporativo/banda-evento-sp.webp" />
+        <meta name="twitter:image" content={`${SITE_URL}/corporativo/banda-evento-sp.webp`} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Helmet>
 
@@ -315,16 +305,8 @@ const Corporativo = () => {
         </div>
       </section>
 
-      {/* Mantenha o Footer em Suspense se desejar, pois ele é mais pesado */}
-      {import.meta.env.SSR ? (
-        <Footer />
-      ) : (
-        <Suspense fallback={<div className="h-20" />}>
-          <Footer />
-        </Suspense>
-      )}
-
-      {/* O botão de WhatsApp agora carrega instantaneamente, sem depender do Suspense */}
+      <TestimonialsSection />
+      <Footer />
       <WhatsAppButton />
     </main>
   );

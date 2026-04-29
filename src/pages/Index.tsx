@@ -1,24 +1,17 @@
-import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-
-// IMPORTANTE:  Importação direta do botão para carregamento instantâneo
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-//  Tudo  abaicvho da dobra é lazy-loaded para reduzir o bundle crítico
-const HistorySection = lazy(() => import("@/components/HistorySection"));
-const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const ManifestoSection = lazy(() => import("@/components/ManifestoSection"));
-const ElevateSection = lazy(() => import("@/components/ElevateSection"));
-const WhoHiresSection = lazy(() => import("@/components/WhoHiresSection"));
-const UniqueShowSection = lazy(() => import("@/components/UniqueShowSection"));
-const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
-const MediaSection = lazy(() => import("@/components/MediaSection"));
-const BlogPreview = lazy(() => import("@/components/BlogPreview"));
-const Footer = lazy(() => import("@/components/Footer"));
-
-const LazySkeleton = () => <div className="min-h-[200px] bg-background" />;
+import HistorySection from "@/components/HistorySection";
+import ServicesSection from "@/components/ServicesSection";
+import ManifestoSection from "@/components/ManifestoSection";
+import ElevateSection from "@/components/ElevateSection";
+import WhoHiresSection from "@/components/WhoHiresSection";
+import UniqueShowSection from "@/components/UniqueShowSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import MediaSection from "@/components/MediaSection";
+import BlogPreview from "@/components/BlogPreview";
+import Footer from "@/components/Footer";
 
 const SITE_URL = "https://www.bandabarbiekills.com.br";
 
@@ -43,7 +36,6 @@ const structuredData = {
           member: {
             "@type": "Person",
             name: "Mariana",
-            // Se tiver o Instagram dela, adicione aqui: sameAs: ["URL"]
           },
           roleName: ["Lead Vocalist", "Vocalista Principal"],
         },
@@ -60,10 +52,10 @@ const structuredData = {
       priceRange: "$$$$",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "R. Ferreira Penteado, 1221", // Reincluído conforme validação anterior
+        streetAddress: "R. Ferreira Penteado, 1221",
         addressLocality: "Campinas",
         addressRegion: "SP",
-        postalCode: "13010-041", // Reincluído conforme validação anterior
+        postalCode: "13010-041",
         addressCountry: "BR",
       },
       aggregateRating: {
@@ -98,8 +90,6 @@ const Index = () => {
           content="Banda premium para casamentos e eventos corporativos em Campinas e interior de SP. 14 anos de estrada, show de alta energia com Rock, MPB e Pop. Solicite orçamento!"
         />
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
-
-        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
         <meta property="og:site_name" content="Barbie Kills" />
@@ -121,7 +111,6 @@ const Index = () => {
           property="og:image:alt"
           content="Show da Barbie Kills ao vivo — Banda para Casamentos e Eventos em Campinas e SP"
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -135,35 +124,16 @@ const Index = () => {
 
       <Navbar />
       <HeroSection />
-
-      {import.meta.env.SSR ? (
-        <>
-          <HistorySection />
-          <ServicesSection />
-          <ManifestoSection />
-          <ElevateSection />
-          <WhoHiresSection />
-          <UniqueShowSection />
-          <TestimonialsSection />
-          <MediaSection />
-          <BlogPreview />
-          <Footer />
-        </>
-      ) : (
-        <Suspense fallback={<LazySkeleton />}>
-          <HistorySection />
-          <ServicesSection />
-          <ManifestoSection />
-          <ElevateSection />
-          <WhoHiresSection />
-          <UniqueShowSection />
-          <TestimonialsSection />
-          <MediaSection />
-          <BlogPreview />
-          <Footer />
-        </Suspense>
-      )}
-
+      <HistorySection />
+      <ServicesSection />
+      <ManifestoSection />
+      <ElevateSection />
+      <WhoHiresSection />
+      <UniqueShowSection />
+      <TestimonialsSection />
+      <MediaSection />
+      <BlogPreview />
+      <Footer />
       <WhatsAppButton />
     </main>
   );
