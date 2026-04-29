@@ -84,7 +84,7 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
-        <title>Barbie Kills | Banda para Casamento e Eventos Corporativos em Campinas e SP</title>
+        <title>Barbie Kills | Banda para Casamentos e Eventos em Campinas SP</title>
         <meta
           name="description"
           content="Banda premium para casamentos e eventos corporativos em Campinas e interior de SP. 14 anos de estrada, show de alta energia com Rock, MPB e Pop. Solicite orçamento!"
@@ -93,10 +93,7 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
         <meta property="og:site_name" content="Barbie Kills" />
-        <meta
-          property="og:title"
-          content="Barbie Kills | Banda para Casamento e Eventos Corporativos em Campinas e SP"
-        />
+        <meta property="og:title" content="Barbie Kills | Banda para Casamentos e Eventos em Campinas SP" />
         <meta
           property="og:description"
           content="Banda premium para casamentos e eventos corporativos em Campinas e interior de SP. 14 anos de estrada, show de alta energia com Rock, MPB e Pop. Solicite orçamento!"
