@@ -92,12 +92,35 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
-        <title>Banda Barbie Kills | Casamentos e Eventos Premium</title>
+        <title>Barbie Kills | Banda para Casamento e Eventos Corporativos em Campinas e SP</title>
         <meta
           name="description"
-          content="Banda para casamentos e eventos corporativos em Campinas e SP. Infraestrutura completa e repertório personalizado de Pop, Rock e Música Brasileira."
+          content="Banda premium para casamentos e eventos corporativos em Campinas e interior de SP. 14 anos de estrada, show de alta energia com Rock, MPB e Pop. Solicite orçamento!"
         />
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
+        <meta property="og:site_name" content="Barbie Kills" />
+        <meta
+          property="og:title"
+          content="Barbie Kills | Banda para Casamento e Eventos Corporativos em Campinas e SP"
+        />
+        <meta
+          property="og:description"
+          content="Banda premium para casamentos e eventos corporativos em Campinas e interior de SP. 14 anos de estrada, show de alta energia com Rock, MPB e Pop. Solicite orçamento!"
+        />
+        <meta
+          property="og:image"
+          content="https://www.bandabarbiekills.com.br/banda-casamentos-eventos-campinas-barbie-kills.webp"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Show da Barbie Kills ao vivo — Banda para Casamentos e Eventos em Campinas e SP"
+        />
 
         <script
           type="application/ld+json"
