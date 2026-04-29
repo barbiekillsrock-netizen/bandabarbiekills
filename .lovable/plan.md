@@ -1,56 +1,22 @@
+## Objetivo
 
+Remover completamente o bloco "Adicionar do Repertório" da página `/admin/shows/:showId`, já que o repertório agora é populado automaticamente na criação do show, e músicas extras podem ser adicionadas via "Música Exclusiva deste Show".
 
-# Diagnóstico e Plano de Correção do SSG
+## Alterações
 
-## O que está acontecendo
+**Arquivo:** `src/pages/AdminShowDetail.tsx`
 
-Seu projeto **já possui** toda a infraestrutura de SSG montada:
-- `entry-server.tsx` — renderiza as rotas via `renderToString` + `StaticRouter`
-- `prerender.js` — gera HTML estático para cada rota (cidades, blog, etc.)
-- `package.json` — define o build completo: `build:client → build:server → build:prerender`
+1. Remover o bloco JSX inteiro `<div className="rounded-xl border border-white/10 bg-white/[0.02] p-5">` que contém o título "Adicionar do Repertório", o `Select` com `availableSongs` e o botão "Adicionar".
+2. Remover o estado não utilizado `pickSongId` / `setPickSongId`.
+3. Remover a função `addToSetlist`.
+4. Remover o cálculo `availableSongs` (não utilizado em nenhum outro lugar).
+5. Remover a query de `songs` do `Promise.all` em `load()` e o `setSongs` (não usado em mais nada).
+6. Remover o estado `songs` e o tipo `Song` se não houver mais referências — verificar: `Song` ainda é usado dentro de `SetlistRow` (`song: Song | null`), portanto **manter o type `Song`**, mas remover o estado `songs`.
+7. Remover o import `Select, SelectTrigger, SelectValue, SelectContent, SelectItem` se nenhum outro bloco estiver usando — o bloco "Música Exclusiva" usa apenas `Input` e `Button`, então o import de `Select` pode ser removido.
 
-**Porém, há dois problemas que impedem o funcionamento:**
+## Preservado
 
-1. **O marcador `<!--ssr-outlet-->` foi removido do `index.html`.** O `prerender.js` tenta fazer `template.replace("<!--ssr-outlet-->", html)`, mas o `<div id="root">` agora contém a shell estática da nav. O replace silenciosamente falha e o conteúdo nunca é injetado.
-
-2. **O build de deploy provavelmente só executa `vite build`** (build do client), sem rodar `build:server` e `build:prerender`. Se você deploya pela Lovable, o build é fixo. Se deploya pelo Vercel, o comando de build precisa ser `npm run build` (o completo).
-
-## Plano de correção (3 passos)
-
-### Passo 1 — Restaurar o marcador SSR no `index.html`
-
-Dentro do `<div id="root">`, substituir a shell estática da nav pelo marcador:
-
-```html
-<div id="root"><!--ssr-outlet--></div>
-```
-
-A nav estática que existe hoje (linhas 116-129) será removida. O prerender vai injetar o HTML completo (incluindo a nav renderizada pelo React) no lugar do marcador. Isso significa que o HTML inicial já virá com **todo o conteúdo**: nav, hero, links, textos, tags `<a>`, etc.
-
-### Passo 2 — Garantir que `entry-server.tsx` inclui todas as rotas
-
-O arquivo atual já cobre Index, Blog, BlogPost, PressKit, Rider, Corporativo e CidadeLanding. Verificar se está sincronizado com o `App.tsx` (faltam DjBriefing e páginas admin, mas essas não precisam de SSG — são rotas protegidas/internas).
-
-### Passo 3 — Configurar o build completo no Vercel
-
-No painel do Vercel (ou no `vercel.json`), definir o **Build Command** como:
-
-```
-npm run build
-```
-
-Isso executa a cadeia completa: `build:client` → `build:server` → `build:prerender`. O resultado será arquivos HTML físicos em `dist/` para cada rota (ex: `dist/cidade/banda-casamento-campinas/index.html`), todos com conteúdo real renderizado.
-
-**Nota sobre Lovable hosting:** Se o deploy principal é pelo Vercel (domínio `bandabarbiekills.com.br`), basta configurar lá. O preview da Lovable continuará sendo CSR (comportamento normal para desenvolvimento).
-
----
-
-## Resultado esperado
-
-Após o deploy, cada URL retornará HTML com:
-- Textos reais e parágrafos de conteúdo
-- Tags `<a href>` para todas as 30+ páginas internas
-- Meta tags (title, description, canonical) via Helmet
-- Schema JSON-LD específico por página
-- O Googlebot e Screaming Frog lerão tudo sem depender de JavaScript
-
+- Bloco "Música Exclusiva deste Show" (intacto).
+- Tabela do setlist com edição de mín. R$, liberar slot, remover.
+- População automática do repertório na criação do show (em `AdminShows.tsx`).
+- Nenhuma alteração em SEO, blog, cidades, home ou meta-tags.
