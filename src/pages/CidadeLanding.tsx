@@ -274,9 +274,13 @@ const CidadeLanding = () => {
       </section>
 
       {/* Testimonials (reused from Home) */}
-      <Suspense fallback={<div className="min-h-[400px]" />}>
+      {import.meta.env.SSR ? (
         <TestimonialsSection />
-      </Suspense>
+      ) : (
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <TestimonialsSection />
+        </Suspense>
+      )}
 
       {/* Video Section */}
       <section className="py-16 lg:py-20 section-gradient">
@@ -387,9 +391,13 @@ const CidadeLanding = () => {
         </div>
       </section>
       {/* Footer continua com Suspense pois é pesado */}
-      <Suspense fallback={<div className="h-20" />}>
+      {import.meta.env.SSR ? (
         <Footer />
-      </Suspense>
+      ) : (
+        <Suspense fallback={<div className="h-20" />}>
+          <Footer />
+        </Suspense>
+      )}
 
       {/* WhatsAppButton FORA do Suspense: Garantia de conversão imediata */}
       <WhatsAppButton />

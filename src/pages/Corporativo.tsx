@@ -316,9 +316,13 @@ const Corporativo = () => {
       </section>
 
       {/* Mantenha o Footer em Suspense se desejar, pois ele é mais pesado */}
-      <Suspense fallback={<div className="h-20" />}>
+      {import.meta.env.SSR ? (
         <Footer />
-      </Suspense>
+      ) : (
+        <Suspense fallback={<div className="h-20" />}>
+          <Footer />
+        </Suspense>
+      )}
 
       {/* O botão de WhatsApp agora carrega instantaneamente, sem depender do Suspense */}
       <WhatsAppButton />

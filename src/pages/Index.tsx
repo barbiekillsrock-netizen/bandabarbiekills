@@ -136,18 +136,33 @@ const Index = () => {
       <Navbar />
       <HeroSection />
 
-      <Suspense fallback={<LazySkeleton />}>
-        <HistorySection />
-        <ServicesSection />
-        <ManifestoSection />
-        <ElevateSection />
-        <WhoHiresSection />
-        <UniqueShowSection />
-        <TestimonialsSection />
-        <MediaSection />
-        <BlogPreview />
-        <Footer />
-      </Suspense>
+      {import.meta.env.SSR ? (
+        <>
+          <HistorySection />
+          <ServicesSection />
+          <ManifestoSection />
+          <ElevateSection />
+          <WhoHiresSection />
+          <UniqueShowSection />
+          <TestimonialsSection />
+          <MediaSection />
+          <BlogPreview />
+          <Footer />
+        </>
+      ) : (
+        <Suspense fallback={<LazySkeleton />}>
+          <HistorySection />
+          <ServicesSection />
+          <ManifestoSection />
+          <ElevateSection />
+          <WhoHiresSection />
+          <UniqueShowSection />
+          <TestimonialsSection />
+          <MediaSection />
+          <BlogPreview />
+          <Footer />
+        </Suspense>
+      )}
 
       <WhatsAppButton />
     </main>
