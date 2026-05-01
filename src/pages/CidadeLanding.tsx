@@ -1,7 +1,7 @@
 import { useParams, Navigate } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Quote, Music, Mic2, Speaker, Lightbulb } from "lucide-react";
+import { ChevronDown, Music, Mic2, Speaker, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { getCidadeBySlug } from "@/data/cidadesData";
 import { useState, useCallback } from "react";
@@ -67,10 +67,10 @@ const CidadeLanding = () => {
 
   if (!cidade) return <Navigate to="/" replace />;
 
-  const { cidade: nome, foco, hook, venues } = cidade;
+  const { cidade: nome, foco, hook } = cidade;
   const canonicalUrl = `${SITE_URL}/cidade/${slug}`;
-  let metaTitle = "";
 
+  let metaTitle = "";
   if (foco === "Casamento") {
     metaTitle = `Banda de Casamento em ${nome} | Barbie Kills`;
   } else if (foco === "Corporativo") {
@@ -80,13 +80,12 @@ const CidadeLanding = () => {
   }
 
   let metaDesc = "";
-
   if (foco === "Casamento") {
-    metaDesc = `A melhor banda para casamentos em ${nome}. Estrutura premium e a energia impecável do rock, groove e soul para sua pista.`;
+    metaDesc = `A melhor banda para casamentos em ${nome}. Estrutura premium e a energia impecável do Pop, Rock, MPB e Samba Rock para sua pista.`;
   } else if (foco === "Corporativo") {
     metaDesc = `Trilha sonora de alto impacto e infraestrutura audiovisual completa para eventos corporativos e empresariais em ${nome}.`;
   } else {
-    metaDesc = `Banda premium para eventos e casamentos em ${nome}. Estrutura completa, alta energia e o melhor do rock, groove e soul.`;
+    metaDesc = `Banda premium para eventos e casamentos em ${nome}. Estrutura completa, alta energia e o melhor do Pop, Rock, MPB e Samba Rock.`;
   }
 
   return (
@@ -96,7 +95,7 @@ const CidadeLanding = () => {
         <meta name="description" content={metaDesc} />
         <link rel="canonical" key="canonical" href={canonicalUrl} />
 
-        {/* Open Graph - Redes Sociais */}
+        {/* Open Graph */}
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDesc} />
         <meta property="og:url" content={canonicalUrl} />
@@ -108,7 +107,7 @@ const CidadeLanding = () => {
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
 
-        {/* Schema.org - Dados Estruturados Corrigidos */}
+        {/* Schema.org */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -206,13 +205,11 @@ const CidadeLanding = () => {
               </span>
             </h2>
             <p className="text-body text-lg md:text-xl leading-relaxed text-muted-foreground mb-12">
-              Com mais de 14 anos de estrada e 600 shows realizados, a Barbie Kills é liderada pela vocalista Mariana
-              Chaib, destaque na Rede Globo. Somos referência em casamentos de luxo e eventos corporativos de alto
-              padrão, entregando uma experiência musical única que transita pelo Pop, Rock, Soul e Música Brasileira.
+              {cidade.autoridade}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { icon: Music, label: "Pop, Rock & Soul" },
+                { icon: Music, label: "Pop, Rock & MPB" },
                 { icon: Mic2, label: "Vocalista Destaque" },
                 { icon: Speaker, label: "Som Profissional" },
                 { icon: Lightbulb, label: "Iluminação Premium" },
@@ -264,9 +261,7 @@ const CidadeLanding = () => {
               LOGÍSTICA E ESTRUTURA <span className="neon-pink-text">IMPECÁVEL</span> EM {nome.toUpperCase()}
             </h2>
             <p className="text-body text-lg md:text-xl leading-relaxed text-muted-foreground text-center mb-12">
-              Conhecemos a fundo a acústica e a dinâmica dos principais espaços da região, como {venues} Nossa equipe
-              utiliza tecnologia de última geração em som e luz, garantindo a mesma segurança e qualidade que marcas
-              como Honda e Ambev confiam para seus eventos.
+              {cidade.logistica}
             </p>
           </div>
         </div>
@@ -326,18 +321,8 @@ const CidadeLanding = () => {
             <h2 className="font-oswald text-3xl md:text-4xl text-white mb-6 uppercase tracking-wide">
               A Melhor Banda para Eventos em {cidade.cidade}
             </h2>
-            <p className="font-inter text-muted-foreground leading-relaxed text-lg mb-6">
-              Se você está planejando um evento inesquecível em <strong>{cidade.cidade}</strong>, a música é o coração
-              da festa. A Barbie Kills não é apenas uma banda, é uma experiência musical premium. Com um repertório que
-              transita com maestria pelo Rock, Pop, Soul, MPB e sucessos internacionais, nós transformamos casamentos de
-              luxo e convenções corporativas em espetáculos de alta energia. Nossa missão é garantir que a pista de
-              dança do seu evento em {cidade.cidade} esteja sempre cheia.
-            </p>
-            <p className="font-inter text-muted-foreground leading-relaxed text-lg">
-              Levamos uma infraestrutura de som e luz de última geração, adaptável aos melhores espaços e buffets da
-              região. Do coquetel receptivo ao ápice da festa, nossa performance ao vivo é desenhada sob medida para o
-              seu público.
-            </p>
+            <p className="font-inter text-muted-foreground leading-relaxed text-lg mb-6">{cidade.seoIntro}</p>
+            <p className="font-inter text-muted-foreground leading-relaxed text-lg">{cidade.seoComplemento}</p>
           </div>
 
           {/* FAQ Section for SEO */}
@@ -345,40 +330,18 @@ const CidadeLanding = () => {
             <h3 className="font-oswald text-2xl text-neon-pink uppercase tracking-wide border-b border-neon-pink/20 pb-4">
               Perguntas Frequentes sobre nossa atuação em {cidade.cidade}
             </h3>
-
             <div className="space-y-6">
               <article>
-                <h4 className="font-oswald text-xl text-white mb-2">
-                  Quais tipos de eventos a banda atende em {cidade.cidade}?
-                </h4>
-                <p className="font-inter text-muted-foreground">
-                  Nossa especialidade são casamentos premium, festas de formatura, aniversários de grande porte e
-                  eventos corporativos. Adaptamos nosso show para atender desde cerimônias intimistas até grandes
-                  convenções de empresas localizadas na região de {cidade.cidade}.
-                </p>
+                <h4 className="font-oswald text-xl text-white mb-2">{cidade.faq.p1}</h4>
+                <p className="font-inter text-muted-foreground">{cidade.faq.r1}</p>
               </article>
-
               <article>
-                <h4 className="font-oswald text-xl text-white mb-2">
-                  A Barbie Kills fornece os equipamentos de som e luz?
-                </h4>
-                <p className="font-inter text-muted-foreground">
-                  Sim. Para garantir a máxima qualidade sonora e visual, fornecemos uma solução completa de
-                  infraestrutura técnica (PA, monitores, microfonação e iluminação de palco) adequada para os principais
-                  espaços de eventos de {cidade.cidade}, poupando os noivos e organizadores de dores de cabeça com
-                  fornecedores extras.
-                </p>
+                <h4 className="font-oswald text-xl text-white mb-2">{cidade.faq.p2}</h4>
+                <p className="font-inter text-muted-foreground">{cidade.faq.r2}</p>
               </article>
-
               <article>
-                <h4 className="font-oswald text-xl text-white mb-2">
-                  Como posso personalizar o repertório do meu casamento?
-                </h4>
-                <p className="font-inter text-muted-foreground">
-                  Acreditamos que cada festa é única. Trabalhamos em conjunto com os clientes para desenhar uma setlist
-                  que reflita a identidade do casal ou da empresa, misturando clássicos do Pop e do Rock com grooves
-                  modernos que mantêm a energia lá no alto durante toda a apresentação.
-                </p>
+                <h4 className="font-oswald text-xl text-white mb-2">{cidade.faq.p3}</h4>
+                <p className="font-inter text-muted-foreground">{cidade.faq.r3}</p>
               </article>
             </div>
           </div>
