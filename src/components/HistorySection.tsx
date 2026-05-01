@@ -46,8 +46,8 @@ const HistorySection = () => {
                 público seleto.
               </p>
               <p>
-                Mais do que uma apresentação musical, a Barbie Kills entrega uma conexão genuína, transformando grandes
-                eventos em experiências eternizadas pela excelência sonora e performance de palco.
+                Mais do que uma apresentação musical, a Banda Barbie Kills entrega uma conexão genuína, transformando
+                grandes eventos em experiências eternizadas pela excelência sonora e performance de palco.
               </p>
             </div>
 

@@ -7,7 +7,7 @@ const ManifestoSection = () => {
           <div className="relative">
             <img
               src="/vocalista-banda-casamento.webp"
-              alt="Vocalista da Barbie Kills cantando em festa de casamento"
+              alt="Vocalista da Banda Barbie Kills cantando em festa de casamento"
               width={600}
               height={600}
               className="w-full h-auto aspect-[4/5] lg:aspect-square object-cover rounded-3xl"

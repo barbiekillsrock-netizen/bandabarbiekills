@@ -70,7 +70,7 @@ const Corporativo = () => {
         <title>Banda para Eventos Corporativos em SP, Campinas e Região</title>
         <meta
           name="description"
-          content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
+          content="Contratar banda para evento corporativo? A Banda Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
         />
         <link rel="alternate" hrefLang="pt-br" href="https://www.bandabarbiekills.com.br/corporativo" />
         <link rel="canonical" href="https://www.bandabarbiekills.com.br/corporativo" />
@@ -79,7 +79,7 @@ const Corporativo = () => {
         <meta property="og:title" content="Banda para Eventos Corporativos em SP, Campinas e Região" />
         <meta
           property="og:description"
-          content="Contratar banda para evento corporativo? A Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
+          content="Contratar banda para evento corporativo? A Banda Barbie Kills oferece show premium, painel de LED e logística completa para festas em todo o estado de SP."
         />
         <meta property="og:image" content={`${SITE_URL}/corporativo/banda-evento-sp.webp`} />
         <meta property="og:site_name" content="Barbie Kills" />
@@ -108,8 +108,8 @@ const Corporativo = () => {
             Infraestrutura
           </h1>
           <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in animation-delay-400">
-            Leve a energia da Barbie Kills para sua convenção com a segurança de mais de 600 shows realizados para as
-            maiores marcas do Brasil
+            Leve a energia da Banda Barbie Kills para sua convenção com a segurança de mais de 600 shows realizados para
+            as maiores marcas do Brasil
           </p>
           <div className="animate-fade-in animation-delay-600">
             <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>

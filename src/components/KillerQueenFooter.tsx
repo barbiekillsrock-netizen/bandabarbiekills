@@ -7,7 +7,7 @@ const KillerQueenFooter = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-10">
           <div className="flex justify-center lg:justify-start">
-            <Link to="/" aria-label="Ir para a página inicial da Barbie Kills">
+            <Link to="/" aria-label="Ir para a página inicial da Banda Barbie Kills">
               <img
                 src="/logo-banda-casamento-campinas-barbie-kills-hero-footer.webp"
                 alt="Banda Barbie Kills em show para casamentos e eventos"
@@ -25,7 +25,7 @@ const KillerQueenFooter = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
-              aria-label="Siga a Barbie Kills no Instagram"
+              aria-label="Siga a Banda Barbie Kills no Instagram"
             >
               <div className="w-14 h-14 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <Instagram className="w-7 h-7" />
@@ -53,7 +53,7 @@ const KillerQueenFooter = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
-              aria-label="Ouça a Barbie Kills no Spotify"
+              aria-label="Ouça a Banda Barbie Kills no Spotify"
             >
               <div className="w-14 h-14 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <div
@@ -86,7 +86,7 @@ const KillerQueenFooter = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-neon-pink transition-colors"
-              aria-label="Fale com a Barbie Kills pelo WhatsApp"
+              aria-label="Fale com a Banda Barbie Kills pelo WhatsApp"
             >
               <Phone className="w-4 h-4" />
               <span className="font-inter text-sm">(19) 98284-6842</span>

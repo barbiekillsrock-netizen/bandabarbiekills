@@ -64,7 +64,7 @@ const Footer = ({ variant = "default" }: FooterProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
-              aria-label="Siga a Barbie Kills no Instagram"
+              aria-label="Siga a Banda Barbie Kills no Instagram"
             >
               <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <Instagram className="w-8 h-8" />
@@ -92,7 +92,7 @@ const Footer = ({ variant = "default" }: FooterProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
-              aria-label="Curta a Barbie Kills no Facebook"
+              aria-label="Curta a Banda Barbie Kills no Facebook"
             >
               <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <Facebook className="w-8 h-8" />
@@ -106,7 +106,7 @@ const Footer = ({ variant = "default" }: FooterProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 group"
-              aria-label="Ouça a Barbie Kills no Spotify"
+              aria-label="Ouça a Banda Barbie Kills no Spotify"
             >
               <div className="w-16 h-16 rounded-full border-2 border-neon-pink/50 flex items-center justify-center text-neon-pink group-hover:bg-neon-pink group-hover:text-foreground transition-all duration-300 group-hover:neon-pink-glow">
                 <div

@@ -238,7 +238,7 @@ const ServicesSection = () => {
                 >
                   <img
                     src={losLibresLogo}
-                    alt="Barbie Kills - Banda Barbie Kills - Show em Holambra e Artur Nogueira"
+                    alt="Banda Barbie Kills - Show em Holambra e Artur Nogueira"
                     width={192}
                     height={192}
                     className="w-full h-full object-cover"

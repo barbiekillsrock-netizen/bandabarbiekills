@@ -26,7 +26,7 @@ const YouTubeFacade = ({ id, title }: { id: string; title: string }) => {
     return (
       <iframe
         src={`https://www.youtube.com/embed/${id}?autoplay=1`}
-        title={`Assista ao show da Barbie Kills: ${title}`}
+        title={`Assista ao show da Banda Barbie Kills: ${title}`}
         className="w-full h-full"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

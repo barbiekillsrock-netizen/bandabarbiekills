@@ -106,7 +106,7 @@ const Index = () => {
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="Show da Barbie Kills ao vivo — Banda para Casamentos e Eventos em Campinas e SP"
+          content="Show da Banda Barbie Kills ao vivo — Casamentos e Eventos em Campinas e SP"
         />
         <script
           type="application/ld+json"
