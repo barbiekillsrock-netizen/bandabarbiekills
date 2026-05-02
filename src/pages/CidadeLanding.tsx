@@ -115,7 +115,7 @@ const CidadeLanding = () => {
               "@context": "https://schema.org",
               "@type": "MusicGroup",
               "@id": "https://www.bandabarbiekills.com.br/#band",
-              name: "Barbie Kills",
+              name: "Banda Barbie Kills",
               description: metaDesc,
               url: canonicalUrl,
               image: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
@@ -130,6 +130,43 @@ const CidadeLanding = () => {
                   name: `Banda para ${focoLabel(foco)} em ${nome}`,
                 },
               },
+            }),
+          }}
+        />
+
+        {/* Schema.org — FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: cidade.faq.p1,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: cidade.faq.r1,
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: cidade.faq.p2,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: cidade.faq.r2,
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: cidade.faq.p3,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: cidade.faq.r3,
+                  },
+                },
+              ],
             }),
           }}
         />
