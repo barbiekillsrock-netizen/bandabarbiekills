@@ -21,7 +21,7 @@ const structuredData = {
     {
       "@type": "MusicGroup",
       "@id": `${SITE_URL}/#band`,
-      name: "Barbie Kills",
+      name: "Banda Barbie Kills",
       url: SITE_URL,
       logo: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
       image: `${SITE_URL}/banda-casamentos-eventos-campinas-barbie-kills.webp`,
@@ -29,7 +29,12 @@ const structuredData = {
         "Banda premium especializada em casamentos de luxo e eventos corporativos premium em Campinas, São Paulo e Interior de SP.",
       genre: ["Pop", "Soul", "Groove", "MPB", "Rock", "Brazilian Music"],
       foundingDate: "2012",
-      sameAs: ["https://www.instagram.com/barbiekillsrock/", "https://www.youtube.com/@barbiekills"],
+      sameAs: [
+        "https://www.instagram.com/barbiekillsrock/",
+        "https://www.youtube.com/@barbiekills",
+        "https://www.facebook.com/barbiekillsrock",
+        "https://open.spotify.com/intl-pt/artist/2rBN5mr0RzEBrWQoyQ8tLM",
+      ],
       member: [
         {
           "@type": "OrganizationRole",
@@ -44,7 +49,7 @@ const structuredData = {
     {
       "@type": "LocalBusiness",
       "@id": `${SITE_URL}/#business`,
-      name: "Barbie Kills - Banda para Eventos",
+      name: "Banda Barbie Kills",
       url: SITE_URL,
       logo: `${SITE_URL}/barbie-kills-banda-eventos-casamentos.webp`,
       image: `${SITE_URL}/banda-casamentos-eventos-campinas-barbie-kills.webp`,
@@ -60,10 +65,11 @@ const structuredData = {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "5",
+        ratingValue: "4.9",
         bestRating: "5",
         worstRating: "1",
-        reviewCount: "29",
+        reviewCount: "30",
+        url: "https://maps.app.goo.gl/R8dSjpVorD3Su4xP7",
       },
     },
   ],
@@ -72,7 +78,9 @@ const structuredData = {
 const homepageVideos = [
   {
     "@type": "VideoObject",
+    "@id": `${SITE_URL}/#video1`,
     name: "Barbie Kills ao Vivo — Show Completo",
+    description: "Show completo da Banda Barbie Kills ao vivo em evento premium.",
     thumbnailUrl: "https://img.youtube.com/vi/rAVb_-U7OAU/maxresdefault.jpg",
     uploadDate: "2024-06-15",
     contentUrl: "https://www.youtube.com/watch?v=rAVb_-U7OAU",
@@ -92,7 +100,7 @@ const Index = () => {
         <link rel="canonical" key="canonical" href="https://www.bandabarbiekills.com.br" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bandabarbiekills.com.br" />
-        <meta property="og:site_name" content="Barbie Kills" />
+        <meta property="og:site_name" content="Banda Barbie Kills" />
         <meta property="og:title" content="Banda Barbie Kills: Casamentos e Eventos em Campinas SP" />
         <meta
           property="og:description"
@@ -112,7 +120,7 @@ const Index = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              ...structuredData,
+              "@context": "https://schema.org",
               "@graph": [...structuredData["@graph"], ...homepageVideos],
             }),
           }}
