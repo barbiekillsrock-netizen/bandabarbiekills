@@ -14,7 +14,7 @@ const HeroSection = () => {
             src="/banda-casamentos-eventos-campinas-barbie-kills.webp"
             alt="Show da banda de casamento Barbie Kills em Campinas e região"
             className="w-full h-full object-cover object-center"
-            {...{ fetchpriority: "high" } as any}
+            {...({ fetchpriority: "high" } as any)}
             loading="eager"
             decoding="sync"
           />
@@ -40,7 +40,7 @@ const HeroSection = () => {
           width={1200}
           height={1350}
           className="w-full h-full object-cover object-center"
-          {...{ fetchpriority: "high" } as any}
+          {...({ fetchpriority: "high" } as any)}
           loading="eager"
           decoding="sync"
         />
@@ -73,8 +73,8 @@ const HeroSection = () => {
           </div>
 
           {/* H1 - Main SEO Title: Visibilidade imediata para o Google [cite: 82, 122] */}
-          <h1 className="font-oswald text-base md:text-lg lg:text-xl text-foreground mb-4 max-w-lg animate-fade-in">
-            Barbie Kills: Banda Premium para Casamentos e Eventos em Campinas e SP
+          <h1 className="font-oswald text-lg md:text-xl lg:text-2xl text-foreground mb-4 max-w-lg animate-fade-in">
+            Banda Barbie Kills: Referência em Casamentos e Eventos Corporativos em Campinas e SP
           </h1>
 
           <h2 className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mb-10 max-w-lg animate-fade-in">
