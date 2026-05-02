@@ -1,10 +1,3 @@
-/**
- * Prerender Script for Static Site Generation
- *
- * Generates static HTML for all routes including dynamic blog posts and city landing pages.
- * Run with: node prerender.js (after building the project)
- */
-
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -18,26 +11,55 @@ async function getBlogSlugs() {
   return [...slugMatches].map((match) => match[1]);
 }
 
-async function getCidadeSlugs() {
+async function getCidadesData() {
   const cidadesPath = path.resolve(__dirname, "src/data/cidadesData.ts");
   const content = fs.readFileSync(cidadesPath, "utf-8");
   const slugMatches = content.matchAll(/slug:\s*["']([^"']+)["']/g);
-  return [...slugMatches].map((match) => match[1]);
+  const slugs = [...slugMatches].map((match) => match[1]);
+
+  // Extract FAQ data for each city
+  const cidadesMap = {};
+  const cidadeBlocks = content.matchAll(
+    /\{[\s\S]*?cidade:\s*["']([^"']+)["'][\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?faq:\s*\{([\s\S]*?)\},?\s*\}/g,
+  );
+
+  for (const block of cidadeBlocks) {
+    const faqBlock = block[3];
+    const p1 = faqBlock.match(/p1:\s*["']([^"']+)["']/)?.[1] || "";
+    const r1 = faqBlock.match(/r1:\s*["']([^"']+)["']/)?.[1] || "";
+    const p2 = faqBlock.match(/p2:\s*["']([^"']+)["']/)?.[1] || "";
+    const r2 = faqBlock.match(/r2:\s*["']([^"']+)["']/)?.[1] || "";
+    const p3 = faqBlock.match(/p3:\s*["']([^"']+)["']/)?.[1] || "";
+    const r3 = faqBlock.match(/r3:\s*["']([^"']+)["']/)?.[1] || "";
+    cidadesMap[block[2]] = { p1, r1, p2, r2, p3, r3 };
+  }
+
+  return { slugs, cidadesMap };
+}
+
+function buildFaqSchema(slug, cidadesMap) {
+  const faq = cidadesMap[slug];
+  if (!faq || !faq.p1) return "";
+
+  return `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: faq.p1, acceptedAnswer: { "@type": "Answer", text: faq.r1 } },
+      { "@type": "Question", name: faq.p2, acceptedAnswer: { "@type": "Answer", text: faq.r2 } },
+      { "@type": "Question", name: faq.p3, acceptedAnswer: { "@type": "Answer", text: faq.r3 } },
+    ],
+  })}</script>`;
 }
 
 async function prerender() {
   console.log("🚀 Starting prerender process...\n");
 
-  // Static routes
   const staticRoutes = ["/", "/blog", "/corporativo"];
-
-  // Dynamic routes
   const blogSlugs = await getBlogSlugs();
   const blogRoutes = blogSlugs.map((slug) => `/blog/${slug}`);
-
-  const cidadeSlugs = await getCidadeSlugs();
+  const { slugs: cidadeSlugs, cidadesMap } = await getCidadesData();
   const cidadeRoutes = cidadeSlugs.map((slug) => `/cidade/${slug}`);
-
   const allRoutes = [...staticRoutes, ...blogRoutes, ...cidadeRoutes];
 
   console.log("📄 Routes to prerender:");
@@ -52,7 +74,6 @@ async function prerender() {
 
   const templatePath = path.resolve(distPath, "index.html");
   const template = fs.readFileSync(templatePath, "utf-8");
-
   const { render } = await import("./dist/server/entry-server.js");
 
   let success = 0;
@@ -62,7 +83,14 @@ async function prerender() {
     try {
       const { html, head } = render(route);
 
-      let finalHtml = template.replace("<!--ssr-outlet-->", html).replace("</head>", `${head}</head>`);
+      // Inject FAQ schema for city pages
+      let extraSchema = "";
+      if (route.startsWith("/cidade/")) {
+        const slug = route.replace("/cidade/", "");
+        extraSchema = buildFaqSchema(slug, cidadesMap);
+      }
+
+      let finalHtml = template.replace("<!--ssr-outlet-->", html).replace("</head>", `${head}${extraSchema}</head>`);
 
       let outputPath;
       if (route === "/") {
