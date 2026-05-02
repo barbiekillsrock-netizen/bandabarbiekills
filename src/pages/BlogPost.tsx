@@ -71,8 +71,9 @@ const BlogPost = () => {
         image: `https://www.bandabarbiekills.com.br${post.image}`,
         datePublished: post.date,
         author: {
-          "@type": "Organization",
-          name: "Barbie Kills",
+          "@type": "Person",
+          name: "Renato S.",
+          url: "https://www.bandabarbiekills.com.br",
         },
         publisher: {
           "@type": "Organization",
@@ -95,15 +96,18 @@ const BlogPost = () => {
     ],
   };
 
-  const faqStructuredData = post.faq && post.faq.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: post.faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  } : null;
+  const faqStructuredData =
+    post.faq && post.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }
+      : null;
 
   // Parse inline markdown (bold and links)
   const parseInlineMarkdown = (text: string) => {
@@ -208,7 +212,14 @@ const BlogPost = () => {
         const caption = parts[2] || "";
         return (
           <figure key={index} className="my-6 float-left mr-6 mb-4 w-full sm:w-1/2 md:w-2/5">
-            <img src={src} alt={altText} width="400" height="267" className="w-full rounded-lg object-cover" loading="lazy" />
+            <img
+              src={src}
+              alt={altText}
+              width="400"
+              height="267"
+              className="w-full rounded-lg object-cover"
+              loading="lazy"
+            />
             {caption && <figcaption className="mt-3 text-sm text-muted-foreground italic">{caption}</figcaption>}
           </figure>
         );
@@ -222,8 +233,17 @@ const BlogPost = () => {
         const caption = parts[2] || "";
         return (
           <figure key={index} className="my-10 flex flex-col items-center">
-            <img src={src} alt={altText} width="800" height="533" className="w-full max-w-2xl rounded-lg object-cover" loading="lazy" />
-            {caption && <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{caption}</figcaption>}
+            <img
+              src={src}
+              alt={altText}
+              width="800"
+              height="533"
+              className="w-full max-w-2xl rounded-lg object-cover"
+              loading="lazy"
+            />
+            {caption && (
+              <figcaption className="mt-3 text-sm text-muted-foreground italic text-center">{caption}</figcaption>
+            )}
           </figure>
         );
       }
@@ -355,10 +375,21 @@ const BlogPost = () => {
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
-              <span>•</span>
-              <span>{post.readTime} de leitura</span>
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-9 h-9 rounded-full bg-neon-pink/20 border border-neon-pink/40 flex items-center justify-center text-neon-pink font-oswald text-sm font-bold">
+                  RS
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Renato S.</p>
+                  <p className="text-xs text-muted-foreground">Produtor Musical & Gestor de Eventos</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
+                <span>•</span>
+                <span>{post.readTime} de leitura</span>
+              </div>
             </div>
 
             {/* Title (Com Fallback para H1 curto) */}
